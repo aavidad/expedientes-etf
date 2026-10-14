@@ -1,0 +1,11 @@
+rules:
+  - id: revision-no-shell
+    languages: [python]
+    severity: ERROR
+    message: documento.revision_shell_no_permitida
+    pattern: subprocess.run(..., shell=True, ...)
+  - id: revision-no-entidades-xml
+    languages: [go]
+    severity: ERROR
+    message: documento.revision_entidades_no_permitidas
+    pattern: $DEC.Entity = $VAL

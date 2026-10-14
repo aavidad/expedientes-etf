@@ -1,0 +1,6 @@
+# Clave de idempotencia inventada en una prueba HTTP de otro encargo.
+# La exclusión se limita a ese commit, fichero, regla y línea.
+# Clave de idempotencia de una prueba HTTP: no autentica ni concede permisos.
+# Excepción limitada a esta coincidencia del historial; no a futuros cambios.
+# Clave fija de idempotencia en una prueba HTTP; no es una credencial.
+6d514c1dd337e2913c3c3306c6289a8089adabe2:internal/adaptadores/http/confirmacion_test.go:generic-api-key:29

@@ -1,0 +1,8 @@
+{
+  "expediente.hito_tipo_invalido": "Elige el consentimiento o la fecha de un Anexo 7 u 8.",
+  "expediente.hito_fecha_invalida": "Indica la fecha real: desde la aceptación del expediente hasta hoy.",
+  "expediente.confirmar_hito": "Confirmación de una fecha del expediente",
+  "expediente.consultar_hitos": "Consulta de las fechas del expediente",
+  "expediente.consultar_recibo_hito": "Consulta del resultado de una confirmación anterior",
+  "expediente.hito_rechazado": "Confirmación o consulta de una fecha rechazada"
+}

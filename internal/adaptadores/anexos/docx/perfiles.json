@@ -1,0 +1,4326 @@
+[
+  {
+    "Tipo": "anexo3",
+    "Version": "cliente-2026-v1",
+    "Titulos": [
+      "Anexo 3",
+      "INFORME DE DERIVACIÓN DE LA FAMILIA DESDE LOS SERVICIOS SOCIALES COMUNITARIOS AL PROGRAMA DE TRATAMIENTO A FAMILIAS CON MENORES EN SITUACIÓN DE RIESGO O DESPROTECCIÓN",
+      "1. DATOS DE CONTACTO DEL SERVICIO DERIVANTE",
+      "2. DATOS DE CONTACTO DE LA FAMILIA",
+      "3. PERSONAS MENORES DE EDAD POR LAS QUE SE REALIZA LA DERIVACIÓN",
+      "4. DATOS SOCIODEMOGRÁFICOS DE LA FAMILIA",
+      "Miembros de la unidad familiar de convivencia de las personas menores de edad",
+      "Genograma",
+      "Personas significativas de la familia extensa materna y/o paterna y/o no familiares que no convivan en el núcleo de convivencia",
+      "5. VALORACIÓN Y DIAGNÓSTICO DE LA FAMILIA",
+      "Motivo de la derivación",
+      "6. INTERVENCIONES PREVIAS",
+      "7. OBSERVACIONES Y DOCUMENTACIÓN COMPLEMENTARIA"
+    ],
+    "Tablas": [
+      [
+        [
+          [
+            "NÚMERO DE EXPEDIENTE"
+          ],
+          []
+        ],
+        [
+          [
+            "Fecha derivación"
+          ],
+          [
+            "Se"
+          ],
+          [
+            "Fecha entrada en SSCC"
+          ],
+          [
+            "Se"
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "Servicio:"
+          ]
+        ],
+        [
+          [
+            "Profesional de referencia"
+          ]
+        ],
+        [
+          [
+            "Teléfono"
+          ],
+          [
+            "Correo electrónico:"
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre"
+          ],
+          [
+            "Apellidos"
+          ],
+          [
+            "Teléfono"
+          ],
+          [
+            "e-mail"
+          ]
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Dirección"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre y apellidos"
+          ],
+          [
+            "Fecha de nacimiento"
+          ],
+          [
+            "Nivel de escolarización"
+          ],
+          [
+            "Centro educativo"
+          ]
+        ],
+        [
+          [],
+          [
+            "dd"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "dd"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "dd"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "dd"
+          ],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Estructura familiar"
+          ],
+          []
+        ],
+        [
+          [
+            "Situación socioeconómica"
+          ],
+          [
+            "Vivienda:",
+            "Ingresos de la unidad familiar:",
+            "Situación laboral:",
+            "Situación económica de la unidad familiar:",
+            "Ingresos familiares:"
+          ]
+        ]
+      ],
+      [
+        [
+          [],
+          [
+            "Nombre y apellidos"
+          ],
+          [
+            "Parentesco"
+          ],
+          [
+            "Edad"
+          ],
+          [
+            "Nivel de estudios"
+          ],
+          [
+            "Otros datos de interés"
+          ]
+        ],
+        [
+          [
+            "Tutor 1"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Tutor 2"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 1"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 2"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 3"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre"
+          ],
+          [
+            "Apellidos"
+          ],
+          [
+            "Parentesco"
+          ],
+          [
+            "Teléfono"
+          ]
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Breve historia familiar"
+          ],
+          [
+            "Tiempo de convivencia:",
+            "Hitos significativos de la historia familiar:"
+          ]
+        ],
+        [
+          [
+            "Situación familiar"
+          ],
+          [
+            "Descripción de la situación que motiva la derivación",
+            "Duración de la problemática:",
+            "¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF?"
+          ]
+        ],
+        [
+          [
+            "Integración social y/o comunitaria"
+          ],
+          [
+            "Nivel de integración y relaciones sociales(ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad)",
+            "Si se han señalado dificultades, indicar:",
+            "¿Quién presenta la dificultad? ¿Y con qué personas?",
+            "Motivo de las dificultades."
+          ]
+        ],
+        [
+          [
+            "Actitud de la familia"
+          ],
+          []
+        ],
+        [
+          [
+            "Adecuación al programa."
+          ],
+          []
+        ],
+        [
+          [
+            "Conciencia del problema por parte de la familia"
+          ],
+          []
+        ],
+        [
+          [
+            "Motivación para el cambio"
+          ],
+          []
+        ],
+        [
+          [
+            "Expectativas de éxito con esta familia"
+          ],
+          []
+        ],
+        [
+          [
+            "Pronóstico"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "VALÓRAME"
+          ],
+          [
+            "Valoración global del nivel de gravedad"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato físico"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato psicológico"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Negligencia"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Abandono"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Violencia sexual"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Incapacidad parental control de conducta"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato prenatal"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Corrupción"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Otras"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Descripción de los resultados:"
+          ]
+        ],
+        [
+          [
+            "Otras situaciones de desprotección"
+          ],
+          [
+            "Antecedentes de desprotección grave perpetrada por el padre, la madre, tutela o la guarda"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Graves dificultades personales en el padre, la madre o personas que ejercen la tutela o la guarda"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Imposibilidad temporal o definitiva por parte de padre, madre o personas tutoras o guardadoras para ejercer los deberes de protección"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Niños, niñas y adolescentes migrantes sin referentes familiares"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Niños, niñas y adolescentes migrantes en compañía de personas adultas con las que inicialmente no queda acreditado ni su parentesco familiar ni su vínculo"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Intervención realizada desde"
+          ],
+          []
+        ],
+        [
+          [
+            "Equipo/profesional de referencia"
+          ],
+          []
+        ],
+        [
+          [
+            "Teléfono"
+          ],
+          [],
+          [
+            "Correo electrónico"
+          ],
+          []
+        ],
+        [
+          [
+            "Describa la intervención realizada"
+          ],
+          []
+        ],
+        [
+          [
+            "Resultados obtenidos"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Observaciones"
+          ],
+          [],
+          []
+        ],
+        [
+          [
+            "Documentación obligatoria"
+          ],
+          []
+        ],
+        [
+          [
+            "Otra documentación"
+          ],
+          [
+            "Incluir aquellos documentos que se consideren relevantes y/o de interés: documentos de identificación, informes de salud, informes educativos…"
+          ],
+          []
+        ]
+      ]
+    ],
+    "Reglas": [
+      {
+        "Codigo": "servicio.nombre",
+        "Tabla": 1,
+        "Fila": 0,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Servicio:",
+        "Relleno": "indicar servicio derivante.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.profesional",
+        "Tabla": 1,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Profesional de referencia",
+        "Relleno": "nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.telefono",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Teléfono",
+        "Relleno": "teléfono.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.correo",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Correo electrónico:",
+        "Relleno": "correo eletrónico.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.direccion",
+        "Tabla": 2,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Dirección completa.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.nombre",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.nacimiento",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "dd",
+        "Relleno": "/mm/aa.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.escolarizacion",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "ed infantil",
+          "ed primaria",
+          "ed secundaria",
+          "superior",
+          "no escolarizado"
+        ],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.centro",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre centro educativo.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.estructura",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Familias biparentales",
+          "Familias monoparentales (madre)",
+          "Familias monoparentales (padre)",
+          "Separación/divorcio con custodia compartida",
+          "Separación/divorcio sin custodia compartida",
+          "Familias reconstruidas",
+          "Otras formas de convivencia"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.otras_formas",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "",
+        "Relleno": "completar si otras formas de convivencia.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Ingresos de la unidad familiar:",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "parrafo"
+      },
+      {
+        "Codigo": "sociodemografia.vivienda",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Alquilada",
+          "En propiedad",
+          "Con carácter transitorio (vivienda de un familiar o amigo/a)."
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.situacion_laboral",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Autónomo",
+          "Contratado por cuenta ajena (empleo fijo)",
+          "Contratado por cuenta ajena (empleo discontinuo o temporal)",
+          "Economía sumergida",
+          "Sin empleo",
+          "Pensionista",
+          "Combina varias situaciones",
+          "Otras"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.situacion_economica",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 2,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "sin dificultades económicas",
+          "con dificultades económicas que no afectan a la cobertura de las necesidades básicas",
+          "con dificultades económicas que afectan a la cobetura de las necesidades básicas "
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.tramo_ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 3,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "< 50% SMI/Año",
+          "50-100% SMI/Año",
+          "100-150% SMI/Año",
+          "150-200% SMI/Año",
+          ">200% SMI/Año"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.tiempo_convivencia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Tiempo de convivencia: Hitos significativos de la historia familiar:",
+        "Relleno": "indique el tiempo.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.historia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Tiempo de convivencia: Hitos significativos de la historia familiar:",
+        "Relleno": ". Haga clic o pulse aquí para escribir texto",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.descripcion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF?",
+        "Relleno": "describa la situación que motiva la derivación",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.duracion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF?",
+        "Relleno": "especificar el tiempo en meses.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.integracion",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Nivel de integración y relaciones sociales(ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Nivel de integración y relaciones sociales(ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.personas_dificultad",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 2,
+        "Etiqueta": "Nivel de integración y relaciones sociales(ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.motivo_dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 3,
+        "Etiqueta": "Nivel de integración y relaciones sociales(ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.crisis",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF?",
+        "Relleno": "",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "casillas"
+      },
+      {
+        "Codigo": "valoracion.actitud",
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [
+          "Colaborativa",
+          "Demandante",
+          "Pasiva",
+          "Hostil",
+          "Evitativa",
+          "Sin información / pendiente de valorar"
+        ],
+        "Repetir": false,
+        "Modo": "casillas"
+      },
+      {
+        "Codigo": "valoracion.adecuacion",
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.conciencia",
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.motivacion",
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.expectativas",
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Muy bajas",
+          "Bastante bajas",
+          "Bastante altas",
+          "Muy altas"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.pronostico",
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "0 - Negativo",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10 - Positivo",
+          "Incierto"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.global",
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "No riesgo",
+          "Sospecha",
+          "Riesgo",
+          "Desp. moderada",
+          "Desp. grave"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_fisico",
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_psicologico",
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.negligencia",
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.abandono",
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.violencia_sexual",
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.incapacidad_parental",
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_prenatal",
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.corrupcion",
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.otras",
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.descripcion",
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de los resultados:",
+        "Relleno": "Descripción cualitativa",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.antecedentes",
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.dificultades_parentales",
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.imposibilidad_proteccion",
+        "Tabla": 8,
+        "Fila": 13,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_sin_referentes",
+        "Tabla": 8,
+        "Fila": 14,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_vinculo_no_acreditado",
+        "Tabla": 8,
+        "Fila": 15,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.servicio",
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar si SS.SS.CC o nombre otra entidad o servicio.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.profesional",
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.telefono",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.correo",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "email.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.descripcion",
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Describa los objetivos e intervenciones realizadas anteriormente (en su caso).",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.resultados",
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Describa cualitativa y/o cuantitativamente los resultados obtenidos en la intervención.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "observaciones.texto",
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Puede emplear este espacio para completar cualquier cuestión que no haya quedado reflejada respecto al caso.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "observaciones.documentacion_obligatoria",
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "observaciones.otra_documentacion",
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Incluir aquellos documentos que se consideren relevantes y/o de interés: documentos de identificación, informes de salud, informes educativos…",
+        "Relleno": "Especifique los documentos incluidos junto al informe de derivación.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      }
+    ],
+    "Estudios": {
+      "Analfabetismo": "Analfabetismo",
+      "Sin estudios": "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Primarios": "Estudios obligatorios (ESO, EGB)",
+      "Secundarios": "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Superiores": "Estudios universitarios"
+    }
+  },
+  {
+    "Tipo": "anexo4",
+    "Version": "cliente-2026-v1",
+    "Titulos": [
+      "Anexo 4",
+      "INFORME DE DERIVACIÓN DE LA FAMILIA DESDE EL SERVICIO DE PROTECCIÓN DE MENORES AL PROGRAMA DE TRATAMIENTO A FAMILIAS CON MENORES EN SITUACIÓN DE RIESGO O DESPROTECCIÓN",
+      "1. DATOS DE CONTACTO DEL SERVICIO DERIVANTE",
+      "DATOS DE CONTACTO DE LA FAMILIA",
+      "3. PERSONAS MENORES DE EDAD POR LAS QUE SE REALIZA LA DERIVACIÓN",
+      "4. DATOS SOCIODEMOGRÁFICOS DE LA FAMILIA",
+      "Miembros de la unidad familiar de convivencia de las personas menores de edad",
+      "Genograma",
+      "Personas significativas de la familia extensa materna y/o paterna y/o no familiares que no convivan en el núcleo de convivencia",
+      "5. VALORACIÓN Y DIAGNÓSTICO DE LA FAMILIA",
+      "Motivo de la derivación",
+      "6. INTERVENCIONES PREVIAS",
+      "Resoluciones administrativas y/o judiciales previas",
+      "7. OBSERVACIONES Y DOCUMENTACIÓN COMPLEMENTARIA"
+    ],
+    "Tablas": [
+      [
+        [
+          [
+            "NÚMERO DE EXPEDIENTE"
+          ],
+          []
+        ],
+        [
+          [
+            "Fecha derivación"
+          ],
+          [
+            "S"
+          ],
+          [
+            "Fecha entrada en SSCC"
+          ],
+          [
+            "S"
+          ]
+        ],
+        [
+          [
+            "ETF al que deriva"
+          ],
+          []
+        ],
+        [
+          [
+            "Subprograma"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Servicio:"
+          ]
+        ],
+        [
+          [
+            "Profesional de referencia"
+          ]
+        ],
+        [
+          [
+            "Equipo de menores:"
+          ]
+        ],
+        [
+          [
+            "Teléfono"
+          ],
+          [
+            "Correo electrónico:"
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre"
+          ],
+          [
+            "Apellidos"
+          ],
+          [
+            "Teléfono"
+          ],
+          [
+            "e-mail"
+          ]
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Dirección"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre y apellidos"
+          ],
+          [
+            "Fecha de nacimiento"
+          ],
+          [
+            "Nivel de escolarización"
+          ],
+          [
+            "Centro educativo"
+          ]
+        ],
+        [
+          [],
+          [
+            "d"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "d"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "d"
+          ],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            "d"
+          ],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Estructura familiar"
+          ],
+          []
+        ],
+        [
+          [
+            "Situación socioeconómica"
+          ],
+          [
+            "Vivienda:",
+            "Ingresos de la unidad familiar:",
+            "Situación laboral:",
+            "Situación económica de la unidad familiar:",
+            "Ingresos familiares:"
+          ]
+        ]
+      ],
+      [
+        [
+          [],
+          [
+            "Nombre y apellidos"
+          ],
+          [
+            "Parentesco"
+          ],
+          [
+            "Edad"
+          ],
+          [
+            "Nivel de estudios"
+          ],
+          [
+            "Otros datos de interés"
+          ]
+        ],
+        [
+          [
+            "Tutor 1"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Tutor 2"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 1"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 2"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            "Otro 3"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Nombre"
+          ],
+          [
+            "Apellidos"
+          ],
+          [
+            "Parentesco"
+          ],
+          [
+            "Teléfono"
+          ]
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Breve historia familiar"
+          ],
+          [
+            "Tiempo de convivencia:",
+            "Hitos significativos de la historia familiar:"
+          ]
+        ],
+        [
+          [
+            "Situación familiar"
+          ],
+          [
+            "Descripción de la situación que motiva la derivación",
+            "Duración de la problemática:",
+            "¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF?",
+            "SI NO"
+          ]
+        ],
+        [
+          [
+            "Integración social y/o comunitaria"
+          ],
+          [
+            "Nivel de integración y relaciones sociales (ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad)",
+            "Si se han señalado dificultades, indicar:",
+            "¿Quién presenta la dificultad? ¿Y con qué personas?",
+            "Motivo de las dificultades."
+          ]
+        ],
+        [
+          [
+            "Actitud de la familia"
+          ],
+          [
+            "Colaborativa: comprometida para cambiar y se hace responsable.",
+            "Demandante: se queja, acusa, se hace la víctima, el problema es de otro",
+            "Pasiva: está por obligación y no reconoce necesidad de ayuda ni colabora",
+            "Hostil: está por obligación y se siente injustamente tratada.",
+            "Evitativa: de forma activa rehúye a los profesionales",
+            "Sin información / pendiente de valorar"
+          ]
+        ],
+        [
+          [
+            "Adecuación al programa"
+          ],
+          []
+        ],
+        [
+          [
+            "Conciencia del problema por parte de la familia"
+          ],
+          []
+        ],
+        [
+          [
+            "Motivación para el cambio"
+          ],
+          []
+        ],
+        [
+          [
+            "Expectativas de éxito con esta familia"
+          ],
+          []
+        ],
+        [
+          [
+            "Pronóstico"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "VALÓRAME"
+          ],
+          [
+            "Valoración global del nivel de gravedad"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato físico"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato psicológico"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Negligencia"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Abandono"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Violencia sexual"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Incapacidad parental control de conducta"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Maltrato prenatal"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Corrupción"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Otras"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Descripción de los resultados:"
+          ]
+        ],
+        [
+          [
+            "Otras situaciones de desprotección"
+          ],
+          [
+            "Antecedentes de desprotección grave perpetrada por el padre, la madre, tutela o la guarda"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Graves dificultades personales en el padre, la madre o personas que ejercen la tutela o la guarda"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Imposibilidad temporal o definitiva por parte de padre, madre o personas tutoras o guardadoras para ejercer los deberes de protección"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Niños, niñas y adolescentes migrantes sin referentes familiares"
+          ],
+          []
+        ],
+        [
+          [],
+          [
+            "Niños, niñas y adolescentes migrantes en compañía de personas adultas con las que inicialmente no queda acreditado ni su parentesco familiar ni su vínculo"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Intervención realizada desde"
+          ],
+          []
+        ],
+        [
+          [
+            "Equipo/profesional de referencia"
+          ],
+          []
+        ],
+        [
+          [
+            "Teléfono"
+          ],
+          [],
+          [
+            "Correo electrónico"
+          ],
+          []
+        ],
+        [
+          [
+            "Describa la intervención realizada"
+          ],
+          []
+        ],
+        [
+          [
+            "Resultados obtenidos"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Existencia de resoluciones previas"
+          ],
+          []
+        ],
+        [
+          [
+            "Tipo"
+          ],
+          []
+        ],
+        [
+          [
+            "Organismo de resolución"
+          ],
+          []
+        ],
+        [
+          [
+            "Medidas de protección previas"
+          ],
+          [],
+          [
+            "Fecha"
+          ],
+          [
+            "d"
+          ]
+        ],
+        [
+          [
+            "Resultados obtenidos"
+          ],
+          []
+        ]
+      ],
+      [
+        [
+          [
+            "Observaciones"
+          ],
+          []
+        ],
+        [
+          [
+            "Documentación obligatoria"
+          ],
+          [
+            "VALÓRAME",
+            "Los informes técnicos que procedan.",
+            "Los principales objetivos del plan de intervención.",
+            "El consentimiento de la familia a participar en la intervención."
+          ]
+        ],
+        [
+          [
+            "Otra documentación"
+          ],
+          [
+            "Incluir aquellos documentos que se consideren relevantes y/o de interés: documentos de identificación, informes de salud, informes educativos…"
+          ]
+        ]
+      ]
+    ],
+    "Reglas": [
+      {
+        "Codigo": "servicio.nombre",
+        "Tabla": 1,
+        "Fila": 0,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Servicio:",
+        "Relleno": "indicar servicio derivante.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.profesional",
+        "Tabla": 1,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Profesional de referencia",
+        "Relleno": "nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.equipo_menores",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Equipo de menores:",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.etf",
+        "Tabla": 0,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.subprograma",
+        "Tabla": 0,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Riesgo",
+          "Reintegracion"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.telefono",
+        "Tabla": 1,
+        "Fila": 3,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "Teléfono",
+        "Relleno": "teléfono.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "servicio.correo",
+        "Tabla": 1,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Correo electrónico:",
+        "Relleno": "correo eletrónico.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.direccion",
+        "Tabla": 2,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Dirección completa.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.nombre",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.nacimiento",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "d",
+        "Relleno": "d/mm/aa.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.escolarizacion",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "ed infantil",
+          "ed primaria",
+          "ed secundaria",
+          "superior",
+          "no escolarizado"
+        ],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "menores.persona.centro",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre centro educativo.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.estructura",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Familias biparentales",
+          "Familias monoparentales (madre)",
+          "Familias monoparentales (padre)",
+          "Separación/divorcio con custodia compartida",
+          "Separación/divorcio sin custodia compartida",
+          "Familias reconstruidas",
+          "Otras formas de convivencia"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.otras_formas",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "",
+        "Relleno": "completar si otras formas de convivencia.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Ingresos de la unidad familiar:",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "parrafo"
+      },
+      {
+        "Codigo": "sociodemografia.vivienda",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Alquilada",
+          "En propiedad",
+          "Con carácter transitorio (vivienda de un familiar o amigo/a)."
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.situacion_laboral",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Autónomo",
+          "Contratado por cuenta ajena (empleo fijo)",
+          "Contratado por cuenta ajena (empleo discontinuo o temporal)",
+          "Economía sumergida",
+          "Sin empleo",
+          "Pensionista",
+          "Combina varias situaciones",
+          "Otras"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.situacion_economica",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 2,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "sin dificultades económicas",
+          "con dificultades económicas que no afectan a la cobertura de las necesidades básicas",
+          "con dificultades económicas que afectan a la cobetura de las necesidades básicas "
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.tramo_ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 3,
+        "Etiqueta": "Vivienda: Ingresos de la unidad familiar: Situación laboral: Situación económica de la unidad familiar: Ingresos familiares:",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "< 50% SMI/Año",
+          "50-100% SMI/Año",
+          "100-150% SMI/Año",
+          "150-200% SMI/Año",
+          ">200% SMI/Año"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 4,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 5,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 0,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.tiempo_convivencia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Tiempo de convivencia: Hitos significativos de la historia familiar:",
+        "Relleno": "indique el tiempo.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.historia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Tiempo de convivencia: Hitos significativos de la historia familiar:",
+        "Relleno": ". Haga clic o pulse aquí para escribir texto",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.descripcion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF? SI NO",
+        "Relleno": "describa la situación que motiva la derivación",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.duracion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF? SI NO",
+        "Relleno": "especificar el tiempo en meses.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.integracion",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Nivel de integración y relaciones sociales (ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 1,
+        "Etiqueta": "Nivel de integración y relaciones sociales (ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.personas_dificultad",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 2,
+        "Etiqueta": "Nivel de integración y relaciones sociales (ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.motivo_dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 3,
+        "Etiqueta": "Nivel de integración y relaciones sociales (ejemplo: el aislamiento social, relaciones conflictivas, episodios de agresividad) Si se han señalado dificultades, indicar: ¿Quién presenta la dificultad? ¿Y con qué personas? Motivo de las dificultades.",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.crisis",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de la situación que motiva la derivación Duración de la problemática: ¿Se encuentra la familia en situación de crisis en el momento de entrada en el PTF? SI NO",
+        "Relleno": "",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "casillas"
+      },
+      {
+        "Codigo": "valoracion.actitud",
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Colaborativa: comprometida para cambiar y se hace responsable. Demandante: se queja, acusa, se hace la víctima, el problema es de otro Pasiva: está por obligación y no reconoce necesidad de ayuda ni colabora Hostil: está por obligación y se siente injustamente tratada. Evitativa: de forma activa rehúye a los profesionales Sin información / pendiente de valorar",
+        "Relleno": "",
+        "Opciones": [
+          "Colaborativa",
+          "Demandante",
+          "Pasiva",
+          "Hostil",
+          "Evitativa",
+          "Sin información / pendiente de valorar"
+        ],
+        "Repetir": false,
+        "Modo": "casillas"
+      },
+      {
+        "Codigo": "valoracion.adecuacion",
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.conciencia",
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.motivacion",
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.expectativas",
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Muy bajas",
+          "Bastante bajas",
+          "Bastante altas",
+          "Muy altas"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valoracion.pronostico",
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "0 - Negativo",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10 - Positivo",
+          "Incierto"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.global",
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "No riesgo",
+          "Sospecha",
+          "Riesgo",
+          "Desp. moderada",
+          "Desp. grave"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_fisico",
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_psicologico",
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.negligencia",
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.abandono",
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.violencia_sexual",
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.incapacidad_parental",
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_prenatal",
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.corrupcion",
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.otras",
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "valorame.descripcion",
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Descripción de los resultados:",
+        "Relleno": "Descripción cualitativa",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.antecedentes",
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.dificultades_parentales",
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.imposibilidad_proteccion",
+        "Tabla": 8,
+        "Fila": 13,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_sin_referentes",
+        "Tabla": 8,
+        "Fila": 14,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_vinculo_no_acreditado",
+        "Tabla": 8,
+        "Fila": 15,
+        "Celda": 2,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.servicio",
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "indicar si SS.SS.CC o nombre otra entidad o servicio.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.profesional",
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.telefono",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.correo",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "email.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.descripcion",
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Describa los objetivos e intervenciones realizadas anteriormente (en su caso).",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "intervenciones.resultados",
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Describa cualitativa y/o cuantitativamente los resultados obtenidos en la intervención.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.existencia",
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.tipo",
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.organismo",
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.medidas",
+        "Tabla": 10,
+        "Fila": 3,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.fecha",
+        "Tabla": 10,
+        "Fila": 3,
+        "Celda": 3,
+        "Control": 0,
+        "Etiqueta": "d",
+        "Relleno": "d/MM/yyyy.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "resoluciones.resultados",
+        "Tabla": 10,
+        "Fila": 4,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "observaciones.texto",
+        "Tabla": 11,
+        "Fila": 0,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "",
+        "Relleno": "Puede emplear este espacio para completar cualquier cuestión que no haya quedado reflejada respecto al caso.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      },
+      {
+        "Codigo": "observaciones.documentacion_obligatoria",
+        "Tabla": 11,
+        "Fila": 1,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "VALÓRAME Los informes técnicos que procedan. Los principales objetivos del plan de intervención. El consentimiento de la familia a participar en la intervención.",
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel"
+      },
+      {
+        "Codigo": "observaciones.otra_documentacion",
+        "Tabla": 11,
+        "Fila": 2,
+        "Celda": 1,
+        "Control": 0,
+        "Etiqueta": "Incluir aquellos documentos que se consideren relevantes y/o de interés: documentos de identificación, informes de salud, informes educativos…",
+        "Relleno": "Especifique los documentos incluidos junto al informe de derivación.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": ""
+      }
+    ],
+    "Estudios": {
+      "Analfabetismo": "Analfabetismo",
+      "Sin estudios": "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Primarios": "Estudios obligatorios (ESO, EGB)",
+      "Secundarios": "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Superiores": "Estudios universitarios"
+    }
+  }
+]

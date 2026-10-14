@@ -1,0 +1,30 @@
+rules:
+  - id: actividad-sql-sin-interpolacion-de-valores
+    languages: [go]
+    severity: ERROR
+    message: actividad.sql_interpolado
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: $TX.Exec($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.Query($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.QueryRow($CTX, fmt.Sprintf(...), ...)
+  - id: actividad-http-sin-detalles-internos
+    languages: [go]
+    severity: ERROR
+    message: actividad.detalle_error_expuesto
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: http.Error($W, $ERR.Error(), ...)
+      - pattern: responderError($W, $ESTADO, $ERR.Error())
+  - id: actividad-sin-persistencia-de-ficheros
+    languages: [go]
+    severity: ERROR
+    message: actividad.fichero_no_permitido
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: os.WriteFile(...)
+      - pattern: os.Create(...)
+      - pattern: exec.Command(...)

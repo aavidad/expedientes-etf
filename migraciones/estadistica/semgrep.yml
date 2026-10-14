@@ -1,0 +1,33 @@
+rules:
+  - id: etf-memoria-sin-red-directa
+    languages: [go]
+    severity: ERROR
+    message: estadistica.red_fuera_de_puerto
+    pattern-either:
+      - pattern: http.Get(...)
+      - pattern: http.Post(...)
+      - pattern: net.Dial(...)
+      - pattern: exec.Command(...)
+      - pattern: exec.CommandContext(...)
+  - id: etf-memoria-json-acotado
+    languages: [go]
+    severity: ERROR
+    message: estadistica.entrada_http_sin_limite
+    pattern: json.NewDecoder($R.Body)
+  - id: etf-memoria-sql-desde-peticion
+    languages: [go]
+    severity: ERROR
+    message: estadistica.sql_no_parametrizado
+    pattern-either:
+      - pattern: $TX.Query($CTX, $R.URL.Query().Get(...), ...)
+      - pattern: $TX.QueryRow($CTX, $R.URL.Query().Get(...), ...)
+      - pattern: $TX.Exec($CTX, $R.URL.Query().Get(...), ...)
+  - id: etf-memoria-datos-en-registros
+    languages: [go]
+    severity: ERROR
+    message: estadistica.datos_en_registro
+    pattern-either:
+      - pattern: slog.Info(...)
+      - pattern: slog.Error(...)
+      - pattern: log.Printf(...)
+      - pattern: fmt.Println(...)

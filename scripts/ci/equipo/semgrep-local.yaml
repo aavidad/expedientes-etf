@@ -1,0 +1,25 @@
+rules:
+  - id: equipo-sql-valores-sin-interpolar
+    languages: [go]
+    severity: ERROR
+    message: equipo.sql_interpolado
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: $TX.Query($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.QueryRow($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.Exec($CTX, fmt.Sprintf(...), ...)
+  - id: equipo-http-sin-detalles-internos
+    languages: [go]
+    severity: ERROR
+    message: equipo.error_interno_expuesto
+    pattern: http.Error($W, $ERR.Error(), ...)
+  - id: equipo-sin-almacenamiento-personal-en-navegador
+    languages: [typescript]
+    severity: ERROR
+    message: equipo.almacenamiento_personal
+    pattern-either:
+      - pattern: localStorage.setItem(...)
+      - pattern: sessionStorage.setItem(...)
+      - pattern: console.log(...)
+      - pattern: dangerouslySetInnerHTML={...}

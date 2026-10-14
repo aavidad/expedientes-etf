@@ -1,0 +1,36 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_versiones_activas.sql",
+    "depende_de": [
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_referencias_catalogo.sql",
+    "depende_de": [
+      {
+        "modulo": "paquete",
+        "numero": "0001"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_lectura_consentimientos.sql",
+    "depende_de": [
+      {
+        "modulo": "paquete",
+        "numero": "0002"
+      }
+    ]
+  }
+]

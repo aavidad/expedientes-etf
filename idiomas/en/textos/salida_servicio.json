@@ -1,0 +1,6 @@
+{
+  "expediente.crear_salida_servicio": "The proposed referral to another service has been recorded.",
+  "expediente.confirmar_salida_servicio": "The referral date to another service has been confirmed.",
+  "expediente.salida_servicio_rechazada": "The referral to another service could not be recorded.",
+  "expediente.salida_servicio.peticion_invalida": "Check the receiving service, reason, date and referral versions."
+}

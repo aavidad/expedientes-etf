@@ -1,0 +1,352 @@
+{
+  "Encabezado": "^ANEXO [34]",
+  "Secciones": [
+    {
+      "Codigo": "servicio",
+      "Inicio": "^1\\. DATOS",
+      "Fin": "^(2\\. )?DATOS DE CONTACTO DE LA FAMILIA",
+      "Escalares": [
+        {
+          "Codigo": "nombre",
+          "Ancla": "^Servicio:",
+          "Patron": "^Servicio:\\s*(.*)",
+          "Desde": 80,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "profesional",
+          "Ancla": "^Profesional de referencia",
+          "Patron": "^Profesional de referencia\\s*(.*)",
+          "Desde": 80,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "telefono",
+          "Ancla": "^Teléfono",
+          "Patron": "^Teléfono\\s*(.*)",
+          "Desde": 80,
+          "Hasta": 265,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "correo",
+          "Ancla": "Correo.*electrónico",
+          "Patron": "^Correo\\s+electrónico:\\s*(.*)",
+          "Desde": 265,
+          "Hasta": 510,
+          "Continuaciones": 1
+        },
+        {
+          "Codigo": "equipo_menores",
+          "Ancla": "^Equipo de menores:",
+          "Patron": "^Equipo de menores:\\s*(.*)",
+          "Desde": 80,
+          "Hasta": 510,
+          "Continuaciones": 0
+        }
+      ]
+    },
+    {
+      "Codigo": "familia",
+      "Inicio": "^(2\\. )?DATOS DE CONTACTO DE LA FAMILIA",
+      "Fin": "^3\\. PERSONAS",
+      "Escalares": [
+        {
+          "Codigo": "direccion",
+          "Ancla": "^Dirección",
+          "Patron": "",
+          "Desde": 203,
+          "Hasta": 510,
+          "Continuaciones": 0
+        }
+      ],
+      "Tablas": [
+        {
+          "Codigo": "contacto",
+          "Inicio": "^Nombre.*Apellidos.*Tel",
+          "Fin": "^Dirección",
+          "Clave": 2,
+          "Patron": "\\d{3} \\d{3} \\d{3}",
+          "Columnas": [
+            {
+              "Codigo": "nombre",
+              "Desde": 80,
+              "Hasta": 203,
+              "Separador": " "
+            },
+            {
+              "Codigo": "apellidos",
+              "Desde": 203,
+              "Hasta": 326,
+              "Separador": " "
+            },
+            {
+              "Codigo": "telefono",
+              "Desde": 326,
+              "Hasta": 406,
+              "Separador": " "
+            },
+            {
+              "Codigo": "correo",
+              "Desde": 406,
+              "Hasta": 510,
+              "Separador": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Codigo": "menores",
+      "Inicio": "^3\\. PERSONAS",
+      "Fin": "^4\\. DATOS",
+      "Tablas": [
+        {
+          "Codigo": "persona",
+          "Inicio": "^Fecha de",
+          "Fin": "^4\\.",
+          "Clave": 1,
+          "Patron": "\\d{2}/\\d{2}/\\d{4}",
+          "Columnas": [
+            {
+              "Codigo": "nombre",
+              "Desde": 80,
+              "Hasta": 234,
+              "Separador": " "
+            },
+            {
+              "Codigo": "nacimiento",
+              "Desde": 234,
+              "Hasta": 327,
+              "Separador": " "
+            },
+            {
+              "Codigo": "escolarizacion",
+              "Desde": 327,
+              "Hasta": 420,
+              "Separador": " "
+            },
+            {
+              "Codigo": "centro",
+              "Desde": 420,
+              "Hasta": 510,
+              "Separador": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Codigo": "sociodemografia",
+      "Inicio": "^4\\. DATOS",
+      "Fin": "^5\\. VALOR",
+      "Escalares": [
+        {
+          "Codigo": "estructura",
+          "Ancla": "^Estructura familiar",
+          "Patron": "",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "vivienda",
+          "Ancla": "Vivienda:",
+          "Patron": "^Vivienda:\\s*(.*)",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "ingresos",
+          "Ancla": "Ingresos de la unidad familiar:",
+          "Patron": "^Ingresos de la unidad familiar:\\s*(.*)",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "situacion_laboral",
+          "Ancla": "Situación laboral:",
+          "Patron": "^Situación laboral:\\s*(.*)",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 0
+        },
+        {
+          "Codigo": "situacion_economica",
+          "Ancla": "Situación económica de la unidad familiar:",
+          "Patron": "^Situación económica de la unidad familiar:\\s*(.*)",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 1
+        },
+        {
+          "Codigo": "tramo_ingresos",
+          "Ancla": "^Ingresos familiares:",
+          "Patron": "^Ingresos familiares:\\s*(.*)",
+          "Desde": 190,
+          "Hasta": 510,
+          "Continuaciones": 0
+        }
+      ],
+      "Tablas": [
+        {
+          "Codigo": "adulto",
+          "Inicio": "^Miembros de",
+          "Fin": "^Genograma",
+          "Clave": 3,
+          "Patron": "^\\d{2}",
+          "Columnas": [
+            {
+              "Codigo": "papel",
+              "Desde": 80,
+              "Hasta": 124,
+              "Separador": " "
+            },
+            {
+              "Codigo": "nombre",
+              "Desde": 124,
+              "Hasta": 236,
+              "Separador": " "
+            },
+            {
+              "Codigo": "parentesco",
+              "Desde": 236,
+              "Hasta": 301,
+              "Separador": " "
+            },
+            {
+              "Codigo": "edad",
+              "Desde": 301,
+              "Hasta": 336,
+              "Separador": " "
+            },
+            {
+              "Codigo": "estudios",
+              "Desde": 336,
+              "Hasta": 410,
+              "Separador": " "
+            },
+            {
+              "Codigo": "otros_datos",
+              "Desde": 410,
+              "Hasta": 510,
+              "Separador": " "
+            }
+          ]
+        },
+        {
+          "Codigo": "persona_significativa",
+          "Inicio": "^Personas signif",
+          "Fin": "^5\\.",
+          "Clave": 3,
+          "Patron": "\\d{3} \\d{3} \\d{3}",
+          "Columnas": [
+            {
+              "Codigo": "nombre",
+              "Desde": 80,
+              "Hasta": 170,
+              "Separador": " "
+            },
+            {
+              "Codigo": "apellidos",
+              "Desde": 170,
+              "Hasta": 352,
+              "Separador": " "
+            },
+            {
+              "Codigo": "parentesco",
+              "Desde": 352,
+              "Hasta": 426,
+              "Separador": " "
+            },
+            {
+              "Codigo": "telefono",
+              "Desde": 426,
+              "Hasta": 510,
+              "Separador": " "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CamposManuales": {
+    "anexo3": [
+      "sociodemografia.otras_formas",
+      "valoracion.tiempo_convivencia",
+      "valoracion.historia",
+      "valoracion.descripcion",
+      "valoracion.duracion",
+      "valoracion.integracion",
+      "valoracion.dificultades",
+      "valoracion.personas_dificultad",
+      "valoracion.motivo_dificultades",
+      "valoracion.crisis",
+      "valoracion.actitud",
+      "valoracion.adecuacion",
+      "valoracion.conciencia",
+      "valoracion.motivacion",
+      "valoracion.expectativas",
+      "valoracion.pronostico",
+      "desproteccion.antecedentes",
+      "desproteccion.dificultades_parentales",
+      "desproteccion.imposibilidad_proteccion",
+      "desproteccion.migrantes_sin_referentes",
+      "desproteccion.migrantes_vinculo_no_acreditado",
+      "intervenciones.servicio",
+      "intervenciones.profesional",
+      "intervenciones.telefono",
+      "intervenciones.correo",
+      "intervenciones.descripcion",
+      "intervenciones.resultados",
+      "observaciones.texto",
+      "observaciones.documentacion_obligatoria",
+      "observaciones.otra_documentacion"
+    ],
+    "anexo4": [
+      "servicio.etf",
+      "servicio.subprograma",
+      "sociodemografia.otras_formas",
+      "valoracion.tiempo_convivencia",
+      "valoracion.historia",
+      "valoracion.descripcion",
+      "valoracion.duracion",
+      "valoracion.integracion",
+      "valoracion.dificultades",
+      "valoracion.personas_dificultad",
+      "valoracion.motivo_dificultades",
+      "valoracion.crisis",
+      "valoracion.actitud",
+      "valoracion.adecuacion",
+      "valoracion.conciencia",
+      "valoracion.motivacion",
+      "valoracion.expectativas",
+      "valoracion.pronostico",
+      "desproteccion.antecedentes",
+      "desproteccion.dificultades_parentales",
+      "desproteccion.imposibilidad_proteccion",
+      "desproteccion.migrantes_sin_referentes",
+      "desproteccion.migrantes_vinculo_no_acreditado",
+      "intervenciones.servicio",
+      "intervenciones.profesional",
+      "intervenciones.telefono",
+      "intervenciones.correo",
+      "intervenciones.descripcion",
+      "intervenciones.resultados",
+      "resoluciones.existencia",
+      "resoluciones.tipo",
+      "resoluciones.organismo",
+      "resoluciones.medidas",
+      "resoluciones.fecha",
+      "resoluciones.resultados",
+      "observaciones.texto",
+      "observaciones.documentacion_obligatoria",
+      "observaciones.otra_documentacion"
+    ]
+  },
+  "Tipo": "^ANEXO ([34])\\b"
+}

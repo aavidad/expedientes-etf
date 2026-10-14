@@ -1,0 +1,22 @@
+.plantillas { min-width: 0; }
+.plantillas-cabecera, .plantillas-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-5); }
+.plantillas-cabecera h1 { flex: initial; }
+.plantillas-cabecera > button:last-child:not(#plantillas-boton-ayuda) { margin-inline-start: auto; }
+.plantillas-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-buscador)), 1fr)); gap: var(--espacio-entre-tarjetas); }
+.plantillas-tarjeta, .plantillas-formulario { background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-tarjeta); margin-block-end: var(--espacio-entre-tarjetas); min-width: 0; overflow-wrap: anywhere; }
+.plantillas-tarjeta h2, .plantillas-historial h3 { margin-block-start: 0; }
+.plantillas-tarjeta p { margin-block: var(--espacio-3); }
+.plantillas-activa { color: var(--color-acento-fuerte); }
+.plantillas details summary { min-height: var(--alto-control); padding-block: var(--espacio-3); box-sizing: border-box; cursor: pointer; }
+.plantillas-ayuda { padding: var(--espacio-5); background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); }
+.plantillas-historial { padding-inline-start: var(--espacio-6); }
+.plantillas-historial li { padding-block: var(--espacio-5); border-block-start: var(--borde-normal) solid var(--color-borde); }
+.plantillas dl { display: grid; gap: var(--espacio-3); }
+.plantillas dt { font-weight: var(--peso-seminegrita); }
+.plantillas dd { margin: 0; }
+.plantillas-formulario { max-width: var(--ancho-buscador); }
+.plantillas fieldset { margin-block-start: 0; }
+.plantillas select { min-height: var(--alto-control); width: 100%; font: inherit; background: var(--color-superficie); color: var(--color-texto); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); padding: var(--espacio-3); }
+.plantillas input { width: 100%; }
+.plantillas-error { background: var(--color-aviso-fondo); border: var(--borde-normal) solid var(--color-aviso-borde); padding: var(--espacio-tarjeta); border-radius: var(--radio-aviso); margin-block: var(--espacio-entre-tarjetas); overflow-wrap: anywhere; }
+.plantillas dialog { max-width: min(var(--ancho-buscador), calc(100% - var(--espacio-8))); box-sizing: border-box; }

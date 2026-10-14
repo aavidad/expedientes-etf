@@ -1,0 +1,2170 @@
+{
+  "municipios": [
+    {
+      "codigo": "18001",
+      "clave_texto": "municipio.18001",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "agron"
+      ]
+    },
+    {
+      "codigo": "18002",
+      "clave_texto": "municipio.18002",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "alamedilla"
+      ]
+    },
+    {
+      "codigo": "18003",
+      "clave_texto": "municipio.18003",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGAS_ALTAS",
+      "equipo_codigo": "01",
+      "variantes": [
+        "albolote"
+      ]
+    },
+    {
+      "codigo": "18004",
+      "clave_texto": "municipio.18004",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "albondon"
+      ]
+    },
+    {
+      "codigo": "18005",
+      "clave_texto": "municipio.18005",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "albunan"
+      ]
+    },
+    {
+      "codigo": "18006",
+      "clave_texto": "municipio.18006",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "albunol"
+      ]
+    },
+    {
+      "codigo": "18007",
+      "clave_texto": "municipio.18007",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "albunuelas"
+      ]
+    },
+    {
+      "codigo": "18010",
+      "clave_texto": "municipio.18010",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "aldeire"
+      ]
+    },
+    {
+      "codigo": "18011",
+      "clave_texto": "municipio.18011",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "alfacar"
+      ]
+    },
+    {
+      "codigo": "18012",
+      "clave_texto": "municipio.18012",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "equipo_codigo": "06",
+      "variantes": [
+        "algarinejo"
+      ]
+    },
+    {
+      "codigo": "18013",
+      "clave_texto": "municipio.18013",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "alhama de granada"
+      ]
+    },
+    {
+      "codigo": "18014",
+      "clave_texto": "municipio.18014",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "alhendin"
+      ]
+    },
+    {
+      "codigo": "18015",
+      "clave_texto": "municipio.18015",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "alicun de ortega"
+      ]
+    },
+    {
+      "codigo": "18016",
+      "clave_texto": "municipio.18016",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "almegijar"
+      ]
+    },
+    {
+      "codigo": "18017",
+      "clave_texto": "municipio.18017",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "almunecar"
+      ]
+    },
+    {
+      "codigo": "18018",
+      "clave_texto": "municipio.18018",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "alquife"
+      ]
+    },
+    {
+      "codigo": "18020",
+      "clave_texto": "municipio.18020",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "arenas del rey"
+      ]
+    },
+    {
+      "codigo": "18021",
+      "clave_texto": "municipio.18021",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "armilla"
+      ]
+    },
+    {
+      "codigo": "18022",
+      "clave_texto": "municipio.18022",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "atarfe"
+      ]
+    },
+    {
+      "codigo": "18023",
+      "clave_texto": "municipio.18023",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "baza"
+      ]
+    },
+    {
+      "codigo": "18024",
+      "clave_texto": "municipio.18024",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "beas de granada"
+      ]
+    },
+    {
+      "codigo": "18025",
+      "clave_texto": "municipio.18025",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "beas de guadix"
+      ]
+    },
+    {
+      "codigo": "18027",
+      "clave_texto": "municipio.18027",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "benalua"
+      ]
+    },
+    {
+      "codigo": "18028",
+      "clave_texto": "municipio.18028",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "benalua de las villas"
+      ]
+    },
+    {
+      "codigo": "18029",
+      "clave_texto": "municipio.18029",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "benamaurel"
+      ]
+    },
+    {
+      "codigo": "18030",
+      "clave_texto": "municipio.18030",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "berchules"
+      ]
+    },
+    {
+      "codigo": "18032",
+      "clave_texto": "municipio.18032",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "bubion"
+      ]
+    },
+    {
+      "codigo": "18033",
+      "clave_texto": "municipio.18033",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "busquistar"
+      ]
+    },
+    {
+      "codigo": "18034",
+      "clave_texto": "municipio.18034",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "cacin"
+      ]
+    },
+    {
+      "codigo": "18035",
+      "clave_texto": "municipio.18035",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "cadiar"
+      ]
+    },
+    {
+      "codigo": "18036",
+      "clave_texto": "municipio.18036",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "cajar"
+      ]
+    },
+    {
+      "codigo": "18037",
+      "clave_texto": "municipio.18037",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGAS_ALTAS",
+      "equipo_codigo": "01",
+      "variantes": [
+        "calicasas"
+      ]
+    },
+    {
+      "codigo": "18038",
+      "clave_texto": "municipio.18038",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "campotejar"
+      ]
+    },
+    {
+      "codigo": "18039",
+      "clave_texto": "municipio.18039",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "caniles"
+      ]
+    },
+    {
+      "codigo": "18040",
+      "clave_texto": "municipio.18040",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "canar"
+      ]
+    },
+    {
+      "codigo": "18042",
+      "clave_texto": "municipio.18042",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "capileira"
+      ]
+    },
+    {
+      "codigo": "18043",
+      "clave_texto": "municipio.18043",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "carataunas"
+      ]
+    },
+    {
+      "codigo": "18044",
+      "clave_texto": "municipio.18044",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "castaras"
+      ]
+    },
+    {
+      "codigo": "18045",
+      "clave_texto": "municipio.18045",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "castillejar"
+      ]
+    },
+    {
+      "codigo": "18046",
+      "clave_texto": "municipio.18046",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "castril"
+      ]
+    },
+    {
+      "codigo": "18047",
+      "clave_texto": "municipio.18047",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "cenes de la vega"
+      ]
+    },
+    {
+      "codigo": "18048",
+      "clave_texto": "municipio.18048",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "cijuela"
+      ]
+    },
+    {
+      "codigo": "18049",
+      "clave_texto": "municipio.18049",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "cogollos de guadix"
+      ]
+    },
+    {
+      "codigo": "18050",
+      "clave_texto": "municipio.18050",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "cogollos de la vega"
+      ]
+    },
+    {
+      "codigo": "18051",
+      "clave_texto": "municipio.18051",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGAS_ALTAS",
+      "equipo_codigo": "01",
+      "variantes": [
+        "colomera"
+      ]
+    },
+    {
+      "codigo": "18053",
+      "clave_texto": "municipio.18053",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "cortes de baza"
+      ]
+    },
+    {
+      "codigo": "18054",
+      "clave_texto": "municipio.18054",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "cortes y graena"
+      ]
+    },
+    {
+      "codigo": "18056",
+      "clave_texto": "municipio.18056",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "cullar"
+      ]
+    },
+    {
+      "codigo": "18057",
+      "clave_texto": "municipio.18057",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "cullar vega"
+      ]
+    },
+    {
+      "codigo": "18059",
+      "clave_texto": "municipio.18059",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "chauchina"
+      ]
+    },
+    {
+      "codigo": "18061",
+      "clave_texto": "municipio.18061",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "chimeneas"
+      ]
+    },
+    {
+      "codigo": "18062",
+      "clave_texto": "municipio.18062",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "churriana",
+        "churriana de la vega"
+      ]
+    },
+    {
+      "codigo": "18063",
+      "clave_texto": "municipio.18063",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "darro"
+      ]
+    },
+    {
+      "codigo": "18064",
+      "clave_texto": "municipio.18064",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "dehesas de guadix"
+      ]
+    },
+    {
+      "codigo": "18065",
+      "clave_texto": "municipio.18065",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "dehesas viejas"
+      ]
+    },
+    {
+      "codigo": "18066",
+      "clave_texto": "municipio.18066",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "deifontes"
+      ]
+    },
+    {
+      "codigo": "18067",
+      "clave_texto": "municipio.18067",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "diezma"
+      ]
+    },
+    {
+      "codigo": "18068",
+      "clave_texto": "municipio.18068",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "dilar"
+      ]
+    },
+    {
+      "codigo": "18069",
+      "clave_texto": "municipio.18069",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "dolar"
+      ]
+    },
+    {
+      "codigo": "18070",
+      "clave_texto": "municipio.18070",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "dudar"
+      ]
+    },
+    {
+      "codigo": "18071",
+      "clave_texto": "municipio.18071",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "durcal"
+      ]
+    },
+    {
+      "codigo": "18072",
+      "clave_texto": "municipio.18072",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "escuzar"
+      ]
+    },
+    {
+      "codigo": "18074",
+      "clave_texto": "municipio.18074",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "ferreira"
+      ]
+    },
+    {
+      "codigo": "18076",
+      "clave_texto": "municipio.18076",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "fonelas"
+      ]
+    },
+    {
+      "codigo": "18077",
+      "clave_texto": "municipio.18077",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "e l a fornes",
+        "fornes"
+      ]
+    },
+    {
+      "codigo": "18078",
+      "clave_texto": "municipio.18078",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "freila"
+      ]
+    },
+    {
+      "codigo": "18079",
+      "clave_texto": "municipio.18079",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "fuente vaqueros"
+      ]
+    },
+    {
+      "codigo": "18082",
+      "clave_texto": "municipio.18082",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "galera"
+      ]
+    },
+    {
+      "codigo": "18083",
+      "clave_texto": "municipio.18083",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "gobernador"
+      ]
+    },
+    {
+      "codigo": "18084",
+      "clave_texto": "municipio.18084",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "gojar"
+      ]
+    },
+    {
+      "codigo": "18085",
+      "clave_texto": "municipio.18085",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "gor"
+      ]
+    },
+    {
+      "codigo": "18086",
+      "clave_texto": "municipio.18086",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "gorafe"
+      ]
+    },
+    {
+      "codigo": "18087",
+      "clave_texto": "municipio.18087",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "granada"
+      ]
+    },
+    {
+      "codigo": "18088",
+      "clave_texto": "municipio.18088",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "guadahortuna"
+      ]
+    },
+    {
+      "codigo": "18089",
+      "clave_texto": "municipio.18089",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "guadix"
+      ]
+    },
+    {
+      "codigo": "18093",
+      "clave_texto": "municipio.18093",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "gualchos",
+        "gualchos castell"
+      ]
+    },
+    {
+      "codigo": "18094",
+      "clave_texto": "municipio.18094",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "guejar sierra"
+      ]
+    },
+    {
+      "codigo": "18095",
+      "clave_texto": "municipio.18095",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "guevejar"
+      ]
+    },
+    {
+      "codigo": "18096",
+      "clave_texto": "municipio.18096",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "huelago"
+      ]
+    },
+    {
+      "codigo": "18097",
+      "clave_texto": "municipio.18097",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "hueneja"
+      ]
+    },
+    {
+      "codigo": "18098",
+      "clave_texto": "municipio.18098",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "huescar"
+      ]
+    },
+    {
+      "codigo": "18099",
+      "clave_texto": "municipio.18099",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "huetor de santillan",
+        "huetor santillan"
+      ]
+    },
+    {
+      "codigo": "18100",
+      "clave_texto": "municipio.18100",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "equipo_codigo": "06",
+      "variantes": [
+        "huetor tajar"
+      ]
+    },
+    {
+      "codigo": "18101",
+      "clave_texto": "municipio.18101",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "huetor vega"
+      ]
+    },
+    {
+      "codigo": "18102",
+      "clave_texto": "municipio.18102",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "PINOS_PUENTE_MOCLIN",
+      "equipo_codigo": "06",
+      "variantes": [
+        "illora"
+      ]
+    },
+    {
+      "codigo": "18103",
+      "clave_texto": "municipio.18103",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "itrabo"
+      ]
+    },
+    {
+      "codigo": "18105",
+      "clave_texto": "municipio.18105",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "iznalloz"
+      ]
+    },
+    {
+      "codigo": "18106",
+      "clave_texto": "municipio.18106",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "e l a jatar",
+        "jatar"
+      ]
+    },
+    {
+      "codigo": "18107",
+      "clave_texto": "municipio.18107",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "jayena"
+      ]
+    },
+    {
+      "codigo": "18108",
+      "clave_texto": "municipio.18108",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "jerez del marquesado"
+      ]
+    },
+    {
+      "codigo": "18109",
+      "clave_texto": "municipio.18109",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "jete"
+      ]
+    },
+    {
+      "codigo": "18111",
+      "clave_texto": "municipio.18111",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "jun"
+      ]
+    },
+    {
+      "codigo": "18112",
+      "clave_texto": "municipio.18112",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "juviles"
+      ]
+    },
+    {
+      "codigo": "18114",
+      "clave_texto": "municipio.18114",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "calahorra la",
+        "la calahorra"
+      ]
+    },
+    {
+      "codigo": "18115",
+      "clave_texto": "municipio.18115",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "lachar"
+      ]
+    },
+    {
+      "codigo": "18116",
+      "clave_texto": "municipio.18116",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "lanjaron"
+      ]
+    },
+    {
+      "codigo": "18117",
+      "clave_texto": "municipio.18117",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "lanteira"
+      ]
+    },
+    {
+      "codigo": "18119",
+      "clave_texto": "municipio.18119",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "lecrin"
+      ]
+    },
+    {
+      "codigo": "18120",
+      "clave_texto": "municipio.18120",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "lentegi"
+      ]
+    },
+    {
+      "codigo": "18121",
+      "clave_texto": "municipio.18121",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "lobras"
+      ]
+    },
+    {
+      "codigo": "18122",
+      "clave_texto": "municipio.18122",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "loja"
+      ]
+    },
+    {
+      "codigo": "18123",
+      "clave_texto": "municipio.18123",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "lugros"
+      ]
+    },
+    {
+      "codigo": "18124",
+      "clave_texto": "municipio.18124",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "lujar"
+      ]
+    },
+    {
+      "codigo": "18126",
+      "clave_texto": "municipio.18126",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "malaha la"
+      ]
+    },
+    {
+      "codigo": "18127",
+      "clave_texto": "municipio.18127",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "maracena"
+      ]
+    },
+    {
+      "codigo": "18128",
+      "clave_texto": "municipio.18128",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "marchal"
+      ]
+    },
+    {
+      "codigo": "18132",
+      "clave_texto": "municipio.18132",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "PINOS_PUENTE_MOCLIN",
+      "equipo_codigo": "05",
+      "variantes": [
+        "moclin"
+      ]
+    },
+    {
+      "codigo": "18133",
+      "clave_texto": "municipio.18133",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "molvizar"
+      ]
+    },
+    {
+      "codigo": "18134",
+      "clave_texto": "municipio.18134",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "monachil"
+      ]
+    },
+    {
+      "codigo": "18135",
+      "clave_texto": "municipio.18135",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "equipo_codigo": "06",
+      "variantes": [
+        "montefrio"
+      ]
+    },
+    {
+      "codigo": "18136",
+      "clave_texto": "municipio.18136",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "montejicar"
+      ]
+    },
+    {
+      "codigo": "18137",
+      "clave_texto": "municipio.18137",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "montillana"
+      ]
+    },
+    {
+      "codigo": "18138",
+      "clave_texto": "municipio.18138",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "moraleda de zafayona"
+      ]
+    },
+    {
+      "codigo": "18140",
+      "clave_texto": "municipio.18140",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": null,
+      "equipo_codigo": null,
+      "variantes": [
+        "motril"
+      ]
+    },
+    {
+      "codigo": "18141",
+      "clave_texto": "municipio.18141",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "murtas"
+      ]
+    },
+    {
+      "codigo": "18143",
+      "clave_texto": "municipio.18143",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "niguelas"
+      ]
+    },
+    {
+      "codigo": "18144",
+      "clave_texto": "municipio.18144",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "nivar"
+      ]
+    },
+    {
+      "codigo": "18145",
+      "clave_texto": "municipio.18145",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "ogijares"
+      ]
+    },
+    {
+      "codigo": "18146",
+      "clave_texto": "municipio.18146",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "orce"
+      ]
+    },
+    {
+      "codigo": "18147",
+      "clave_texto": "municipio.18147",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "orgiva"
+      ]
+    },
+    {
+      "codigo": "18148",
+      "clave_texto": "municipio.18148",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "otivar"
+      ]
+    },
+    {
+      "codigo": "18149",
+      "clave_texto": "municipio.18149",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "villa de otura"
+      ]
+    },
+    {
+      "codigo": "18150",
+      "clave_texto": "municipio.18150",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "padul"
+      ]
+    },
+    {
+      "codigo": "18151",
+      "clave_texto": "municipio.18151",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "pampaneira"
+      ]
+    },
+    {
+      "codigo": "18152",
+      "clave_texto": "municipio.18152",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "pedro martinez"
+      ]
+    },
+    {
+      "codigo": "18153",
+      "clave_texto": "municipio.18153",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGAS_ALTAS",
+      "equipo_codigo": "01",
+      "variantes": [
+        "peligros"
+      ]
+    },
+    {
+      "codigo": "18154",
+      "clave_texto": "municipio.18154",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "peza la"
+      ]
+    },
+    {
+      "codigo": "18157",
+      "clave_texto": "municipio.18157",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "pinos genil"
+      ]
+    },
+    {
+      "codigo": "18158",
+      "clave_texto": "municipio.18158",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "PINOS_PUENTE_MOCLIN",
+      "equipo_codigo": "05",
+      "variantes": [
+        "pinos puente"
+      ]
+    },
+    {
+      "codigo": "18159",
+      "clave_texto": "municipio.18159",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "pinar"
+      ]
+    },
+    {
+      "codigo": "18161",
+      "clave_texto": "municipio.18161",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "policar"
+      ]
+    },
+    {
+      "codigo": "18162",
+      "clave_texto": "municipio.18162",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "polopos",
+        "polopos la mamola"
+      ]
+    },
+    {
+      "codigo": "18163",
+      "clave_texto": "municipio.18163",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "portugos"
+      ]
+    },
+    {
+      "codigo": "18164",
+      "clave_texto": "municipio.18164",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "puebla de don fabrique",
+        "puebla de don fadrique"
+      ]
+    },
+    {
+      "codigo": "18165",
+      "clave_texto": "municipio.18165",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "pulianas"
+      ]
+    },
+    {
+      "codigo": "18167",
+      "clave_texto": "municipio.18167",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "purullena"
+      ]
+    },
+    {
+      "codigo": "18168",
+      "clave_texto": "municipio.18168",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "quentar"
+      ]
+    },
+    {
+      "codigo": "18170",
+      "clave_texto": "municipio.18170",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "rubite"
+      ]
+    },
+    {
+      "codigo": "18171",
+      "clave_texto": "municipio.18171",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "equipo_codigo": "06",
+      "variantes": [
+        "salar"
+      ]
+    },
+    {
+      "codigo": "18173",
+      "clave_texto": "municipio.18173",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "salobrena"
+      ]
+    },
+    {
+      "codigo": "18174",
+      "clave_texto": "municipio.18174",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "santa cruz del comercio"
+      ]
+    },
+    {
+      "codigo": "18175",
+      "clave_texto": "municipio.18175",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "SANTA_FE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "santa fe"
+      ]
+    },
+    {
+      "codigo": "18176",
+      "clave_texto": "municipio.18176",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "soportujar"
+      ]
+    },
+    {
+      "codigo": "18177",
+      "clave_texto": "municipio.18177",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "sorvilan"
+      ]
+    },
+    {
+      "codigo": "18178",
+      "clave_texto": "municipio.18178",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "torre cardela",
+        "torrecardela"
+      ]
+    },
+    {
+      "codigo": "18179",
+      "clave_texto": "municipio.18179",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "torvizcon"
+      ]
+    },
+    {
+      "codigo": "18180",
+      "clave_texto": "municipio.18180",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "trevelez"
+      ]
+    },
+    {
+      "codigo": "18181",
+      "clave_texto": "municipio.18181",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "turon"
+      ]
+    },
+    {
+      "codigo": "18182",
+      "clave_texto": "municipio.18182",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "ugijar"
+      ]
+    },
+    {
+      "codigo": "18183",
+      "clave_texto": "municipio.18183",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "valor"
+      ]
+    },
+    {
+      "codigo": "18184",
+      "clave_texto": "municipio.18184",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "velez de benaudalla"
+      ]
+    },
+    {
+      "codigo": "18185",
+      "clave_texto": "municipio.18185",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "ventas de huelma"
+      ]
+    },
+    {
+      "codigo": "18187",
+      "clave_texto": "municipio.18187",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "villanueva de las torres",
+        "vva de las torres"
+      ]
+    },
+    {
+      "codigo": "18188",
+      "clave_texto": "municipio.18188",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "equipo_codigo": "06",
+      "variantes": [
+        "villanueva mesia",
+        "vva mesia"
+      ]
+    },
+    {
+      "codigo": "18189",
+      "clave_texto": "municipio.18189",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALFACAR",
+      "equipo_codigo": "01",
+      "variantes": [
+        "viznar"
+      ]
+    },
+    {
+      "codigo": "18192",
+      "clave_texto": "municipio.18192",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "zafarraya"
+      ]
+    },
+    {
+      "codigo": "18193",
+      "clave_texto": "municipio.18193",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": "SIERRA_NEVADA",
+      "equipo_codigo": "04",
+      "variantes": [
+        "zubia la"
+      ]
+    },
+    {
+      "codigo": "18194",
+      "clave_texto": "municipio.18194",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "zujar"
+      ]
+    },
+    {
+      "codigo": "18901",
+      "clave_texto": "municipio.18901",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "la taha",
+        "taha la"
+      ]
+    },
+    {
+      "codigo": "18902",
+      "clave_texto": "municipio.18902",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "valle el"
+      ]
+    },
+    {
+      "codigo": "18903",
+      "clave_texto": "municipio.18903",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "nevada"
+      ]
+    },
+    {
+      "codigo": "18904",
+      "clave_texto": "municipio.18904",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "alpujarra de la sierra"
+      ]
+    },
+    {
+      "codigo": "18905",
+      "clave_texto": "municipio.18905",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": false,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "gabias las"
+      ]
+    },
+    {
+      "codigo": "18906",
+      "clave_texto": "municipio.18906",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "guajares los"
+      ]
+    },
+    {
+      "codigo": "18907",
+      "clave_texto": "municipio.18907",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "valle del zalabi"
+      ]
+    },
+    {
+      "codigo": "18908",
+      "clave_texto": "municipio.18908",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "villamena"
+      ]
+    },
+    {
+      "codigo": "18909",
+      "clave_texto": "municipio.18909",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "RIO_FARDES",
+      "equipo_codigo": "03",
+      "variantes": [
+        "morelabor"
+      ]
+    },
+    {
+      "codigo": "18910",
+      "clave_texto": "municipio.18910",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VALLE_LECRIN_OGIJARES",
+      "equipo_codigo": "04",
+      "variantes": [
+        "pinar el"
+      ]
+    },
+    {
+      "codigo": "18911",
+      "clave_texto": "municipio.18911",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "VEGA_TEMPLE",
+      "equipo_codigo": "02",
+      "variantes": [
+        "vegas del genil"
+      ]
+    },
+    {
+      "codigo": "18912",
+      "clave_texto": "municipio.18912",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "cuevas del campo"
+      ]
+    },
+    {
+      "codigo": "18913",
+      "clave_texto": "municipio.18913",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "zagra"
+      ]
+    },
+    {
+      "codigo": "18914",
+      "clave_texto": "municipio.18914",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "PINOS_PUENTE_MOCLIN",
+      "equipo_codigo": "05",
+      "variantes": [
+        "valderrubio"
+      ]
+    },
+    {
+      "codigo": "18915",
+      "clave_texto": "municipio.18915",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "MONTES_ORIENTALES",
+      "equipo_codigo": "05",
+      "variantes": [
+        "domingo perez de granada"
+      ]
+    },
+    {
+      "codigo": "18916",
+      "clave_texto": "municipio.18916",
+      "tipo": "municipio",
+      "matriz_codigo": null,
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "torrenueva",
+        "torrenueva costa"
+      ]
+    },
+    {
+      "codigo": "ELA-18140-CARCHUNA-CALAHONDA",
+      "clave_texto": "municipio.ELA-18140-CARCHUNA-CALAHONDA",
+      "tipo": "ela",
+      "matriz_codigo": "18140",
+      "ambito_diputacion": true,
+      "centro_codigo": "COSTA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "carchuna calahonda",
+        "ela carchuna calahonda"
+      ]
+    },
+    {
+      "codigo": "ELA-18089-BACOR-OLIVAR",
+      "clave_texto": "municipio.ELA-18089-BACOR-OLIVAR",
+      "tipo": "ela",
+      "matriz_codigo": "18089",
+      "ambito_diputacion": true,
+      "centro_codigo": "NORTE",
+      "equipo_codigo": "08",
+      "variantes": [
+        "bacor olivar",
+        "ela bacor olivar"
+      ]
+    },
+    {
+      "codigo": "ELA-18903-MAIRENA",
+      "clave_texto": "municipio.ELA-18903-MAIRENA",
+      "tipo": "ela",
+      "matriz_codigo": "18903",
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "ela mairena",
+        "mairena"
+      ]
+    },
+    {
+      "codigo": "ELA-18903-PICENA",
+      "clave_texto": "municipio.ELA-18903-PICENA",
+      "tipo": "ela",
+      "matriz_codigo": "18903",
+      "ambito_diputacion": true,
+      "centro_codigo": "ALPUJARRA",
+      "equipo_codigo": "07",
+      "variantes": [
+        "ela picena",
+        "picena"
+      ]
+    },
+    {
+      "codigo": "ELA-18013-VENTAS-ZAFARRAYA",
+      "clave_texto": "municipio.ELA-18013-VENTAS-ZAFARRAYA",
+      "tipo": "ela",
+      "matriz_codigo": "18013",
+      "ambito_diputacion": true,
+      "centro_codigo": "ALHAMA",
+      "equipo_codigo": "06",
+      "variantes": [
+        "ela ventas de zafarraya",
+        "ventas de zafarraya"
+      ]
+    }
+  ]
+}

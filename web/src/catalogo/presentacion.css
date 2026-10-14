@@ -1,0 +1,10 @@
+.ayuda-catalogo { margin-block: var(--espacio-4); }
+.ayuda-catalogo summary { display: inline-flex; align-items: center; justify-content: center; min-width: var(--alto-control); min-height: var(--alto-control); padding: var(--espacio-3); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); background: var(--color-superficie); color: var(--color-acento); cursor: pointer; }
+.contexto-catalogo { color: var(--color-texto-secundario); font-size: var(--texto-meta); }
+.acciones-admin [aria-current='page'] { background: var(--color-acento-suave); color: var(--color-acento-fuerte); font-weight: var(--peso-seminegrita); }
+.identificadores-catalogo summary { display: flex; align-items: center; min-height: var(--alto-control); color: var(--color-texto-secundario); cursor: pointer; }
+
+.encabezado-catalogo { position: relative; display: flex; align-items: center; gap: var(--espacio-4); }
+.encabezado-catalogo h1 { flex: 1; min-width: 0; }
+.encabezado-catalogo .ayuda-catalogo { flex-shrink: 0; margin: unset; }
+.encabezado-catalogo .ayuda-catalogo p { position: absolute; z-index: 2; inset-block-start: calc(100% + var(--espacio-3)); inset-inline-end: 0; width: min(100%, var(--ancho-lateral)); margin: unset; padding: var(--espacio-tarjeta); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-tarjeta); background: var(--color-superficie); color: var(--color-texto); box-shadow: var(--sombra-tarjeta); }

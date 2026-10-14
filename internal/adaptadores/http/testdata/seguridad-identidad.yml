@@ -1,0 +1,45 @@
+rules:
+  - id: identidad-tls-sin-validacion
+    languages: [go]
+    message: seguridad.tls_sin_validacion
+    severity: ERROR
+    pattern: 'tls.Config{..., InsecureSkipVerify: true, ...}'
+  - id: identidad-cookie-sin-seguridad
+    languages: [go]
+    message: seguridad.cookie_sin_seguridad
+    severity: ERROR
+    pattern-either:
+      - pattern: 'http.Cookie{..., Secure: false, ...}'
+      - pattern: 'http.Cookie{..., HttpOnly: false, ...}'
+      - pattern: 'http.Cookie{..., SameSite: http.SameSiteNoneMode, ...}'
+  - id: identidad-azar-no-criptografico
+    languages: [go]
+    message: seguridad.azar_no_criptografico
+    severity: ERROR
+    pattern-either:
+      - pattern: 'import "math/rand"'
+      - pattern: 'import "math/rand/v2"'
+  - id: identidad-registro-credenciales
+    languages: [go]
+    message: seguridad.registro_credenciales
+    severity: ERROR
+    pattern-either:
+      - pattern: '$LOG.Info(..., "contrasena", ..., ...)'
+      - pattern: '$LOG.Info(..., "cuenta", ..., ...)'
+      - pattern: '$LOG.Error(..., "error", $ERR, ...)'
+      - pattern: '$LOG.Warn(..., "error", $ERR, ...)'
+  - id: identidad-almacenamiento-web
+    languages: [javascript, typescript]
+    message: seguridad.almacenamiento_web
+    severity: ERROR
+    pattern-either:
+      - pattern: 'localStorage.setItem(...)'
+      - pattern: 'sessionStorage.setItem(...)'
+  - id: identidad-html-dinamico
+    languages: [javascript, typescript]
+    message: seguridad.html_dinamico
+    severity: ERROR
+    pattern-either:
+      - pattern: '$EL.innerHTML = $DATA'
+      - pattern: '$EL.insertAdjacentHTML(...)'
+      - pattern: 'dangerouslySetInnerHTML={$DATA}'

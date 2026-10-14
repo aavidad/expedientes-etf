@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "Lucía",
+    "sexo": "M",
+    "fecha_nacimiento": "2016-05-11",
+    "nivel_escolarizacion": "PRIMARIA"
+  },
+  {
+    "nombre": "Daniel",
+    "sexo": "H",
+    "fecha_nacimiento": "2012-09-18",
+    "nivel_escolarizacion": "ESO"
+  },
+  {
+    "nombre": "Clara",
+    "sexo": "M",
+    "fecha_nacimiento": "2022-03-07",
+    "nivel_escolarizacion": "INFANTIL"
+  },
+  {
+    "nombre": "Mateo",
+    "sexo": "H",
+    "fecha_nacimiento": "2018-01-23",
+    "nivel_escolarizacion": "PRIMARIA"
+  },
+  {
+    "nombre": "Nerea",
+    "sexo": "M",
+    "fecha_nacimiento": "2014-06-02",
+    "nivel_escolarizacion": "ESO"
+  },
+  {
+    "nombre": "Adrián",
+    "sexo": "H",
+    "fecha_nacimiento": "2023-11-15",
+    "nivel_escolarizacion": "SIN_ESCOLARIZAR"
+  },
+  {
+    "nombre": "Sara",
+    "sexo": "M",
+    "fecha_nacimiento": "2010-12-09",
+    "nivel_escolarizacion": "ESO"
+  },
+  {
+    "nombre": "Hugo",
+    "sexo": "H",
+    "fecha_nacimiento": "2019-04-26",
+    "nivel_escolarizacion": "PRIMARIA"
+  },
+  {
+    "nombre": "Alba",
+    "sexo": "M",
+    "fecha_nacimiento": "2017-08-30",
+    "nivel_escolarizacion": "PRIMARIA"
+  },
+  {
+    "nombre": "Pablo",
+    "sexo": "H",
+    "fecha_nacimiento": "2013-02-14",
+    "nivel_escolarizacion": "ESO"
+  },
+  {
+    "nombre": "Irene",
+    "sexo": "M",
+    "fecha_nacimiento": "2021-10-03",
+    "nivel_escolarizacion": "INFANTIL"
+  },
+  {
+    "nombre": "Marcos",
+    "sexo": "H",
+    "fecha_nacimiento": "2015-07-19",
+    "nivel_escolarizacion": "PRIMARIA"
+  },
+  {
+    "nombre": "Eva",
+    "sexo": "M",
+    "fecha_nacimiento": "2020-01-29",
+    "nivel_escolarizacion": "INFANTIL"
+  },
+  {
+    "nombre": "Álvaro",
+    "sexo": "H",
+    "fecha_nacimiento": "2011-11-06",
+    "nivel_escolarizacion": "ESO"
+  },
+  {
+    "nombre": "Julia",
+    "sexo": "M",
+    "fecha_nacimiento": "2009-03-20",
+    "nivel_escolarizacion": "BACHILLERATO"
+  }
+]

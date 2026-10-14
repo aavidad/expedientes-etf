@@ -1,0 +1,16 @@
+**
+!.local/
+!.local/bin/
+!.local/bin/etf
+!.local/bin/migrar
+!.local/migraciones/
+!.local/migraciones/**
+!.local/idiomas/
+!.local/idiomas/**
+!.local/temas/
+!.local/temas/**
+!.local/datos/
+!.local/datos/catalogos/
+!.local/datos/catalogos/familia.json
+!.local/datos/catalogos/memoria/
+!.local/datos/catalogos/memoria/**

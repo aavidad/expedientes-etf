@@ -1,0 +1,6 @@
+{
+  "expediente.aviso_consentimiento": "Ha pasado el plazo desde la aceptación sin confirmar el consentimiento.",
+  "expediente.aviso_fase": "La fase de intervención ha superado su duración orientativa.",
+  "expediente.aviso_memoria_dato_faltante": "Falta completar este campo para la Memoria.",
+  "catalogo.avisos_iniciales": "Plazos iniciales de los avisos"
+}

@@ -1,0 +1,4 @@
+{
+  "expediente.finalizacion_invalida": "Select a valid completion reason and provide its explanation when required.",
+  "expediente.cierre_requiere_falta_consentimiento": "To propose closure from accepted status, confirm that the family has not consented and select the corresponding reason."
+}

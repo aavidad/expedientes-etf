@@ -1,0 +1,7 @@
+{
+  "catalogo.vigencia_invalida": "Indica una fecha o un año válido para consultar el catálogo.",
+  "catalogo.ambito_invalido": "El grupo de catálogos indicado no existe.",
+  "catalogo.version_no_disponible": "No hay una versión publicada para esa fecha.",
+  "catalogo.no_disponible": "No se ha podido consultar el catálogo. Vuelve a intentarlo.",
+  "catalogo.acceso_denegado": "No tienes permiso para consultar estos catálogos."
+}

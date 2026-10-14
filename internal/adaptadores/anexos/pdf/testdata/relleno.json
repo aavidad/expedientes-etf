@@ -1,0 +1,271 @@
+{
+  "anexos": {
+    "3": {
+      "tables": {
+        "0": [
+          [
+            "Número de expediente",
+            "SSCC-2026-0142"
+          ],
+          [
+            "Fecha derivación",
+            "06/10/2026",
+            "Fecha entrada en SSCC",
+            "12/03/2026"
+          ]
+        ],
+        "1": [
+          [
+            "Servicio: Centro de Servicios Sociales de Alhama"
+          ],
+          [
+            "Profesional de referencia Elena Márquez Roldán"
+          ],
+          [
+            "Teléfono 958 000 142",
+            "Correo electrónico: emarquez@servicios.invalid"
+          ]
+        ],
+        "2": [
+          [
+            "Nombre",
+            "Apellidos",
+            "Teléfono",
+            "e-mail"
+          ],
+          [
+            "Lucía",
+            "Ortega Salcedo",
+            "600 000 142",
+            "lucia.ortega@correo.invalid"
+          ],
+          [
+            "Daniel",
+            "Pérez Molina",
+            "600 000 143",
+            "daniel.perez@correo.invalid"
+          ],
+          [
+            "Dirección",
+            "Calle del Olivo 18, 18120 Alhama de Granada"
+          ]
+        ],
+        "3": [
+          [
+            "Nombre y apellidos",
+            "Fecha de nacimiento",
+            "Nivel de escolarización",
+            "Centro educativo"
+          ],
+          [
+            "Nerea Pérez Ortega",
+            "14/02/2016",
+            "Educación Primaria",
+            "CEIP Sierra de Alhama"
+          ],
+          [
+            "Álvaro Pérez Ortega",
+            "23/11/2012",
+            "Educación Secundaria",
+            "IES Río Alhama"
+          ]
+        ],
+        "4": [
+          [
+            "Estructura familiar",
+            "Biparental"
+          ],
+          [
+            "Situación socioeconómica",
+            "Vivienda: Alquiler\nIngresos de la unidad familiar: 1.250 euros/mes\nSituación laboral: Empleo temporal\nSituación económica de la unidad familiar: Dificultades económicas\nIngresos familiares: 50-100 % SMI"
+          ]
+        ],
+        "5": [
+          [
+            "",
+            "Nombre y apellidos",
+            "Parentesco",
+            "Edad",
+            "Nivel de estudios",
+            "Otros datos de interés"
+          ],
+          [
+            "Tutor 1",
+            "Lucía Ortega Salcedo",
+            "Madre",
+            "36",
+            "Educación Secundaria",
+            "Trabajo de temporada"
+          ],
+          [
+            "Tutor 2",
+            "Daniel Pérez Molina",
+            "Padre",
+            "39",
+            "Educación Primaria",
+            "Búsqueda de empleo"
+          ]
+        ],
+        "6": [
+          [
+            "Nombre",
+            "Apellidos",
+            "Parentesco",
+            "Teléfono"
+          ],
+          [
+            "Carmen",
+            "Salcedo Ruiz",
+            "Abuela materna",
+            "600 000 144"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "tables": {
+        "0": [
+          [
+            "Número de expediente",
+            "SPM-2026-0087"
+          ],
+          [
+            "Fecha derivación",
+            "07/10/2026",
+            "Fecha entrada en SSCC",
+            "09/04/2026"
+          ],
+          [
+            "ETF al que deriva",
+            "ETF 6"
+          ],
+          [
+            "Subprograma",
+            "Reintegración"
+          ]
+        ],
+        "1": [
+          [
+            "Servicio: Servicio de Protección de Menores de Granada"
+          ],
+          [
+            "Profesional de referencia Rafael Cárdenas López"
+          ],
+          [
+            "Equipo de menores: Unidad Norte"
+          ],
+          [
+            "Teléfono 958 000 187",
+            "Correo electrónico: rcardenas@servicios.invalid"
+          ]
+        ],
+        "2": [
+          [
+            "Nombre",
+            "Apellidos",
+            "Teléfono",
+            "e-mail"
+          ],
+          [
+            "Marina",
+            "Serrano Velasco",
+            "600 000 187",
+            "marina.serrano@correo.invalid"
+          ],
+          [
+            "Óscar",
+            "Ruiz Benítez",
+            "600 000 188",
+            "oscar.ruiz@correo.invalid"
+          ],
+          [
+            "Dirección",
+            "Calle de la Fuente 9, 18260 Íllora"
+          ]
+        ],
+        "3": [
+          [
+            "Nombre y apellidos",
+            "Fecha de nacimiento",
+            "Nivel de escolarización",
+            "Centro educativo"
+          ],
+          [
+            "Claudia Ruiz Serrano",
+            "05/08/2018",
+            "Educación Primaria",
+            "CEIP Fuente Clara"
+          ],
+          [
+            "Hugo Ruiz Serrano",
+            "17/01/2011",
+            "Educación Secundaria",
+            "IES Cerro Verde"
+          ],
+          [
+            "Irene Ruiz Serrano",
+            "11/12/2020",
+            "Educación Infantil",
+            "CEIP Fuente Clara"
+          ]
+        ],
+        "4": [
+          [
+            "Estructura familiar",
+            "Biparental"
+          ],
+          [
+            "Situación socioeconómica",
+            "Vivienda: Cedida\nIngresos de la unidad familiar: 1.480 euros/mes\nSituación laboral: Empleo estable\nSituación económica de la unidad familiar: Ingresos suficientes\nIngresos familiares: 100-150 % SMI"
+          ]
+        ],
+        "5": [
+          [
+            "",
+            "Nombre y apellidos",
+            "Parentesco",
+            "Edad",
+            "Nivel de estudios",
+            "Otros datos de interés"
+          ],
+          [
+            "Tutor 1",
+            "Marina Serrano Velasco",
+            "Madre",
+            "34",
+            "Formación Profesional",
+            "Horario de mañana"
+          ],
+          [
+            "Tutor 2",
+            "Óscar Ruiz Benítez",
+            "Padre",
+            "37",
+            "Educación Secundaria",
+            "Apoyo de familia extensa"
+          ]
+        ],
+        "6": [
+          [
+            "Nombre",
+            "Apellidos",
+            "Parentesco",
+            "Teléfono"
+          ],
+          [
+            "Pilar",
+            "Velasco Torres",
+            "Abuela materna",
+            "600 000 189"
+          ]
+        ]
+      }
+    }
+  },
+  "sustituciones": {
+    "ejemplo:": "como:",
+    "Elija un elemento.": "Sin información",
+    "Haga clic o pulse aquí para escribir texto.": "Pendiente de valoración",
+    "Haga clic o pulse aquí para escribir texto": "Pendiente de valoración"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "catalogo.vigencia_invalida": "Enter a valid date or year to view the catalogue.",
+  "catalogo.ambito_invalido": "The specified catalogue group does not exist.",
+  "catalogo.version_no_disponible": "There is no published version for that date.",
+  "catalogo.no_disponible": "The catalogue could not be loaded. Try again.",
+  "catalogo.acceso_denegado": "You do not have permission to view these catalogues."
+}

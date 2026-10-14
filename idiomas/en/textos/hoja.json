@@ -1,0 +1,10 @@
+{
+  "expediente.hoja_formato": "Use a UTF-8 CSV or an XLSX with a single visible sheet. Check the headers. Formulas, macros and external links are not allowed.",
+  "expediente.hoja_limites": "The sheet allows up to 10 MB and 100 cases per batch. Split the cases into separate sheets if you exceed this limit.",
+  "expediente.hoja_antivirus": "The antivirus could not check the sheet. No cases have been imported. Try again when the service is available.",
+  "expediente.hoja_cambiada": "The sheet or team does not match the preview. Validate the sheet again before confirming.",
+  "expediente.hoja_columnas": "This row has more columns than the header. Check the CSV separators and quotation marks.",
+  "expediente.hoja_json": "Check this column: it must contain a JSON array using the fields in the import format. The array cannot be null or contain null items. Do not add fields outside the contract.",
+  "expediente.hoja_no_aceptada": "Leave acceptance fields empty for a case that was not accepted.",
+  "expediente.hoja_aceptada": "Leave the non-acceptance date and reason empty for an accepted case."
+}

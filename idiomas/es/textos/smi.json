@@ -1,0 +1,18 @@
+{
+  "smi.navegacion": "Salario mínimo interprofesional",
+  "smi.titulo": "Salario mínimo interprofesional",
+  "smi.presentacion": "El importe anual corresponde a 14 pagas.",
+  "smi.tabla": "Importes del salario mínimo interprofesional por año",
+  "smi.anio": "Año",
+  "smi.mensual": "Importe mensual en euros",
+  "smi.anual": "Importe anual con 14 pagas",
+  "smi.acciones": "Acciones",
+  "smi.dos_decimales": "Usa euros y hasta dos decimales.",
+  "smi.pendiente": "Pendiente de configurar",
+  "smi.guardar": "Guardar importe",
+  "smi.guardando": "Guardando…",
+  "smi.cargando": "Cargando importes…",
+  "smi.conflicto": "Otra persona ha actualizado este año. Se han cargado los datos actuales; revisa el importe antes de guardarlo de nuevo.",
+  "catalogo.smi_invalido": "Indica un importe mayor que cero con un máximo de dos decimales.",
+  "catalogo.smi_no_disponible": "No hay un importe configurado para ese año."
+}

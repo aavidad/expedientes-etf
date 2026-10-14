@@ -1,0 +1,39 @@
+rules:
+  - id: carga-sin-persistencia-navegador
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: carga.seguridad_persistencia
+    pattern-either:
+      - pattern: localStorage.setItem(...)
+      - pattern: sessionStorage.setItem(...)
+  - id: carga-sin-html-no-fiable
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: carga.seguridad_html
+    pattern-either:
+      - pattern: $X.innerHTML = $Y
+      - pattern: <$X ... dangerouslySetInnerHTML={$Y} ... />
+  - id: carga-sin-ejecucion-dinamica
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: carga.seguridad_ejecucion
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: carga-go-sin-sql-dinamico
+    languages: [go]
+    severity: ERROR
+    message: carga.seguridad_sql
+    patterns:
+      - pattern-either:
+          - pattern: $DB.Query($CTX, $SQL + $DATO, ...)
+          - pattern: $DB.Exec($CTX, $SQL + $DATO, ...)
+      - pattern-not: $DB.Query($CTX, $SQL + "...", ...)
+      - pattern-not: $DB.Exec($CTX, $SQL + "...", ...)
+  - id: carga-go-sin-ejecucion-de-entrada
+    languages: [go]
+    severity: ERROR
+    message: carga.seguridad_ejecucion
+    pattern-either:
+      - pattern: exec.Command("sh", "-c", ...)
+      - pattern: exec.CommandContext($CTX, "sh", "-c", ...)

@@ -1,0 +1,23 @@
+{
+  "motivo_finalizacion.OBJ_TOTAL": "Objectives fully achieved",
+  "motivo_finalizacion.OBJ_PARCIAL": "Objectives partially achieved",
+  "motivo_finalizacion.SIN_ADHERENCIA": "No objectives achieved or improvement due to lack of engagement",
+  "motivo_finalizacion.ABANDONO": "The family withdraws on its own initiative",
+  "motivo_finalizacion.TRASLADO": "Family relocation",
+  "motivo_finalizacion.MAYORIA_EDAD": "The children reach adulthood",
+  "motivo_finalizacion.INGRESO_CENTRO": "Admission of the children to a centre",
+  "motivo_finalizacion.DECLARACION_RIESGO": "Other: declaration of risk",
+  "motivo_finalizacion.MEDIDA_PROTECTORA": "Other: child protection measure or declaration of abandonment",
+  "motivo_finalizacion.OTROS": "Other reasons for closure",
+  "motivo_finalizacion.SIN_CONSENTIMIENTO": "The family does not consent to the intervention",
+  "motivo_acta_cierre.OBJ_TOTAL": "Objectives achieved",
+  "motivo_acta_cierre.OBJ_PARCIAL": "Objectives partially achieved",
+  "motivo_acta_cierre.NO_ACEPTACION": "The parents do not accept the intervention",
+  "motivo_acta_cierre.OTROS": "Other",
+  "motivo_spaf.OBJETIVOS": "Objectives achieved",
+  "motivo_spaf.NO_CONSECUCION": "Objectives not achieved",
+  "motivo_spaf.NO_COLABORACION": "Lack of family cooperation",
+  "motivo_spaf.MEDIDA_PROTECTORA": "Child protection measure adopted",
+  "motivo_spaf.TRASLADO": "Change of residence",
+  "motivo_spaf.MAYORIA_EDAD": "Reaching adulthood"
+}

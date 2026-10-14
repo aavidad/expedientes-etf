@@ -1,0 +1,6132 @@
+{
+  "version": 1,
+  "generado_con_semilla": 150826,
+  "nota": "Conjunto sintético. Identidades, contactos y circunstancias creados para desarrollo, CI y preproducción.",
+  "familias": [
+    {
+      "id": "familia-01",
+      "numero": "01-01-25",
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-01-06",
+        "aceptacion": "2025-01-11",
+        "consentimiento": "2025-02-10",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 33,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 40,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2020-01-08",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-09-19",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 8579,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "negligencia",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-01-06"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-01-11"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-02-10"
+        }
+      ],
+      "casos_frontera": [
+        "consentimiento justo el día 30"
+      ]
+    },
+    {
+      "id": "familia-02",
+      "numero": "02-01-25",
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Íllora",
+      "anio_derivacion": 2025,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-02-09",
+        "aceptacion": "2025-02-15",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 36,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 43,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 50,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2019-09-20",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-11-17",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-07-11",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 9958,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-02-09"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-02-15"
+        }
+      ],
+      "casos_frontera": [
+        "sin consentimiento al día 31"
+      ]
+    },
+    {
+      "id": "familia-03",
+      "numero": "03-01-25",
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-03-12",
+        "aceptacion": "2025-03-19",
+        "consentimiento": "2025-03-24",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 39,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2018-05-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 11337,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-03-12"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-03-19"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-03-24"
+        },
+        {
+          "tipo": "cambio_composicion",
+          "fecha": "2025-09-15",
+          "detalle": "Se incorpora un menor y se actualiza la composición familiar."
+        }
+      ],
+      "casos_frontera": [
+        "cambio de composición familiar durante el año"
+      ]
+    },
+    {
+      "id": "familia-04",
+      "numero": "04-01-25",
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-04-15",
+        "aceptacion": "2025-04-23",
+        "consentimiento": "2025-04-29",
+        "cierre": "2025-07-07",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "derivacion_a_otro_servicio",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 42,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 49,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2017-05-06",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-05-12",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 12716,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-04-15"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-04-23"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-04-29"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2025-07-07"
+        },
+        {
+          "tipo": "reabierta",
+          "fecha": "2025-07-27"
+        }
+      ],
+      "casos_frontera": [
+        "reapertura tras cierre"
+      ]
+    },
+    {
+      "id": "familia-05",
+      "numero": "05-01-25",
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Maracena",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-05-18",
+        "aceptacion": "2025-05-27",
+        "consentimiento": "2025-06-03",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 45,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 52,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 59,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2016-09-14",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2012-02-02",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2008-02-25",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 14095,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-05-18"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-05-27"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-06-03"
+        },
+        {
+          "tipo": "traslado_equipo",
+          "fecha": "2026-03-16",
+          "equipo_origen": "equipo-05",
+          "equipo_destino": "equipo-06"
+        }
+      ],
+      "casos_frontera": [
+        "traslado del equipo 1 al equipo 2"
+      ]
+    },
+    {
+      "id": "familia-06",
+      "numero": "06-01-25",
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Guadix",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "mixta",
+      "fechas": {
+        "derivacion": "2025-06-21",
+        "aceptacion": "2025-07-01",
+        "consentimiento": "2025-07-09",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 48,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2015-09-07",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 15474,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-06-21"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-07-01"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-07-09"
+        }
+      ],
+      "casos_frontera": [
+        "familia con menores de Riesgo y Reunificación"
+      ]
+    },
+    {
+      "id": "familia-07",
+      "numero": null,
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2025,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-07-24",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2025-07-24"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 51,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 58,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2014-12-10",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2010-03-07",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 16853,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-07-24"
+        }
+      ],
+      "casos_frontera": [
+        "derivación no aceptada, sin numeración"
+      ],
+      "motivo_no_aceptacion": "sin_cobertura"
+    },
+    {
+      "id": "familia-08",
+      "numero": null,
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Granada",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-08-04",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-08-04",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 54,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 61,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 25,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2013-03-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-12-02",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Álvaro",
+          "apellidos": "Torres Jiménez",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-07-21",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 18232,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-08-04"
+        }
+      ],
+      "casos_frontera": [
+        "en lista de espera, sin numeración"
+      ],
+      "posicion_lista_espera": 10
+    },
+    {
+      "id": "familia-09",
+      "numero": "01-02-26",
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Maracena",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-09-07",
+        "aceptacion": "2026-09-11",
+        "consentimiento": "2026-09-22",
+        "cierre": "2026-12-20",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "derivacion_a_otro_servicio",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 57,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-05-24",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2009-04-16",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2023-09-21",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 4,
+          "nombre": "Carmen",
+          "apellidos": "Alonso Díaz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2019-03-07",
+          "nivel_escolarizacion": "infantil",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 5,
+          "nombre": "Pablo",
+          "apellidos": "Torres Ortega",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-10-25",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 6,
+          "nombre": "Aitana",
+          "apellidos": "Ortega Reyes",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-03-15",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 7,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2025-07-22",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 8,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2021-05-18",
+          "nivel_escolarizacion": "infantil",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 9,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2017-03-06",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 10,
+          "nombre": "Nuria",
+          "apellidos": "López Martín",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2013-06-10",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 11,
+          "nombre": "Marcos",
+          "apellidos": "Moreno Alonso",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-11-12",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 12,
+          "nombre": "Inés",
+          "apellidos": "Alonso Delgado",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-05-05",
+          "nivel_escolarizacion": "infantil",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 13,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2019-02-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 14,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2015-12-02",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 15,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2011-04-02",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 19611,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-09-07"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-09-11"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-09-22"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-20"
+        }
+      ],
+      "casos_frontera": [
+        "quince menores, límite superior de composición"
+      ]
+    },
+    {
+      "id": "familia-10",
+      "numero": "02-02-26",
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Guadix",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-10-10",
+        "aceptacion": "2026-10-15",
+        "consentimiento": "2026-10-27",
+        "cierre": "2026-12-20",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "objetivos_alcanzados",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 60,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 24,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2008-06-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2026-10-27",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 20990,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-10-10"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-10-15"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-10-27"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-20"
+        }
+      ],
+      "casos_frontera": [
+        "un menor cumple 18 años durante el año evaluado"
+      ]
+    },
+    {
+      "id": "familia-11",
+      "numero": "03-02-26",
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-11-13",
+        "aceptacion": "2026-11-19",
+        "consentimiento": null,
+        "cierre": "2026-12-29",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "renuncia_familiar",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 63,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 27,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 34,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2011-06-12",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2025-06-04",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2021-01-22",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 22369,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-11-13"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-11-19"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-29",
+          "motivo": "renuncia_familiar"
+        }
+      ],
+      "casos_frontera": [
+        "cierre sin consentimiento"
+      ]
+    },
+    {
+      "id": "familia-12",
+      "numero": "04-02-26",
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Granada",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-01-16",
+        "aceptacion": "2026-01-23",
+        "consentimiento": "2026-01-25",
+        "cierre": "2026-05-07",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "traslado_residencia",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 23,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2010-05-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 23748,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-01-16"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-01-23"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-01-25"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-05-07"
+        },
+        {
+          "tipo": "cambio_composicion",
+          "fecha": "2026-09-15",
+          "detalle": "Se incorpora un menor y se actualiza la composición familiar."
+        }
+      ],
+      "casos_frontera": [
+        "cambio de composición con alta y baja de menores"
+      ]
+    },
+    {
+      "id": "familia-13",
+      "numero": "05-02-26",
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2026,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-02-19",
+        "aceptacion": "2026-02-27",
+        "consentimiento": "2026-03-02",
+        "cierre": "2026-05-13",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "renuncia_familiar",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 26,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 33,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-03-13",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-06-21",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 25127,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-02-19"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-02-27"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-03-02"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-06-13"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-05-13"
+        },
+        {
+          "tipo": "reabierta",
+          "fecha": "2026-06-02"
+        }
+      ],
+      "casos_frontera": [
+        "cierre y reapertura en episodios distintos"
+      ]
+    },
+    {
+      "id": "familia-14",
+      "numero": "06-02-26",
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Íllora",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-03-22",
+        "aceptacion": "2026-03-31",
+        "consentimiento": "2026-04-04",
+        "cierre": "2026-07-17",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "derivacion_a_otro_servicio",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 29,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 36,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 43,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2026-01-22",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2022-10-05",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-01-07",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 26506,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-03-22"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-03-31"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-04-04"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-07-17"
+        },
+        {
+          "tipo": "traslado_equipo",
+          "fecha": "2026-05-12",
+          "equipo_origen": "equipo-06",
+          "equipo_destino": "equipo-07"
+        }
+      ],
+      "casos_frontera": [
+        "traslado del equipo 7 al equipo 8"
+      ]
+    },
+    {
+      "id": "familia-15",
+      "numero": "07-02-26",
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "mixta",
+      "fechas": {
+        "derivacion": "2026-04-25",
+        "aceptacion": "2026-05-05",
+        "consentimiento": "2026-05-10",
+        "cierre": "2026-08-23",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "objetivos_alcanzados",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 32,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2025-07-26",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Reunificación"
+        }
+      ],
+      "ingresos_anuales_eur": 27885,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-04-25"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-05-05"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-05-10"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-08-23"
+        }
+      ],
+      "casos_frontera": [
+        "segunda familia mixta de Riesgo y Reunificación"
+      ]
+    },
+    {
+      "id": "familia-16",
+      "numero": "08-02-26",
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2025,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-12-31",
+        "aceptacion": "2026-01-11",
+        "consentimiento": "2026-01-17",
+        "cierre": "2026-05-03",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "fin_intervencion",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 35,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 42,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-09-03",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2019-02-22",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 29264,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-12-31"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-01-11"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-01-17"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-05-03"
+        }
+      ],
+      "casos_frontera": [
+        "fecha de derivación al cierre del año 2025"
+      ]
+    },
+    {
+      "id": "familia-17",
+      "numero": null,
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-06-08",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 38,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 45,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 52,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2022-10-10",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-11-24",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2014-12-04",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 30643,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "maltrato_emocional"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-06-08"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-18",
+      "numero": null,
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Íllora",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-07-11",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 41,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2021-05-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 32022,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-07-11"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-19",
+      "numero": null,
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-08-14",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 44,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 51,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2020-07-21",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-01-19",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 33401,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-08-14"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-20",
+      "numero": null,
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-09-17",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 47,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 54,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 61,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2019-03-25",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-12-22",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Álvaro",
+          "apellidos": "Torres Jiménez",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-08-23",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 34780,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-09-17"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-21",
+      "numero": null,
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Maracena",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-10-20",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 50,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2018-10-26",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 36159,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-10-20"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-22",
+      "numero": null,
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Guadix",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-11-23",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 53,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 60,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2017-08-06",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-05-13",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 37538,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-11-23"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-23",
+      "numero": null,
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-01-03",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 56,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 63,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 27,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2016-01-12",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2012-09-19",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2008-06-02",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 38917,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-01-03"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-24",
+      "numero": null,
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Granada",
+      "anio_derivacion": 2025,
+      "estado": "derivacion_recibida",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-02-06",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 59,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2015-07-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 40296,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "maltrato_emocional"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-02-06"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-25",
+      "numero": null,
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Maracena",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-03-09",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-03-09"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 62,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 26,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-03-09",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-04-27",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 41675,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-03-09"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "sin_cobertura"
+    },
+    {
+      "id": "familia-26",
+      "numero": null,
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Guadix",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-04-12",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-04-12"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 65,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 29,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 36,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2014-04-12",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2010-10-10",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2024-11-10",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 7454,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-04-12"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "derivacion_inadecuada"
+    },
+    {
+      "id": "familia-27",
+      "numero": null,
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-05-15",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-05-15"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 25,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-12-27",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 8833,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-05-15"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "objetivos_no_compartidos"
+    },
+    {
+      "id": "familia-28",
+      "numero": null,
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Granada",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-06-18",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-06-18"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 28,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 35,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2012-11-06",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2026-01-07",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 10212,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-06-18"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "sin_cobertura"
+    },
+    {
+      "id": "familia-29",
+      "numero": null,
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-07-21",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-07-21"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 31,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 38,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 45,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2011-02-05",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2025-11-09",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2021-07-27",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 11591,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-07-21"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "derivacion_inadecuada"
+    },
+    {
+      "id": "familia-30",
+      "numero": null,
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Íllora",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-08-24",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-08-24"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 34,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2010-02-13",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 12970,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-08-24"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "objetivos_no_compartidos"
+    },
+    {
+      "id": "familia-31",
+      "numero": null,
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-09-04",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-09-04"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 37,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 44,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-07-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-09-13",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 14349,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "negligencia",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-09-04"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "sin_cobertura"
+    },
+    {
+      "id": "familia-32",
+      "numero": null,
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2026,
+      "estado": "no_aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-10-07",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": "2026-10-07"
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 40,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 47,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 54,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2026-11-01",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2022-04-01",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Álvaro",
+          "apellidos": "Torres Jiménez",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-06-04",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 15728,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "maltrato_emocional"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-10-07"
+        }
+      ],
+      "casos_frontera": [],
+      "motivo_no_aceptacion": "derivacion_inadecuada"
+    },
+    {
+      "id": "familia-33",
+      "numero": null,
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-11-10",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-11-10",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 43,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2024-11-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 17107,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-11-10"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 2
+    },
+    {
+      "id": "familia-34",
+      "numero": null,
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Íllora",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-01-13",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-01-13",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 46,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 53,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-07-24",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2019-06-01",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 18486,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "maltrato_emocional"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-01-13"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 3
+    },
+    {
+      "id": "familia-35",
+      "numero": null,
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-02-16",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-02-16",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 49,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 56,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 63,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2022-11-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-11-21",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2014-10-06",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 19865,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-02-16"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 4
+    },
+    {
+      "id": "familia-36",
+      "numero": null,
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-03-19",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-03-19",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 52,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2021-04-09",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 21244,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-03-19"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 5
+    },
+    {
+      "id": "familia-37",
+      "numero": null,
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Maracena",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-04-22",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-04-22",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 55,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 62,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2020-02-02",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-01-08",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 22623,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-04-22"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 6
+    },
+    {
+      "id": "familia-38",
+      "numero": null,
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Guadix",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-05-25",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-05-25",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 58,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 65,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 29,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2019-04-02",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-06-15",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-03-17",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 24002,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-05-25"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 7
+    },
+    {
+      "id": "familia-39",
+      "numero": null,
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-06-05",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-06-05",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 61,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2018-06-07",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 25381,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-06-05"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 8
+    },
+    {
+      "id": "familia-40",
+      "numero": null,
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Granada",
+      "anio_derivacion": 2025,
+      "estado": "lista_espera",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-07-08",
+        "aceptacion": null,
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": "2025-07-08",
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 64,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 28,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2017-07-20",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-10-21",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 26760,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-07-08"
+        }
+      ],
+      "casos_frontera": [],
+      "posicion_lista_espera": 9
+    },
+    {
+      "id": "familia-41",
+      "numero": "01-06-26",
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Maracena",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-08-11",
+        "aceptacion": "2026-08-20",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 24,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 31,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 38,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2017-12-18",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2013-07-16",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-08-14",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 28139,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-08-11"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-08-20"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-42",
+      "numero": "02-06-26",
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Guadix",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-09-14",
+        "aceptacion": "2026-09-24",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 27,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-05-11",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 29518,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-09-14"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-09-24"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-43",
+      "numero": "03-06-26",
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-10-17",
+        "aceptacion": "2026-10-28",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 30,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 37,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-10-26",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-03-01",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 30897,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-10-17"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-10-28"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-44",
+      "numero": "04-06-26",
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Granada",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-11-20",
+        "aceptacion": "2026-12-02",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 33,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 40,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 47,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2014-04-19",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2010-09-08",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Álvaro",
+          "apellidos": "Torres Jiménez",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2024-02-12",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 32276,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-11-20"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-12-02"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-45",
+      "numero": "05-06-26",
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-01-23",
+        "aceptacion": "2026-01-27",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 36,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-04-09",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 33655,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-01-23"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-01-27"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-46",
+      "numero": "06-06-26",
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Íllora",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-02-03",
+        "aceptacion": "2026-02-08",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 39,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 46,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2012-05-03",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2026-04-25",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 35034,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-02-03"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-02-08"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-47",
+      "numero": "07-06-26",
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-03-06",
+        "aceptacion": "2026-03-12",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 42,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 49,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 56,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2011-09-27",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2025-12-11",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2021-03-09",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 36413,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-03-06"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-03-12"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-48",
+      "numero": "08-06-26",
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2026,
+      "estado": "aceptada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-04-09",
+        "aceptacion": "2026-04-16",
+        "consentimiento": null,
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 45,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2010-08-11",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 37792,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-04-09"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-04-16"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-49",
+      "numero": "01-07-25",
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-05-12",
+        "aceptacion": "2025-05-20",
+        "consentimiento": "2025-05-23",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 48,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 55,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2008-12-07",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2022-03-16",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 39171,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-05-12"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-05-20"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-05-23"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-50",
+      "numero": "02-07-25",
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Íllora",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-06-15",
+        "aceptacion": "2025-06-24",
+        "consentimiento": "2025-06-28",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 51,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 58,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 65,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2025-07-26",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2021-05-26",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2017-09-23",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 40550,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "conflicto_familiar"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-06-15"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-06-24"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-06-28"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-51",
+      "numero": "03-07-25",
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-07-18",
+        "aceptacion": "2025-07-28",
+        "consentimiento": "2025-08-02",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 54,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2024-08-17",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 41929,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-07-18"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-07-28"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-08-02"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-52",
+      "numero": "04-07-25",
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-08-21",
+        "aceptacion": "2025-09-01",
+        "consentimiento": "2025-09-07",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 57,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 64,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2023-06-05",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2019-06-24",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 7708,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-08-21"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-09-01"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-09-07"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-53",
+      "numero": "05-07-25",
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Maracena",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-09-24",
+        "aceptacion": "2025-10-06",
+        "consentimiento": "2025-10-13",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 60,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 24,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 31,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2022-11-22",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-02-07",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Javier",
+          "apellidos": "Moreno García",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2014-07-03",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 9087,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-09-24"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-10-06"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-10-13"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-54",
+      "numero": "06-07-25",
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Guadix",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-10-04",
+        "aceptacion": "2025-10-08",
+        "consentimiento": "2025-10-16",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 63,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2021-06-20",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 10466,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "maltrato_emocional",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-10-04"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-10-08"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-10-16"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-55",
+      "numero": "07-07-25",
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-11-07",
+        "aceptacion": "2025-11-12",
+        "consentimiento": "2025-11-21",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 23,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 30,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2020-07-05",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-03-21",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 11845,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-11-07"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-11-12"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-11-21"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-56",
+      "numero": "08-07-25",
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Granada",
+      "anio_derivacion": 2025,
+      "estado": "en_intervencion",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2025-01-10",
+        "aceptacion": "2025-01-16",
+        "consentimiento": "2025-01-26",
+        "cierre": null,
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": null,
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 26,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 33,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 40,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2019-06-05",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-12-20",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Álvaro",
+          "apellidos": "Torres Jiménez",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-12-03",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 13224,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2025-01-10"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2025-01-16"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2025-01-26"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-57",
+      "numero": "01-08-26",
+      "equipo_id": "equipo-01",
+      "equipo_inicial_id": "equipo-01",
+      "municipio": "Maracena",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-02-13",
+        "aceptacion": "2026-02-20",
+        "consentimiento": "2026-03-03",
+        "cierre": "2026-07-28",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "traslado_residencia",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 29,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2019-07-11",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 14603,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "riesgo_social"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-02-13"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-02-20"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-03-03"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-07-28"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-58",
+      "numero": "02-08-26",
+      "equipo_id": "equipo-02",
+      "equipo_inicial_id": "equipo-02",
+      "municipio": "Guadix",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-03-16",
+        "aceptacion": "2026-03-24",
+        "consentimiento": "2026-04-05",
+        "cierre": "2026-08-31",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "renuncia_familiar",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 32,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 39,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2018-11-14",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 4",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2014-12-24",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 15982,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-03-16"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-03-24"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-04-05"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-08-31"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-59",
+      "numero": "03-08-26",
+      "equipo_id": "equipo-03",
+      "equipo_inicial_id": "equipo-03",
+      "municipio": "Pinos Puente",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-04-19",
+        "aceptacion": "2026-04-28",
+        "consentimiento": "2026-05-11",
+        "cierre": "2026-10-07",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "derivacion_a_otro_servicio",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Aitana",
+          "apellidos": "Serrano Molina",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 35,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Mario",
+          "apellidos": "Cortés Medina",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 42,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Lola",
+          "apellidos": "Nieto López",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 49,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2017-11-12",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 5",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Elena",
+          "apellidos": "Ortega Moreno",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2013-03-01",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Adrián",
+          "apellidos": "Serrano Molina",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2009-02-05",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 17361,
+      "factores": {
+        "factores_familia": [
+          "conflicto_familiar",
+          "dificultad_economica"
+        ],
+        "factores_menor": [
+          "conflicto_familiar",
+          "dificultad_emocional"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-04-19"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-04-28"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-05-11"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-10-07"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-60",
+      "numero": "04-08-26",
+      "equipo_id": "equipo-04",
+      "equipo_inicial_id": "equipo-04",
+      "municipio": "Granada",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-05-22",
+        "aceptacion": "2026-06-01",
+        "consentimiento": "2026-06-03",
+        "cierre": "2026-10-31",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "objetivos_alcanzados",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Nuria",
+          "apellidos": "Moreno Vargas",
+          "papel": "padre",
+          "sexo": "mujer",
+          "edad": 38,
+          "nivel_educativo": "primaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2016-08-04",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 6",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 18740,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "dificultad_emocional",
+          "falta_supervision"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-05-22"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-06-01"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-06-03"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-10-31"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-61",
+      "numero": "05-08-26",
+      "equipo_id": "equipo-05",
+      "equipo_inicial_id": "equipo-05",
+      "municipio": "Órgiva",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-06-25",
+        "aceptacion": "2026-07-06",
+        "consentimiento": "2026-07-09",
+        "cierre": "2026-12-07",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "fin_intervencion",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Elena",
+          "apellidos": "Serrano Cortés",
+          "papel": "tutor_legal",
+          "sexo": "hombre",
+          "edad": 41,
+          "nivel_educativo": "secundaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Adrián",
+          "apellidos": "Cortés Sánchez",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 48,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Sergio",
+          "apellidos": "Nieto Navarro",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2015-02-03",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 7",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Rocío",
+          "apellidos": "López Serrano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2011-12-07",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 20119,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "salud_adulta"
+        ],
+        "factores_menor": [
+          "falta_supervision",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "dificultad_parental",
+          "negligencia"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-06-25"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-07-06"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-07-09"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-07"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-62",
+      "numero": "06-08-26",
+      "equipo_id": "equipo-06",
+      "equipo_inicial_id": "equipo-06",
+      "municipio": "Íllora",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-07-05",
+        "aceptacion": "2026-07-17",
+        "consentimiento": "2026-07-21",
+        "cierre": "2026-12-20",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "traslado_residencia",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Lucía",
+          "apellidos": "Moreno García",
+          "papel": "madre",
+          "sexo": "mujer",
+          "edad": 44,
+          "nivel_educativo": "bachillerato",
+          "situacion_laboral": "pension",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Daniel",
+          "apellidos": "Alonso Díaz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 51,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "empleo",
+          "es_tutor": false
+        },
+        {
+          "orden": 3,
+          "nombre": "Marta",
+          "apellidos": "Torres Ortega",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 58,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "desempleo",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Mario",
+          "apellidos": "Serrano Ruiz",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2014-07-08",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 8",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Lola",
+          "apellidos": "Cortés Torres",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2010-01-22",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 3,
+          "nombre": "Hugo",
+          "apellidos": "Nieto Cano",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2024-01-04",
+          "nivel_escolarizacion": "no_escolarizado",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 21498,
+      "factores": {
+        "factores_familia": [
+          "aislamiento_social",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "conflicto_familiar"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-07-05"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-07-17"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-07-21"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-20"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-63",
+      "numero": "07-08-26",
+      "equipo_id": "equipo-07",
+      "equipo_inicial_id": "equipo-07",
+      "municipio": "Almuñécar",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-08-08",
+        "aceptacion": "2026-08-12",
+        "consentimiento": "2026-08-17",
+        "cierre": "2026-12-20",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "renuncia_familiar",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Noelia",
+          "apellidos": "Serrano Ruiz",
+          "papel": "padre",
+          "sexo": "hombre",
+          "edad": 47,
+          "nivel_educativo": "formacion_profesional",
+          "situacion_laboral": "desempleo",
+          "es_tutor": true
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Samuel",
+          "apellidos": "Torres Santos",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2013-01-16",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 1",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 22877,
+      "factores": {
+        "factores_familia": [
+          "dificultad_economica",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "riesgo_social",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-08-08"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-08-12"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-08-17"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-20"
+        }
+      ],
+      "casos_frontera": []
+    },
+    {
+      "id": "familia-64",
+      "numero": "08-08-26",
+      "equipo_id": "equipo-08",
+      "equipo_inicial_id": "equipo-08",
+      "municipio": "Alhama de Granada",
+      "anio_derivacion": 2026,
+      "estado": "cerrada",
+      "subprograma": "Riesgo",
+      "fechas": {
+        "derivacion": "2026-09-11",
+        "aceptacion": "2026-09-16",
+        "consentimiento": "2026-09-22",
+        "cierre": "2026-12-20",
+        "lista_espera": null,
+        "no_aceptacion": null
+      },
+      "motivo_cierre": "derivacion_a_otro_servicio",
+      "adultos": [
+        {
+          "orden": 1,
+          "nombre": "Rocío",
+          "apellidos": "Moreno Alonso",
+          "papel": "tutor_legal",
+          "sexo": "mujer",
+          "edad": 50,
+          "nivel_educativo": "universitaria",
+          "situacion_laboral": "formacion",
+          "es_tutor": true
+        },
+        {
+          "orden": 2,
+          "nombre": "Javier",
+          "apellidos": "Alonso Delgado",
+          "papel": "madre",
+          "sexo": "hombre",
+          "edad": 57,
+          "nivel_educativo": "sin_estudios",
+          "situacion_laboral": "incapacidad_temporal",
+          "es_tutor": false
+        }
+      ],
+      "menores": [
+        {
+          "orden": 1,
+          "nombre": "Daniel",
+          "apellidos": "Moreno Vargas",
+          "sexo": "mujer",
+          "fecha_nacimiento": "2012-10-23",
+          "nivel_escolarizacion": "primaria",
+          "centro_educativo": "Centro educativo 2",
+          "subprograma": "Riesgo"
+        },
+        {
+          "orden": 2,
+          "nombre": "Marta",
+          "apellidos": "Alonso Nieto",
+          "sexo": "hombre",
+          "fecha_nacimiento": "2026-01-20",
+          "nivel_escolarizacion": "secundaria",
+          "centro_educativo": "Centro educativo 3",
+          "subprograma": "Riesgo"
+        }
+      ],
+      "ingresos_anuales_eur": 24256,
+      "factores": {
+        "factores_familia": [
+          "salud_adulta",
+          "vivienda_inestable"
+        ],
+        "factores_menor": [
+          "absentismo",
+          "necesidad_apoyo_escolar"
+        ],
+        "tipologias": [
+          "negligencia",
+          "violencia_familiar"
+        ]
+      },
+      "hitos": [
+        {
+          "tipo": "derivacion_recibida",
+          "fecha": "2026-09-11"
+        },
+        {
+          "tipo": "aceptada",
+          "fecha": "2026-09-16"
+        },
+        {
+          "tipo": "consentimiento",
+          "fecha": "2026-09-22"
+        },
+        {
+          "tipo": "cerrada",
+          "fecha": "2026-12-20"
+        }
+      ],
+      "casos_frontera": []
+    }
+  ]
+}

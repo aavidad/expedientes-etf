@@ -1,0 +1,6 @@
+{
+  "expediente.cierre_invalido": "Revisa la fecha y los datos del cierre o de la reapertura.",
+  "expediente.cierre_segunda_persona": "El cierre debe confirmarlo una persona distinta de quien lo propuso.",
+  "expediente.cierre_bloqueado_anexo5": "El SPM sigue pendiente. Coordinación debe registrar un cierre forzado con motivo para poder cerrar.",
+  "expediente.cierre_sin_anexo": "No consta la emisión del Anexo 11 o 12. Puedes confirmar el cierre."
+}

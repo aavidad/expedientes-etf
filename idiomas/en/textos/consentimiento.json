@@ -1,0 +1,8 @@
+{
+  "expediente.hito_tipo_invalido": "Choose consent or the date of Annex 7 or 8.",
+  "expediente.hito_fecha_invalida": "Enter the actual date, between case acceptance and today.",
+  "expediente.confirmar_hito": "Case date confirmation",
+  "expediente.consultar_hitos": "Case dates viewed",
+  "expediente.consultar_recibo_hito": "Previous confirmation result viewed",
+  "expediente.hito_rechazado": "Case date confirmation or viewing rejected"
+}

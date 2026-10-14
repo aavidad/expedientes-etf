@@ -1,0 +1,27 @@
+rules:
+  - id: pwa1-sin-cachestorage
+    paths:
+      include: [web/public/service-worker.js, web/src/pwa1/**]
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: pwa1.almacenamiento_prohibido
+    pattern-either:
+      - pattern: caches.open(...)
+      - pattern: caches.match(...)
+      - pattern: $CACHE.put(...)
+      - pattern: $CACHE.addAll(...)
+      - pattern: indexedDB.open(...)
+      - pattern: localStorage.setItem(...)
+      - pattern: sessionStorage.setItem(...)
+  - id: pwa1-sin-script-inline-inseguro
+    languages: [go]
+    severity: ERROR
+    message: pwa1.csp_insegura
+    pattern-regex: "script-src[^;\n]*'unsafe-inline'"
+  - id: pwa1-demo-sin-shell
+    languages: [python]
+    severity: ERROR
+    message: pwa1.shell_insegura
+    pattern-either:
+      - pattern: subprocess.run(..., shell=True, ...)
+      - pattern: subprocess.Popen(..., shell=True, ...)

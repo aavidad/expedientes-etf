@@ -1,0 +1,11 @@
+{
+  "estadistica.consulta_fecha": "Fecha de las cifras:",
+  "estadistica.consulta_provisional": "Cifras provisionales. La Memoria está abierta.",
+  "estadistica.consulta_definitiva": "Cifras definitivas de la Memoria cerrada.",
+  "estadistica.memoria_filtro_invalido": "Revisa el año, el equipo y los parámetros de la petición.",
+  "memoria.consulta_fecha": "Fecha de las cifras: {fecha}",
+  "memoria.consulta_provisional": "Cifras provisionales",
+  "memoria.consulta_definitiva": "Cifras definitivas de la Memoria cerrada",
+  "memoria.consulta_vacia": "No hay cifras disponibles para este año y ámbito.",
+  "memoria.consulta_ayuda": "Elige el año y el equipo, o la provincia. Las cifras provisionales se calculan al consultar. Las definitivas corresponden a una Memoria cerrada."
+}

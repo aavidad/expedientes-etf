@@ -1,0 +1,17 @@
+{
+  "catalogo.numeracion_invalida": "The numbering rule cannot assign this number. Check its settings.",
+  "expediente.aceptacion_incompleta": "Confirm the acceptance date, municipality, centre, team, subprogramme and situation description.",
+  "expediente.profesional_invalido": "Choose the TS, ES or PS position. If you specify a person, they must be active and belong to the selected team.",
+  "expediente.sexo_obligatorio": "Provide the sex of every child, without omissions or duplicates.",
+  "expediente.idempotencia_obligatoria": "This confirmation could not be identified. Try again from the screen.",
+  "expediente.numeracion_agotada": "The team has reached the annual limit of the numbering rule. Check the settings before accepting.",
+  "error.conflicto_version": "Someone else has changed the case. Review the current version before continuing.",
+  "error.estado_no_permite": "The current case status does not allow this action.",
+  "expediente.aceptacion_peticion_invalida": "Check the acceptance details and try again.",
+  "expediente.motivo_obligatorio": "Enter the reason for declining the referral (maximum 20,000 bytes).",
+  "expediente.subprograma_invalido": "Confirm the subprogramme specified in the annex. Annex 3 referrals belong to Risk.",
+  "expediente.espera_solo_comunitarios": "Only Community Social Services referrals (Annex 3) can be placed on the waiting list.",
+  "expediente.aceptacion_espera_fecha_real": "When accepting a referral from the waiting list, confirm today’s date.",
+  "expediente.decision_peticion_invalida": "Check the decision details or the waiting list filters.",
+  "expediente.decision_origen_invalido": "This referral does not allow this decision. Check the annex and subprogramme."
+}

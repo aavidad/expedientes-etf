@@ -1,0 +1,17 @@
+.memoria { min-width: 0; }
+.memoria-cabecera, .memoria-filtros, .memoria-bloques, .memoria-personal { display: flex; flex-wrap: wrap; gap: var(--espacio-5); align-items: center; }
+.memoria-cabecera > button:last-child { margin-inline-start: auto; }
+.memoria-filtros > div, .memoria-personal > div { flex: 1; min-width: min(100%, var(--ancho-buscador)); }
+.memoria-tarjeta, .memoria-apartado { padding: var(--espacio-tarjeta); margin-block: var(--espacio-entre-tarjetas); background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); overflow-wrap: anywhere; }
+.memoria label { display: block; margin-block: var(--espacio-3); }
+.memoria input, .memoria select, .memoria textarea { width: 100%; box-sizing: border-box; min-height: var(--alto-control); font: inherit; color: var(--color-texto); background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); padding: var(--espacio-3); }
+.memoria textarea { min-height: var(--espacio-10); resize: vertical; }
+.memoria-tabla { overflow-x: auto; max-width: 100%; }
+.memoria table { width: 100%; border-collapse: collapse; overflow-wrap: normal; word-break: normal; }
+.memoria th, .memoria td { padding: var(--espacio-3); text-align: start; border-block-end: var(--borde-normal) solid var(--color-borde); }
+.memoria caption { text-align: start; padding-block: var(--espacio-3); font-weight: var(--peso-seminegrita); }
+.memoria-aviso { color: var(--color-aviso-texto); background: var(--color-aviso-fondo); padding: var(--espacio-3); }
+.memoria td span { display: block; }
+.memoria summary { min-height: var(--alto-control); cursor: pointer; }
+.memoria fieldset { min-width: 0; }
+.memoria dialog { max-width: min(var(--ancho-buscador), calc(100% - var(--espacio-8))); box-sizing: border-box; }

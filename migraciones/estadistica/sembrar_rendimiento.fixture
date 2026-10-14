@@ -1,0 +1,55 @@
+-- Datos inventados para una base desechable; no es una migración.
+BEGIN;
+INSERT INTO catalogo.equipo(codigo,clave_texto,activo_desde)
+VALUES('09','equipo.09','2024-01-01');
+INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
+VALUES('40404040-4040-4040-8040-404040404040','40404040-4040-4040-8040-404040404041',
+ 'elena.nunez','Elena Núñez Romero','activo','2024-01-01','2026-12-31');
+CREATE TEMP TABLE carga AS
+SELECT gen_random_uuid() id,eq.id equipo_id,eq.codigo,n,
+ make_date(2024+(n/9)%3,1,15)+(n%300) fecha,
+ '40404040-4040-4040-8040-404040404040'::uuid usuario
+FROM generate_series(0,2999) n
+JOIN (SELECT id,codigo,row_number() OVER(ORDER BY codigo)-1 posicion FROM catalogo.equipo) eq ON eq.posicion=n%9;
+INSERT INTO expediente.expediente(id,numero,equipo_id,municipio_id,estado,fecha_recepcion,version,
+ centro_ss_id,anio_numero,correlativo,regla_numeracion_id,fecha_aceptacion,subprograma,
+ profesional_referencia_puesto,descripcion_situacion,fase_intervencion,modificado_por,modificado_en)
+SELECT c.id,c.codigo||'-'||(c.n+1)||'-'||to_char(c.fecha,'YY'),c.equipo_id,
+ (SELECT id FROM catalogo.municipio ORDER BY ine LIMIT 1),'aceptada',c.fecha-7,2,
+ (SELECT id FROM catalogo.centro_ss ORDER BY codigo LIMIT 1),extract(year FROM c.fecha),c.n+1,
+ (SELECT version_id FROM catalogo.regla_numeracion LIMIT 1),c.fecha,'RIESGO_SOCIAL',
+ 'TS','La familia solicita acompañamiento.','recepcion',c.usuario,c.fecha FROM carga c;
+INSERT INTO expediente.derivacion_datos(expediente_id,esquema_version,contenido)
+SELECT id,'1',jsonb_build_object('contenido',jsonb_build_object('tipo','anexo3','campos',
+ jsonb_build_array(jsonb_build_object('codigo','familia.contacto.nombre','valor','Carlos'),
+ jsonb_build_object('codigo','familia.contacto.apellidos','valor','Ortega Serrano')))) FROM carga;
+INSERT INTO expediente.episodio(expediente_id,equipo_id,apertura_fecha,creado_por,creado_en)
+SELECT id,equipo_id,fecha,usuario,fecha FROM carga;
+INSERT INTO expediente.hito(expediente_id,equipo_id,episodio_id,tipo,origen,fecha,confirmado_por,confirmado_en)
+SELECT c.id,c.equipo_id,p.id,'aceptacion','documento_externo',c.fecha,c.usuario,c.fecha
+FROM carga c JOIN expediente.episodio p ON p.expediente_id=c.id;
+INSERT INTO expediente.dato_estadistico_vigencia(expediente_id,equipo_id,entidad_tipo,entidad_id,atributo,valor,vigente_desde,registrado_en,registrado_por)
+SELECT id,equipo_id,'expediente',id,'subprograma','"RIESGO_SOCIAL"',fecha,fecha,usuario FROM carga;
+INSERT INTO expediente.familia_revision(expediente_id,equipo_id,version,vigente_desde,valor,registrado_por,registrado_en)
+SELECT id,equipo_id,v,fecha+(v-1)*10,
+ jsonb_build_object('composicion_familiar','BIPARENTAL','familia_numerosa',false,
+ 'situacion_economica','AUTONOMA','ingresos_anuales_centimos',1800000+n*10),usuario,fecha+(v-1)*10
+FROM carga CROSS JOIN generate_series(1,3) v;
+INSERT INTO expediente.adulto(id,expediente_id,equipo_id,papel,sexo,datos)
+SELECT gen_random_uuid(),id,equipo_id,'MADRE','M','{}' FROM carga;
+INSERT INTO expediente.adultos_revision(expediente_id,equipo_id,version,vigente_desde,registrado_por,registrado_en)
+SELECT id,equipo_id,v,fecha+(v-1)*10,usuario,fecha+(v-1)*10 FROM carga CROSS JOIN generate_series(1,3) v;
+INSERT INTO expediente.adulto_revision(revision_id,adulto_id,expediente_id,equipo_id,orden,papel,sexo,fecha_nacimiento,nivel_educativo,situacion_laboral)
+SELECT r.id,a.id,c.id,c.equipo_id,1,'MADRE','M','1985-03-12','SECUNDARIOS','EMPLEO_FIJO'
+FROM carga c JOIN expediente.adultos_revision r ON r.expediente_id=c.id JOIN expediente.adulto a ON a.expediente_id=c.id;
+INSERT INTO expediente.menor(expediente_id,equipo_id,orden,sexo,datos)
+SELECT id,equipo_id,v,CASE WHEN v=1 THEN 'H' ELSE 'M' END,'{"nombre":"Álex"}' FROM carga CROSS JOIN generate_series(1,2) v;
+INSERT INTO expediente.menores_revision(expediente_id,equipo_id,version,vigente_desde,registrado_por,registrado_en)
+SELECT id,equipo_id,1,fecha,usuario,fecha FROM carga;
+INSERT INTO expediente.menor_revision(revision_id,menor_id,expediente_id,equipo_id,orden,sexo,fecha_nacimiento,nivel_escolarizacion,subprograma)
+SELECT r.id,m.id,c.id,c.equipo_id,m.orden,m.sexo,make_date(2010+m.orden,5,3),'PRIMARIA','RIESGO_SOCIAL'
+FROM carga c JOIN expediente.menores_revision r ON r.expediente_id=c.id JOIN expediente.menor m ON m.expediente_id=c.id;
+INSERT INTO expediente.intervencion_revision(expediente_id,equipo_id,version,vigente_desde,fase,listas_conocidas,registrado_por,registrado_en)
+SELECT id,equipo_id,1,fecha,'recepcion',ARRAY['coordinacion','factor_familia','factor_menor','tipologia'],usuario,fecha FROM carga;
+COMMIT;
+ANALYZE;

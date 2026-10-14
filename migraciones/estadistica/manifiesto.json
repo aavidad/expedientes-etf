@@ -1,0 +1,68 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_narrativas.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0010"
+      },
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_cierre_memoria.sql",
+    "depende_de": [
+      {
+        "modulo": "estadistica",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_cifras_memoria.sql",
+    "depende_de": [
+      {
+        "modulo": "estadistica",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0005",
+    "archivo": "0005_consulta_memoria.sql",
+    "depende_de": [
+      {
+        "modulo": "estadistica",
+        "numero": "0004"
+      },
+      {
+        "modulo": "actividad",
+        "numero": "0001"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0022"
+      }
+    ]
+  },
+  {
+    "numero": "0006",
+    "archivo": "0006_consulta_sin_bloqueo.sql",
+    "depende_de": [
+      {
+        "modulo": "estadistica",
+        "numero": "0005"
+      },
+      {
+        "modulo": "actividad",
+        "numero": "0001"
+      }
+    ]
+  }
+]

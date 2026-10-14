@@ -1,0 +1,18 @@
+{
+  "smi.navegacion": "National minimum wage",
+  "smi.titulo": "National minimum wage",
+  "smi.presentacion": "The annual amount covers 14 payments.",
+  "smi.tabla": "National minimum wage amounts by year",
+  "smi.anio": "Year",
+  "smi.mensual": "Monthly amount in euros",
+  "smi.anual": "Annual amount with 14 payments",
+  "smi.acciones": "Actions",
+  "smi.dos_decimales": "Enter euros with up to two decimal places.",
+  "smi.pendiente": "Not configured",
+  "smi.guardar": "Save amount",
+  "smi.guardando": "Saving…",
+  "smi.cargando": "Loading amounts…",
+  "smi.conflicto": "Someone else updated this year. Current data has been loaded; review the amount before saving again.",
+  "catalogo.smi_invalido": "Enter an amount greater than zero with no more than two decimal places.",
+  "catalogo.smi_no_disponible": "No amount is configured for that year."
+}

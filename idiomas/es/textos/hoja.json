@@ -1,0 +1,10 @@
+{
+  "expediente.hoja_formato": "Usa un CSV en UTF-8 o un XLSX con una sola hoja visible. Revisa las cabeceras. No se admiten fórmulas, macros ni enlaces externos.",
+  "expediente.hoja_limites": "La hoja admite hasta 10 MB y 100 casos por lote. Divide los casos en hojas separadas si superas ese límite.",
+  "expediente.hoja_antivirus": "No se ha podido comprobar la hoja con el antivirus. No se ha importado ningún caso. Vuelve a intentarlo cuando el servicio esté disponible.",
+  "expediente.hoja_cambiada": "La hoja o el equipo no coinciden con la vista previa. Vuelve a validar la hoja antes de confirmar.",
+  "expediente.hoja_columnas": "Esta fila tiene más columnas que la cabecera. Revisa los separadores y las comillas del CSV.",
+  "expediente.hoja_json": "Revisa esta columna: debe contener una lista JSON con los campos del formato de carga. La lista no puede ser null ni contener elementos null. No añadas campos ajenos al contrato.",
+  "expediente.hoja_no_aceptada": "Deja vacíos los campos de aceptación en un caso no aceptado.",
+  "expediente.hoja_aceptada": "Deja vacíos la fecha y la causa de no aceptación en un caso aceptado."
+}

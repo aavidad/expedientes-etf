@@ -1,0 +1,36 @@
+rules:
+  - id: etf-lector-docx-solo-memoria
+    languages: [go]
+    severity: ERROR
+    message: anexo.docx_acceso_externo
+    paths:
+      include: [lector.go, campos.go, xml.go]
+    pattern-either:
+      - pattern: os.Open(...)
+      - pattern: os.OpenFile(...)
+      - pattern: os.Create(...)
+      - pattern: os.CreateTemp(...)
+      - pattern: os.ReadFile(...)
+      - pattern: os.WriteFile(...)
+      - pattern: exec.Command(...)
+      - pattern: exec.CommandContext(...)
+      - pattern: http.Get(...)
+      - pattern: http.Post(...)
+      - pattern: http.NewRequest(...)
+      - pattern: net.Dial(...)
+  - id: etf-lector-docx-sin-registros-de-datos
+    languages: [go]
+    severity: ERROR
+    message: anexo.docx_registro_de_datos
+    paths:
+      include: [lector.go, campos.go, xml.go]
+    pattern-either:
+      - pattern: fmt.Print(...)
+      - pattern: fmt.Printf(...)
+      - pattern: fmt.Println(...)
+      - pattern: log.Print(...)
+      - pattern: log.Printf(...)
+      - pattern: log.Println(...)
+      - pattern: slog.Info(...)
+      - pattern: slog.Error(...)
+      - pattern: println(...)

@@ -1,0 +1,6 @@
+{
+  "expediente.crear_salida_servicio": "Se ha registrado la propuesta de derivación a otro servicio.",
+  "expediente.confirmar_salida_servicio": "Se ha confirmado la fecha de derivación a otro servicio.",
+  "expediente.salida_servicio_rechazada": "No se ha podido registrar la derivación a otro servicio.",
+  "expediente.salida_servicio.peticion_invalida": "Revisa el servicio de destino, el motivo, la fecha y las versiones de la derivación."
+}

@@ -1,0 +1,9 @@
+{
+  "nivel_escolarizacion.SIN_ESCOLARIZAR": "Sin escolarizar",
+  "nivel_escolarizacion.INFANTIL": "Educación infantil",
+  "nivel_escolarizacion.PRIMARIA": "Educación primaria",
+  "nivel_escolarizacion.ESO": "Educación secundaria obligatoria",
+  "nivel_escolarizacion.BACHILLERATO": "Bachillerato",
+  "nivel_escolarizacion.FP": "Formación profesional",
+  "nivel_escolarizacion.OTRA": "Otra escolarización"
+}

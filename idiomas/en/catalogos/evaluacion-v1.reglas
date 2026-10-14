@@ -1,0 +1,23 @@
+{
+  "codigos": [
+    "VALORAME",
+    "ECP12",
+    "SCORE15",
+    "SDQ",
+    "SOATIF",
+    "AAPI25",
+    "SATISFACCION",
+    "CRITERIOS_GR",
+    "CWBS",
+    "CAP",
+    "DEPRESION",
+    "PERSONALIDAD",
+    "AUTOCONCEPTO_PH",
+    "ADAPTACION_SOCIOEMOCIONAL",
+    "ACTIVACION_EMPATICA",
+    "CEIC_CEICA",
+    "ACHENBACH",
+    "OTROS"
+  ],
+  "escalas": []
+}

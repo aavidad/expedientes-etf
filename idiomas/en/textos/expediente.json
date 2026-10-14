@@ -1,0 +1,14 @@
+{
+  "expediente.valorame_pendiente": "The VALÓRAME assessment needs to be recorded in the assessment section.",
+  "expediente.acceso_denegado": "You need the Coordination role to access referrals.",
+  "expediente.anexo_tamano": "The file exceeds the 10 MB limit.",
+  "expediente.anexo_formato": "Upload a valid Word (.docx) or PDF document.",
+  "expediente.anexo_infectado": "The antivirus detected a threat. The referral has not been recorded.",
+  "expediente.no_disponible": "The operation could not be completed. Check the result before trying again.",
+  "expediente.derivacion_no_encontrada": "This referral could not be found.",
+  "expediente.peticion_invalida": "Select a single annex and upload it again.",
+  "expediente.antivirus_no_revisado": "The file could not be checked by the antivirus. The referral has been recorded and needs review.",
+  "expediente.identificador_omitido": "A personal identification number was omitted. Review the field.",
+  "expediente.anexo_demasiados_menores": "The annex contains more than 15 children. Review the document before uploading it.",
+  "expediente.familia_invalida": "Check the family and adult details and the date from which they apply."
+}

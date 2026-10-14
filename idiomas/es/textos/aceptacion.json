@@ -1,0 +1,17 @@
+{
+  "catalogo.numeracion_invalida": "La regla de numeración no permite asignar este número. Revisa su configuración.",
+  "expediente.aceptacion_incompleta": "Confirma la fecha del Acta, municipio, centro, equipo, subprograma y descripción de la situación.",
+  "expediente.profesional_invalido": "Elige el puesto TS, ES o PS. Si indicas una persona, debe estar activa y pertenecer al equipo elegido.",
+  "expediente.sexo_obligatorio": "Indica el sexo de cada menor, sin omitir ni repetir ninguno.",
+  "expediente.idempotencia_obligatoria": "No se ha podido identificar esta confirmación. Vuelve a intentarlo desde la pantalla.",
+  "expediente.numeracion_agotada": "El equipo ha alcanzado el límite anual de la regla de numeración. Revisa la configuración antes de aceptar.",
+  "error.conflicto_version": "Otra persona ha cambiado el expediente. Revisa la versión actual antes de continuar.",
+  "error.estado_no_permite": "El estado actual del expediente no permite esta acción.",
+  "expediente.aceptacion_peticion_invalida": "Revisa los datos de la aceptación y vuelve a intentarlo.",
+  "expediente.motivo_obligatorio": "Escriba el motivo de la no aceptación (máximo 20.000 bytes).",
+  "expediente.subprograma_invalido": "Confirme el subprograma indicado en el anexo. Las derivaciones del Anexo 3 corresponden a Riesgo.",
+  "expediente.espera_solo_comunitarios": "Sólo pueden quedar en lista de espera las derivaciones de Servicios Sociales Comunitarios (Anexo 3).",
+  "expediente.aceptacion_espera_fecha_real": "Al aceptar desde la lista de espera, confirme la fecha de hoy.",
+  "expediente.decision_peticion_invalida": "Revisa los datos de la decisión o los filtros de la lista de espera.",
+  "expediente.decision_origen_invalido": "La derivación no permite esta decisión. Revisa el anexo y el subprograma."
+}

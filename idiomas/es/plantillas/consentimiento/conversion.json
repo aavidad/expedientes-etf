@@ -1,0 +1,19 @@
+{
+  "repetidos": {
+    "En localidad, a Haga clic aquí o pulse para escribir una fecha.": [
+      "En {{municipio}}, a {{fecha_documento}}.",
+      "En {{municipio}}, a {{fecha_documento}}.",
+      "En {{municipio}}, a ____________________."
+    ]
+  },
+  "reemplazos": {
+    "Elija un elemento., nombre y apellidos con DNI número de DNI., con domicilio en dirección completa., en la localidad de localidad. (Elija un elemento.) y número de teléfono número de teléfono.": "{{familia}}, con DNI ____________________, con domicilio en ____________________, en la localidad de ____________________ (____________________) y número de teléfono ____________________.",
+    "La Delegación Territorial de la Consejería de Inclusión Social, Juventud, Familias e Igualdad, desde el Servicio de Prevención, es el organismo público competente en la coordinación y el seguimiento del Programa de tratamiento a familias con menores en situación de riesgo o desprotección, siendo responsable de su ejecución la entidad local indicar entidad local.": "La Delegación Territorial de la Consejería de Inclusión Social, Juventud, Familias e Igualdad, desde el Servicio de Prevención, es el organismo público competente en la coordinación y el seguimiento del Programa de tratamiento a familias con menores en situación de riesgo o desprotección, siendo responsable de su ejecución la entidad local ____________________.",
+    "Los datos de contacto de dicha entidad local son: Haga clic o pulse aquí para escribir texto.": "Los datos de contacto de dicha entidad local son: ____________________.",
+    "El/la indicar entidad local que corresponda es el responsable del tratamiento de los datos de carácter personal gestionados en el Programa.": "El/la ____________________ que corresponda es el responsable del tratamiento de los datos de carácter personal gestionados en el Programa.",
+    "Yo, Elija un elemento., nombre y apellidos con DNI número de DNI., de forma libre y consciente he decidido/hemos decidido retirar el consentimiento para participar en el Programa de Tratamiento Familiar. Asumo/asumimos las consecuencias que de ello puedan derivarse.": "Yo, {{familia}}, con DNI ____________________, de forma libre y consciente he decidido/hemos decidido retirar el consentimiento para participar en el Programa de Tratamiento Familiar. Asumo/asumimos las consecuencias que de ello puedan derivarse.",
+    "Nombres y apellidos de los miembros de la familia firmantes.": "Nombres y apellidos de los miembros de la familia firmantes: {{familia}}",
+    "Nombres y apellidos de la persona menor de edad .": "Nombres y apellidos de la persona menor de edad: {{menores_lista}}",
+    "Nombres y apellidos de la persona menor de edad; (En todo caso, tendrán que firmar la revocación las personas menores de edad con doce años cumplidos o más) .": "Nombres y apellidos de la persona menor de edad: {{menores_lista}}; (En todo caso, tendrán que firmar la revocación las personas menores de edad con doce años cumplidos o más)."
+  }
+}

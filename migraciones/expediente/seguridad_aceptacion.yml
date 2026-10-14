@@ -1,0 +1,46 @@
+rules:
+  - id: etf-aceptacion-sql-interpolado
+    languages: [go]
+    severity: ERROR
+    message: Las entradas HTTP deben llegar a SQL mediante parámetros.
+    pattern-either:
+      - pattern: $DB.Exec($CTX, fmt.Sprintf(...), ...)
+      - pattern: $DB.Query($CTX, fmt.Sprintf(...), ...)
+      - pattern: $DB.QueryRow($CTX, fmt.Sprintf(...), ...)
+  - id: etf-aceptacion-secretos-en-registro
+    languages: [go]
+    severity: ERROR
+    message: No registrar datos de sesión ni el cuerpo de la petición.
+    pattern-either:
+      - pattern: $LOG.Info(..., $REQ.Header, ...)
+      - pattern: $LOG.Error(..., $REQ.Header, ...)
+      - pattern: $LOG.Info(..., $REQ.Body, ...)
+      - pattern: $LOG.Error(..., $REQ.Body, ...)
+  - id: etf-aceptacion-cliente-csrf
+    languages: [go]
+    severity: ERROR
+    message: La identidad debe salir de la sesión, nunca de cabeceras de permisos.
+    pattern-either:
+      - pattern: $REQ.Header.Get("X-Usuario-ID")
+      - pattern: $REQ.Header.Get("X-Perfiles")
+      - pattern: $REQ.Header.Get("X-Equipo-ID")
+
+  - id: etf-aceptacion-http-sql
+    languages: [go]
+    mode: taint
+    severity: ERROR
+    message: No introducir entradas HTTP dentro del texto SQL.
+    pattern-sources:
+      - pattern: $R.PathValue(...)
+      - pattern: $R.Header.Get(...)
+      - patterns:
+          - pattern: $D.Decode(&$P)
+          - focus-metavariable: $P
+        by-side-effect: true
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: $DB.Exec($CTX, $SQL, ...)
+              - pattern: $DB.Query($CTX, $SQL, ...)
+              - pattern: $DB.QueryRow($CTX, $SQL, ...)
+          - focus-metavariable: $SQL

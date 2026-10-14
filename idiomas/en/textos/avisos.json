@@ -1,0 +1,6 @@
+{
+  "expediente.aviso_consentimiento": "The deadline since acceptance has passed without confirmed consent.",
+  "expediente.aviso_fase": "The intervention phase has exceeded its indicative duration.",
+  "expediente.aviso_memoria_dato_faltante": "Complete this field for the annual report.",
+  "catalogo.avisos_iniciales": "Initial alert deadlines"
+}

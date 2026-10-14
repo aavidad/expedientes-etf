@@ -1,0 +1,105 @@
+// PWA1: instalabilidad en Chrome y ausencia de almacenamiento de datos.
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { readFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
+import { chromium, baseLocal, restringir } from './comun.mjs';
+const base = baseLocal(process.argv[2]);
+// Los volúmenes de una demo anterior no se renuevan al reconstruir su imagen.
+process.stdout.write(execFileSync('python3', ['-B', 'scripts/pwa1/preparar_demo.py', base], { cwd: new URL('../../', import.meta.url), encoding: 'utf8' }));
+const claves = JSON.parse(await readFile(new URL('../../despliegue/demo/.local/usuarios.json', import.meta.url)));
+const es = JSON.parse(await readFile(new URL('../../idiomas/es/textos/pwa1.json', import.meta.url)));
+const en = JSON.parse(await readFile(new URL('../../idiomas/en/textos/pwa1.json', import.meta.url)));
+const capturas = new URL('../../docs/capturas/', import.meta.url);
+await mkdir(capturas, { recursive: true });
+const perfil = await mkdtemp(`${process.env.TMPDIR || '/dev/shm/etf/tmp'}/pwa1-chrome-`);
+const context = await chromium.launchPersistentContext(perfil, { executablePath: '/usr/bin/google-chrome', headless: true, viewport: { width: 1440, height: 1000 } });
+try {
+ await restringir(context, base);
+ const page = await context.newPage();
+ page.setDefaultTimeout(15000);
+ await page.addInitScript(() => {
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); window.pwaInstalable = true; });
+ });
+ await page.goto(base);
+ await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
+ const cdp = await context.newCDPSession(page);
+ await cdp.send('Page.enable');
+ const manifesto = await cdp.send('Page.getAppManifest');
+ assert.equal(manifesto.errors.length, 0, JSON.stringify(manifesto.errors));
+ const m = JSON.parse(manifesto.data);
+ assert.equal(m.name, es['pwa1.nombre']); assert.equal(m.display, 'standalone');
+ assert.equal(m.start_url, '/'); assert.equal(m.scope, '/'); assert.equal(m.icons.length, 4);
+ for (const icono of m.icons) {
+  const r = await context.request.get(base + icono.src);
+  assert.equal(r.status(), 200); assert.match(r.headers()['content-type'], /image\/png/);
+  const png = await r.body();
+  const esperado = Number(icono.sizes.split('x')[0]);
+  assert.equal(png.readUInt32BE(16), esperado); assert.equal(png.readUInt32BE(20), esperado);
+ }
+ const instalacion = await cdp.send('Page.getInstallabilityErrors');
+ assert.deepEqual(instalacion.installabilityErrors, []);
+ await page.waitForFunction(() => window.pwaInstalable === true);
+ console.log('PWA1-CHROME: manifiesto válido; beforeinstallprompt recibido; errores de instalabilidad: 0.');
+ await page.locator('#cuenta-ad').fill('ines.moreno');
+ await page.locator('#contrasena-ad').fill(claves['ines.moreno']);
+ await page.locator('button[type=submit]').click();
+ await page.locator('#cuenta-ad').waitFor({ state: 'detached' });
+ await page.screenshot({ path: new URL('pwa1-escritorio.png', capturas).pathname, fullPage: true });
+ await page.setViewportSize({ width: 390, height: 844 });
+ await page.screenshot({ path: new URL('pwa1-movil.png', capturas).pathname, fullPage: true });
+ const sesion = await page.evaluate(async () => (await fetch('/api/sesion')).json());
+ assert.equal(sesion.estado, 'activo'); assert(sesion.perfiles.includes('coordinacion'));
+ const bandeja = await page.evaluate(async () => { const r = await fetch('/api/coordinacion/bandeja?limite=20'); return { estado: r.status, datos: await r.json() }; });
+ assert.equal(bandeja.estado, 200); assert(bandeja.datos);
+ const cachesAntes = await page.evaluate(async () => {
+  const nombres = await caches.keys();
+  return Promise.all(nombres.map(async nombre => ({ nombre, urls: (await (await caches.open(nombre)).keys()).map(r => r.url) })));
+ });
+ assert.deepEqual(cachesAntes, []);
+ const almacenamiento = await cdp.send('Storage.getUsageAndQuota', { origin: base });
+ assert.equal(almacenamiento.usageBreakdown.find(u => u.storageType === 'cache_storage')?.usage ?? 0, 0);
+ await context.setOffline(true);
+ assert.equal(await page.evaluate(async () => { try { await fetch('/api/sesion'); return false; } catch { return true; } }), true);
+ const offline = await page.goto(base + '/coordinacion');
+ assert.equal(offline.status(), 503);
+ await page.getByRole('heading', { name: es['pwa1.sin_conexion'], exact: true }).waitFor();
+ assert.equal(await page.getByText('Inés Moreno', { exact: true }).count(), 0);
+ assert((await page.getByRole('link').boundingBox()).height >= 44);
+ const tokensBase = JSON.parse(await readFile(new URL('../../temas/expedientes-etf/tokens.json', import.meta.url)));
+ assert.equal(await page.evaluate(() => getComputedStyle(document.body).padding), tokensBase['espacio.8']);
+ await page.screenshot({ path: new URL('pwa1-sin-conexion-movil.png', capturas).pathname, fullPage: true });
+ await page.setViewportSize({ width: 1440, height: 1000 });
+ await page.screenshot({ path: new URL('pwa1-sin-conexion-escritorio.png', capturas).pathname, fullPage: true });
+ assert.deepEqual(await page.evaluate(() => caches.keys()), []);
+ await context.setOffline(false);
+ await page.getByRole('link').click();
+ await page.locator('.persona-conectada > summary').click();
+ await page.locator('.preferencias > summary').click();
+ await page.locator('#tema').selectOption('alto-contraste');
+ await page.waitForFunction(() => document.querySelector('link[rel="manifest"]').href.includes('alto-contraste'));
+ const alto = await page.evaluate(async () => (await fetch(document.querySelector('link[rel="manifest"]').href)).json());
+ const tokens = JSON.parse(await readFile(new URL('../../temas/alto-contraste/tokens.json', import.meta.url)));
+ assert.equal(alto.theme_color, tokens['color.acento']); assert.equal(alto.background_color, tokens['color.fondo']);
+ await page.locator('#idioma').selectOption('en');
+ await page.waitForFunction(() => document.documentElement.lang === 'en');
+ await page.waitForFunction(async () => {
+  const r = await navigator.serviceWorker.getRegistration();
+  return r?.active?.scriptURL.includes('idioma=en') && navigator.serviceWorker.controller?.scriptURL.includes('idioma=en');
+ });
+ const otra = await context.newPage();
+ await otra.goto(base);
+ await otra.waitForFunction(() => document.documentElement.lang === 'es' && navigator.serviceWorker.controller);
+ await page.waitForTimeout(300);
+ await context.setOffline(true);
+ await otra.goto(base + '/coordinacion');
+ await otra.getByRole('heading', { name: es['pwa1.sin_conexion'], exact: true }).waitFor();
+ await page.goto(base + '/coordinacion');
+ await page.getByRole('heading', { name: en['pwa1.sin_conexion'], exact: true }).waitFor();
+ await cdp.send('ServiceWorker.enable');
+ await cdp.send('ServiceWorker.stopAllWorkers');
+ await page.reload();
+ await page.getByRole('heading', { name: en['pwa1.sin_conexion'], exact: true }).waitFor();
+ assert.deepEqual(await page.evaluate(() => caches.keys()), []);
+ console.log('PWA1-PRIVACIDAD: sesión de Coordinación comprobada; API falla sin red; aviso es/en; CacheStorage vacío (0 bytes).');
+ console.log('PWA1-TEMA: manifiesto actualizado desde alto-contraste; iconos 192/512 y maskable válidos.');
+} finally { await context.close(); await rm(perfil, { recursive: true, force: true }); }

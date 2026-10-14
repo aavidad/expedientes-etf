@@ -1,0 +1,11 @@
+{
+  "evaluacion.peticion_invalida": "Check the assessment details before saving.",
+  "evaluacion.acceso_denegado": "You do not have permission to view or change this assessment.",
+  "evaluacion.sujeto_invalido": "Select who the assessment applies to and check their link to the case.",
+  "evaluacion.puntuacion_invalida": "Check the scores: each item must have a single value within the scale limits.",
+  "evaluacion.version_escala_invalida": "The scale version is unavailable or its rules are incomplete.",
+  "evaluacion.no_encontrada": "The assessment could not be found.",
+  "evaluacion.no_disponible": "The assessment operation could not be completed. Try again.",
+  "evaluacion.conflicto": "Someone else has changed the evaluation. Review the current version before saving.",
+  "evaluacion.idempotencia_incompatible": "This request was already used with different data. Review the data before saving again."
+}

@@ -1,0 +1,26 @@
+.~lock.*#
+*.tmp
+/node_modules/
+/web/node_modules
+/web/dist/*
+!/web/dist/.gitkeep
+/bin/
+.env
+*.local
+
+# Vídeos y herramientas locales de los recorridos (salida fuera de Git).
+*.mp4
+*.webm
+**/__pycache__/
+/scripts/recorridos/.venv/
+/videos/
+
+# Binarios compilados en la raíz (se generan en bin/).
+/etf
+/migrar
+
+# Claves, certificados y variantes de entorno locales.
+*.pem
+*.key
+.env.*
+!.env.plantilla

@@ -1,0 +1,16 @@
+Expedientes ETF
+Copyright © 2026 Alberto Avidad
+
+Este programa lo ha desarrollado Alberto Avidad con sus propios medios.
+Se distribuye con la Licencia Pública de la Unión Europea, versión 1.2
+(EUPL-1.2). El texto de la licencia está en el fichero LICENSE; la versión
+oficial en castellano, con la misma validez, se publica en
+https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32017D0863
+
+Los catálogos de municipios incluidos son datos públicos de ejemplo. Todos los
+expedientes, personas y datos de las pruebas, demostraciones y capturas son
+inventados.
+
+Las fuentes tipográficas de temas/*/fuentes (Public Sans y Source Serif 4) son
+de sus autores y se distribuyen con la licencia SIL Open Font License 1.1
+(LICENSES/OFL-1.1.txt). Las dependencias de Go y npm conservan sus licencias.

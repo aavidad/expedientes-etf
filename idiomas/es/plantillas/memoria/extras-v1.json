@@ -1,0 +1,17 @@
+{
+  "sin_dato": "Sin dato",
+  "provincial": "Provincia",
+  "separador_decimal": ",",
+  "aviso_datos_incompletos": "Hay datos o reglas que requieren revisión. Comprueba los valores sin dato y los porcentajes.",
+  "etiqueta_sin_dato": "Celdas sin dato",
+  "etiqueta_sin_relacion": "Familias sin relación de menores",
+  "cabecera_a": "A. Datos generales",
+  "datos_a": "Entidad local: {{a_entidad}}\nEquipos del convenio: {{a_equipos}}\nDenominación: {{a_denominacion}}",
+  "personal_a": "Profesionales, sin coordinación ni personal financiado sólo por la entidad local:\nPsicología: {{a_psicologia_hombres}} hombres; {{a_psicologia_mujeres}} mujeres.\nTrabajo social: {{a_trabajo_social_hombres}} hombres; {{a_trabajo_social_mujeres}} mujeres.\nEducación social: {{a_educacion_social_hombres}} hombres; {{a_educacion_social_mujeres}} mujeres.",
+  "observaciones_a": "Bajas y sustituciones: {{a_observaciones}}",
+  "cabecera_d": "D. Metodología de intervención",
+  "cabecera_e": "E. Dificultades",
+  "cabecera_f": "F. Propuestas de mejora",
+  "cabecera_g": "G. Valoración global",
+  "aviso_divisor_cero": "El denominador es cero; el porcentaje se muestra como 0,00."
+}

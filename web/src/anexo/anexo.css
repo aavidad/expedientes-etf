@@ -1,0 +1,31 @@
+.anexo { max-width: 100%; min-width: 0; }
+.anexo-encabezado { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espacio-4); margin-block-end: var(--espacio-entre-tarjetas); }
+.anexo-tarjeta { padding: var(--espacio-tarjeta); margin-block: var(--espacio-entre-tarjetas); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); background: var(--color-superficie); min-width: 0; }
+.anexo-tarjeta h2 { margin-block-start: unset; }
+.anexo-tarjeta summary { cursor: pointer; min-height: var(--alto-control); font-weight: var(--peso-seminegrita); }
+.anexo-revision { display: flex; flex-wrap: wrap; gap: var(--espacio-entre-tarjetas); align-items: flex-start; }
+.anexo-decision { flex: 0 1 var(--ancho-lateral); flex-basis: var(--ancho-lateral); min-width: min(100%, var(--ancho-lateral)); order: -1; }
+.anexo-bloques { flex: 2; flex-basis: calc(var(--ancho-menu) * 2); min-width: 0; }
+.anexo-revision fieldset { margin: unset; }
+.anexo-bloques > fieldset { margin-block: var(--espacio-entre-tarjetas); }
+.anexo-bloques details fieldset { padding: unset; border: unset; }
+.anexo-campo { display: flex; flex-direction: column; gap: var(--espacio-etiqueta); margin-block: var(--espacio-4); }
+.anexo label { font-weight: var(--peso-seminegrita); }
+.anexo input, .anexo select, .anexo textarea { box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; min-height: var(--alto-control); padding: var(--espacio-3); font: inherit; color: var(--color-texto); background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); }
+.anexo textarea { resize: vertical; }
+.anexo-campo-pendiente textarea, .anexo-campo-pendiente select { border: var(--borde-marcado) solid var(--color-aviso-borde-campo); background: var(--color-aviso-fondo); }
+.anexo-meta { margin: unset; font-size: var(--texto-meta); color: var(--color-texto-secundario); overflow-wrap: anywhere; }
+.anexo-meta span { display: block; }
+.anexo-campo-pendiente .anexo-meta { color: var(--color-aviso-texto-cuerpo); }
+.anexo-info, .anexo-aviso, .anexo-error { padding: var(--espacio-5); border-radius: var(--radio-aviso); border: var(--borde-normal) solid var(--color-info-borde); background: var(--color-calculado-fondo); overflow-wrap: anywhere; }
+.anexo-aviso { background: var(--color-aviso-fondo); border-color: var(--color-aviso-borde); color: var(--color-aviso-texto-cuerpo); }
+.anexo-error { color: var(--color-peligro); }
+.anexo-acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-4); margin-block-start: var(--espacio-6); }
+.anexo button { background: var(--color-superficie); color: var(--color-texto); white-space: normal; overflow-wrap: anywhere; }
+.anexo .anexo-principal { background: var(--color-acento); color: var(--color-sobre-acento); }
+.anexo progress { width: 100%; min-height: var(--alto-control); accent-color: var(--color-acento); }
+.anexo-decision a { display: inline-flex; align-items: center; min-height: var(--alto-control); }
+.anexo[data-amplio='true'] .anexo-bloques { order: -1; }
+
+.anexo[data-amplio='true'] .anexo-decision { order: 1; }
+.anexo[data-amplio='false'] .anexo-decision { flex-basis: 100%; }

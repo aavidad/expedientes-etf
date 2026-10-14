@@ -1,0 +1,172 @@
+{
+  "opciones": [
+    {
+      "lista": "subprograma",
+      "codigo": "RIESGO_SOCIAL",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "subprograma",
+      "codigo": "REUNIFICACION",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "servicio_derivante",
+      "codigo": "SSSSCC",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "servicio_derivante",
+      "codigo": "SPM",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "servicio_derivante",
+      "codigo": "OTRO_ETF",
+      "orden": 3,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "caracteristica_familia",
+      "codigo": "RIESGO_SOCIAL",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "caracteristica_familia",
+      "codigo": "MONOPARENTAL",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "caracteristica_familia",
+      "codigo": "VIOLENCIA_INTRAFAMILIAR",
+      "orden": 3,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "caracteristica_familia",
+      "codigo": "CON_MENORES_PROTECCION",
+      "orden": 4,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "pronostico",
+      "codigo": "FAVORABLE",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "pronostico",
+      "codigo": "DESFAVORABLE",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "MADRE",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "PADRE",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "PAREJA_MADRE",
+      "orden": 3,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "PAREJA_PADRE",
+      "orden": 4,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "TUTOR_GUARDADOR",
+      "orden": 5,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "ABUELO",
+      "orden": 6,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "OTRO_FAMILIAR",
+      "orden": 7,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "papel_parental",
+      "codigo": "OTRA_PERSONA",
+      "orden": 8,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "tramo_ingresos_smi",
+      "codigo": "MENOS_50",
+      "orden": 1,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "tramo_ingresos_smi",
+      "codigo": "DE_50_A_100",
+      "orden": 2,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "tramo_ingresos_smi",
+      "codigo": "DE_100_A_150",
+      "orden": 3,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "tramo_ingresos_smi",
+      "codigo": "DE_150_A_200",
+      "orden": 4,
+      "admite_texto": false,
+      "activa": true
+    },
+    {
+      "lista": "tramo_ingresos_smi",
+      "codigo": "MAS_200",
+      "orden": 5,
+      "admite_texto": false,
+      "activa": true
+    }
+  ]
+}

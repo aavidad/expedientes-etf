@@ -1,0 +1,262 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_derivacion_recibida.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0002"
+      },
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      },
+      {
+        "modulo": "identidad",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_aceptacion.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0001"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0004"
+      }
+    ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_no_aceptacion_espera.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_familia.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0005",
+    "archivo": "0005_salida_spm.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0006",
+    "archivo": "0006_salida_servicio.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0007",
+    "archivo": "0007_propuesta_cierre.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0003"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0008",
+    "archivo": "0008_consentimientos.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0010",
+    "archivo": "0010_lectura_estadistica.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0004"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0008"
+      }
+    ]
+  },
+  {
+    "numero": "0011",
+    "archivo": "0011_integracion_familia_cierre.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0004"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0007"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0008"
+      }
+    ]
+  },
+  {
+    "numero": "0020",
+    "archivo": "0020_ambito_historial.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0013",
+    "archivo": "0013_cierre_reapertura.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0008"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0005"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0006"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0011"
+      }
+    ]
+  },
+  {
+    "numero": "0014",
+    "archivo": "0014_menores.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0013"
+      }
+    ]
+  },
+  {
+    "numero": "0016",
+    "archivo": "0016_intervencion.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0014"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0011"
+      }
+    ]
+  },
+  {
+    "numero": "0018",
+    "archivo": "0018_carga_historica.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0014"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0021",
+    "archivo": "0021_traslado_seguimiento.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0014"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0018"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0013"
+      }
+    ]
+  },
+  {
+    "numero": "0022",
+    "archivo": "0022_estadistica_estado_spm.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0010"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0016"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0021"
+      }
+    ]
+  },
+  {
+    "numero": "0023",
+    "archivo": "0023_conservacion.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0022"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0013"
+      },
+      {
+        "modulo": "estadistica",
+        "numero": "0005"
+      },
+      {
+        "modulo": "evaluacion",
+        "numero": "0002"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0014"
+      }
+    ]
+  }
+]

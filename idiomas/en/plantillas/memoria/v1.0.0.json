@@ -1,0 +1,7523 @@
+{
+  "campos": {
+    "texto_0": "TECHNICAL ANNUAL REPORT",
+    "texto_1": "Year evaluated: {{anio}}",
+    "texto_2": "Team: {{equipo}}",
+    "texto_3": "1. Number of cases attended:",
+    "texto_4": "From previous years",
+    "texto_5": "Added during the year evaluated",
+    "texto_6": "Total per subprogramme",
+    "texto_7": "Families",
+    "texto_8": "Children",
+    "texto_9": "No.",
+    "texto_10": "%",
+    "texto_11": "Social risk",
+    "texto_12": "Family reunification",
+    "texto_13": "Family",
+    "texto_14": "Total",
+    "texto_15": "2. Children attended, by sex:",
+    "texto_16": "Boys",
+    "texto_17": "Girls",
+    "texto_18": "Total children",
+    "texto_19": "No.",
+    "texto_20": "TOTAL",
+    "texto_21": "3. Cases previously attended by the Programme and closed in earlier years",
+    "texto_22": "4. Cases by referring service",
+    "texto_23": "Community",
+    "texto_24": "Social Services",
+    "texto_25": "Child Protection Service",
+    "texto_26": "Another Family Treatment Team",
+    "texto_27": "Total per subprogramme",
+    "texto_28": "Total per referring service",
+    "texto_29": "5. Cases referred to the team and not accepted",
+    "texto_30": "Referring service:",
+    "texto_31": "Reasons for non-acceptance:",
+    "texto_32": "6. Cases awaiting treatment",
+    "texto_33": "This section uses the acceptance date and the date the family signs its consent.",
+    "texto_34": "A case awaits treatment when more than 30 days have passed since acceptance without confirmed consent.",
+    "texto_35": "7. Number of cases closed",
+    "texto_36": "From previous years: cases accepted before the year evaluated.",
+    "texto_37": "Added during the year evaluated: cases accepted during that year.",
+    "texto_38": "8. Cases closed after completing treatment",
+    "texto_39": "Objectives achieved",
+    "texto_40": "Objectives not achieved",
+    "texto_41": "9. Cases closed before completing treatment",
+    "texto_42": "Rejection, with express withdrawal",
+    "texto_43": "Non-adherence to treatment",
+    "texto_44": "Move to another locality",
+    "texto_45": "Reaching adulthood",
+    "texto_46": "Risk declaration proposed",
+    "texto_47": "Protective measure proposed",
+    "texto_48": "Admission to a correctional centre",
+    "texto_49": "Other reasons",
+    "texto_50": "Other reasons:",
+    "texto_51": "10. Cases referred to Community Social Services after closure",
+    "texto_52": "11.1. Risk declarations proposed",
+    "texto_53": "Each family with a proposed risk declaration counts once, with all its children.",
+    "texto_54": "Risk declaration",
+    "texto_55": "% of social risk cases attended in section 1",
+    "texto_56": "",
+    "texto_57": "11.2. Families with a family intervention plan following a risk declaration",
+    "texto_58": "Family intervention plan following a risk declaration",
+    "texto_59": "12. Cases referred to the Child Protection Service with a proposed protective measure",
+    "texto_60": "12.1. Protective measures proposed",
+    "texto_61": "Protective measures proposed",
+    "texto_62": "12.2. Response from the Child Protection Service",
+    "texto_63": "Proceedings for abandonment or a protective measure are known to have begun",
+    "texto_64": "Awaiting the Child Protection Service response",
+    "texto_65": "The Child Protection Service considers a protective measure unnecessary",
+    "texto_66": "% in relation to",
+    "texto_67": "section 12.1 / No.",
+    "texto_68": "% in relation to section",
+    "texto_69": "12.1",
+    "texto_70": "13. Total duration of treatment in completed cases",
+    "texto_71": "13.1. Social risk",
+    "texto_72": "Duration runs from the acceptance report date to the closure report date.",
+    "texto_73": "Less than 6 months",
+    "texto_74": "6–12 months",
+    "texto_75": "13–18 months",
+    "texto_76": "More than 18 months",
+    "texto_77": "13.2. Family reunification",
+    "texto_78": "13.3. Cases followed up after the protective measure ends",
+    "texto_79": "Cases followed up after the protective measure ends (1 year)",
+    "texto_80": "% of family reunification cases attended in section 1",
+    "texto_81": "14. Services involved in coordinated action",
+    "texto_82": "Services",
+    "texto_83": "Mental health units",
+    "texto_84": "Health centres and hospitals",
+    "texto_85": "Early childhood intervention",
+    "texto_86": "Services for drug dependence and other addictions",
+    "texto_87": "Education centres",
+    "texto_88": "Family Financial Support Programme",
+    "texto_89": "Assessment, diagnosis and treatment of sexual violence cases",
+    "texto_90": "Child Protection Service",
+    "texto_91": "Associations and NGOs",
+    "texto_92": "Municipal and provincial women’s information centres",
+    "texto_93": "Disability assessment and guidance centres",
+    "texto_94": "Dependency assessment",
+    "texto_95": "Public Prosecutor’s Office",
+    "texto_96": "Other services",
+    "texto_97": "Other services involved in coordinated action:",
+    "texto_98": "14.1. Children identified and proposed by the team for early childhood intervention",
+    "texto_99": "15. Technical committee meetings held during the year evaluated",
+    "texto_100": "16. Technical reports issued to other bodies",
+    "texto_101": "Body",
+    "texto_102": "Courts",
+    "texto_103": "Family Support Service",
+    "texto_104": "Child Protection Service",
+    "texto_105": "Health services",
+    "texto_106": "Social services",
+    "texto_107": "Other bodies receiving technical reports:",
+    "texto_108": "C.1. CHARACTERISTICS OF FAMILIES ATTENDED",
+    "texto_109": "17. Family composition",
+    "texto_110": "Family composition",
+    "texto_111": "Two-parent families",
+    "texto_112": "Single-parent families (father)",
+    "texto_113": "Single-parent families (mother)",
+    "texto_114": "Separation or divorce with shared custody",
+    "texto_115": "Separation or divorce without shared custody",
+    "texto_116": "Reconstituted families",
+    "texto_117": "Extended families",
+    "texto_118": "Other living arrangements",
+    "texto_119": "Other living arrangements:",
+    "texto_120": "18. Large families",
+    "texto_121": "Large families",
+    "texto_122": "",
+    "texto_123": "",
+    "texto_124": "19. Parental age",
+    "texto_125": "Based on the father’s and mother’s birth dates.",
+    "texto_126": "Age",
+    "texto_127": "Fathers",
+    "texto_128": "Mothers",
+    "texto_129": "Under 20",
+    "texto_130": "20–29",
+    "texto_131": "30–39",
+    "texto_132": "40–49",
+    "texto_133": "50 or over",
+    "texto_134": "20. Parental education level",
+    "texto_135": "Education level",
+    "texto_136": "Illiteracy",
+    "texto_137": "Reads and writes without completing compulsory education",
+    "texto_138": "Compulsory education",
+    "texto_139": "Upper secondary or vocational education",
+    "texto_140": "University education",
+    "texto_141": "21. Parental employment situation",
+    "texto_142": "Employment situation",
+    "texto_143": "Self-employed",
+    "texto_144": "Permanent employment",
+    "texto_145": "Temporary or intermittent employment",
+    "texto_146": "Undeclared work",
+    "texto_147": "Unemployed",
+    "texto_148": "Pensioner",
+    "texto_149": "Several situations combined",
+    "texto_150": "Other situations",
+    "texto_151": "Other employment situations:",
+    "texto_152": "22. Financial situation",
+    "texto_153": "Family income",
+    "texto_154": "No financial difficulties",
+    "texto_155": "Financial difficulties without unmet basic needs",
+    "texto_156": "Financial difficulties affecting basic needs",
+    "texto_157": "23. Household income",
+    "texto_158": "Below 50% of the annual minimum wage",
+    "texto_159": "50–100% of the annual minimum wage",
+    "texto_160": "100–150% of the annual minimum wage",
+    "texto_161": "150–200% of the annual minimum wage",
+    "texto_162": "Above 200% of the annual minimum wage",
+    "texto_163": "24. Family risk factors",
+    "texto_164": "Associated risk factors",
+    "texto_165": "Lack of awareness of the problem",
+    "texto_166": "Lack of motivation for change",
+    "texto_167": "Unemployment",
+    "texto_168": "Unstable or precarious employment",
+    "texto_169": "Difficulties managing family finances",
+    "texto_170": "Occupied housing or pending eviction",
+    "texto_171": "Housing shared with other families",
+    "texto_172": "Poor housing conditions or overcrowding",
+    "texto_173": "Couple or household family conflict",
+    "texto_174": "Gender-based violence",
+    "texto_175": "Conflict with extended family outside the household",
+    "texto_176": "Addictions",
+    "texto_177": "Conflict between parents and children",
+    "texto_178": "Adolescent parenthood",
+    "texto_179": "Mental health problems",
+    "texto_180": "Family planning problems",
+    "texto_181": "Repeated criminal behaviour",
+    "texto_182": "Imprisonment",
+    "texto_183": "Social isolation",
+    "texto_184": "Conflict with neighbours or the community",
+    "texto_185": "Irregular immigration status",
+    "texto_186": "Disability of 33% or more",
+    "texto_187": "Gender inequality",
+    "texto_188": "C.2. CHARACTERISTICS OF CHILDREN ATTENDED",
+    "texto_189": "25. Children by sex and age group",
+    "texto_190": "Age groups",
+    "texto_191": "Family reunification",
+    "texto_192": "Total per age group",
+    "texto_193": "0–5 years",
+    "texto_194": "6–11 years",
+    "texto_195": "12–17 years",
+    "texto_196": "Total per sex",
+    "texto_197": "26. Risk factors and indicators associated with children",
+    "texto_198": "Factors and indicators",
+    "texto_199": "Exposure to gender-based violence",
+    "texto_200": "Behavioural problems",
+    "texto_201": "School absenteeism",
+    "texto_202": "Violence against parents",
+    "texto_203": "Taking on parental roles",
+    "texto_204": "Young offenders",
+    "texto_205": "Self-harm or suicidal thoughts",
+    "texto_206": "Early childhood intervention",
+    "texto_207": "27. Types of child maltreatment",
+    "texto_208": "Types of child maltreatment",
+    "texto_209": "Physical abuse",
+    "texto_210": "Psychological or emotional abuse",
+    "texto_211": "Neglect",
+    "texto_212": "Abandonment",
+    "texto_213": "Sexual violence",
+    "texto_214": "Parents unable to control behaviour",
+    "texto_215": "Münchausen syndrome by proxy",
+    "texto_216": "Prenatal maltreatment",
+    "texto_217": "Corruption",
+    "texto_218": "Begging",
+    "texto_219": "Labour exploitation",
+    "texto_220": "Institutional maltreatment",
+    "texto_221": "28. Persons responsible for child maltreatment",
+    "texto_222": "Persons responsible",
+    "texto_223": "Father and mother",
+    "texto_224": "Father",
+    "texto_225": "Mother",
+    "texto_226": "Parent’s partner",
+    "texto_227": "Legal guardian or carer",
+    "texto_228": "Grandparent",
+    "texto_229": "Aunt or uncle",
+    "texto_230": "Adult sibling",
+    "texto_231": "Adult cousin",
+    "texto_232": "Another relative",
+    "texto_233": "Close acquaintance",
+    "sin_dato": "Unknown",
+    "provincial": "Province",
+    "separador_decimal": ".",
+    "aviso_datos_incompletos": "Some data or rules need review. Check unknown values and percentages.",
+    "etiqueta_sin_dato": "Unknown cells",
+    "etiqueta_sin_relacion": "Families with no known list of children",
+    "cabecera_a": "A. General information",
+    "datos_a": "Local authority: {{a_entidad}}\nTeams covered by the agreement: {{a_equipos}}\nName: {{a_denominacion}}",
+    "personal_a": "Professionals, excluding coordination and staff funded solely by the local authority:\nPsychology: {{a_psicologia_hombres}} men; {{a_psicologia_mujeres}} women.\nSocial work: {{a_trabajo_social_hombres}} men; {{a_trabajo_social_mujeres}} women.\nSocial education: {{a_educacion_social_hombres}} men; {{a_educacion_social_mujeres}} women.",
+    "observaciones_a": "Absences and replacements: {{a_observaciones}}",
+    "cabecera_d": "D. Intervention methodology",
+    "cabecera_e": "E. Difficulties",
+    "cabecera_f": "F. Improvement proposals",
+    "cabecera_g": "G. Overall assessment",
+    "aviso_divisor_cero": "The denominator is zero; the percentage is shown as 0.00.",
+    "detalle_1": "Unknown cells {{sin_dato_1}}; Families with no known list of children {{sin_relacion_1}}",
+    "detalle_2": "Unknown cells {{sin_dato_2}}; Families with no known list of children {{sin_relacion_2}}",
+    "detalle_3": "Unknown cells {{sin_dato_3}}; Families with no known list of children {{sin_relacion_3}}",
+    "detalle_4": "Unknown cells {{sin_dato_4}}; Families with no known list of children {{sin_relacion_4}}",
+    "detalle_5": "Unknown cells {{sin_dato_5}}; Families with no known list of children {{sin_relacion_5}}",
+    "detalle_6": "Unknown cells {{sin_dato_6}}; Families with no known list of children {{sin_relacion_6}}",
+    "detalle_7": "Unknown cells {{sin_dato_7}}; Families with no known list of children {{sin_relacion_7}}",
+    "detalle_8": "Unknown cells {{sin_dato_8}}; Families with no known list of children {{sin_relacion_8}}",
+    "detalle_9": "Unknown cells {{sin_dato_9}}; Families with no known list of children {{sin_relacion_9}}",
+    "detalle_10": "Unknown cells {{sin_dato_10}}; Families with no known list of children {{sin_relacion_10}}",
+    "detalle_11_1": "Unknown cells {{sin_dato_11_1}}; Families with no known list of children {{sin_relacion_11_1}}",
+    "detalle_11_2": "Unknown cells {{sin_dato_11_2}}; Families with no known list of children {{sin_relacion_11_2}}",
+    "detalle_12_1": "Unknown cells {{sin_dato_12_1}}; Families with no known list of children {{sin_relacion_12_1}}",
+    "detalle_12_2": "Unknown cells {{sin_dato_12_2}}; Families with no known list of children {{sin_relacion_12_2}}",
+    "detalle_13_1": "Unknown cells {{sin_dato_13_1}}; Families with no known list of children {{sin_relacion_13_1}}",
+    "detalle_13_2": "Unknown cells {{sin_dato_13_2}}; Families with no known list of children {{sin_relacion_13_2}}",
+    "detalle_13_3": "Unknown cells {{sin_dato_13_3}}; Families with no known list of children {{sin_relacion_13_3}}",
+    "detalle_14": "Unknown cells {{sin_dato_14}}; Families with no known list of children {{sin_relacion_14}}",
+    "detalle_14_1": "Unknown cells {{sin_dato_14_1}}; Families with no known list of children {{sin_relacion_14_1}}",
+    "detalle_16": "Unknown cells {{sin_dato_16}}; Families with no known list of children {{sin_relacion_16}}",
+    "detalle_17": "Unknown cells {{sin_dato_17}}; Families with no known list of children {{sin_relacion_17}}",
+    "detalle_18": "Unknown cells {{sin_dato_18}}; Families with no known list of children {{sin_relacion_18}}",
+    "detalle_19": "Unknown cells {{sin_dato_19}}; Families with no known list of children {{sin_relacion_19}}",
+    "detalle_20": "Unknown cells {{sin_dato_20}}; Families with no known list of children {{sin_relacion_20}}",
+    "detalle_21": "Unknown cells {{sin_dato_21}}; Families with no known list of children {{sin_relacion_21}}",
+    "detalle_22": "Unknown cells {{sin_dato_22}}; Families with no known list of children {{sin_relacion_22}}",
+    "detalle_23": "Unknown cells {{sin_dato_23}}; Families with no known list of children {{sin_relacion_23}}",
+    "detalle_24": "Unknown cells {{sin_dato_24}}; Families with no known list of children {{sin_relacion_24}}",
+    "detalle_25": "Unknown cells {{sin_dato_25}}; Families with no known list of children {{sin_relacion_25}}",
+    "detalle_26": "Unknown cells {{sin_dato_26}}; Families with no known list of children {{sin_relacion_26}}",
+    "detalle_27": "Unknown cells {{sin_dato_27}}; Families with no known list of children {{sin_relacion_27}}",
+    "detalle_28": "Unknown cells {{sin_dato_28}}; Families with no known list of children {{sin_relacion_28}}"
+  },
+  "celdas": [
+    {
+      "campo": "celda_1_3_1",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_2",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_3",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_4",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_5",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_6",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_7",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_8",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_9",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_10",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_11",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_3_12",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_1",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_2",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_3",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_4",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_5",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_6",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_7",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_8",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_9",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_10",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_11",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_4_12",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_1",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_2",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_3",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_4",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_5",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_6",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_7",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_8",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_9",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_10",
+      "apartado": "1",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_11",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_1_5_12",
+      "apartado": "1",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_1",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_2",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_3",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_4",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_5",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_2_6",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_1",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_2",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_3",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_4",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_5",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_3_6",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_1",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_2",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_3",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_4",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_5",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_2_4_6",
+      "apartado": "2",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_2_1",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_2_2",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_2_3",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_2_4",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_3_1",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_3_2",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_3_3",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_3_4",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_4_1",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_4_2",
+      "apartado": "3",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_3_4_3",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_3_4_4",
+      "apartado": "3",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_4_2_1",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_2_2",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_2_3",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_2_4",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_3_1",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_3_2",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_3_3",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_3_4",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_4_1",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_4_2",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_4_3",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_4_4_4",
+      "apartado": "4",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_2_1",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_2_2",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_2_3",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_2_4",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_3_1",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_3_2",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_3_3",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_3_4",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_4_1",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SSSSCC"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_4_2",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SPM"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_4_3",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "OTRO_ETF"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_5_4_4",
+      "apartado": "5",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_1_1",
+      "apartado": "6",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_1_2",
+      "apartado": "6",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_1_3",
+      "apartado": "6",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_2_1",
+      "apartado": "6",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_2_2",
+      "apartado": "6",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_6_2_3",
+      "apartado": "6",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_1",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_2",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_3",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_4",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_5",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_2_6",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_1",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_2",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_3",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_4",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_5",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_3_6",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_1",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_2",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "anterior"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_3",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_4",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {
+        "origen": "incorporado"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_5",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_7_4_6",
+      "apartado": "7",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_1",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_2",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_3",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_4",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_5",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_6",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_7",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_8",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_9",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_10",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_11",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_3_12",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_1",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_2",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_3",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_4",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_5",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_6",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_7",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_8",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_9",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_10",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_11",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_4_12",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_1",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_2",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_3",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_4",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "motivo": "objetivos_cumplidos"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_5",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_6",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_7",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_8",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {
+        "motivo": "objetivos_parciales"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_9",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_10",
+      "apartado": "8",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_11",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_8_5_12",
+      "apartado": "8",
+      "unidad": "menores",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_1",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "rechazo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_2",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "no_adherencia"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_3",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "traslado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_4",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "mayoria_edad"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_5",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "propuesta_dsr"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_6",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "medida_protectora"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_7",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "ingreso_centro"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_8",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "motivo": "otras_causas"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_9",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_2_10",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_1",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "rechazo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_2",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "no_adherencia"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_3",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "traslado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_4",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "mayoria_edad"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_5",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "propuesta_dsr"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_6",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "medida_protectora"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_7",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "ingreso_centro"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_8",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "motivo": "otras_causas"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_9",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_3_10",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_1",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "rechazo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_2",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "no_adherencia"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_3",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "traslado"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_4",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "mayoria_edad"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_5",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "propuesta_dsr"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_6",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "medida_protectora"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_7",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "ingreso_centro"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_8",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {
+        "motivo": "otras_causas"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_9",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_9_4_10",
+      "apartado": "9",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_10_1_1",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_10_1_2",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_10_2_1",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_10_2_2",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_10_3_1",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_10_3_2",
+      "apartado": "10",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_11_2_1",
+      "apartado": "11.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_11_2_2",
+      "apartado": "11.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_11_3_1",
+      "apartado": "11.1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_11_3_2",
+      "apartado": "11.1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_12_2_1",
+      "apartado": "11.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_12_2_2",
+      "apartado": "11.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_12_3_1",
+      "apartado": "11.2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_12_3_2",
+      "apartado": "11.2",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_13_2_1",
+      "apartado": "12.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_13_2_2",
+      "apartado": "12.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_13_3_1",
+      "apartado": "12.1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_13_3_2",
+      "apartado": "12.1",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_1",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "inicio_desamparo_o_medida"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_2",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "inicio_desamparo_o_medida"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_3",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "a_la_espera"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_4",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "a_la_espera"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_5",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "no_necesaria"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_2_6",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "no_necesaria"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_1",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "inicio_desamparo_o_medida"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_2",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "inicio_desamparo_o_medida"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_3",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "a_la_espera"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_4",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "a_la_espera"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_5",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "no_necesaria"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_14_3_6",
+      "apartado": "12.2",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "no_necesaria"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_1_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "0"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_1_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "0"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_2_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "1"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_2_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "1"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_3_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "2"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_3_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "2"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_4_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "3"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_4_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo",
+        "tramo": "3"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_5_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_5_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_15_6_1",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_15_6_2",
+      "apartado": "13.1",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "riesgo"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_1_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "0"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_1_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "0"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_2_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "1"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_2_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "1"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_3_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "2"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_3_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "2"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_4_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "3"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_4_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "tramo": "3"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_5_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_5_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_16_6_1",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_16_6_2",
+      "apartado": "13.2",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_17_2_1",
+      "apartado": "13.3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_17_2_2",
+      "apartado": "13.3",
+      "unidad": "familias",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_17_3_1",
+      "apartado": "13.3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_17_3_2",
+      "apartado": "13.3",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_2_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD_MENTAL",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_2_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD_MENTAL",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_2_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD_MENTAL",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_2_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD_MENTAL",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_3_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_3_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_3_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_3_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SALUD",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_4_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ATENCION_TEMPRANA",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_4_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ATENCION_TEMPRANA",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_4_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ATENCION_TEMPRANA",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_4_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ATENCION_TEMPRANA",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_5_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ADICCIONES",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_5_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ADICCIONES",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_5_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ADICCIONES",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_5_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ADICCIONES",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_6_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "EDUCACION",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_6_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "EDUCACION",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_6_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "EDUCACION",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_6_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "EDUCACION",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_7_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "AYUDAS_FAMILIARES",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_7_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "AYUDAS_FAMILIARES",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_7_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "AYUDAS_FAMILIARES",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_7_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "AYUDAS_FAMILIARES",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_8_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "VIOLENCIA_SEXUAL",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_8_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "VIOLENCIA_SEXUAL",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_8_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "VIOLENCIA_SEXUAL",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_8_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "VIOLENCIA_SEXUAL",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_9_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SPM",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_9_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SPM",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_9_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SPM",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_9_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "SPM",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_10_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ONG",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_10_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ONG",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_10_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ONG",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_10_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "ONG",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_11_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MUJER",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_11_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MUJER",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_11_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MUJER",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_11_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MUJER",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_12_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DISCAPACIDAD",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_12_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DISCAPACIDAD",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_12_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DISCAPACIDAD",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_12_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DISCAPACIDAD",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_13_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DEPENDENCIA",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_13_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DEPENDENCIA",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_13_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DEPENDENCIA",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_13_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DEPENDENCIA",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_14_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "FISCALIA",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_14_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "FISCALIA",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_14_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "FISCALIA",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_14_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "FISCALIA",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_15_1",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "OTROS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_15_2",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "OTROS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_18_15_3",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "OTROS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_18_15_4",
+      "apartado": "14",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "OTROS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_0",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_1",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_2",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_3",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_4",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_19_2_5",
+      "apartado": "14.1",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_20_1_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "juzgados"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_2_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "fiscalia"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_3_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "spaf"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_4_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "spm"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_5_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "educacion"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_6_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "sanidad"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_7_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "servicios_sociales"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_8_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {
+        "organismo": "otros"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_20_9_1",
+      "apartado": "16",
+      "unidad": "informes",
+      "filtros": {},
+      "porcentaje": false,
+      "total": true
+    },
+    {
+      "campo": "celda_21_1_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "BIPARENTAL"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_1_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "BIPARENTAL"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_2_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MONOPARENTAL_PADRE"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_2_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MONOPARENTAL_PADRE"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_3_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MONOPARENTAL_MADRE"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_3_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MONOPARENTAL_MADRE"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_4_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "CUSTODIA_COMPARTIDA"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_4_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "CUSTODIA_COMPARTIDA"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_5_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SIN_CUSTODIA_COMPARTIDA"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_5_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SIN_CUSTODIA_COMPARTIDA"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_6_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "RECONSTITUIDA"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_6_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "RECONSTITUIDA"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_7_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "EXTENSA"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_7_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "EXTENSA"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_8_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "OTRAS"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_8_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "OTRAS"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_21_9_1",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_21_9_2",
+      "apartado": "17",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_22_1_1",
+      "apartado": "18",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_22_1_2",
+      "apartado": "18",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "si"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_2_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_menos_20",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_2_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_menos_20",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_2_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_menos_20",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_2_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_menos_20",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_3_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_20_29",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_3_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_20_29",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_3_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_20_29",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_3_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_20_29",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_4_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_30_39",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_4_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_30_39",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_4_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_30_39",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_4_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_30_39",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_5_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_40_49",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_5_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_40_49",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_5_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_40_49",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_5_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_40_49",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_6_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_50_mas",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_6_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_50_mas",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_6_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_50_mas",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_6_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "tramo": "edad_50_mas",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_7_1",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_7_2",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_23_7_3",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_23_7_4",
+      "apartado": "19",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_2_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ANALFABETISMO",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_2_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ANALFABETISMO",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_2_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ANALFABETISMO",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_2_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ANALFABETISMO",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_3_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_OBLIGATORIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_3_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_OBLIGATORIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_3_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_OBLIGATORIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_3_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_OBLIGATORIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_4_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OBLIGATORIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_4_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OBLIGATORIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_4_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OBLIGATORIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_4_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OBLIGATORIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_5_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SECUNDARIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_5_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SECUNDARIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_5_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SECUNDARIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_5_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SECUNDARIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_6_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "UNIVERSITARIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_6_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "UNIVERSITARIOS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_6_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "UNIVERSITARIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_6_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "UNIVERSITARIOS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_7_1",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_7_2",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_24_7_3",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_24_7_4",
+      "apartado": "20",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_2_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "AUTONOMO",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_2_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "AUTONOMO",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_2_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "AUTONOMO",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_2_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "AUTONOMO",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_3_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_FIJO",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_3_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_FIJO",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_3_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_FIJO",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_3_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_FIJO",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_4_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_TEMPORAL",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_4_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_TEMPORAL",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_4_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_TEMPORAL",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_4_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "EMPLEO_TEMPORAL",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_5_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ECONOMIA_SUMERGIDA",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_5_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ECONOMIA_SUMERGIDA",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_5_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ECONOMIA_SUMERGIDA",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_5_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "ECONOMIA_SUMERGIDA",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_6_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_EMPLEO",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_6_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_EMPLEO",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_6_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_EMPLEO",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_6_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "SIN_EMPLEO",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_7_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "PENSIONISTA",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_7_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "PENSIONISTA",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_7_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "PENSIONISTA",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_7_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "PENSIONISTA",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_8_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "VARIAS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_8_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "VARIAS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_8_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "VARIAS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_8_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "VARIAS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_9_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OTRAS",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_9_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OTRAS",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_9_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OTRAS",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_9_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "estado": "OTRAS",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_10_1",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_10_2",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_25_10_3",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_25_10_4",
+      "apartado": "21",
+      "unidad": "adultos",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_26_1_1",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SIN_DIFICULTADES"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_26_1_2",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "SIN_DIFICULTADES"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_26_2_1",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "DIFICULTADES_SIN_NECESIDADES_BASICAS"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_26_2_2",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "DIFICULTADES_SIN_NECESIDADES_BASICAS"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_26_3_1",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "DIFICULTADES_NECESIDADES_BASICAS"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_26_3_2",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "DIFICULTADES_NECESIDADES_BASICAS"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_26_4_1",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_26_4_2",
+      "apartado": "22",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_1_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "MENOS_50"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_1_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "MENOS_50"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_2_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_50_A_100"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_2_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_50_A_100"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_3_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_100_A_150"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_3_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_100_A_150"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_4_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_150_A_200"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_4_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "DE_150_A_200"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_5_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "MAS_200"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_5_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {
+        "tramo": "MAS_200"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_27_6_1",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_27_6_2",
+      "apartado": "23",
+      "unidad": "familias",
+      "filtros": {},
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_1_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_01"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_1_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_01"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_2_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_02"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_2_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_02"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_3_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_03"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_3_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_03"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_4_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_04"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_4_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_04"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_5_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_05"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_5_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_05"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_6_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_06"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_6_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_06"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_7_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_07"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_7_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_07"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_8_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_08"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_8_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_08"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_9_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_09"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_9_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_09"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_10_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_10"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_10_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_10"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_11_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_11"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_11_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_11"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_12_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_12"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_12_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_12"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_13_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_13"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_13_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_13"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_14_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_14"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_14_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_14"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_15_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_15"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_15_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_15"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_16_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_16"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_16_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_16"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_17_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_17"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_17_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_17"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_18_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_18"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_18_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_18"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_19_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_19"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_19_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_19"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_20_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_20"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_20_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_20"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_21_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_21"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_21_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_21"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_22_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_22"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_22_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_22"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_28_23_1",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_23"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_28_23_2",
+      "apartado": "24",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIA_23"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_1",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_2",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_3",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_4",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_5",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_6",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_7",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_8",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_9",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_10",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_11",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_3_12",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "0_5",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_1",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_2",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_3",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_4",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_5",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_6",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_7",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_8",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_9",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_10",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_11",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_4_12",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "6_11",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_1",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_2",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_3",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_4",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_5",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_6",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_7",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_8",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_9",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_10",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_11",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_5_12",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "tramo": "12_17",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_1",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_2",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_3",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_4",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "riesgo",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_5",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_6",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_7",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_6_8",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "subprograma": "reunificacion",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_7_1",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_7_2",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_29_7_3",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_29_7_4",
+      "apartado": "25",
+      "unidad": "menores",
+      "filtros": {
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_2_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_01"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_3_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_02"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_4_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_03"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_5_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_04"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_6_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_05"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_7_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_06"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_8_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_07"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_9_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_08"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_10_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_09"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_11_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_10"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_1",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_2",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_3",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_4",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_5",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_30_12_6",
+      "apartado": "26",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "MENOR_11"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_2_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_01"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_3_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_02"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_4_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_03"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_5_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_04"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_6_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_05"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_7_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_06"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_8_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_07"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_9_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_08"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_10_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_09"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_11_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_10"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_12_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_11"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_1",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12",
+        "sexo": "nino"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_2",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12",
+        "sexo": "nino"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_3",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12",
+        "sexo": "nina"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_4",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12",
+        "sexo": "nina"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_5",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_31_13_6",
+      "apartado": "27",
+      "unidad": "menores",
+      "filtros": {
+        "estado": "DESPROTECCION_12"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_1_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PADRE_MADRE"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_1_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PADRE_MADRE"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_2_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PADRE"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_2_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PADRE"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_3_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MADRE"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_3_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "MADRE"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_4_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PAREJA"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_4_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PAREJA"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_5_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "TUTOR"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_5_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "TUTOR"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_6_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "ABUELO"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_6_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "ABUELO"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_7_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "TIO"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_7_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "TIO"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_8_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "HERMANO"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_8_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "HERMANO"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_9_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PRIMO"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_9_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "PRIMO"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_10_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIAR"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_10_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "FAMILIAR"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "celda_32_11_1",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "ALLEGADO"
+      },
+      "porcentaje": false,
+      "total": false
+    },
+    {
+      "campo": "celda_32_11_2",
+      "apartado": "28",
+      "unidad": "familias",
+      "filtros": {
+        "estado": "ALLEGADO"
+      },
+      "porcentaje": true,
+      "total": false
+    },
+    {
+      "campo": "cifra_15",
+      "apartado": "15",
+      "unidad": "comisiones",
+      "filtros": {},
+      "porcentaje": false,
+      "total": true
+    }
+  ]
+}

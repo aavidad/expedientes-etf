@@ -1,0 +1,22 @@
+rules:
+  - id: etf-casts-css-html
+    languages: [go]
+    severity: ERROR
+    message: No convertir datos de paquetes a HTML o CSS sin escape.
+    pattern-either:
+      - pattern: template.HTML(...)
+      - pattern: template.CSS(...)
+      - pattern: template.JS(...)
+  - id: etf-servidor-directorios
+    languages: [go]
+    severity: ERROR
+    message: No exponer directorios de paquetes mediante un servidor de ficheros.
+    pattern: http.FileServer(...)
+  - id: etf-css-activo-cliente
+    languages: [typescript]
+    severity: ERROR
+    message: Los paquetes sólo cambian enlaces a estilos generados por el servidor.
+    pattern-either:
+      - pattern: $X.innerHTML = $Y
+      - pattern: eval(...)
+      - pattern: new Function(...)

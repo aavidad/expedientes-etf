@@ -1,0 +1,20 @@
+{
+  "auditoria.cadena_alterada": "La comprobación ha detectado cambios en el registro de actividad. Avisa a Informática.",
+  "auditoria.codigo_invalido": "El código de la acción registrada no es válido.",
+  "auditoria.configuracion_invalida": "La configuración del registro de actividad no es correcta. Avisa a Informática.",
+  "auditoria.confirmacion_invalida": "No se ha podido confirmar el registro de actividad. La operación no se ha completado.",
+  "auditoria.dia_invalido": "Elige un día que ya haya terminado para sellar el registro de actividad.",
+  "auditoria.exportacion_demasiado_grande": "La exportación del registro de actividad es demasiado grande. Elige un periodo más corto.",
+  "auditoria.fecha_invalida": "La fecha del registro de actividad no es válida.",
+  "auditoria.formato_invalido": "El fichero no tiene el formato de una exportación del registro de actividad.",
+  "auditoria.identificador_invalido": "El identificador del registro de actividad no es válido.",
+  "auditoria.orden_invalido": "El registro de actividad está desordenado o le faltan entradas.",
+  "auditoria.perfiles_invalidos": "Los perfiles anotados en el registro de actividad no son válidos.",
+  "auditoria.permiso_denegado": "No tienes permiso para consultar o exportar el registro de actividad.",
+  "auditoria.persistencia_fallida": "No se ha podido guardar o consultar el registro de actividad. Inténtalo de nuevo más tarde.",
+  "auditoria.punto_invalido": "El punto de comprobación del registro de actividad no es válido.",
+  "auditoria.resultado_invalido": "El resultado anotado en el registro de actividad no es válido.",
+  "auditoria.solo_insercion": "El registro de actividad no se puede modificar ni borrar.",
+  "auditoria.tramo_invalido": "El intervalo del registro de actividad no es válido.",
+  "auditoria.usuario_invalido": "La persona anotada en el registro de actividad no es válida."
+}

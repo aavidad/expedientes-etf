@@ -1,0 +1,99 @@
+# Se utiliza sólo mediante make demo, con secretos y proyecto propios.
+services:
+  postgres:
+    restart: "no"
+
+  migrar:
+    build:
+      context: ./despliegue/demo
+      dockerfile: Dockerfile
+      target: migrar
+
+  app:
+    build:
+      context: ./despliegue/demo
+      dockerfile: Dockerfile
+      target: app
+    restart: "no"
+    ports: !reset []
+    networks: !override [interna]
+    environment:
+      ETF_MODO: desarrollo
+      ETF_HTTP_ORIGEN: https://etf.demo.interno
+      ETF_HTTP_PROXIES: "${ETF_DEMO_SUBRED_INTERNA:-${ETF_DEMO_RED_SUBRED:-10.250.54.0/28}}"
+      ETF_AD_URL: ldaps://ldap:1636
+      ETF_AD_BASE_DN: ou=personas,dc=etf,dc=interno
+      ETF_AD_FORMATO_BIND: uid={usuario},ou=personas,dc=etf,dc=interno
+      ETF_AD_CA_RUTA: /demo/servidor.pem
+      ETF_SESION_MAXIMA: 8h
+      ETF_PRIMER_ADMINISTRADOR: elena.salas
+    volumes: !override
+      - demo_idiomas:/datos/idiomas
+      - demo_temas:/datos/temas
+      - ./despliegue/demo/.local/ldap/servidor.pem:/demo/servidor.pem:ro
+    depends_on:
+      ldap:
+        condition: service_healthy
+
+  clamav:
+    restart: "no"
+
+  ldap:
+    build:
+      context: ./internal/adaptadores/ldap/testdata
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [interna]
+    volumes:
+      - ./despliegue/demo/.local/ldap:/fixture:ro
+    tmpfs:
+      - /tmp:uid=65534,gid=65534,mode=0700,size=32m
+    healthcheck:
+      test: [CMD, nc, -z, -w, "1", 127.0.0.1, "1636"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    pids_limit: 32
+    mem_limit: 128m
+    cpus: 0.5
+    logging:
+      driver: local
+      options: {max-size: 10m, max-file: "3"}
+
+  entrada-demo:
+    image: nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+    user: "101:101"
+    entrypoint: [nginx]
+    command: [-g, "daemon off;"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [interna, entrada]
+    ports: ["127.0.0.1:${ETF_DEMO_PUERTO:-18083}:8080"]
+    volumes:
+      - ./despliegue/demo/.local/nginx.conf:/etc/nginx/nginx.conf:ro
+    tmpfs:
+      - /tmp:uid=101,gid=101,mode=0700,size=16m
+    depends_on:
+      app:
+        condition: service_healthy
+    pids_limit: 32
+    mem_limit: 32m
+    cpus: 0.5
+    logging:
+      driver: local
+      options: {max-size: 10m, max-file: "3"}
+
+# Cada worktree utiliza una subred privada propia.
+networks:
+  interna:
+    ipam:
+      config: !override [{subnet: "${ETF_DEMO_SUBRED_INTERNA:-${ETF_DEMO_RED_SUBRED:-10.250.54.0/28}}"}]
+  entrada:
+    ipam:
+      config: !override [{subnet: "${ETF_DEMO_SUBRED_ENTRADA:-${ETF_DEMO_ENTRADA_SUBRED:-10.250.54.16/28}}"}]
+
+volumes:
+  demo_idiomas:
+  demo_temas:

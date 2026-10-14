@@ -1,0 +1,159 @@
+{
+  "version": "2026.1",
+  "vigente_desde": "2026-01-01T00:00:00Z",
+  "registrado_en": "2026-10-13T00:00:00Z",
+  "parametros": {
+    "TramosRiesgo": [
+      {
+        "Codigo": "0",
+        "DesdeMeses": 0,
+        "HastaMeses": 6
+      },
+      {
+        "Codigo": "1",
+        "DesdeMeses": 6,
+        "HastaMeses": 13
+      },
+      {
+        "Codigo": "2",
+        "DesdeMeses": 13,
+        "HastaMeses": 19
+      },
+      {
+        "Codigo": "3",
+        "DesdeMeses": 19,
+        "HastaMeses": null
+      }
+    ],
+    "TramosReunificacion": [
+      {
+        "Codigo": "0",
+        "DesdeMeses": 0,
+        "HastaMeses": 6
+      },
+      {
+        "Codigo": "1",
+        "DesdeMeses": 6,
+        "HastaMeses": 13
+      },
+      {
+        "Codigo": "2",
+        "DesdeMeses": 13,
+        "HastaMeses": 19
+      },
+      {
+        "Codigo": "3",
+        "DesdeMeses": 19,
+        "HastaMeses": null
+      }
+    ],
+    "TramosSMI": [
+      {
+        "Codigo": "MENOS_50",
+        "DesdeCentimos": 0,
+        "HastaCentimos": 50
+      },
+      {
+        "Codigo": "DE_50_A_100",
+        "DesdeCentimos": 50,
+        "HastaCentimos": 100
+      },
+      {
+        "Codigo": "DE_100_A_150",
+        "DesdeCentimos": 100,
+        "HastaCentimos": 150
+      },
+      {
+        "Codigo": "DE_150_A_200",
+        "DesdeCentimos": 150,
+        "HastaCentimos": 200
+      },
+      {
+        "Codigo": "MAS_200",
+        "DesdeCentimos": 200,
+        "HastaCentimos": null
+      }
+    ],
+    "FactoresFamilia": [
+      "FAMILIA_01",
+      "FAMILIA_02",
+      "FAMILIA_03",
+      "FAMILIA_04",
+      "FAMILIA_05",
+      "FAMILIA_06",
+      "FAMILIA_07",
+      "FAMILIA_08",
+      "FAMILIA_09",
+      "FAMILIA_10",
+      "FAMILIA_11",
+      "FAMILIA_12",
+      "FAMILIA_13",
+      "FAMILIA_14",
+      "FAMILIA_15",
+      "FAMILIA_16",
+      "FAMILIA_17",
+      "FAMILIA_18",
+      "FAMILIA_19",
+      "FAMILIA_20",
+      "FAMILIA_21",
+      "FAMILIA_22",
+      "FAMILIA_23"
+    ],
+    "FactoresMenores": [
+      "MENOR_01",
+      "MENOR_02",
+      "MENOR_03",
+      "MENOR_04",
+      "MENOR_05",
+      "MENOR_06",
+      "MENOR_07",
+      "MENOR_08",
+      "MENOR_09",
+      "MENOR_10",
+      "MENOR_11"
+    ],
+    "TipologiasDesproteccion": [
+      "DESPROTECCION_01",
+      "DESPROTECCION_02",
+      "DESPROTECCION_03",
+      "DESPROTECCION_04",
+      "DESPROTECCION_05",
+      "DESPROTECCION_06",
+      "DESPROTECCION_07",
+      "DESPROTECCION_08",
+      "DESPROTECCION_09",
+      "DESPROTECCION_10",
+      "DESPROTECCION_11",
+      "DESPROTECCION_12"
+    ],
+    "ResponsablesDesproteccion": [
+      "PADRE_MADRE",
+      "PADRE",
+      "MADRE",
+      "PAREJA",
+      "TUTOR",
+      "ABUELO",
+      "TIO",
+      "HERMANO",
+      "PRIMO",
+      "FAMILIAR",
+      "ALLEGADO"
+    ],
+    "RecursosCoordinacion": [
+      "SALUD_MENTAL",
+      "SALUD",
+      "ATENCION_TEMPRANA",
+      "ADICCIONES",
+      "EDUCACION",
+      "AYUDAS_FAMILIARES",
+      "VIOLENCIA_SEXUAL",
+      "SPM",
+      "ONG",
+      "MUJER",
+      "DISCAPACIDAD",
+      "DEPENDENCIA",
+      "FISCALIA",
+      "OTROS"
+    ]
+  }
+}

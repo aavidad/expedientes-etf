@@ -1,0 +1,18 @@
+[
+  {
+    "paquete": "@fontsource-variable/public-sans",
+    "version": "5.2.7",
+    "integridad": "sha512-4mvade2J3slKkvwRkS+p8T3szet/0vhWoSnuUJTVU81Uo2pRpSZY/Y8bSLRqpSwzIPxjVmRJ53oq6JKP/l/PSg==",
+    "archivo": "package/files/public-sans-latin-wght-normal.woff2",
+    "ruta": "fuentes/public-sans.woff2",
+    "sha256": "5ed4d31c988e73b258894244f209069ebe77dc7e564861954b21198b6de90d68"
+  },
+  {
+    "paquete": "@fontsource-variable/source-serif-4",
+    "version": "5.2.8",
+    "integridad": "sha512-qj5xZxbKmucdY2t6Qp2RdFzgQoepl7FLukVOE527o9ueDSQ3M4nwoec5YyTn45iP2y8jCb8H3Se6JnhL7tlltA==",
+    "archivo": "package/files/source-serif-4-latin-wght-normal.woff2",
+    "ruta": "fuentes/source-serif-4.woff2",
+    "sha256": "c1df4596be5029233ed2afbb8b2f6ea20784b3fb1aa5d6b5c6519ccd85eb3dfb"
+  }
+]

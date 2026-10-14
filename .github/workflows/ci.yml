@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-24.04
+    # La compilación en frío y las ventanas HTTP de los recorridos superan 15 minutos.
+    timeout-minutes: 25
+    steps:
+      - name: Obtener el repositorio y su historial
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Preparar Go
+        uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '20.19.2'
+          package-manager-cache: false
+
+      - name: Detectar secretos e instalar Gitleaks
+        # Su modo PR necesita pull-requests: read; make ci cubre las PR con CLI.
+        if: github.event_name != 'pull_request'
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITLEAKS_VERSION: '8.30.1'
+          GITLEAKS_ENABLE_COMMENTS: 'false'
+          GITLEAKS_ENABLE_SUMMARY: 'false'
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: 'false'
+
+      - name: Preparar el CLI de Gitleaks con suma fijada
+        run: |
+          ./scripts/ci/instalar-gitleaks.sh
+          echo "$PWD/bin/ci-gitleaks" >> "$GITHUB_PATH"
+
+      - name: Ejecutar la misma puerta que en local
+        run: make ci

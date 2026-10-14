@@ -1,0 +1,218 @@
+{
+  "anexo3": {
+    "servicio.nombre": [
+      "Centro de Servicios Sociales de Alhama"
+    ],
+    "servicio.profesional": [
+      "Elena Márquez Roldán"
+    ],
+    "servicio.telefono": [
+      "958 000 142"
+    ],
+    "servicio.correo": [
+      "emarquez@servicios.invalid"
+    ],
+    "servicio.equipo_menores": [
+      ""
+    ],
+    "familia.direccion": [
+      "Calle del Olivo 18, 18120 Alhama de Granada"
+    ],
+    "familia.contacto.nombre": [
+      "Lucía",
+      "Daniel"
+    ],
+    "familia.contacto.apellidos": [
+      "Ortega Salcedo",
+      "Pérez Molina"
+    ],
+    "familia.contacto.telefono": [
+      "600 000 142",
+      "600 000 143"
+    ],
+    "familia.contacto.correo": [
+      "lucia.ortega@correo.invalid",
+      "daniel.perez@correo.invalid"
+    ],
+    "menores.persona.nombre": [
+      "Nerea Pérez Ortega",
+      "Álvaro Pérez Ortega"
+    ],
+    "menores.persona.nacimiento": [
+      "14/02/2016",
+      "23/11/2012"
+    ],
+    "menores.persona.escolarizacion": [
+      "Educación Primaria",
+      "Educación Secundaria"
+    ],
+    "menores.persona.centro": [
+      "CEIP Sierra de Alhama",
+      "IES Río Alhama"
+    ],
+    "sociodemografia.estructura": [
+      "Biparental"
+    ],
+    "sociodemografia.vivienda": [
+      "Alquiler"
+    ],
+    "sociodemografia.ingresos": [
+      "1.250 euros/mes"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Empleo temporal"
+    ],
+    "sociodemografia.situacion_economica": [
+      "Dificultades económicas"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "50-100 % SMI"
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Lucía Ortega Salcedo",
+      "Daniel Pérez Molina"
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Madre",
+      "Padre"
+    ],
+    "sociodemografia.adulto.edad": [
+      "36",
+      "39"
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Educación Secundaria",
+      "Educación Primaria"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "Trabajo de temporada",
+      "Búsqueda de empleo"
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Carmen"
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "Salcedo Ruiz"
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Abuela materna"
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "600 000 144"
+    ]
+  },
+  "anexo4": {
+    "servicio.nombre": [
+      "Servicio de Protección de Menores de Granada"
+    ],
+    "servicio.profesional": [
+      "Rafael Cárdenas López"
+    ],
+    "servicio.telefono": [
+      "958 000 187"
+    ],
+    "servicio.correo": [
+      "rcardenas@servicios.invalid"
+    ],
+    "servicio.equipo_menores": [
+      "Unidad Norte"
+    ],
+    "familia.direccion": [
+      "Calle de la Fuente 9, 18260 Íllora"
+    ],
+    "familia.contacto.nombre": [
+      "Marina",
+      "Óscar"
+    ],
+    "familia.contacto.apellidos": [
+      "Serrano Velasco",
+      "Ruiz Benítez"
+    ],
+    "familia.contacto.telefono": [
+      "600 000 187",
+      "600 000 188"
+    ],
+    "familia.contacto.correo": [
+      "marina.serrano@correo.invalid",
+      "oscar.ruiz@correo.invalid"
+    ],
+    "menores.persona.nombre": [
+      "Claudia Ruiz Serrano",
+      "Hugo Ruiz Serrano",
+      "Irene Ruiz Serrano"
+    ],
+    "menores.persona.nacimiento": [
+      "05/08/2018",
+      "17/01/2011",
+      "11/12/2020"
+    ],
+    "menores.persona.escolarizacion": [
+      "Educación Primaria",
+      "Educación Secundaria",
+      "Educación Infantil"
+    ],
+    "menores.persona.centro": [
+      "CEIP Fuente Clara",
+      "IES Cerro Verde",
+      "CEIP Fuente Clara"
+    ],
+    "sociodemografia.estructura": [
+      "Biparental"
+    ],
+    "sociodemografia.vivienda": [
+      "Cedida"
+    ],
+    "sociodemografia.ingresos": [
+      "1.480 euros/mes"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Empleo estable"
+    ],
+    "sociodemografia.situacion_economica": [
+      "Ingresos suficientes"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "100-150 % SMI"
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Marina Serrano Velasco",
+      "Óscar Ruiz Benítez"
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Madre",
+      "Padre"
+    ],
+    "sociodemografia.adulto.edad": [
+      "34",
+      "37"
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Formación Profesional",
+      "Educación Secundaria"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "Horario de mañana",
+      "Apoyo de familia extensa"
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Pilar"
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "Velasco Torres"
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Abuela materna"
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "600 000 189"
+    ]
+  }
+}

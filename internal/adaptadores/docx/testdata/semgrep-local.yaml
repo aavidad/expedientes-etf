@@ -1,0 +1,34 @@
+rules:
+  - id: docx-sin-disco-procesos-red-registros
+    languages: [go]
+    severity: ERROR
+    message: docx.frontera_no_permitida
+    paths:
+      exclude: ["*_test.go"]
+    pattern-either:
+      - pattern: import "os"
+      - pattern: import "os/exec"
+      - pattern: import "net"
+      - pattern: import "net/http"
+      - pattern: import "log"
+      - pattern: import "log/slog"
+      - pattern: import "database/sql"
+      - pattern: ioutil.WriteFile(...)
+      - pattern: os.WriteFile(...)
+      - pattern: exec.Command(...)
+  - id: docx-sin-extraccion-zip
+    languages: [go]
+    severity: ERROR
+    message: docx.extraccion_no_permitida
+    paths:
+      exclude: ["*_test.go"]
+    pattern-either:
+      - pattern: filepath.Join(..., $F.Name, ...)
+      - pattern: os.Create($F.Name)
+  - id: docx-sin-entidades-xml-personalizadas
+    languages: [go]
+    severity: ERROR
+    message: docx.entidades_no_permitidas
+    paths:
+      exclude: ["*_test.go"]
+    pattern: $DEC.Entity = $VAL

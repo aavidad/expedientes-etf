@@ -1,0 +1,6 @@
+{
+  "expediente.traslado_invalido": "Check the destination team and the proposed closure for transfer.",
+  "expediente.seguimiento_invalido": "Check the dates, reason and status of the follow-up.",
+  "expediente.fin_seguimiento_proximo": "The follow-up after the measure ended is nearing its end.",
+  "expediente.seguimiento_vencimiento_pendiente": "The follow-up whose period has expired could not be ended."
+}

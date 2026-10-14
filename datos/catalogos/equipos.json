@@ -1,0 +1,45 @@
+{
+  "capacidad": 12,
+  "equipos": [
+    {
+      "codigo": "01",
+      "clave_texto": "equipo.01",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "02",
+      "clave_texto": "equipo.02",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "03",
+      "clave_texto": "equipo.03",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "04",
+      "clave_texto": "equipo.04",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "05",
+      "clave_texto": "equipo.05",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "06",
+      "clave_texto": "equipo.06",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "07",
+      "clave_texto": "equipo.07",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "08",
+      "clave_texto": "equipo.08",
+      "activo_desde": "2026-01-01"
+    }
+  ]
+}

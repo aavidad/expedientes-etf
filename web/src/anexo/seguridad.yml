@@ -1,0 +1,22 @@
+rules:
+  - id: anexo-sin-persistencia-navegador
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: anexo.seguridad_persistencia
+    pattern-either:
+      - pattern: localStorage.setItem(...)
+      - pattern: sessionStorage.setItem(...)
+  - id: anexo-sin-html-no-fiable
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: anexo.seguridad_html
+    pattern-either:
+      - pattern: $X.innerHTML = $Y
+      - pattern: <$X ... dangerouslySetInnerHTML={$Y} ... />
+  - id: anexo-sin-ejecucion-dinamica
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: anexo.seguridad_ejecucion
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)

@@ -1,0 +1,36 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_cadena.sql",
+    "depende_de": [
+      {
+        "modulo": "plataforma",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_historial_expediente.sql",
+    "depende_de": [
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0020"
+      }
+    ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_ambito_explicito_historial.sql",
+    "depende_de": [
+      {
+        "modulo": "auditoria",
+        "numero": "0002"
+      }
+    ]
+  }
+]

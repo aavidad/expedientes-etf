@@ -1,0 +1,6 @@
+{
+  "expediente.cierre_invalido": "Check the date and details of the closure or reopening.",
+  "expediente.cierre_segunda_persona": "A different person from the proposer must confirm the closure.",
+  "expediente.cierre_bloqueado_anexo5": "The SPM response is pending. Coordination must record a reasoned override before closing.",
+  "expediente.cierre_sin_anexo": "No Annex 11 or 12 issuance is recorded. You can confirm the closure."
+}

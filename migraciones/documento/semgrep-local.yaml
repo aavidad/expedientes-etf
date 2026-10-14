@@ -1,0 +1,46 @@
+rules:
+  - id: documento-sin-persistencia-de-ficheros
+    languages: [go]
+    severity: ERROR
+    message: documento.persistencia_no_permitida
+    paths:
+      exclude: ["*_test.go"]
+    pattern-either:
+      - pattern: os.WriteFile(...)
+      - pattern: os.Create(...)
+      - pattern: os.CreateTemp(...)
+      - pattern: ioutil.WriteFile(...)
+      - pattern: exec.Command(...)
+  - id: documento-sql-sin-interpolacion-de-valores
+    languages: [go]
+    severity: ERROR
+    message: documento.sql_interpolado
+    paths:
+      exclude: ["*_test.go"]
+    pattern-either:
+      - pattern: $TX.Exec($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.Query($CTX, fmt.Sprintf(...), ...)
+      - pattern: $TX.QueryRow($CTX, fmt.Sprintf(...), ...)
+  - id: documento-http-cuerpo-acotado
+    languages: [go]
+    severity: ERROR
+    message: documento.cuerpo_sin_limite
+    paths:
+      exclude: ["*_test.go"]
+    pattern: json.NewDecoder($R.Body)
+  - id: documento-http-sin-detalles-de-errores
+    languages: [go]
+    severity: ERROR
+    message: documento.detalle_error_expuesto
+    paths:
+      exclude: ["*_test.go"]
+    pattern-either:
+      - pattern: http.Error($W, $ERR.Error(), ...)
+      - pattern: responderError($W, $ESTADO, $ERR.Error())
+  - id: documento-lectura-confinada
+    languages: [go]
+    severity: ERROR
+    message: documento.lectura_fuera_de_raiz
+    paths:
+      exclude: ["*_test.go"]
+    pattern: os.ReadFile(...)

@@ -1,0 +1,30 @@
+{
+  "version": "2026.1",
+  "tramos": [
+    {
+      "codigo": "MENOS_50",
+      "desde": 0,
+      "hasta": 50
+    },
+    {
+      "codigo": "DE_50_A_100",
+      "desde": 50,
+      "hasta": 100
+    },
+    {
+      "codigo": "DE_100_A_150",
+      "desde": 100,
+      "hasta": 150
+    },
+    {
+      "codigo": "DE_150_A_200",
+      "desde": 150,
+      "hasta": 200
+    },
+    {
+      "codigo": "MAS_200",
+      "desde": 200,
+      "hasta": null
+    }
+  ]
+}

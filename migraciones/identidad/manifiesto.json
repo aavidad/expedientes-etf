@@ -1,0 +1,30 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_usuarios_sesiones.sql",
+    "depende_de": [
+      {
+        "modulo": "plataforma",
+        "numero": "0001"
+      },
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_perfiles.sql",
+    "depende_de": [
+      {
+        "modulo": "identidad",
+        "numero": "0001"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0002"
+      }
+    ]
+  }
+]

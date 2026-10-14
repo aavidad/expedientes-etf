@@ -1,0 +1,300 @@
+{
+  "Campos": {
+    "adulto1": "",
+    "adulto1_nacimiento": "",
+    "adulto1_parentesco": "",
+    "adulto2": "",
+    "adulto2_nacimiento": "",
+    "adulto2_parentesco": "",
+    "adulto3": "",
+    "adulto3_nacimiento": "",
+    "adulto3_parentesco": "",
+    "adulto4": "",
+    "adulto4_nacimiento": "",
+    "adulto4_parentesco": "",
+    "adulto5": "",
+    "adulto5_nacimiento": "",
+    "adulto5_parentesco": "",
+    "altas": "2",
+    "anio": "2026",
+    "apellidos": "Ortega Salas",
+    "bajas": "0",
+    "caracteristicas": "Familia biparental con una menor",
+    "casos": "2",
+    "centro": "Centro de Servicios Sociales Alpujarra",
+    "centro_alfacar": "☐",
+    "centro_alhama": "☐",
+    "centro_alpujarra": "☒",
+    "centro_costa": "☐",
+    "centro_educativo": "CEIP Sierra Nevada",
+    "centro_huetor_tajar_montefrio": "☐",
+    "centro_montes_orientales": "☐",
+    "centro_norte": "☐",
+    "centro_pinos_puente_moclin": "☐",
+    "centro_rio_fardes": "☐",
+    "centro_santa_fe": "☐",
+    "centro_sierra_nevada": "☐",
+    "centro_valle_lecrin_ogijares": "☐",
+    "centro_vega_temple": "☐",
+    "centro_vegas_altas": "☐",
+    "cierres": "",
+    "convivencia_otras": "",
+    "coordinacion_recursos": "Coordinación con el centro educativo.",
+    "correo": "nerea.ortega@correo.invalid",
+    "correo_etf": "etf04@diputacion.invalid",
+    "derivacion": "Anexo 3, 05/03/2026",
+    "derivacion_tras_cierre": "Seguimiento desde Servicios Sociales Comunitarios.",
+    "descripcion": "Intervención familiar finalizada con objetivos alcanzados.",
+    "destinatario_sscc": "Centro de Servicios Sociales Alpujarra",
+    "direccion": "Calle del Olivo, 14",
+    "edad": "11",
+    "email": "nerea.ortega@correo.invalid",
+    "entidad_derivante": "Centro de Servicios Sociales Alpujarra",
+    "equipo": "ETF 04",
+    "equipo_01": "☐",
+    "equipo_02": "☐",
+    "equipo_03": "☐",
+    "equipo_04": "☒",
+    "equipo_05": "☐",
+    "equipo_06": "☐",
+    "equipo_07": "☐",
+    "equipo_08": "☐",
+    "equipo_menores": "Equipo de Protección de Menores",
+    "escolarizacion": "6.º de Primaria",
+    "estructura": "Familia biparental",
+    "estructura_familiar": "Familia biparental",
+    "estudios": "Educación Secundaria",
+    "familia": "Ortega Salas",
+    "fase": "Tratamiento",
+    "fecha_acta": "18/03/2026",
+    "fecha_derivacion": "05/03/2026",
+    "fecha_documento": "14/10/2026",
+    "fecha_entrada_sscc": "12/02/2026",
+    "fechas": "18/03/2026; 24/03/2026; 31/03/2026",
+    "finalidad_pronostico": "Riesgo. Favorable",
+    "firmante": "Marta Rojas Medina",
+    "guardadores": "Lucía Salas Ruiz (madre)",
+    "ingresos": "1400 euros mensuales",
+    "instrumentos": "VALÓRAME, SCORE 15",
+    "jefe_spm": "Álvaro Marín Cruz",
+    "madre": "Lucía Salas Ruiz",
+    "madre_nacimiento": "17/02/1987",
+    "marca_h": "☐",
+    "marca_m": "☒",
+    "menores": "2",
+    "menores_lista": "Nerea Ortega Salas",
+    "mes": "09",
+    "motivo": "Objetivos alcanzados",
+    "motivo_abandono": "☐",
+    "motivo_cierre": "Objetivos alcanzados",
+    "motivo_ingreso_centro": "☐",
+    "motivo_mayoria_edad": "☐",
+    "motivo_obj_parcial": "☐",
+    "motivo_obj_total": "☒",
+    "motivo_otros": "☐",
+    "motivo_sin_adherencia": "☐",
+    "motivo_texto": "Objetivos alcanzados",
+    "motivo_traslado": "☐",
+    "municipio": "Órgiva",
+    "municipio_zts": "Órgiva / Alpujarra",
+    "nacimiento": "16/05/2015",
+    "nombre": "Nerea Ortega Salas",
+    "numero": "04-125-26",
+    "numero_menores": "1",
+    "objetivos_abordados": "Mejorar la comunicación familiar.",
+    "objetivos_pendientes": "Mantener las rutinas acordadas.",
+    "orden": "1",
+    "origen_anexo3": "☒",
+    "origen_anexo4": "☐",
+    "origen_etf": "☐",
+    "otros": "",
+    "otros_datos": "",
+    "padre": "Diego Ortega Molina",
+    "padre_nacimiento": "24/09/1985",
+    "papel": "Madre",
+    "parentesco": "Madre",
+    "profesional": "Elena Torres Marín",
+    "profesional_email": "etf04@diputacion.invalid",
+    "profesional_es": "Elena Torres Marín",
+    "profesional_ps": "Raúl Vega Ríos",
+    "profesional_telefono": "958123456",
+    "profesional_ts": "Teresa Gil Cortés",
+    "punto_final": ".",
+    "rotulo_menor": "Menor: ",
+    "servicio": "Servicios Sociales Comunitarios",
+    "servicio_derivante": "Servicios Sociales Comunitarios",
+    "servicio_destino": "Centro de salud de Órgiva",
+    "sexo": "Mujer",
+    "situacion_economica": "Ingresos estables",
+    "situacion_laboral": "Trabajo temporal",
+    "telefono": "958123456",
+    "telefono_etf": "958123456",
+    "temporalizacion": "6",
+    "tramo_ingresos": "De 1000 a 1500 euros",
+    "vivienda": "Vivienda alquilada"
+  },
+  "Filas": {
+    "adultos": [
+      {
+        "edad": "39",
+        "estudios": "Educación Secundaria",
+        "nacimiento": "17/02/1987",
+        "nombre": "Lucía Salas Ruiz",
+        "orden": "1",
+        "otros_datos": "",
+        "papel": "Madre",
+        "parentesco": "Madre"
+      },
+      {
+        "edad": "41",
+        "estudios": "Educación Secundaria",
+        "nacimiento": "24/09/1985",
+        "nombre": "Diego Ortega Molina",
+        "orden": "2",
+        "otros_datos": "",
+        "papel": "Padre",
+        "parentesco": "Padre"
+      }
+    ],
+    "casos_spaf": [
+      {
+        "caracteristicas": "Familia biparental con una menor",
+        "cierres": "",
+        "derivacion": "Anexo 3, 05/03/2026",
+        "fase": "Tratamiento",
+        "fechas": "18/03/2026; 24/03/2026; 31/03/2026",
+        "finalidad_pronostico": "Riesgo. Favorable",
+        "guardadores": "Lucía Salas Ruiz (madre)",
+        "instrumentos": "VALÓRAME, SCORE 15",
+        "menores": "Nerea Ortega Salas, 16/05/2015",
+        "municipio_zts": "Órgiva / Alpujarra",
+        "numero": "04-125-26",
+        "numero_menores": "1",
+        "servicio": "Servicios Sociales Comunitarios",
+        "temporalizacion": "6"
+      },
+      {
+        "caracteristicas": "Familia biparental con una menor",
+        "cierres": "",
+        "derivacion": "Anexo 3, 05/03/2026",
+        "fase": "Tratamiento",
+        "fechas": "18/03/2026; 24/03/2026; 31/03/2026",
+        "finalidad_pronostico": "Riesgo. Favorable",
+        "guardadores": "Sara Vega Gil (madre)",
+        "instrumentos": "VALÓRAME, SCORE 15",
+        "menores": "Bruno Ríos Vega, 18/07/2017",
+        "municipio_zts": "Órgiva / Alpujarra",
+        "numero": "04-126-26",
+        "numero_menores": "1",
+        "servicio": "Servicios Sociales Comunitarios",
+        "temporalizacion": "6"
+      }
+    ],
+    "contactos": [
+      {
+        "apellidos": "Salas Ruiz",
+        "correo": "nerea.ortega@correo.invalid",
+        "nombre": "Lucía",
+        "telefono": "958123456"
+      },
+      {
+        "apellidos": "Ortega Molina",
+        "correo": "nerea.ortega@correo.invalid",
+        "nombre": "Diego",
+        "telefono": "958123456"
+      }
+    ],
+    "lista_menores": [
+      {
+        "nombre": "Nerea Ortega Salas",
+        "punto_final": ".",
+        "rotulo_menor": "Menor: "
+      },
+      {
+        "nombre": "Bruno Ortega Salas",
+        "punto_final": ".",
+        "rotulo_menor": "Menor: "
+      }
+    ],
+    "menores": [
+      {
+        "centro": "Centro de Servicios Sociales Alpujarra",
+        "escolarizacion": "6.º de Primaria",
+        "marca_h": "☐",
+        "marca_m": "☒",
+        "nacimiento": "16/05/2015",
+        "nombre": "Nerea Ortega Salas",
+        "sexo": "Mujer"
+      },
+      {
+        "centro": "Centro de Servicios Sociales Alpujarra",
+        "escolarizacion": "6.º de Primaria",
+        "marca_h": "☒",
+        "marca_m": "☐",
+        "nacimiento": "18/07/2017",
+        "nombre": "Bruno Ortega Salas",
+        "sexo": "Varón"
+      }
+    ],
+    "spm_adultos": [
+      {
+        "edad": "39",
+        "estudios": "Educación Secundaria",
+        "nombre": "Lucía Salas Ruiz",
+        "orden": "1",
+        "otros": "",
+        "parentesco": "Madre"
+      },
+      {
+        "edad": "41",
+        "estudios": "Educación Secundaria",
+        "nombre": "Diego Ortega Molina",
+        "orden": "2",
+        "otros": "",
+        "parentesco": "Padre"
+      }
+    ],
+    "spm_contactos": [
+      {
+        "apellidos": "Salas Ruiz",
+        "email": "nerea.ortega@correo.invalid",
+        "nombre": "Lucía",
+        "telefono": "958123456"
+      },
+      {
+        "apellidos": "Ortega Molina",
+        "email": "nerea.ortega@correo.invalid",
+        "nombre": "Diego",
+        "telefono": "958123456"
+      }
+    ],
+    "spm_menores": [
+      {
+        "centro_educativo": "CEIP Sierra Nevada",
+        "escolarizacion": "6.º de Primaria",
+        "nacimiento": "16/05/2015",
+        "nombre": "Nerea Ortega Salas"
+      },
+      {
+        "centro_educativo": "CEIP Sierra Nevada",
+        "escolarizacion": "6.º de Primaria",
+        "nacimiento": "18/07/2017",
+        "nombre": "Bruno Ortega Salas"
+      }
+    ],
+    "spm_significativas": [
+      {
+        "apellidos": "Salas Ruiz",
+        "nombre": "Lucía Salas Ruiz",
+        "parentesco": "Madre",
+        "telefono": "958123456"
+      },
+      {
+        "apellidos": "Ortega Molina",
+        "nombre": "Diego Ortega Molina",
+        "parentesco": "Padre",
+        "telefono": "958123456"
+      }
+    ]
+  }
+}

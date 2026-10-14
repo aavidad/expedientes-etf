@@ -1,0 +1,20 @@
+{
+  "auditoria.cadena_alterada": "The check detected changes to the activity log. Contact IT.",
+  "auditoria.codigo_invalido": "The recorded action code is not valid.",
+  "auditoria.configuracion_invalida": "The activity log settings are not correct. Contact IT.",
+  "auditoria.confirmacion_invalida": "The activity log could not be confirmed. The operation was not completed.",
+  "auditoria.dia_invalido": "Choose a day that has already ended to seal the activity log.",
+  "auditoria.exportacion_demasiado_grande": "The activity log export is too large. Choose a shorter period.",
+  "auditoria.fecha_invalida": "The activity log date is not valid.",
+  "auditoria.formato_invalido": "The file is not an activity log export.",
+  "auditoria.identificador_invalido": "The activity log identifier is not valid.",
+  "auditoria.orden_invalido": "The activity log is out of order or has missing entries.",
+  "auditoria.perfiles_invalidos": "The profiles recorded in the activity log are not valid.",
+  "auditoria.permiso_denegado": "You do not have permission to view or export the activity log.",
+  "auditoria.persistencia_fallida": "The activity log could not be saved or retrieved. Try again later.",
+  "auditoria.punto_invalido": "The activity log checkpoint is not valid.",
+  "auditoria.resultado_invalido": "The recorded result in the activity log is not valid.",
+  "auditoria.solo_insercion": "The activity log cannot be changed or deleted.",
+  "auditoria.tramo_invalido": "The activity log range is invalid.",
+  "auditoria.usuario_invalido": "The person recorded in the activity log is not valid."
+}

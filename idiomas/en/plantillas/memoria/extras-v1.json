@@ -1,0 +1,17 @@
+{
+  "sin_dato": "Unknown",
+  "provincial": "Province",
+  "separador_decimal": ".",
+  "aviso_datos_incompletos": "Some data or rules need review. Check unknown values and percentages.",
+  "etiqueta_sin_dato": "Unknown cells",
+  "etiqueta_sin_relacion": "Families with no known list of children",
+  "cabecera_a": "A. General information",
+  "datos_a": "Local authority: {{a_entidad}}\nTeams covered by the agreement: {{a_equipos}}\nName: {{a_denominacion}}",
+  "personal_a": "Professionals, excluding coordination and staff funded solely by the local authority:\nPsychology: {{a_psicologia_hombres}} men; {{a_psicologia_mujeres}} women.\nSocial work: {{a_trabajo_social_hombres}} men; {{a_trabajo_social_mujeres}} women.\nSocial education: {{a_educacion_social_hombres}} men; {{a_educacion_social_mujeres}} women.",
+  "observaciones_a": "Absences and replacements: {{a_observaciones}}",
+  "cabecera_d": "D. Intervention methodology",
+  "cabecera_e": "E. Difficulties",
+  "cabecera_f": "F. Improvement proposals",
+  "cabecera_g": "G. Overall assessment",
+  "aviso_divisor_cero": "The denominator is zero; the percentage is shown as 0.00."
+}

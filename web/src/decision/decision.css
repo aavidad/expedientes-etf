@@ -1,0 +1,38 @@
+.decision { min-width: 0; }
+.decision-cabecera, .decision-acciones { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espacio-6); }
+.decision-disposicion { display: flex; flex-wrap: wrap; gap: var(--espacio-entre-tarjetas); align-items: flex-start; }
+.decision-principal { flex: 2; min-width: min(100%, var(--ancho-lateral)); }
+.decision-lateral { flex: 1; min-width: min(100%, var(--ancho-menu)); }
+.decision-tarjeta, .decision-pendiente { margin-block-end: var(--espacio-entre-tarjetas); padding: var(--espacio-tarjeta); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); background: var(--color-superficie); overflow-wrap: anywhere; }
+.decision-tarjeta h2, .decision-tarjeta h3, .decision-pendiente h2 { margin-block-start: unset; }
+.decision-campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-menu)), 1fr)); gap: var(--espacio-6); }
+.decision-campo { display: flex; flex-direction: column; gap: var(--espacio-etiqueta); min-width: 0; }
+.decision label, .decision dt { font-size: var(--texto-etiqueta); font-weight: var(--peso-seminegrita); }
+.decision input, .decision textarea, .decision select { width: 100%; min-width: 0; }
+.decision textarea { padding: var(--espacio-5); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); font: inherit; color: var(--color-texto); background: var(--color-superficie); resize: vertical; }
+.decision dl { display: grid; gap: var(--espacio-3); }
+.decision dd { margin-inline-start: unset; margin-block-end: var(--espacio-5); white-space: pre-wrap; }
+.decision dt, .decision small, .decision-origen { color: var(--color-texto-secundario); }
+.decision small { display: block; font-size: var(--texto-meta); }
+.decision-estado { display: flex; flex-wrap: wrap; gap: var(--espacio-6); font-weight: var(--peso-seminegrita); }
+.decision-info { background: var(--color-calculado-fondo); border: var(--borde-normal) solid var(--color-info-borde); border-radius: var(--radio-aviso); padding: var(--espacio-6); }
+.decision-pendiente { background: var(--color-aviso-fondo); border-color: var(--color-aviso-borde); color: var(--color-aviso-texto-cuerpo); }
+.decision-pendiente h2, .decision-pendiente a { color: var(--color-aviso-texto); }
+.decision-pendiente a { display: inline-flex; align-items: center; min-height: var(--alto-control); }
+.decision-persona, .decision-documento, .decision-fila-espera { padding-block: var(--espacio-6); border-block-start: var(--borde-normal) solid var(--color-borde-fila); }
+.decision-persona fieldset { flex-direction: row; flex-wrap: wrap; gap: var(--espacio-6); }
+.decision-radio { display: flex; align-items: center; gap: var(--espacio-3); min-height: var(--alto-control); }
+.decision-radio input { width: var(--tamano-casilla); }
+.decision summary { min-height: var(--alto-control); cursor: pointer; font-weight: var(--peso-seminegrita); }
+.decision-lateral button { width: 100%; text-align: start; min-height: var(--alto-boton-decision); }
+.decision-lateral p { font-size: var(--texto-meta); }
+.decision [aria-invalid='true'] { border-color: var(--color-aviso-borde-campo); border-width: var(--borde-marcado); background: var(--color-aviso-fondo); }
+
+.cuerpo-app[data-compacto='true'] .decision-disposicion { flex-direction: column; }
+.cuerpo-app[data-compacto='true'] .decision-lateral { order: -1; width: 100%; }
+.cuerpo-app[data-compacto='true'] .decision-principal { width: 100%; }
+
+.decision[data-lateral-arriba='true'] .decision-disposicion { flex-direction: column; }
+.decision[data-lateral-arriba='true'] .decision-lateral { order: -1; width: 100%; }
+.decision[data-lateral-arriba='true'] .decision-principal { width: 100%; }
+.decision-radio input { accent-color: var(--color-acento); }

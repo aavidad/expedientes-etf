@@ -1,0 +1,4 @@
+{
+  "expediente.finalizacion_invalida": "Selecciona un motivo de finalización válido y completa su explicación si se requiere.",
+  "expediente.cierre_requiere_falta_consentimiento": "Para proponer el cierre desde aceptada, confirma que la familia no ha consentido y selecciona el motivo correspondiente."
+}

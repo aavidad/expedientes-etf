@@ -1,0 +1,12 @@
+{
+  "expediente.carga_historica_invalida": "Revisa las fechas, el estado y los datos históricos del caso. La carga debe incluir casos necesarios para 2026.",
+  "expediente.numero_historico_invalido": "El número debe tener el formato EE-NN-AA y coincidir con el equipo y el año del Acta de Aceptación.",
+  "expediente.numero_historico_duplicado": "Ese número de expediente ya está registrado. Revisa el número antes de confirmar la carga.",
+  "expediente.cargado_para_revision": "Cargado para revisión",
+  "expediente.carga_historica_rechazada": "Carga histórica rechazada",
+  "expediente.validar_carga_historica": "Validación de carga histórica",
+  "expediente.confirmar_carga_historica": "Confirmación de carga histórica",
+  "expediente.vista_previa_revertida": "Vista previa completada sin guardar la carga.",
+  "expediente.cierre_historico": "Cierre histórico",
+  "expediente.reapertura_historica": "Reapertura histórica"
+}

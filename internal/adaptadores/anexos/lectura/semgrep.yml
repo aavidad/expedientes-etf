@@ -1,0 +1,38 @@
+rules:
+  - id: etf-f101-sin-temporales
+    languages: [go]
+    severity: ERROR
+    message: expediente.temporal_prohibido
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: os.CreateTemp(...)
+      - pattern: os.MkdirTemp(...)
+      - pattern: os.WriteFile(...)
+      - pattern: os.Create(...)
+      - pattern: ioutil.TempFile(...)
+      - pattern: $R.ParseMultipartForm(...)
+      - pattern: $R.FormFile(...)
+  - id: etf-f101-sin-red-en-lector
+    languages: [go]
+    severity: ERROR
+    message: expediente.lector_acceso_externo
+    paths:
+      include: ['**/anexos/lectura/*.go']
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: http.Get(...)
+      - pattern: http.Post(...)
+      - pattern: net.Dial(...)
+      - pattern: exec.Command(...)
+  - id: etf-f101-sin-registros-de-contenido
+    languages: [go]
+    severity: ERROR
+    message: expediente.registro_personal_prohibido
+    paths:
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: slog.Info(...)
+      - pattern: slog.Error(...)
+      - pattern: log.Print(...)
+      - pattern: fmt.Println(...)

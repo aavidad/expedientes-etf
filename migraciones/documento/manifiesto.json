@@ -1,0 +1,214 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_emisiones.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0001"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0003"
+      },
+      {
+        "modulo": "paquete",
+        "numero": "0002"
+      },
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_entrada_registro.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0001"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_no_aceptacion_espera.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0002"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_publicar_plantillas.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0005",
+    "archivo": "0005_spaf.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0008"
+      }
+    ]
+  },
+  {
+    "numero": "0006",
+    "archivo": "0006_anexo5.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0005"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0007",
+    "archivo": "0007_anexo6.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0006"
+      }
+    ]
+  },
+  {
+    "numero": "0008",
+    "archivo": "0008_finalizacion.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0009",
+    "archivo": "0009_consentimientos.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0010",
+    "archivo": "0010_memoria.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0008"
+      },
+      {
+        "modulo": "estadistica",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0011",
+    "archivo": "0011_acta_cierre.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0003"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0013"
+      }
+    ]
+  },
+  {
+    "numero": "0012",
+    "archivo": "0012_gestion_plantillas.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0004"
+      }
+    ]
+  },
+  {
+    "numero": "0013",
+    "archivo": "0013_plantillas_corregidas.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0005"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0006"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0007"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0008"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0009"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0011"
+      },
+      {
+        "modulo": "documento",
+        "numero": "0012"
+      }
+    ]
+  },
+  {
+    "numero": "0014",
+    "archivo": "0014_conservacion.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0013"
+      }
+    ]
+  }
+]

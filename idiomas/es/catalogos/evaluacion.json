@@ -1,0 +1,20 @@
+{
+  "evaluacion.instrumento.VALORAME": "VALÓRAME",
+  "evaluacion.instrumento.ECP12": "ECP-12",
+  "evaluacion.instrumento.SCORE15": "SCORE-15",
+  "evaluacion.instrumento.SDQ": "SDQ",
+  "evaluacion.instrumento.SOATIF": "SOATIF",
+  "evaluacion.instrumento.AAPI25": "AAPI-2.5",
+  "evaluacion.instrumento.SATISFACCION": "Satisfacción con la intervención",
+  "evaluacion.instrumento.CRITERIOS_GR": "Criterios G.R.",
+  "evaluacion.instrumento.CWBS": "Escala CWBS",
+  "evaluacion.instrumento.CAP": "CAP",
+  "evaluacion.instrumento.DEPRESION": "Test de depresión",
+  "evaluacion.instrumento.PERSONALIDAD": "Test de personalidad",
+  "evaluacion.instrumento.AUTOCONCEPTO_PH": "Autoconcepto P-H",
+  "evaluacion.instrumento.ADAPTACION_SOCIOEMOCIONAL": "Adaptación socioemocional",
+  "evaluacion.instrumento.ACTIVACION_EMPATICA": "Activación empática",
+  "evaluacion.instrumento.CEIC_CEICA": "CEIC-CEICA",
+  "evaluacion.instrumento.ACHENBACH": "Escala Achenbach",
+  "evaluacion.instrumento.OTROS": "Otros"
+}

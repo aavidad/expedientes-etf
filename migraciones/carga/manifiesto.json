@@ -1,0 +1,7 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_procedencia_hoja.sql",
+    "depende_de": [{"modulo": "expediente", "numero": "0018"}]
+  }
+]

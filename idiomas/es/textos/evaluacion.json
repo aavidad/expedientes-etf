@@ -1,0 +1,11 @@
+{
+  "evaluacion.peticion_invalida": "Revisa los datos de la evaluación antes de guardarla.",
+  "evaluacion.acceso_denegado": "No tienes permiso para consultar o cambiar esta evaluación.",
+  "evaluacion.sujeto_invalido": "Selecciona a quién se aplica la evaluación y revisa su vínculo con el expediente.",
+  "evaluacion.puntuacion_invalida": "Revisa las puntuaciones: cada ítem debe tener un único valor dentro de los límites de la escala.",
+  "evaluacion.version_escala_invalida": "La versión de la escala no está disponible o sus reglas están incompletas.",
+  "evaluacion.no_encontrada": "No se ha encontrado la evaluación.",
+  "evaluacion.no_disponible": "No se ha podido completar la operación con la evaluación. Inténtalo de nuevo.",
+  "evaluacion.conflicto": "Otra persona ha cambiado la evaluación. Revisa la versión actual antes de guardar.",
+  "evaluacion.idempotencia_incompatible": "Esta petición ya se usó con otros datos. Revisa los datos antes de volver a guardar."
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_comisiones_informes.sql",
+    "depende_de": [
+      {"modulo": "catalogo", "numero": "0002"},
+      {"modulo": "auditoria", "numero": "0001"}
+    ]
+  }
+]

@@ -1,0 +1,573 @@
+{
+  "anexo3": {
+    "servicio.nombre": [
+      "Centro de Servicios Sociales de Alhama"
+    ],
+    "servicio.profesional": [
+      "Elena Márquez Roldán"
+    ],
+    "servicio.telefono": [
+      "958 000 142"
+    ],
+    "servicio.correo": [
+      "emarquez@servicios.invalid"
+    ],
+    "familia.direccion": [
+      "Calle del Olivo 18, 18120 Alhama de Granada"
+    ],
+    "familia.contacto.nombre": [
+      "Lucía",
+      "Daniel"
+    ],
+    "familia.contacto.apellidos": [
+      "Ortega Salcedo",
+      "Pérez Molina"
+    ],
+    "familia.contacto.telefono": [
+      "600 000 142",
+      ""
+    ],
+    "familia.contacto.correo": [
+      "lucia.ortega@correo.invalid",
+      ""
+    ],
+    "menores.persona.nombre": [
+      "Nerea Pérez Ortega",
+      "Álvaro Pérez Ortega",
+      "Celia Pérez Ortega",
+      "Mateo Pérez Ortega",
+      "Irene Pérez Ortega",
+      "Hugo Pérez Ortega"
+    ],
+    "menores.persona.nacimiento": [
+      "14/02/2016",
+      "23/11/2012",
+      "08/03/2014",
+      "19/06/2018",
+      "12/04/2020",
+      "03/09/2022"
+    ],
+    "menores.persona.escolarizacion": [
+      "ed primaria",
+      "ed secundaria",
+      "ed primaria",
+      "ed primaria",
+      "ed infantil",
+      "ed infantil"
+    ],
+    "menores.persona.centro": [
+      "CEIP Sierra de Alhama",
+      "IES Alhama",
+      "CEIP Sierra de Alhama",
+      "",
+      "CEIP Sierra de Alhama",
+      "CEIP Sierra de Alhama"
+    ],
+    "sociodemografia.estructura": [
+      "Familias biparentales"
+    ],
+    "sociodemografia.otras_formas": [
+      ""
+    ],
+    "sociodemografia.ingresos": [
+      "1450 euros mensuales"
+    ],
+    "sociodemografia.vivienda": [
+      "Alquilada"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Autónomo"
+    ],
+    "sociodemografia.situacion_economica": [
+      "sin dificultades económicas"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "< 50% SMI/Año"
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2",
+      "Otro 1",
+      "Otro 2",
+      "Otro 3"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Lucía Ortega Salcedo",
+      "Daniel Pérez Molina",
+      "Rosa Salcedo Ávila",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Madre",
+      "Padre",
+      "Abuela",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.edad": [
+      "39",
+      "41",
+      "67",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Estudios obligatorios (ESO, EGB)",
+      "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Estudios universitarios",
+      "Analfabetismo"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "Trabajo temporal en comercio",
+      "Búsqueda de empleo",
+      "Apoyo en cuidados",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Marta",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "Ortega Salcedo",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Tía materna",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "600 000 144",
+      "",
+      "",
+      ""
+    ],
+    "valoracion.tiempo_convivencia": [
+      "16 años"
+    ],
+    "valoracion.historia": [
+      "La familia reside en Alhama desde 2010."
+    ],
+    "valoracion.descripcion": [
+      "La familia solicita apoyo para organizar los cuidados y mejorar la asistencia escolar."
+    ],
+    "valoracion.duracion": [
+      "8"
+    ],
+    "valoracion.integracion": [
+      "Mantiene relación con la asociación vecinal."
+    ],
+    "valoracion.dificultades": [
+      "Conflictos puntuales de convivencia."
+    ],
+    "valoracion.personas_dificultad": [
+      "Ambos progenitores."
+    ],
+    "valoracion.motivo_dificultades": [
+      "Dificultades para conciliar horarios."
+    ],
+    "valoracion.crisis": [
+      "SI"
+    ],
+    "valoracion.actitud": [
+      "Colaborativa"
+    ],
+    "valoracion.adecuacion": [
+      "Nada"
+    ],
+    "valoracion.conciencia": [
+      "Nada"
+    ],
+    "valoracion.motivacion": [
+      "Nada"
+    ],
+    "valoracion.expectativas": [
+      "Muy bajas"
+    ],
+    "valoracion.pronostico": [
+      "0 - Negativo"
+    ],
+    "valorame.global": [
+      "No riesgo"
+    ],
+    "valorame.maltrato_fisico": [
+      "Sin información"
+    ],
+    "valorame.maltrato_psicologico": [
+      "Sin información"
+    ],
+    "valorame.negligencia": [
+      "Sin información"
+    ],
+    "valorame.abandono": [
+      "Sin información"
+    ],
+    "valorame.violencia_sexual": [
+      "Sin información"
+    ],
+    "valorame.incapacidad_parental": [
+      "Sin información"
+    ],
+    "valorame.maltrato_prenatal": [
+      "Sin información"
+    ],
+    "valorame.corrupcion": [
+      "Sin información"
+    ],
+    "valorame.otras": [
+      "Sin información"
+    ],
+    "valorame.descripcion": [
+      "Necesita apoyo educativo y seguimiento familiar."
+    ],
+    "desproteccion.antecedentes": [
+      "Sin información"
+    ],
+    "desproteccion.dificultades_parentales": [
+      "Sin información"
+    ],
+    "desproteccion.imposibilidad_proteccion": [
+      "Sin información"
+    ],
+    "desproteccion.migrantes_sin_referentes": [
+      "Sin información"
+    ],
+    "desproteccion.migrantes_vinculo_no_acreditado": [
+      "Sin información"
+    ],
+    "intervenciones.servicio": [
+      "Servicios Sociales Comunitarios"
+    ],
+    "intervenciones.profesional": [
+      "Elena Márquez Roldán"
+    ],
+    "intervenciones.telefono": [
+      "958 000 142"
+    ],
+    "intervenciones.correo": [
+      "emarquez@servicios.invalid"
+    ],
+    "intervenciones.descripcion": [
+      "Seguimiento de la asistencia escolar y orientación familiar."
+    ],
+    "intervenciones.resultados": [
+      "Mejora inicial de la coordinación con el centro educativo."
+    ],
+    "observaciones.texto": [
+      "La familia prefiere las citas por la tarde."
+    ],
+    "observaciones.documentacion_obligatoria": [
+      "VALÓRAME"
+    ],
+    "observaciones.otra_documentacion": [
+      "Informe educativo e informe social."
+    ]
+  },
+  "anexo4": {
+    "servicio.nombre": [
+      "Servicio de Protección de Menores de Granada"
+    ],
+    "servicio.profesional": [
+      "Elena Márquez Roldán"
+    ],
+    "servicio.equipo_menores": [
+      "Equipo Sierra Sur"
+    ],
+    "servicio.etf": [
+      "ETF Alhama"
+    ],
+    "servicio.subprograma": [
+      "Reintegracion"
+    ],
+    "servicio.telefono": [
+      "958 000 142"
+    ],
+    "servicio.correo": [
+      "emarquez@servicios.invalid"
+    ],
+    "familia.direccion": [
+      "Calle del Olivo 18, 18120 Alhama de Granada"
+    ],
+    "familia.contacto.nombre": [
+      "Lucía",
+      "Daniel"
+    ],
+    "familia.contacto.apellidos": [
+      "Ortega Salcedo",
+      "Pérez Molina"
+    ],
+    "familia.contacto.telefono": [
+      "600 000 142",
+      ""
+    ],
+    "familia.contacto.correo": [
+      "lucia.ortega@correo.invalid",
+      ""
+    ],
+    "menores.persona.nombre": [
+      "Nerea Pérez Ortega",
+      "Álvaro Pérez Ortega",
+      "Celia Pérez Ortega",
+      "Mateo Pérez Ortega",
+      "Irene Pérez Ortega",
+      "Hugo Pérez Ortega"
+    ],
+    "menores.persona.nacimiento": [
+      "14/02/2016",
+      "23/11/2012",
+      "08/03/2014",
+      "19/06/2018",
+      "12/04/2020",
+      "03/09/2022"
+    ],
+    "menores.persona.escolarizacion": [
+      "ed primaria",
+      "ed secundaria",
+      "ed primaria",
+      "ed primaria",
+      "ed infantil",
+      "ed infantil"
+    ],
+    "menores.persona.centro": [
+      "CEIP Sierra de Alhama",
+      "IES Alhama",
+      "CEIP Sierra de Alhama",
+      "",
+      "CEIP Sierra de Alhama",
+      "CEIP Sierra de Alhama"
+    ],
+    "sociodemografia.estructura": [
+      "Familias biparentales"
+    ],
+    "sociodemografia.otras_formas": [
+      ""
+    ],
+    "sociodemografia.ingresos": [
+      "1450 euros mensuales"
+    ],
+    "sociodemografia.vivienda": [
+      "Alquilada"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Autónomo"
+    ],
+    "sociodemografia.situacion_economica": [
+      "sin dificultades económicas"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "< 50% SMI/Año"
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2",
+      "Otro 1",
+      "Otro 2",
+      "Otro 3"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Lucía Ortega Salcedo",
+      "Daniel Pérez Molina",
+      "Rosa Salcedo Ávila",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Madre",
+      "Padre",
+      "Abuela",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.edad": [
+      "39",
+      "41",
+      "67",
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Estudios obligatorios (ESO, EGB)",
+      "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Estudios universitarios",
+      "Analfabetismo"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "Trabajo temporal en comercio",
+      "Búsqueda de empleo",
+      "Apoyo en cuidados",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Marta",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "Ortega Salcedo",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Tía materna",
+      "",
+      "",
+      ""
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "600 000 144",
+      "",
+      "",
+      ""
+    ],
+    "valoracion.tiempo_convivencia": [
+      "16 años"
+    ],
+    "valoracion.historia": [
+      "La familia reside en Alhama desde 2010."
+    ],
+    "valoracion.descripcion": [
+      "La familia solicita apoyo para organizar los cuidados y mejorar la asistencia escolar."
+    ],
+    "valoracion.duracion": [
+      "8"
+    ],
+    "valoracion.integracion": [
+      "Mantiene relación con la asociación vecinal."
+    ],
+    "valoracion.dificultades": [
+      "Conflictos puntuales de convivencia."
+    ],
+    "valoracion.personas_dificultad": [
+      "Ambos progenitores."
+    ],
+    "valoracion.motivo_dificultades": [
+      "Dificultades para conciliar horarios."
+    ],
+    "valoracion.crisis": [
+      "SI"
+    ],
+    "valoracion.actitud": [
+      "Colaborativa"
+    ],
+    "valoracion.adecuacion": [
+      "Nada"
+    ],
+    "valoracion.conciencia": [
+      "Nada"
+    ],
+    "valoracion.motivacion": [
+      "Nada"
+    ],
+    "valoracion.expectativas": [
+      "Muy bajas"
+    ],
+    "valoracion.pronostico": [
+      "0 - Negativo"
+    ],
+    "valorame.global": [
+      "No riesgo"
+    ],
+    "valorame.maltrato_fisico": [
+      "Sin información"
+    ],
+    "valorame.maltrato_psicologico": [
+      "Sin información"
+    ],
+    "valorame.negligencia": [
+      "Sin información"
+    ],
+    "valorame.abandono": [
+      "Sin información"
+    ],
+    "valorame.violencia_sexual": [
+      "Sin información"
+    ],
+    "valorame.incapacidad_parental": [
+      "Sin información"
+    ],
+    "valorame.maltrato_prenatal": [
+      "Sin información"
+    ],
+    "valorame.corrupcion": [
+      "Sin información"
+    ],
+    "valorame.otras": [
+      "Sin información"
+    ],
+    "valorame.descripcion": [
+      "Necesita apoyo educativo y seguimiento familiar."
+    ],
+    "desproteccion.antecedentes": [
+      "Sin información"
+    ],
+    "desproteccion.dificultades_parentales": [
+      "Sin información"
+    ],
+    "desproteccion.imposibilidad_proteccion": [
+      "Sin información"
+    ],
+    "desproteccion.migrantes_sin_referentes": [
+      "Sin información"
+    ],
+    "desproteccion.migrantes_vinculo_no_acreditado": [
+      "Sin información"
+    ],
+    "intervenciones.servicio": [
+      "Servicios Sociales Comunitarios"
+    ],
+    "intervenciones.profesional": [
+      "Elena Márquez Roldán"
+    ],
+    "intervenciones.telefono": [
+      "958 000 142"
+    ],
+    "intervenciones.correo": [
+      "emarquez@servicios.invalid"
+    ],
+    "intervenciones.descripcion": [
+      "Seguimiento de la asistencia escolar y orientación familiar."
+    ],
+    "intervenciones.resultados": [
+      "Mejora inicial de la coordinación con el centro educativo."
+    ],
+    "resoluciones.existencia": [
+      "SI"
+    ],
+    "resoluciones.tipo": [
+      "Resolución administrativa"
+    ],
+    "resoluciones.organismo": [
+      "Delegación Territorial de Granada"
+    ],
+    "resoluciones.medidas": [
+      "SI"
+    ],
+    "resoluciones.fecha": [
+      "15/05/2025"
+    ],
+    "resoluciones.resultados": [
+      "Seguimiento de las medidas acordadas."
+    ],
+    "observaciones.texto": [
+      "La familia prefiere las citas por la tarde."
+    ],
+    "observaciones.documentacion_obligatoria": [
+      "VALÓRAME Los informes técnicos que procedan. Los principales objetivos del plan de intervención. El consentimiento de la familia a participar en la intervención."
+    ],
+    "observaciones.otra_documentacion": [
+      "Informe educativo e informe social."
+    ]
+  }
+}

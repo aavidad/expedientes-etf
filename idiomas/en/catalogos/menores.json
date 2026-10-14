@@ -1,0 +1,9 @@
+{
+  "nivel_escolarizacion.SIN_ESCOLARIZAR": "Not enrolled",
+  "nivel_escolarizacion.INFANTIL": "Early childhood education",
+  "nivel_escolarizacion.PRIMARIA": "Primary education",
+  "nivel_escolarizacion.ESO": "Compulsory secondary education",
+  "nivel_escolarizacion.BACHILLERATO": "Upper secondary education",
+  "nivel_escolarizacion.FP": "Vocational training",
+  "nivel_escolarizacion.OTRA": "Other education"
+}

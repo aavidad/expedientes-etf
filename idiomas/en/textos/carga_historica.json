@@ -1,0 +1,12 @@
+{
+  "expediente.carga_historica_invalida": "Check the dates, status and historical case data. The upload must include cases needed for 2026.",
+  "expediente.numero_historico_invalido": "The case number must use EE-NN-AA and match the team and the year of the Acceptance Record.",
+  "expediente.numero_historico_duplicado": "That case number is already registered. Check it before confirming the upload.",
+  "expediente.cargado_para_revision": "Loaded for review",
+  "expediente.carga_historica_rechazada": "Historical upload rejected",
+  "expediente.validar_carga_historica": "Historical upload validation",
+  "expediente.confirmar_carga_historica": "Historical upload confirmation",
+  "expediente.vista_previa_revertida": "Preview completed without saving the upload.",
+  "expediente.cierre_historico": "Historical closure",
+  "expediente.reapertura_historica": "Historical reopening"
+}

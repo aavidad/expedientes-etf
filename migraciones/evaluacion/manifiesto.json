@@ -1,0 +1,26 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_instrumentos_escalas.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0004"
+      },
+      {
+        "modulo": "auditoria",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_conservacion.sql",
+    "depende_de": [
+      {
+        "modulo": "evaluacion",
+        "numero": "0001"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "expediente.traslado_invalido": "Revisa el equipo de destino y la propuesta de cierre por traslado.",
+  "expediente.seguimiento_invalido": "Revisa las fechas, el motivo y el estado del seguimiento.",
+  "expediente.fin_seguimiento_proximo": "El seguimiento tras el cese está próximo a terminar.",
+  "expediente.seguimiento_vencimiento_pendiente": "No se ha podido terminar el seguimiento cuyo plazo ha vencido."
+}

@@ -1,0 +1,25 @@
+rules:
+  - id: recorridos-ejecucion-de-textos
+    languages: [javascript]
+    severity: ERROR
+    message: Los textos del guion se insertan con textContent, sin ejecutar HTML ni JavaScript.
+    pattern-either:
+      - pattern: $X.innerHTML = $Y
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: recorridos-sin-secretos-persistidos
+    languages: [javascript]
+    severity: ERROR
+    message: No guardar HAR ni sesiones ni omitir la validación TLS en las grabaciones.
+    pattern-either:
+      - pattern: '{..., recordHar: $X, ...}'
+      - pattern: $X.storageState(...)
+      - pattern: '{..., ignoreHTTPSErrors: true, ...}'
+  - id: recorridos-sin-shell
+    languages: [python]
+    severity: ERROR
+    message: Ejecutar herramientas con argumentos separados, sin intérprete de órdenes.
+    pattern-either:
+      - pattern: subprocess.run(..., shell=True, ...)
+      - pattern: subprocess.Popen(..., shell=True, ...)
+      - pattern: os.system(...)

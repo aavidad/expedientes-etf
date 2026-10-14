@@ -1,0 +1,23 @@
+{
+  "motivo_finalizacion.OBJ_TOTAL": "Objetivos satisfactoriamente cumplidos",
+  "motivo_finalizacion.OBJ_PARCIAL": "Objetivos parcialmente cumplidos",
+  "motivo_finalizacion.SIN_ADHERENCIA": "Sin objetivos ni mejora por falta de adherencia",
+  "motivo_finalizacion.ABANDONO": "La familia abandona por iniciativa propia",
+  "motivo_finalizacion.TRASLADO": "Traslado familiar",
+  "motivo_finalizacion.MAYORIA_EDAD": "Mayoría de edad de los hijos e hijas",
+  "motivo_finalizacion.INGRESO_CENTRO": "Ingreso de los menores en un centro",
+  "motivo_finalizacion.DECLARACION_RIESGO": "Otros: declaración de riesgo",
+  "motivo_finalizacion.MEDIDA_PROTECTORA": "Otros: medida protectora o desamparo",
+  "motivo_finalizacion.OTROS": "Otros motivos de cierre",
+  "motivo_finalizacion.SIN_CONSENTIMIENTO": "La familia no consiente la intervención",
+  "motivo_acta_cierre.OBJ_TOTAL": "Consecución de objetivos",
+  "motivo_acta_cierre.OBJ_PARCIAL": "Consecución parcial de objetivos",
+  "motivo_acta_cierre.NO_ACEPTACION": "No aceptación de la intervención por los progenitores",
+  "motivo_acta_cierre.OTROS": "Otros",
+  "motivo_spaf.OBJETIVOS": "Consecución de objetivos",
+  "motivo_spaf.NO_CONSECUCION": "No consecución de objetivos",
+  "motivo_spaf.NO_COLABORACION": "No colaboración de la familia",
+  "motivo_spaf.MEDIDA_PROTECTORA": "Adopción de medida protectora",
+  "motivo_spaf.TRASLADO": "Traslado de domicilio",
+  "motivo_spaf.MAYORIA_EDAD": "Mayoría de edad"
+}

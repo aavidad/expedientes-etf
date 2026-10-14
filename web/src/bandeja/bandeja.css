@@ -1,0 +1,32 @@
+.bandeja { display: flex; flex-direction: column; gap: var(--espacio-entre-tarjetas); min-width: unset; }
+.bandeja-cabecera { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--espacio-6); }
+.bandeja-cabecera p { color: var(--color-texto-secundario); }
+.bandeja-principal { display: inline-flex; align-items: center; justify-content: center; min-height: var(--alto-control); padding-inline: var(--espacio-6); color: var(--color-sobre-acento); background: var(--color-acento); border-radius: var(--radio-boton); text-decoration: none; font-weight: var(--peso-seminegrita); }
+.bandeja-vistas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--espacio-6); }
+.bandeja-indicador { display: flex; flex-direction: column; align-items: flex-start; gap: var(--espacio-3); background: var(--color-superficie); color: var(--color-texto); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-tarjeta); padding: var(--espacio-tarjeta); text-align: start; }
+.bandeja-indicador strong { font-size: var(--texto-cifra); }
+.bandeja-indicador[aria-pressed='true'] { outline: var(--borde-marcado) solid var(--color-acento); outline-offset: var(--espacio-1); }
+.bandeja-aviso { background: var(--color-aviso-fondo); color: var(--color-aviso-texto); border-color: var(--color-aviso-borde); }
+.bandeja-listado { background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-tarjeta); min-width: unset; }
+.bandeja-buscar { display: flex; flex-direction: column; gap: var(--espacio-3); }
+.bandeja-buscar div { display: flex; flex-wrap: wrap; gap: var(--espacio-3); }
+.bandeja input, .bandeja select { font: inherit; min-height: var(--alto-control); padding: var(--espacio-3); width: 100%; min-width: unset; box-sizing: border-box; color: var(--color-texto); background: var(--color-superficie); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); }
+.bandeja-buscar input { flex: 1; }
+.bandeja-filtros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--espacio-6); margin-block: var(--espacio-6); }
+.bandeja label { display: flex; flex-direction: column; gap: var(--espacio-etiqueta); font-size: var(--texto-etiqueta); }
+.bandeja-tabla { width: 100%; border-collapse: collapse; font-size: var(--texto-normal); }
+.bandeja-tabla th, .bandeja-tabla td { text-align: start; padding: var(--espacio-5); border-bottom: var(--borde-normal) solid var(--color-borde-fila); overflow-wrap: anywhere; }
+.bandeja-tabla thead { background: var(--color-superficie-suave); font-size: var(--texto-meta); }
+.bandeja-tabla th span, .bandeja-tabla small { display: block; margin-block-start: var(--espacio-3); font-weight: var(--peso-normal); }
+.bandeja-tabla a { display: inline-flex; align-items: center; min-height: var(--alto-control); }
+.bandeja-rotulo { display: none; }
+.bandeja-paginacion { display: flex; align-items: center; justify-content: flex-end; gap: var(--espacio-5); flex-wrap: wrap; margin-block-start: var(--espacio-6); }
+.cuerpo-app[data-compacto='true'] .bandeja-vistas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cuerpo-app[data-compacto='true'] .bandeja-filtros { grid-template-columns: minmax(0, 1fr); }
+.cuerpo-app[data-compacto='true'] .bandeja-tabla, .cuerpo-app[data-compacto='true'] .bandeja-tabla tbody { display: block; }
+.cuerpo-app[data-compacto='true'] .bandeja-tabla thead { position: absolute; clip-path: inset(100%); width: var(--borde-normal); height: var(--borde-normal); overflow: hidden; }
+.cuerpo-app[data-compacto='true'] .bandeja-tabla tr { display: flex; flex-direction: column; border: var(--borde-normal) solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-5); margin-block: var(--espacio-3); }
+.cuerpo-app[data-compacto='true'] .bandeja-tabla td, .cuerpo-app[data-compacto='true'] .bandeja-tabla th { border: unset; padding: var(--espacio-3); }
+.cuerpo-app[data-compacto='true'] .bandeja-rotulo { display: block; font-size: var(--texto-meta); color: var(--color-texto-secundario); }
+.cuerpo-app[data-compacto='true'] .bandeja-listado { padding: var(--espacio-5); }
+.cuerpo-app[data-compacto='true'] .bandeja-indicador { padding: var(--espacio-5); }

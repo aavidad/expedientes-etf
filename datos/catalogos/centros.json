@@ -1,0 +1,74 @@
+{
+  "centros": [
+    {
+      "codigo": "VEGAS_ALTAS",
+      "clave_texto": "centro.VEGAS_ALTAS",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "ALFACAR",
+      "clave_texto": "centro.ALFACAR",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "VEGA_TEMPLE",
+      "clave_texto": "centro.VEGA_TEMPLE",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "SANTA_FE",
+      "clave_texto": "centro.SANTA_FE",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "RIO_FARDES",
+      "clave_texto": "centro.RIO_FARDES",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "VALLE_LECRIN_OGIJARES",
+      "clave_texto": "centro.VALLE_LECRIN_OGIJARES",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "SIERRA_NEVADA",
+      "clave_texto": "centro.SIERRA_NEVADA",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "MONTES_ORIENTALES",
+      "clave_texto": "centro.MONTES_ORIENTALES",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "PINOS_PUENTE_MOCLIN",
+      "clave_texto": "centro.PINOS_PUENTE_MOCLIN",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "HUETOR_TAJAR_MONTEFRIO",
+      "clave_texto": "centro.HUETOR_TAJAR_MONTEFRIO",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "ALHAMA",
+      "clave_texto": "centro.ALHAMA",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "COSTA",
+      "clave_texto": "centro.COSTA",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "ALPUJARRA",
+      "clave_texto": "centro.ALPUJARRA",
+      "activo_desde": "2026-01-01"
+    },
+    {
+      "codigo": "NORTE",
+      "clave_texto": "centro.NORTE",
+      "activo_desde": "2026-01-01"
+    }
+  ]
+}

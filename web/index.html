@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{.Idioma}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="error-carga" content="{{.ErrorCarga}}" />
+    <meta name="reintentar" content="{{.Reintentar}}" />
+    <link rel="manifest" href="/manifest.webmanifest?idioma={{.Idioma}}&amp;tema={{.Tema}}" />
+    <title>{{.Titulo}}</title>
+    <link rel="stylesheet" href="/api/temas/{{.Tema}}/tokens" />
+  </head>
+  <body>
+    <div id="root"><main><h1>{{.Titulo}}</h1></main></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

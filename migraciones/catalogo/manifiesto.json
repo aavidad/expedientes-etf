@@ -1,0 +1,120 @@
+[
+  {
+    "numero": "0001",
+    "archivo": "0001_estructura.sql",
+    "depende_de": [
+      {
+        "modulo": "plataforma",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0002",
+    "archivo": "0002_carga_inicial.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_edicion.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0002"
+      },
+      {
+        "modulo": "paquete",
+        "numero": "0001"
+      }
+    ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_numeracion.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0005",
+    "archivo": "0005_smi.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0004"
+      }
+    ]
+  },
+  {
+    "numero": "0006",
+    "archivo": "0006_lectura_smi_equipo.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0005"
+      }
+    ]
+  },
+  {
+    "numero": "0007",
+    "archivo": "0007_motivos_cierre.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0005"
+      }
+    ]
+  },
+  {
+    "numero": "0008",
+    "archivo": "0008_perfil_lectura.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0003"
+      }
+    ]
+  },
+  {
+    "numero": "0011",
+    "archivo": "0011_intervencion.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0007"
+      }
+    ]
+  },
+  {
+    "numero": "0012",
+    "archivo": "0012_avisos.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0011"
+      },
+      {
+        "modulo": "catalogo",
+        "numero": "0008"
+      }
+    ]
+  },
+  {
+    "numero": "0013",
+    "archivo": "0013_seguimiento.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0012"
+      }
+    ]
+  }
+]

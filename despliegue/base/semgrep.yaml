@@ -1,0 +1,28 @@
+rules:
+  - id: etf-registro-error-crudo
+    languages: [go]
+    message: seguridad.registro_error_crudo
+    severity: ERROR
+    pattern-either:
+      - pattern: $LOG.Error(..., "error", $ERR, ...)
+      - pattern: $LOG.Warn(..., "error", $ERR, ...)
+      - pattern: $LOG.Info(..., "error", $ERR, ...)
+  - id: etf-shell-en-ejecutor
+    languages: [go]
+    message: seguridad.ejecucion_shell
+    severity: ERROR
+    pattern-either:
+      - pattern: exec.Command("sh", "-c", ...)
+      - pattern: exec.CommandContext($CTX, "sh", "-c", ...)
+      - pattern: exec.Command("bash", "-c", ...)
+      - pattern: exec.CommandContext($CTX, "bash", "-c", ...)
+  - id: etf-compose-privilegiado
+    languages: [generic]
+    message: seguridad.contenedor_privilegiado
+    severity: ERROR
+    pattern-regex: 'privileged:\s*true|network_mode:\s*host|cap_add:'
+  - id: etf-docker-root-final
+    languages: [generic]
+    message: seguridad.usuario_root
+    severity: ERROR
+    pattern-regex: '^USER\s+(root|0)(\s|:|$)'
