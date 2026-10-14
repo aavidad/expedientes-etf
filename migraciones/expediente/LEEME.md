@@ -11,9 +11,11 @@ Los nombres municipales y las variantes de búsqueda se leen de
 ## Contrato HTTP
 
 - `POST /api/coordinacion/derivaciones`: una parte multipart llamada `anexo`,
-  con nombre terminado en `.docx` o `.pdf`. Máximo 10.000.000 bytes de fichero;
-  el cuerpo permite además 64 KiB para cabeceras multipart. Devuelve `201`,
-  la derivación y su dirección de recuperación en `Location`.
+  con nombre terminado en `.docx`, `.odt` o `.pdf`. Máximo 10.000.000 bytes de fichero;
+  el cuerpo permite además 64 KiB para cabeceras multipart. Devuelve `200`
+  con el análisis temporal, sin crear una derivación.
+- `POST /api/coordinacion/derivaciones/confirmar`: confirma los campos y la
+  ubicación revisada; devuelve `201` con el recibo de la derivación creada.
 - `GET /api/coordinacion/derivaciones/{id}`: devuelve la derivación sólo tras
   confirmar la auditoría de su lectura.
 - Ambas rutas usan la sesión vigente y exigen Coordinación. La subida exige
@@ -70,3 +72,7 @@ borrados durante éxito, error, cancelación, infección y caída del antivirus.
 La ausencia de volcado de cuerpos en el proxy y de intercambio a disco en el
 despliegue final requiere comprobación operativa. Este encargo de servidor no
 cambia la configuración de producción ni acredita ese recorrido de despliegue.
+
+## RESP4: lectura y confirmación ODT
+
+`0026_formato_odt.sql` amplía el CHECK del formato de lectura a `docx`, `odt` y `pdf`. La migración `0001` aplicada no se modifica. `ensayar.py` comprueba actualización desde el esquema anterior con una derivación Word confirmada, repetición y base limpia. La prueba `TestRESP4ConfirmacionODTYPDFFirmado` conserva el formato del servidor, comprueba idempotencia y auditoría y rechaza otro formato por el CHECK. El flujo HTTP vigente analiza con respuesta 200 y confirma por separado con respuesta 201; [evidencia RESP4](../../docs/recorridos/RESP4.md).

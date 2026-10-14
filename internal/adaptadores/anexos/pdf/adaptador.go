@@ -14,6 +14,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/actas"
+
 	dominio "github.com/aavidad/expedientes-etf/internal/dominio/expediente"
 	"github.com/aavidad/expedientes-etf/internal/puertos/salida/expediente"
 )
@@ -29,6 +31,12 @@ var _ expediente.LectorAnexo = (*Lector)(nil)
 
 func NuevoLector() *Lector { return &Lector{plazas: make(chan struct{}, 1)} }
 func (l *Lector) Leer(ctx context.Context, formato string, b []byte) (dominio.Extraccion, error) {
+	return l.leer(ctx, formato, b, false)
+}
+func (l *Lector) LeerActa(ctx context.Context, formato string, b []byte) (dominio.Extraccion, error) {
+	return l.leer(ctx, formato, b, true)
+}
+func (l *Lector) leer(ctx context.Context, formato string, b []byte, acta bool) (dominio.Extraccion, error) {
 	if err := ctx.Err(); err != nil {
 		return dominio.Extraccion{}, err
 	}
@@ -52,6 +60,9 @@ func (l *Lector) Leer(ctx context.Context, formato string, b []byte) (dominio.Ex
 	defer cancelar()
 	cmd := exec.CommandContext(ctx, executable, "--lector-anexo-pdf")
 	cmd.Env = []string{"GOMEMLIMIT=64MiB", "GOGC=20", "GOMAXPROCS=1", "GOTRACEBACK=none"}
+	if acta {
+		cmd.Env = append(cmd.Env, "ETF_LECTOR_ACTAS=1")
+	}
 	cmd.Stdin = bytes.NewReader(b)
 	salida := &salidaAcotada{maximo: 2 << 20}
 	cmd.Stdout = salida
@@ -107,11 +118,37 @@ func EjecutarPDF(entrada io.Reader, salida io.Writer) error {
 	if err != nil {
 		r.Error = err.Error()
 	} else {
+		if os.Getenv("ETF_LECTOR_ACTAS") == "1" {
+			lineas := make([]string, len(d.Lineas))
+			for i, l := range d.Lineas {
+				lineas[i] = l.Texto()
+			}
+			acta := actas.Extraer(lineas)
+			if acta.PlantillaReconocida {
+				tieneFecha := false
+				for _, c := range acta.Campos {
+					if c.Codigo == "fecha" {
+						tieneFecha = true
+					}
+				}
+				if !tieneFecha && d.FechaFirma != "" {
+					acta.Campos = append(acta.Campos, dominio.Campo{Codigo: "fecha", Valor: d.FechaFirma, Dudoso: true, Motivos: []string{"carga.actas.fecha_firma"}})
+				}
+				r.Extraccion = acta
+				return json.NewEncoder(salida).Encode(r)
+			}
+			r.Extraccion = acta
+			return json.NewEncoder(salida).Encode(r)
+		}
 		var perfil Perfil
 		if err := json.Unmarshal(perfilPDF, &perfil); err != nil {
 			return dominio.ErrNoDisponible
 		}
 		e := Extraer(d, perfil)
+		oficial, esLibreOffice := extraerLibreOffice(d)
+		if esLibreOffice {
+			e = oficial
+		}
 		r.Extraccion = dominio.Extraccion{PlantillaReconocida: e.PlantillaReconocida, Avisos: e.Avisos, Version: "pdf-1"}
 		patronTipo := regexp.MustCompile(perfil.Tipo)
 		for _, linea := range d.Lineas {
@@ -121,7 +158,7 @@ func EjecutarPDF(entrada io.Reader, salida io.Writer) error {
 			}
 		}
 
-		if e.PlantillaReconocida {
+		if e.PlantillaReconocida && !esLibreOffice {
 			for _, codigo := range perfil.CamposManuales[r.Extraccion.Tipo] {
 				e.Campos = append(e.Campos, Campo{Codigo: codigo, Dudoso: true, Motivos: []string{"anexo.confirmar_pdf", "anexo.campo_no_leido"}})
 			}

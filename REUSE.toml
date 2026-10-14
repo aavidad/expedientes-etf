@@ -3,7 +3,7 @@ version = 1
 [[annotations]]
 path = "**"
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2026 Alberto Avidad"
+SPDX-FileCopyrightText = "2026 Expedientes ETF"
 SPDX-License-Identifier = "EUPL-1.2"
 
 [[annotations]]

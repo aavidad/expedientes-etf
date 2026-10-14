@@ -26,7 +26,7 @@ func moduloDocumentos(d dependenciasModulos) adaptadorHTTP.ModuloDocumentos {
 		return adaptadorHTTP.ModuloDocumentos{}
 	}
 	servicioDocumentos := documento.Nuevo(documento.Dependencias{
-		Datos:               documento.DatosEntrada{Salidas: configurarAceptaciones(d.base, d.cfg.IdiomasRuta, d.cfg.Idioma).SalidasServicio, Expedientes: expedienteApp.ConsultaDocumentos{Repositorio: &expedientePostgres.Repositorio{}}, Catalogos: &catalogoPostgres.Repositorio{}, Referencias: &paquetePostgres.Referencias{}, Presentacion: plantillas, Reloj: relojExpediente{zona: zona}},
+		Datos:               documento.DatosEntrada{Evaluaciones: servicioEvaluacion(d), Salidas: configurarAceptaciones(d.base, d.cfg.IdiomasRuta, d.cfg.Idioma).SalidasServicio, Expedientes: expedienteApp.ConsultaDocumentos{Repositorio: &expedientePostgres.Repositorio{}}, Catalogos: &catalogoPostgres.Repositorio{}, Referencias: &paquetePostgres.Referencias{}, Presentacion: plantillas, Reloj: relojExpediente{zona: zona}},
 		RepositorioRegistro: documentoPostgres.Repositorio{}, RegistroSalida: registroManual.Registro{},
 		Repositorio: documentoPostgres.Repositorio{}, Firmantes: firmantesDocumento.Firmantes{Catalogo: &catalogoPostgres.Repositorio{}},
 		Motor: word.Motor{}, Idiomas: plantillas, Ficheros: plantillas, Transacciones: d.base,

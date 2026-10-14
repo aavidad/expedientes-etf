@@ -23,5 +23,6 @@
   "documento.anotar_registro_salida": "The outgoing letter registry entry has been recorded.",
   "documento.requiere_no_aceptada": "You can only issue the Non-Acceptance Record for a referral that has not been accepted. Check the referral status.",
   "documento.requiere_lista_espera": "You can only issue the Waiting List Letter for a referral that is on the waiting list. Check its status.",
-  "documento.consentimiento.formato_fecha": "01/02/2006"
+  "documento.consentimiento.formato_fecha": "01/02/2006",
+  "documento.escala.separador_decimal": "."
 }

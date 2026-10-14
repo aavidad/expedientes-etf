@@ -66,7 +66,7 @@ export function NuevoAnexo({ t, idioma, csrf, navegarRuta }: PropsPantalla) {
   const subir = () => {
     const archivo = fichero.current?.files?.[0]; ponerError('');
     if (!archivo) { ponerError('anexo.falta_fichero'); fichero.current?.focus(); return; }
-    if (!/\.(docx|pdf)$/i.test(archivo.name)) { ponerError('expediente.anexo_formato'); fichero.current?.focus(); return; }
+    if (!/\.(docx|odt|pdf)$/i.test(archivo.name)) { ponerError('expediente.anexo_formato'); fichero.current?.focus(); return; }
     if (archivo.size > 10_000_000 || archivo.size === 0) { ponerError('expediente.anexo_tamano'); fichero.current?.focus(); return; }
     const datos = new FormData(); datos.append('anexo', archivo);
     const xhr = new XMLHttpRequest(); peticion.current = xhr;
@@ -140,7 +140,7 @@ export function NuevoAnexo({ t, idioma, csrf, navegarRuta }: PropsPantalla) {
     {cargaEtiquetas && <p role="status">{t('anexo.cargando_catalogo')}</p>}
     {!analisis ? <section className="anexo-tarjeta" aria-labelledby="anexo-elegir">
       <h2 id="anexo-elegir">{t('anexo.elegir_titulo')}</h2><p id="anexo-formatos">{t('anexo.formatos')}</p><p>{t('anexo.descarte')}</p>
-      <label htmlFor="anexo-fichero">{t('anexo.elegir_fichero')}</label><input ref={fichero} id="anexo-fichero" type="file" accept=".docx,.pdf" aria-invalid={['anexo.falta_fichero', 'expediente.anexo_formato', 'expediente.anexo_tamano'].includes(error)} aria-describedby={error ? "anexo-formatos anexo-error" : "anexo-formatos"} disabled={ocupado} />
+      <label htmlFor="anexo-fichero">{t('anexo.elegir_fichero')}</label><input ref={fichero} id="anexo-fichero" type="file" accept=".docx,.odt,.pdf,application/vnd.oasis.opendocument.text" aria-invalid={['anexo.falta_fichero', 'expediente.anexo_formato', 'expediente.anexo_tamano'].includes(error)} aria-describedby={error ? "anexo-formatos anexo-error" : "anexo-formatos"} disabled={ocupado} />
       <div className="anexo-acciones"><Boton accion={subir} ocupado={ocupado || cargaEtiquetas || !Object.keys(etiquetas).length} principal>{t('anexo.subir')}</Boton>{ocupado && <Boton accion={() => peticion.current?.abort()}>{t('anexo.cancelar')}</Boton>}</div>
       <div role="status" aria-live="polite">{estado === 'subiendo' && <><p>{t('anexo.subiendo')} {numero(progreso)}{t('anexo.porcentaje')}</p><progress max={100} value={progreso} aria-label={textoSubiendo} /></>}{estado === 'revisando' && <><p>{t('anexo.revisando_fichero')}</p><progress aria-label={textoRevisando} /></>}</div>
     </section> : <>

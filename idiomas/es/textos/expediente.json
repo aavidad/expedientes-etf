@@ -1,8 +1,8 @@
 {
-  "expediente.valorame_pendiente": "La valoración VALÓRAME necesita registrarse en el apartado de evaluación.",
+  "expediente.valorame_pendiente": "VALÓRAME es opcional. Puedes anotarlo en Evaluación o rellenarlo después en el Word.",
   "expediente.acceso_denegado": "Necesitas el perfil de Coordinación para acceder a las derivaciones.",
   "expediente.anexo_tamano": "El fichero supera los 10 MB permitidos.",
-  "expediente.anexo_formato": "Sube un documento Word (.docx) o PDF válido.",
+  "expediente.anexo_formato": "Sube un documento Word (.docx), LibreOffice (.odt) o PDF válido.",
   "expediente.anexo_infectado": "El antivirus ha detectado una amenaza. No se ha registrado la derivación.",
   "expediente.no_disponible": "No se ha podido completar la operación. Comprueba el resultado antes de volver a intentarlo.",
   "expediente.derivacion_no_encontrada": "No se ha encontrado esta derivación.",

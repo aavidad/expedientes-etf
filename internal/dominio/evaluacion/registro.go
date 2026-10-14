@@ -39,3 +39,9 @@ type Cambio struct {
 	VersionEsperada int                  `json:"version_esperada"`
 	Clave           string               `json:"clave_idempotencia"`
 }
+
+// DatosDocumento proyecta únicamente las iniciales que identifican los resultados.
+type DatosDocumento struct {
+	Registro  Registro
+	Iniciales map[string]string
+}

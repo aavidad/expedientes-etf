@@ -29,6 +29,8 @@ type Escalar struct {
 
 type Tabla struct {
 	Codigo, Inicio, Fin string
+	FinFilas            string
+	Antes               float64
 	Clave               int
 	Patron              string
 	Columnas            []Columna
@@ -120,6 +122,12 @@ func Extraer(doc Documento, perfil Perfil) Lectura {
 		}
 		for _, tabla := range s.Tablas {
 			filas := region(lineas, tabla.Inicio, tabla.Fin)
+			for i, fila := range filas {
+				if coincide(tabla.FinFilas, fila.Texto()) {
+					filas = filas[:i]
+					break
+				}
+			}
 			if tabla.Clave < 0 || tabla.Clave >= len(tabla.Columnas) {
 				lectura.Avisos = append(lectura.Avisos, "anexo.perfil_invalido")
 				continue
@@ -128,7 +136,11 @@ func Extraer(doc Documento, perfil Perfil) Lectura {
 			var inicios []int
 			for i, l := range filas {
 				if coincide(tabla.Patron, textoEntre(l, clave.Desde, clave.Hasta)) {
-					inicios = append(inicios, i)
+					inicio := i
+					for inicio > 0 && filas[inicio-1].Pagina == l.Pagina && filas[inicio-1].Y-l.Y <= tabla.Antes {
+						inicio--
+					}
+					inicios = append(inicios, inicio)
 				}
 			}
 			if len(inicios) == 0 {

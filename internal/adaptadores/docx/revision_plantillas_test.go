@@ -134,7 +134,7 @@ func TestRevisionTodasLasPlantillas(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if total != 58 {
+	if total != 62 {
 		t.Fatalf("inventario cambiado: %d versiones, revisar cobertura", total)
 	}
 	t.Logf("PLANTILLAS-OK: %d versiones, %d generaciones", total, total*2)

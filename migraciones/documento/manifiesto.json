@@ -210,5 +210,15 @@
         "numero": "0013"
       }
     ]
+  },
+  {
+    "numero": "0015",
+    "archivo": "0015_escalas_opcionales.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0014"
+      }
+    ]
   }
 ]

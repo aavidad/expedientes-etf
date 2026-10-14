@@ -12,5 +12,9 @@ import (
 )
 
 func moduloEvaluacion(d dependenciasModulos) http.ModuloEvaluacion {
-	return http.ModuloEvaluacion{Servicio: &evaluacion.Servicio{Repo: &ev.Repositorio{}, Catalogo: ficheros.Catalogo{Ruta: filepath.Join(d.cfg.IdiomasRuta, d.cfg.Idioma, "catalogos", "evaluacion-v1.reglas")}, Familias: &exp.Repositorio{}, Adultos: exp.ConsultaAdultos{}, Tx: d.base, Auditoria: postgres.NuevoRegistroAuditoriaTransaccional(d.base), Ahora: time.Now}}
+	return http.ModuloEvaluacion{Servicio: servicioEvaluacion(d)}
+}
+
+func servicioEvaluacion(d dependenciasModulos) *evaluacion.Servicio {
+	return &evaluacion.Servicio{Repo: &ev.Repositorio{}, Catalogo: ficheros.Catalogo{Ruta: filepath.Join(d.cfg.IdiomasRuta, d.cfg.Idioma, "catalogos", "evaluacion-v1.reglas")}, Familias: &exp.Repositorio{}, MenoresDocumento: &exp.Repositorio{}, SujetosDocumento: &exp.Repositorio{}, Adultos: exp.ConsultaAdultos{}, Tx: d.base, Auditoria: postgres.NuevoRegistroAuditoriaTransaccional(d.base), Ahora: time.Now}
 }

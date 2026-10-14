@@ -1,0 +1,4452 @@
+[
+  {
+    "Tipo": "anexo3",
+    "Version": "odt-cliente-2026-v1",
+    "Tablas": [
+      [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    ],
+    "Reglas": [
+      {
+        "Codigo": "servicio.fecha_entrada_sscc",
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 3,
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "",
+        "Relleno": "dd/mm/aa.",
+        "Modo": "",
+        "Opciones": [],
+        "Repetir": false
+      },
+      {
+        "Codigo": "servicio.fecha_derivacion",
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 1,
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "",
+        "Relleno": "dd/mm/aa.",
+        "Modo": "",
+        "Opciones": [],
+        "Repetir": false
+      },
+      {
+        "Codigo": "servicio.nombre",
+        "Tabla": 1,
+        "Fila": 0,
+        "Celda": 0,
+        "Relleno": "indicar servicio derivante.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Servicio:"
+      },
+      {
+        "Codigo": "servicio.profesional",
+        "Tabla": 1,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Profesional de referencia"
+      },
+      {
+        "Codigo": "servicio.telefono",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "teléfono.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Teléfono"
+      },
+      {
+        "Codigo": "servicio.correo",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "correo eletrónico.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Correo electrónico:"
+      },
+      {
+        "Codigo": "familia.direccion",
+        "Tabla": 2,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Dirección completa.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.nombre",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.nacimiento",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "/mm/aa.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.escolarizacion",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "ed infantil",
+          "ed primaria",
+          "ed secundaria",
+          "superior",
+          "no escolarizado"
+        ],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.centro",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "Nombre centro educativo.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.estructura",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Familias biparentales",
+          "Familias monoparentales (madre)",
+          "Familias monoparentales (padre)",
+          "Separación/divorcio con custodia compartida",
+          "Separación/divorcio sin custodia compartida",
+          "Familias reconstruidas",
+          "Otras formas de convivencia"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.otras_formas",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "completar si otras formas de convivencia.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "parrafo",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": "Ingresos de la unidad familiar:"
+      },
+      {
+        "Codigo": "sociodemografia.vivienda",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Alquilada",
+          "En propiedad",
+          "Con carácter transitorio (vivienda de un familiar o amigo/a)."
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Vivienda:"
+      },
+      {
+        "Codigo": "sociodemografia.situacion_laboral",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Autónomo",
+          "Contratado por cuenta ajena (empleo fijo)",
+          "Contratado por cuenta ajena (empleo discontinuo o temporal)",
+          "Economía sumergida",
+          "Sin empleo",
+          "Pensionista",
+          "Combina varias situaciones",
+          "Otras"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 2,
+        "Hasta": 3,
+        "Prefijo": "Situación laboral:"
+      },
+      {
+        "Codigo": "sociodemografia.situacion_economica",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "sin dificultades económicas",
+          "con dificultades económicas que no afectan a la cobertura de las necesidades básicas",
+          "con dificultades económicas que afectan a la cobetura de las necesidades básicas "
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 3,
+        "Hasta": 4,
+        "Prefijo": "Situación económica de la unidad familiar:"
+      },
+      {
+        "Codigo": "sociodemografia.tramo_ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "< 50% SMI/Año",
+          "50-100% SMI/Año",
+          "100-150% SMI/Año",
+          "150-200% SMI/Año",
+          ">200% SMI/Año"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 4,
+        "Hasta": 5,
+        "Prefijo": "Ingresos familiares:"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.tiempo_convivencia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "indique el tiempo.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Tiempo de convivencia:"
+      },
+      {
+        "Codigo": "valoracion.historia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": ". Haga clic o pulse aquí para escribir texto",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 2,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.descripcion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "describa la situación que motiva la derivación",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Descripción de la situación que motiva la derivación"
+      },
+      {
+        "Codigo": "valoracion.duracion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "especificar el tiempo en meses.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": "Duración de la problemática:"
+      },
+      {
+        "Codigo": "valoracion.integracion",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 3,
+        "Hasta": 4,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.personas_dificultad",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 5,
+        "Hasta": 6,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.motivo_dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 7,
+        "Hasta": 8,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.crisis",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "casillas",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.actitud",
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [
+          "Colaborativa",
+          "Demandante",
+          "Pasiva",
+          "Hostil",
+          "Evitativa",
+          "Sin información / pendiente de valorar"
+        ],
+        "Repetir": false,
+        "Modo": "casillas",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.adecuacion",
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.conciencia",
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.motivacion",
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.expectativas",
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Muy bajas",
+          "Bastante bajas",
+          "Bastante altas",
+          "Muy altas"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.pronostico",
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "0 - Negativo",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10 - Positivo",
+          "Incierto"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.global",
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "No riesgo",
+          "Sospecha",
+          "Riesgo",
+          "Desp. moderada",
+          "Desp. grave"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_fisico",
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_psicologico",
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.negligencia",
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.abandono",
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.violencia_sexual",
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.incapacidad_parental",
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_prenatal",
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.corrupcion",
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.otras",
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.descripcion",
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 0,
+        "Relleno": "Descripción cualitativa",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": "Descripción de los resultados:"
+      },
+      {
+        "Codigo": "desproteccion.antecedentes",
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.dificultades_parentales",
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.imposibilidad_proteccion",
+        "Tabla": 8,
+        "Fila": 13,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_sin_referentes",
+        "Tabla": 8,
+        "Fila": 14,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_vinculo_no_acreditado",
+        "Tabla": 8,
+        "Fila": 15,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.servicio",
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "indicar si SS.SS.CC o nombre otra entidad o servicio.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.profesional",
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.telefono",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.correo",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "email.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.descripcion",
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Describa los objetivos e intervenciones realizadas anteriormente (en su caso).",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.resultados",
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Describa cualitativa y/o cuantitativamente los resultados obtenidos en la intervención.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "observaciones.texto",
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "Puede emplear este espacio para completar cualquier cuestión que no haya quedado reflejada respecto al caso.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "observaciones.documentacion_obligatoria",
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "observaciones.otra_documentacion",
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Especifique los documentos incluidos junto al informe de derivación.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 99,
+        "Prefijo": ""
+      }
+    ],
+    "Estudios": {
+      "Analfabetismo": "Analfabetismo",
+      "Sin estudios": "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Primarios": "Estudios obligatorios (ESO, EGB)",
+      "Secundarios": "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Superiores": "Estudios universitarios"
+    },
+    "Titulo": "Anexo 3",
+    "Cabeceras": [
+      "NÚMERO DE EXPEDIENTE",
+      "Nombre y apellidos"
+    ],
+    "Escolarizacion": {
+      "ed infantil": "Educación infantil",
+      "ed primaria": "Educación primaria",
+      "ed secundaria": "Educación secundaria"
+    },
+    "Etiquetas": [
+      {
+        "Tabla": 0,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "NÚMERO DE EXPEDIENTE"
+      },
+      {
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Fecha derivación"
+      },
+      {
+        "Tabla": 2,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre"
+      },
+      {
+        "Tabla": 3,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre y apellidos"
+      },
+      {
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Estructura familiar"
+      },
+      {
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Situación socioeconómica"
+      },
+      {
+        "Tabla": 6,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Breve historia familiar"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Situación familiar"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Integración social y/o comunitaria"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Actitud de la familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Adecuación al programa."
+      },
+      {
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 0,
+        "Valor": "Conciencia del problema por parte de la familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 0,
+        "Valor": "Motivación para el cambio"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 0,
+        "Valor": "Expectativas de éxito con esta familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 0,
+        "Valor": "Pronóstico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "VALÓRAME"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Maltrato físico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Maltrato psicológico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Negligencia"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Abandono"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 0,
+        "Valor": "Violencia sexual"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 0,
+        "Valor": "Incapacidad parental control de conducta"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 0,
+        "Valor": "Maltrato prenatal"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 0,
+        "Valor": "Corrupción"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 0,
+        "Valor": "Otras"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 0,
+        "Valor": "Descripción de los resultados: Tenemos SOSPECHA de que la menor haya podido presenciar situaciones de violencia, dada la agresividad que presenta el padre asociada a su patología dual. ESTIMULACIÓN con valoración de GRAVEDAD, los progenitores suelen olvidarse de ponerle la comida a los menores.En el padre existen graves dificultades para ejercer la guarda y la tutela, principalmente por la Patología Dual que padece."
+      },
+      {
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 0,
+        "Valor": "Otras situaciones de desprotección"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 0,
+        "Valor": "Graves dificultades personales en el padre, la madre o personas que ejercen la tutela o la guarda"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Intervención realizada desde"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Equipo/profesional de referencia"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Teléfono"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Describa la intervención realizada"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Resultados obtenidos"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Observaciones"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Documentación obligatoria"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Otra documentación"
+      }
+    ]
+  },
+  {
+    "Tipo": "anexo4",
+    "Version": "odt-cliente-2026-v1",
+    "Tablas": [
+      [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ]
+      ],
+      [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    ],
+    "Reglas": [
+      {
+        "Codigo": "servicio.fecha_entrada_sscc",
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 3,
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "",
+        "Relleno": "dd/mm/aa.",
+        "Modo": "",
+        "Opciones": [],
+        "Repetir": false
+      },
+      {
+        "Codigo": "servicio.fecha_derivacion",
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 1,
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "",
+        "Relleno": "dd/mm/aa.",
+        "Modo": "",
+        "Opciones": [],
+        "Repetir": false
+      },
+      {
+        "Codigo": "servicio.nombre",
+        "Tabla": 1,
+        "Fila": 0,
+        "Celda": 0,
+        "Relleno": "indicar servicio derivante.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Servicio:"
+      },
+      {
+        "Codigo": "servicio.profesional",
+        "Tabla": 1,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Profesional de referencia"
+      },
+      {
+        "Codigo": "servicio.equipo_menores",
+        "Tabla": 1,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Equipo de menores:"
+      },
+      {
+        "Codigo": "servicio.etf",
+        "Tabla": 0,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "servicio.subprograma",
+        "Tabla": 0,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Riesgo",
+          "Reintegracion"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "servicio.telefono",
+        "Tabla": 1,
+        "Fila": 3,
+        "Celda": 0,
+        "Relleno": "teléfono.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Teléfono"
+      },
+      {
+        "Codigo": "servicio.correo",
+        "Tabla": 1,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "correo eletrónico.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Correo electrónico:"
+      },
+      {
+        "Codigo": "familia.direccion",
+        "Tabla": 2,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Dirección completa.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.nombre",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.apellidos",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.telefono",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "familia.contacto.correo",
+        "Tabla": 2,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "e-mail.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.nombre",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.nacimiento",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "d/mm/aa.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.escolarizacion",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "ed infantil",
+          "ed primaria",
+          "ed secundaria",
+          "superior",
+          "no escolarizado"
+        ],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "menores.persona.centro",
+        "Tabla": 3,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "Nombre centro educativo.",
+        "Opciones": [],
+        "Repetir": true,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.estructura",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Familias biparentales",
+          "Familias monoparentales (madre)",
+          "Familias monoparentales (padre)",
+          "Separación/divorcio con custodia compartida",
+          "Separación/divorcio sin custodia compartida",
+          "Familias reconstruidas",
+          "Otras formas de convivencia"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.otras_formas",
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "completar si otras formas de convivencia.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "parrafo",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": "Ingresos de la unidad familiar:"
+      },
+      {
+        "Codigo": "sociodemografia.vivienda",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Alquilada",
+          "En propiedad",
+          "Con carácter transitorio (vivienda de un familiar o amigo/a)."
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Vivienda:"
+      },
+      {
+        "Codigo": "sociodemografia.situacion_laboral",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Autónomo",
+          "Contratado por cuenta ajena (empleo fijo)",
+          "Contratado por cuenta ajena (empleo discontinuo o temporal)",
+          "Economía sumergida",
+          "Sin empleo",
+          "Pensionista",
+          "Combina varias situaciones",
+          "Otras"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 2,
+        "Hasta": 3,
+        "Prefijo": "Situación laboral:"
+      },
+      {
+        "Codigo": "sociodemografia.situacion_economica",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "sin dificultades económicas",
+          "con dificultades económicas que no afectan a la cobertura de las necesidades básicas",
+          "con dificultades económicas que afectan a la cobetura de las necesidades básicas "
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 3,
+        "Hasta": 4,
+        "Prefijo": "Situación económica de la unidad familiar:"
+      },
+      {
+        "Codigo": "sociodemografia.tramo_ingresos",
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "< 50% SMI/Año",
+          "50-100% SMI/Año",
+          "100-150% SMI/Año",
+          "150-200% SMI/Año",
+          ">200% SMI/Año"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 4,
+        "Hasta": 5,
+        "Prefijo": "Ingresos familiares:"
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 1,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Madre",
+          "Padre",
+          "Otro (observaciones)"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 2,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 3,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 4,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.papel",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 0,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.nombre",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Nombre y apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.parentesco",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.edad",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 3,
+        "Relleno": "##.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.estudios",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 4,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Analfabetismo",
+          "Sin estudios",
+          "Primarios",
+          "Secundarios",
+          "Superiores"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.adulto.otros_datos",
+        "Tabla": 5,
+        "Fila": 5,
+        "Celda": 5,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 1,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 3,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.nombre",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 0,
+        "Relleno": "Nombre.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.apellidos",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Apellidos.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.parentesco",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 2,
+        "Relleno": "indicar.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "sociodemografia.persona_significativa.telefono",
+        "Tabla": 6,
+        "Fila": 4,
+        "Celda": 3,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.tiempo_convivencia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "indique el tiempo.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Tiempo de convivencia:"
+      },
+      {
+        "Codigo": "valoracion.historia",
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": ". Haga clic o pulse aquí para escribir texto",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 2,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.descripcion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "describa la situación que motiva la derivación",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "Descripción de la situación que motiva la derivación"
+      },
+      {
+        "Codigo": "valoracion.duracion",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "especificar el tiempo en meses.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": "Duración de la problemática:"
+      },
+      {
+        "Codigo": "valoracion.integracion",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 2,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 3,
+        "Hasta": 4,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.personas_dificultad",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 5,
+        "Hasta": 6,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.motivo_dificultades",
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 7,
+        "Hasta": 8,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.crisis",
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "casillas",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.actitud",
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [
+          "Colaborativa",
+          "Demandante",
+          "Pasiva",
+          "Hostil",
+          "Evitativa",
+          "Sin información / pendiente de valorar"
+        ],
+        "Repetir": false,
+        "Modo": "casillas",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.adecuacion",
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.conciencia",
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.motivacion",
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Nada",
+          "Poco",
+          "Bastante",
+          "Mucho"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.expectativas",
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Muy bajas",
+          "Bastante bajas",
+          "Bastante altas",
+          "Muy altas"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valoracion.pronostico",
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "0 - Negativo",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10 - Positivo",
+          "Incierto"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.global",
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "No riesgo",
+          "Sospecha",
+          "Riesgo",
+          "Desp. moderada",
+          "Desp. grave"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_fisico",
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_psicologico",
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.negligencia",
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.abandono",
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.violencia_sexual",
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.incapacidad_parental",
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.maltrato_prenatal",
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.corrupcion",
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.otras",
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "No existe",
+          "Sospecha",
+          "Riesgo leve",
+          "Gravedad moderada",
+          "Gravedad elevada",
+          "Gravedad muy elevada"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "valorame.descripcion",
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 0,
+        "Relleno": "Descripción cualitativa",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": "Descripción de los resultados:"
+      },
+      {
+        "Codigo": "desproteccion.antecedentes",
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.dificultades_parentales",
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.imposibilidad_proteccion",
+        "Tabla": 8,
+        "Fila": 13,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_sin_referentes",
+        "Tabla": 8,
+        "Fila": 14,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "desproteccion.migrantes_vinculo_no_acreditado",
+        "Tabla": 8,
+        "Fila": 15,
+        "Celda": 2,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "Sin información",
+          "Sospecha",
+          "Si",
+          "No"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.servicio",
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "indicar si SS.SS.CC o nombre otra entidad o servicio.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.profesional",
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.telefono",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "tlfn.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.correo",
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 3,
+        "Relleno": "email.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.descripcion",
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Describa los objetivos e intervenciones realizadas anteriormente (en su caso).",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "intervenciones.resultados",
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Describa cualitativa y/o cuantitativamente los resultados obtenidos en la intervención.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "resoluciones.existencia",
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "resoluciones.tipo",
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "resoluciones.organismo",
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "resoluciones.medidas",
+        "Tabla": 10,
+        "Fila": 3,
+        "Celda": 1,
+        "Relleno": "Elija un elemento.",
+        "Opciones": [
+          "SI",
+          "NO"
+        ],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "resoluciones.fecha",
+        "Tabla": 10,
+        "Fila": 3,
+        "Celda": 3,
+        "Relleno": "d/MM/yyyy.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": "d"
+      },
+      {
+        "Codigo": "resoluciones.resultados",
+        "Tabla": 10,
+        "Fila": 4,
+        "Celda": 1,
+        "Relleno": "Haga clic o pulse aquí para escribir texto.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "observaciones.texto",
+        "Tabla": 11,
+        "Fila": 0,
+        "Celda": 1,
+        "Relleno": "Puede emplear este espacio para completar cualquier cuestión que no haya quedado reflejada respecto al caso.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 0,
+        "Hasta": 1,
+        "Prefijo": ""
+      },
+      {
+        "Codigo": "observaciones.documentacion_obligatoria",
+        "Tabla": 11,
+        "Fila": 1,
+        "Celda": 1,
+        "Relleno": "",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "papel",
+        "Desde": 0,
+        "Hasta": 99,
+        "Prefijo": "VALÓRAME Los informes técnicos que procedan. Los principales objetivos del plan de intervención. El consentimiento de la familia a participar en la intervención."
+      },
+      {
+        "Codigo": "observaciones.otra_documentacion",
+        "Tabla": 11,
+        "Fila": 2,
+        "Celda": 1,
+        "Relleno": "Especifique los documentos incluidos junto al informe de derivación.",
+        "Opciones": [],
+        "Repetir": false,
+        "Modo": "",
+        "Desde": 1,
+        "Hasta": 99,
+        "Prefijo": ""
+      }
+    ],
+    "Estudios": {
+      "Analfabetismo": "Analfabetismo",
+      "Sin estudios": "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Primarios": "Estudios obligatorios (ESO, EGB)",
+      "Secundarios": "Estudios secundarios (Bachiller, FP, módulos profesionales)",
+      "Superiores": "Estudios universitarios"
+    },
+    "Titulo": "Anexo 4",
+    "Cabeceras": [
+      "NÚMERO DE EXPEDIENTE",
+      "Nombre y apellidos"
+    ],
+    "Escolarizacion": {
+      "ed infantil": "Educación infantil",
+      "ed primaria": "Educación primaria",
+      "ed secundaria": "Educación secundaria"
+    },
+    "Etiquetas": [
+      {
+        "Tabla": 0,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "NÚMERO DE EXPEDIENTE"
+      },
+      {
+        "Tabla": 0,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Fecha derivación"
+      },
+      {
+        "Tabla": 0,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "ETF al que deriva"
+      },
+      {
+        "Tabla": 0,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Subprograma"
+      },
+      {
+        "Tabla": 2,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre"
+      },
+      {
+        "Tabla": 3,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre y apellidos"
+      },
+      {
+        "Tabla": 4,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Estructura familiar"
+      },
+      {
+        "Tabla": 4,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Situación socioeconómica"
+      },
+      {
+        "Tabla": 6,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Nombre"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Breve historia familiar"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Situación familiar"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Integración social y/o comunitaria"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Actitud de la familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Adecuación al programa"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 5,
+        "Celda": 0,
+        "Valor": "Conciencia del problema por parte de la familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 6,
+        "Celda": 0,
+        "Valor": "Motivación para el cambio"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 7,
+        "Celda": 0,
+        "Valor": "Expectativas de éxito con esta familia"
+      },
+      {
+        "Tabla": 7,
+        "Fila": 8,
+        "Celda": 0,
+        "Valor": "Pronóstico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "VALÓRAME"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Maltrato físico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Maltrato psicológico"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Negligencia"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Abandono"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 5,
+        "Celda": 0,
+        "Valor": "Violencia sexual"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 6,
+        "Celda": 0,
+        "Valor": "Incapacidad parental control de conducta"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 7,
+        "Celda": 0,
+        "Valor": "Maltrato prenatal"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 8,
+        "Celda": 0,
+        "Valor": "Corrupción"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 9,
+        "Celda": 0,
+        "Valor": "Otras"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 10,
+        "Celda": 0,
+        "Valor": "Descripción de los resultados: Tenemos SOSPECHA de que la menor haya podido presenciar situaciones de violencia, dada la agresividad que presenta el padre asociada a su patología dual. ESTIMULACIÓN con valoración de GRAVEDAD, los progenitores suelen olvidarse de ponerle la comida a los menores.En el padre existen graves dificultades para ejercer la guarda y la tutela, principalmente por la Patología Dual que padece."
+      },
+      {
+        "Tabla": 8,
+        "Fila": 11,
+        "Celda": 0,
+        "Valor": "Otras situaciones de desprotección"
+      },
+      {
+        "Tabla": 8,
+        "Fila": 12,
+        "Celda": 0,
+        "Valor": "Graves dificultades personales en el padre, la madre o personas que ejercen la tutela o la guarda"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Intervención realizada desde"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Equipo/profesional de referencia"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Teléfono"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Describa la intervención realizada"
+      },
+      {
+        "Tabla": 9,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Resultados obtenidos"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Existencia de resoluciones previas"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Tipo"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Organismo de resolución"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 3,
+        "Celda": 0,
+        "Valor": "Medidas de protección previas"
+      },
+      {
+        "Tabla": 10,
+        "Fila": 4,
+        "Celda": 0,
+        "Valor": "Resultados obtenidos"
+      },
+      {
+        "Tabla": 11,
+        "Fila": 0,
+        "Celda": 0,
+        "Valor": "Observaciones"
+      },
+      {
+        "Tabla": 11,
+        "Fila": 1,
+        "Celda": 0,
+        "Valor": "Documentación obligatoria"
+      },
+      {
+        "Tabla": 11,
+        "Fila": 2,
+        "Celda": 0,
+        "Valor": "Otra documentación"
+      }
+    ]
+  }
+]

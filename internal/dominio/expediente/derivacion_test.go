@@ -27,9 +27,14 @@ func TestLimiteDeMenoresTambienEnPDF(t *testing.T) {
 	}
 }
 
-func TestPDFReconocidoAvisaEvaluacionAunqueNoLaExtraiga(t *testing.T) {
-	e := DatosPermitidos(Extraccion{Tipo: "anexo3", Version: "pdf-1"})
-	if len(e.Campos) != 0 || len(e.Avisos) != 1 || e.Avisos[0] != "expediente.valorame_pendiente" {
-		t.Fatal(e)
+func TestEscalasOpcionalesSinAvisosPendientes(t *testing.T) {
+	for _, tipo := range []string{"anexo3", "anexo4"} {
+		for _, avisos := range [][]string{nil, {"expediente.valorame_pendiente", "anexo.pdf_sin_texto"}} {
+			e := DatosPermitidos(Extraccion{Tipo: tipo, Version: "pdf-1", Avisos: avisos,
+				Campos: []Campo{{Codigo: "valorame.global", Valor: "nivel_1"}}})
+			if len(e.Campos) != 0 || len(e.Avisos) > 1 || len(e.Avisos) == 1 && e.Avisos[0] != "anexo.pdf_sin_texto" {
+				t.Fatal(e)
+			}
+		}
 	}
 }

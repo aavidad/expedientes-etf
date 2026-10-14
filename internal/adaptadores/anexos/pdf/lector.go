@@ -47,9 +47,10 @@ type Linea struct {
 func (l Linea) Texto() string { return textoEntre(l, 0, math.MaxFloat64) }
 
 type Documento struct {
-	Paginas  int
-	Lineas   []Linea
-	SinTexto bool
+	Paginas    int
+	Lineas     []Linea
+	SinTexto   bool
+	FechaFirma string
 }
 
 // Leer trabaja exclusivamente en memoria. Los límites son parámetros del ensayo.
@@ -92,6 +93,7 @@ func Leer(datos []byte, motor string, limites Limites) (doc Documento, err error
 			return doc, err
 		}
 		paginas = r.NumPage()
+		doc.FechaFirma = fechaFirma(r)
 		if r.Trailer().Key("Size").Int64() > int64(limites.Objetos) {
 			return doc, ErrObjetos
 		}

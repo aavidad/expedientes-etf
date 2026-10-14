@@ -295,8 +295,8 @@ try {
         assert.equal(respuesta.estado, 403, `${etiqueta}: ${respuesta.contenido}`);
         if (metodo !== 'HEAD') assert.equal(respuesta.json.error.clave, 'estadistica.memoria_acceso_denegado', etiqueta);
       } else if (perfil === 'profesional_etf' && (p.startsWith('/api/expedientes/') && p !== '/api/expedientes/historicos' || p.startsWith('/api/equipos/') || p === '/api/documentos/emisiones' || p.startsWith('/api/carga-2026'))) {
-        // La hoja de carga valida primero el cuerpo: sin equipo ni fichero no llega a leer datos.
-        const validos = p.startsWith('/api/carga-2026/hoja') ? [400, 403, 404] : [403, 404];
+        // Hoja y actas validan el cuerpo: sin equipo ni fichero no leen datos.
+        const validos = p.startsWith('/api/carga-2026/hoja') || p.startsWith('/api/carga-2026/actas/leer/') ? [400, 403, 404] : [403, 404];
         assert(validos.includes(respuesta.estado), `${etiqueta}: ${respuesta.contenido}`);
       } else if (perfil === 'profesional_etf' && ['/api/comisiones', '/api/informes', '/api/estadistica/spaf'].includes(p) && ['GET', 'HEAD'].includes(metodo)) {
         assert.equal(respuesta.estado, 403, etiqueta); // El filtro pide el ETF 4; Marta pertenece al 2.

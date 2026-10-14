@@ -72,13 +72,15 @@ Tras más de 30 días desde la aceptación sin consentimiento aparece el aviso d
 
 ## Cómo anoto una evaluación
 
+Las escalas son opcionales. Puedes anotarlas aquí o rellenarlas después en el Word de los Anexos 11 y 12. No necesitas completar todas las escalas ni sus tres momentos para descargar documentos, cerrar un expediente o preparar la Memoria.
+
 1. Abre «Evaluación» y elige el adulto al que se ha aplicado el instrumento.
 2. Selecciona el momento: inicial, intermedio o final.
 3. Elige el instrumento o escala e indica la fecha de aplicación.
-4. Si aparece un cuestionario publicado, completa sus respuestas. Si la pantalla indica que falta el cuestionario validado, no puedes registrar respuestas ni obtener una puntuación total.
+4. Si aparece un cuestionario publicado, puedes completar las respuestas que tengas. Puedes registrar el instrumento aunque su cuestionario todavía no esté publicado. La app no calcula puntuaciones totales.
 5. Pulsa «Guardar evaluación» y comprueba que aparece en «Evaluaciones registradas» con la persona, instrumento, momento y fecha correctos.
 
-![Evaluación por adulto, momento e instrumento](../capturas/fi2-evaluacion-escritorio.png)
+![Evaluación por adulto, momento e instrumento](../capturas/resp3-parciales-escritorio.png)
 
 ## Cómo preparo una derivación al SPM
 
@@ -106,7 +108,7 @@ La derivación a otro servicio, con Anexo 6, aún no tiene formulario de prepara
 
 Entra en «Cierre» y guarda los datos de finalización que quieras incluir. En «Documentos de finalización», pulsa «Descargar Anexo 11» si el subprograma es riesgo social, o «Descargar Anexo 12» si es reunificación. La pantalla ofrece el documento que corresponde al expediente.
 
-La descarga entrega un Word y queda registrada. Descargarlo no propone el cierre ni confirma una firma o un envío. La propuesta de cierre se hace con su acción propia y Coordinación confirma después el cierre. Guarda el Word sólo donde te indique el Programa: contiene datos personales.
+La descarga entrega un Word y queda registrada. Las casillas de escalas anotadas se rellenan; las demás quedan vacías para que puedas escribir después. Si hay varios sujetos en una casilla, cada resultado lleva sus iniciales y se separa del siguiente por «; ». No se combinan sus puntuaciones. Descargarlo no propone el cierre ni confirma una firma o un envío. La propuesta de cierre se hace con su acción propia y Coordinación confirma después el cierre. Guarda el Word sólo donde te indique el Programa: contiene datos personales.
 
 Si has cambiado los datos de finalización, guarda antes de descargar. Ante un aviso de cambios de otra persona, revisa la versión actual antes de volver a intentarlo. Coordinación consulta esta pestaña; estas descargas corresponden al profesional del ETF.
 
@@ -178,17 +180,32 @@ El desglose de una cifra por números de expediente aún está pendiente. Alguno
 
 ## Cómo cargo un caso de 2026 a mano
 
-Incluye los casos necesarios para la Memoria de 2026: vivos, cerrados durante 2026 y no aceptados durante 2026. No uses la recepción ordinaria de un anexo para reconstruir una aceptación antigua.
+Incluye todos los expedientes que siguen abiertos, aunque se aceptaran en 2022, 2023
+u otro año anterior, los cerrados durante 2026 y las derivaciones no aceptadas de 2026.
+El Programa no tiene hoja de cálculo. Puedes partir de las actas o introducir todo
+a mano. Usa «Añadir un expediente histórico» para conservar las fechas antiguas.
 
-1. Abre el alta histórica de 2026: «Añadir un expediente histórico». Comprueba que corresponde a tu equipo.
-2. Elige el estado histórico, el anexo de la derivación original y su fecha. Si no fue aceptado, indica la fecha y el motivo de no aceptación; no le pongas número de aceptación.
-3. Para un caso aceptado, introduce el número original si lo conoces, su fecha de aceptación, municipio, centro, subprograma, puesto de referencia y descripción. Si desconoces el número, déjalo vacío: no se asignará uno nuevo.
-4. Completa los datos básicos de contacto y los menores. Revisa sexo y nacimiento. Añade un episodio por cada reapertura, con sus fechas y motivos, y conserva el cierre anterior.
-5. Pulsa «Revisar el expediente». Corrige los campos señalados y comprueba los datos y fechas de la revisión. Revisar todavía no guarda.
-6. Pulsa «Confirmar el expediente». Espera «Carga completada» y abre la revisión de los datos guardados. Comprueba la marca «Cargado para revisión» y las fechas originales.
+1. Abre «Añadir un expediente histórico» y comprueba tu equipo.
+2. Si tienes las actas, elige el Acta de Aceptación y, si está cerrado, su Acta de Cierre. Admite PDF firmado o Word (.docx), hasta 10 MB por acta. Pulsa «Leer y rellenar los datos». Esta lectura sustituye los datos del formulario; los ficheros se descartan y todavía no se guarda el expediente. Si no tienes actas, sigue a mano.
+3. Revisa lo leído. Confirma el estado actual, el anexo de derivación original y su fecha. En un no aceptado, indica fecha y motivo de no aceptación y deja vacío el número.
+4. Comprueba el número original, la fecha de aceptación, municipio, centro, subprograma, puesto de referencia y descripción. Si un dato obligatorio no se lee, complétalo a mano. Si desconoces el número, déjalo vacío: no se asignará uno nuevo.
+5. Revisa la familia, las personas adultas y los menores. Si el nombre y los apellidos se leen juntos, pulsa «Separar nombre y apellidos» e introdúcelos en sus campos; el nombre completo del acta queda visible como referencia. Completa el sexo que falte; no se deduce del nombre. Revisa nacimientos conocidos. Conserva el cierre anterior y añade un episodio por cada reapertura, con sus fechas y motivos. Si subiste cierre, confirma la fecha y el motivo de catálogo, además del texto del acta.
+6. Pulsa «Revisar el expediente». Corrige los campos señalados y comprueba número, estado y fechas. Revisar todavía no guarda.
+7. Pulsa «Confirmar el expediente». Espera «Carga completada», abre la ficha y comprueba la marca «Cargado para revisión», los adultos, menores y fechas originales.
 
-![Alta histórica con estado, número original y fechas del caso](../capturas/carga-alta-escritorio.png)
+![Lectura de actas y alta asistida con datos inventados](../capturas/carga-actas-datos-1440.png)
 
-La carga conserva números e historia, no consume números nuevos ni genera documentos. Si se pierde la conexión al confirmar, usa «Recuperar el resultado» antes de preparar otra carga. Para cargar varios casos desde una hoja, consulta [el recorrido de Coordinación](coordinacion.md#cómo-cargo-los-casos-de-2026-desde-una-hoja); el profesional sólo puede cargar su equipo.
+Un PDF que sólo contiene una imagen puede no aportar datos: complétalos a mano.
+Una fecha leída de la firma del PDF es una propuesta para confirmar; la aplicación
+no comprueba si la firma es válida. Si el antivirus no responde aparece un aviso;
+si detecta una infección, la lectura se detiene.
 
-Los datos reales se cargan sólo en producción, cuando la dirección confirme las condiciones de protección de datos, seguridad y restauración. En demostración se usan datos inventados. No hay un vídeo de carga de 2026 entre los recorridos disponibles.
+La carga conserva números e historia y no genera documentos. Si se pierde la
+conexión al confirmar, usa «Recuperar el resultado» antes de preparar otra carga.
+El profesional carga sólo su equipo; Coordinación puede elegir cualquiera.
+La compatibilidad [CSV/XLSX](coordinacion.md#cómo-cargo-los-casos-de-2026-desde-una-hoja)
+sigue disponible, aunque el Programa no dispone de hoja.
+
+Los datos reales se cargan sólo en producción, cuando la dirección confirme las
+condiciones de protección de datos, seguridad y restauración. En demostración
+se usan datos inventados.

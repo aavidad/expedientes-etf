@@ -100,16 +100,11 @@ type Derivacion struct {
 // DatosPermitidos excluye identificadores documentales y escalas pertenecientes
 // a evaluación. La propuesta nunca asigna municipio, centro, equipo ni número.
 func DatosPermitidos(e Extraccion) Extraccion {
-	if (e.Tipo == "anexo3" || e.Tipo == "anexo4") && !slices.Contains(e.Avisos, "expediente.valorame_pendiente") {
-		e.Avisos = append(e.Avisos, "expediente.valorame_pendiente")
-	}
+	e.Avisos = slices.DeleteFunc(e.Avisos, func(aviso string) bool { return aviso == "expediente.valorame_pendiente" })
 	campos := make([]Campo, 0, len(e.Campos))
 	dni := regexp.MustCompile(`(?i)\b(?:[0-9]{8}|[XYZ][0-9]{7})[A-Z]\b`)
 	for _, c := range e.Campos {
 		if strings.HasPrefix(c.Codigo, "valorame.") {
-			if !slices.Contains(e.Avisos, "expediente.valorame_pendiente") {
-				e.Avisos = append(e.Avisos, "expediente.valorame_pendiente")
-			}
 			continue
 		}
 		if strings.Contains(strings.ToLower(c.Codigo), "dni") {

@@ -1,0 +1,44 @@
+rules:
+  - id: etf-odt-solo-memoria
+    languages: [go]
+    severity: ERROR
+    message: anexo.odt_acceso_externo
+    paths:
+      include: ['**/anexos/odt/*.go', '**/anexos/pdf/libreoffice.go']
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: os.Open(...)
+      - pattern: os.Create(...)
+      - pattern: os.CreateTemp(...)
+      - pattern: os.MkdirTemp(...)
+      - pattern: os.ReadFile(...)
+      - pattern: os.WriteFile(...)
+      - pattern: http.Get(...)
+      - pattern: http.Post(...)
+      - pattern: net.Dial(...)
+      - pattern: exec.Command(...)
+      - pattern: exec.CommandContext(...)
+      - pattern: log.Print(...)
+      - pattern: fmt.Println(...)
+      - pattern: slog.Info(...)
+  - id: etf-odt-no-expandir-rutas
+    languages: [go]
+    severity: ERROR
+    message: anexo.odt_ruta_insegura
+    paths:
+      include: ['**/anexos/odt/*.go']
+      exclude: ['*_test.go']
+    pattern-either:
+      - pattern: filepath.Join($BASE, $F.Name)
+      - pattern: os.MkdirAll(...)
+  - id: etf-anexo-sin-ejecucion-ni-persistencia-cliente
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: anexo.cliente_contenido_inseguro
+    paths:
+      include: ['**/anexo/*.tsx']
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: localStorage.setItem(...)
+      - pattern: sessionStorage.setItem(...)
+      - pattern: $E.innerHTML = ...

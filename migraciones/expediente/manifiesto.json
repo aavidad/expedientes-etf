@@ -258,5 +258,15 @@
         "numero": "0014"
       }
     ]
+  },
+  {
+    "numero": "0026",
+    "archivo": "0026_formato_odt.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0023"
+      }
+    ]
   }
 ]

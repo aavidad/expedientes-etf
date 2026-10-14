@@ -71,6 +71,16 @@ def main():
             if entrada['numero'] >= '0002':
                 (previo / 'auditoria' / entrada['archivo']).unlink()
         manifiesto.write_text(json.dumps([e for e in entradas if e['numero'] < '0002']))
+        # RESP4 ensaya la actualización desde el esquema inmediatamente anterior,
+        # con una derivación Word ya confirmada, sin editar migraciones aplicadas.
+        anterior_odt = tmp / 'anterior_odt'
+        shutil.copytree(RAIZ / 'migraciones', anterior_odt)
+        manifiesto_odt = anterior_odt / 'expediente/manifiesto.json'
+        entradas_odt = json.loads(manifiesto_odt.read_text())
+        for entrada in entradas_odt:
+            if entrada['numero'] >= '0026':
+                (anterior_odt / 'expediente' / entrada['archivo']).unlink()
+        manifiesto_odt.write_text(json.dumps([e for e in entradas_odt if e['numero'] < '0026']))
         montar = ['--mount', f'type=bind,source={tmp},target=/pruebas,readonly',
                   '--mount', f'type=bind,source={RAIZ},target=/repo,readonly']
         try:
@@ -86,9 +96,18 @@ def main():
             esperar_postgres(bd, runner, modulo='expediente')
             ejecutar = ['docker', 'exec', '--env-file', str(runner), bd]
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/pruebas/previo', '/pruebas/migrar']))
+            print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/pruebas/anterior_odt', '/pruebas/migrar']))
+            print(orden(['docker', 'exec', '--env-file', str(runner), '--workdir', '/repo/internal/adaptadores/postgres/expediente', bd,
+                                   '/pruebas/expediente.test', '-test.v',
+                                   '-test.run', '^TestIntegracionConfirmacionConcurrenteSinDuplicados$']))
+            sql_anterior = "SELECT count(*)>0 FROM expediente.lectura_anexo"
+            estado_anterior = orden(['docker', 'exec', bd, 'psql', '-U', 'etf_instalador',
+                                    '-d', 'etf', '-At', '-c', sql_anterior])
+            if estado_anterior != 't':
+                raise RuntimeError('expediente.resp4_sin_datos_previos')
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']))
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']))
-            print('ENSAYO-OK versión anterior, migración nueva y repetición')
+            print('ENSAYO-OK RESP4: versión anterior con derivación DOCX, expediente/0026 y repetición')
             orden(['docker', 'run', '-d', '--name', antivirus, '--network', red,
                    '--network-alias', 'clamav', '--read-only', '--memory', '512m',
                    '--memory-swap', '512m', '--pids-limit', '64', '--cap-drop', 'ALL',

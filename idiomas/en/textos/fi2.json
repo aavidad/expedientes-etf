@@ -24,7 +24,7 @@
   "fi2.descargado": "The Word document has been downloaded. It contains personal data: save it only where the Programme instructs you.",
   "fi2.ver_cambios": "View current data",
   "fi2.evaluacion.titulo": "Evaluation by adult",
-  "fi2.evaluacion.sin_baremo": "We do not show a total score because the Programme’s scoring rules are missing.",
+  "fi2.evaluacion.sin_baremo": "Total scores are not calculated automatically.",
   "fi2.evaluacion.sin_adultos": "No adults are registered. Complete Family details before recording an evaluation.",
   "fi2.evaluacion.registrar": "Record an instrument or scale",
   "fi2.evaluacion.editar": "Edit scale responses",
@@ -35,7 +35,7 @@
   "fi2.evaluacion.elige_instrumento": "Choose an instrument or scale",
   "fi2.evaluacion.fecha": "Application date",
   "fi2.evaluacion.otros": "Instrument name",
-  "fi2.evaluacion.items_pendientes": "The official questionnaire has not been published yet. You can record that you used the instrument; item responses will be available once it is published.",
+  "fi2.evaluacion.items_pendientes": "You can record which instrument you used. Item responses will be available when the official questionnaire is published.",
   "fi2.evaluacion.respuestas": "Item responses",
   "fi2.evaluacion.sin_respuesta": "No response",
   "fi2.evaluacion.descripcion": "Qualitative assessment",
@@ -52,5 +52,6 @@
   "fi2.momento.derivacion": "Referral",
   "equipo.pestana.consentimiento": "Consent",
   "equipo.pestana.evaluacion": "Evaluation",
-  "fi2.evaluacion.duplicada": "A scale is already recorded for this adult, instrument and stage. Open its responses to review them."
+  "fi2.evaluacion.duplicada": "A scale is already recorded for this adult, instrument and stage. Open its responses to review them.",
+  "fi2.evaluacion.opcional": "Assessment scales are optional. You can record them here or fill them in later in the Word document for Annexes 11 and 12."
 }

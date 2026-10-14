@@ -272,7 +272,7 @@ F2.06 muestra los hitos confirmados y las emisiones en bloques separados. Las pe
 
 La ficha monta sus nueve pestañas desde un registro común de código, etiqueta y componente. Conserva la última ficha del mismo expediente durante el refresco y la elimina ante un error; Consentimiento y Evaluación bloquean sus acciones mientras llega la nueva versión.
 
-Consentimiento descarga el Anexo 1 o 2 según el subprograma y confirma por separado la fecha de firma; también registra la fecha del Anexo 7 u 8, preparado fuera de la aplicación. El aviso de plazo procede de F2.02. Evaluación registra instrumentos por adulto y momento; las respuestas por ítem usan definiciones publicadas. Mientras falten los cuestionarios oficiales, permite registrar la aplicación del instrumento y explica qué queda pendiente. No muestra totales porque falta el baremo. Ambas pestañas protegen cambios sin guardar y ofrecen recuperar los datos actuales ante un conflicto.
+Consentimiento descarga el Anexo 1 o 2 según el subprograma y confirma por separado la fecha de firma; también registra la fecha del Anexo 7 u 8, preparado fuera de la aplicación. El aviso de plazo procede de F2.02. Evaluación registra instrumentos por adulto y momento; las respuestas por ítem usan definiciones publicadas. Cuando un cuestionario todavía no esté publicado, permite registrar qué instrumento has aplicado. Las escalas son opcionales: una línea explica que puedes anotarlas aquí o rellenarlas después en el Word de los Anexos 11 y 12. No calcula puntuaciones totales ni muestra avisos de escalas pendientes. Su ausencia no bloquea documentos, cierre o Memoria. Ambas pestañas protegen cambios sin guardar y ofrecen recuperar los datos actuales ante un conflicto.
 
 - Ruta «Bandeja del equipo › Expediente 02-14-26». h1 con el nombre completo de la familia («Familia Ortega Salas»). Debajo, píldoras: subprograma, número, servicio derivante y referente.
 - Acciones: «Generar documento» y «Derivar al SPM» (secundarias) y «Guardar cambios» (principal). «Generar documento» abre la misma lista que la pestaña Documentos.
@@ -280,7 +280,7 @@ Consentimiento descarga el Anexo 1 o 2 según el subprograma y confirma por sepa
 - Pestañas: Familia, Menores (n), Intervención, Coordinación y derivaciones, Cierre, Documentos, Historial. Qué campos van en cada una lo dice FLUJO_APP.md; los datos, ESQUEMA_BACKEND.md.
 - Pestaña Familia (la única dibujada): tarjetas «Composición y situación económica» (rejilla de 3 columnas con el tramo del SMI como campo calculado), «Figuras parentales» (tabla con papel, nacimiento y edad, nivel educativo y situación laboral; un dato que falta sale como «Sin indicar» en naranja), «Factores de riesgo de la familia» (casillas en 3 columnas, cuenta «5 marcados de 23» y «ver todos»), «Responsables de la situación de desprotección» y «Tipologías de desprotección» (fichas seleccionables; las tipologías indican «Se aplican a los 3 menores · desmarcar alguno», según [D4]).
 - Columna lateral: aviso «Faltan N datos para la Memoria» con enlaces a cada campo; «Menores del expediente» con subtarjetas y «Añadir»; «Próximas fechas»; «Actividad reciente».
-- Escalas de evaluación (VALÓRAME, ECP-12, SCORE-15, SDQ, SOATIF, AAPI-2.5 y satisfacción) en sus momentos inicial, intermedio y final: **se guardan**, decisión firme del responsable del producto [D17]. Necesitan una tabla editable por escala y momento, en la pestaña Intervención o Cierre. No está dibujada.
+- Escalas de evaluación (VALÓRAME, ECP-12, SCORE-15, SDQ, SOATIF, AAPI-2.5 y satisfacción) en sus momentos inicial, intermedio y final: **son opcionales**, decisión de responsable del producto del 14/10/2026 [D17]. Se anotan en Evaluación cuando se quieran registrar. Los resultados guardados rellenan sus casillas de los Anexos 11 y 12; las demás quedan vacías y editables. Varios sujetos por casilla se identifican con iniciales y sus resultados se separan por «; », sin nombres completos ni combinación de puntuaciones. No están dibujadas en la maqueta.
 - FI1 permite editar hasta 15 menores, su subprograma y el centro de protección opcional. Intervención recoge la fase y las listas familiares, distingue datos desconocidos de ninguna opción y permite excluir menores por opción. Ambas pestañas llevan fecha de vigencia, avisan de cambios sin guardar y conservan el formulario ante un conflicto; los datos actuales se consultan aparte antes de elegir cuál guardar. Coordinación consulta sin controles de guardado. Los avisos de F2.02 abren la pestaña y llevan el foco al campo concreto; los campos sin pantalla siguen como información.
 - Guardado: la maqueta tiene un único «Guardar cambios». Regla: si hay cambios sin guardar, se marca la pestaña y se pregunta antes de salir. Guardar solo cada campo al salir de él no está decidido: **pendiente del responsable del producto**.
 - En Menores, «Centro de protección» es opcional por menor, con texto o selección de catálogo. En Coordinación y derivaciones se recogen nombre y contacto del coordinador del caso del servicio derivante, separados del profesional de referencia del ETF.
@@ -316,12 +316,12 @@ CO2 reúne la respuesta del SPM y el cierre en el detalle de Coordinación. La p
 
 ### 5.5 Subida del Anexo 3 o 4
 
-El Anexo 3 o 4 admite Word (.docx) o PDF, máximo 10 MB. Se procesa en memoria y se descarta: ni el servidor intermediario, ni el antivirus ni los temporales lo escriben en disco. Las otras subidas se describen en 5.10. Estados, todos anunciados en una región de estado para lectores de pantalla:
+El Anexo 3 o 4 admite Word (.docx), LibreOffice (.odt) o PDF, máximo 10 MB. Se procesa en memoria y se descarta: ni el servidor intermediario, ni el antivirus ni los temporales lo escriben en disco. Las otras subidas se describen en 5.10. Estados, todos anunciados en una región de estado para lectores de pantalla:
 
 | Estado | Qué ve la persona (texto propuesto para `idiomas/es/`) |
 | --- | --- |
 | Elegir | Zona con «Elegir fichero» (botón, no sólo arrastrar), formatos admitidos y tamaño máximo |
-| Comprobación previa en el navegador | Si no es Word o PDF o pasa de 10 MB: error al momento, sin subir nada |
+| Comprobación previa en el navegador | Si no es Word, LibreOffice o PDF o pasa de 10 MB: error al momento, sin subir nada |
 | Subiendo | «Subiendo el fichero… 45 %» con barra de progreso que lleva su valor accesible |
 | Revisando | «Revisando el fichero con el antivirus…» con indicador sin porcentaje. Es la espera que la entrevista pide explicar |
 | Leyendo | «Leyendo los datos del anexo…» |
@@ -333,7 +333,7 @@ El Anexo 3 o 4 admite Word (.docx) o PDF, máximo 10 MB. Se procesa en memoria y
 
 P2 monta subida y revisión en `/coordinacion/anexos/nuevo`. La API de análisis no crea derivación. Mientras responde, la pantalla anuncia conjuntamente antivirus y lectura, sin inventar porcentajes ni fases del servidor. «Confirmar y crear derivación» guarda los campos revisados y abre la decisión de P3. Un dato dudoso correcto dispone de «Confirmar dato».
 
-Botón «Cancelar» disponible mientras sube. Los otros tipos de subida comparten los estados de progreso, pero aplican su propia política (5.10); la excepción de antivirus caído sólo vale para el anexo.
+Botón «Cancelar» disponible mientras sube. Los otros tipos de subida comparten los estados de progreso, pero aplican su propia política (5.10); la excepción de antivirus caído se aplica al anexo y a las actas de carga histórica.
 
 ### 5.6 Memoria Técnica Anual
 
@@ -394,6 +394,7 @@ El selector informa del formato y límite antes de subir. Todas las subidas pasa
 | Uso | Formatos y límite | Persistencia y caída del antivirus |
 | --- | --- | --- |
 | Anexo 3 o 4 | DOCX o PDF, 10 MB | Sólo memoria; se descarta. Si el antivirus cae, se acepta con aviso visible y auditado, según la excepción acordada |
+| Actas históricas | DOCX o PDF, 10 MB por acta | Sólo memoria; se descartan. Si el antivirus cae, aviso visible y auditado, como anexos |
 | Plantilla | DOCX, 10 MB | Versión inmutable tras validar; sin antivirus no se publica |
 | Tema | ZIP con JSON, PNG y WOFF2, 20 MB | Versión inmutable; sin SVG; sin antivirus no se publica |
 | Idioma | ZIP con JSON y DOCX, 20 MB | Versión inmutable; sin antivirus no se publica |
@@ -403,15 +404,18 @@ Los paquetes tienen además un límite de 100 MB descomprimidos y 1.000 entradas
 
 ### 5.11 Carga de los expedientes de 2026
 
-La pantalla cubre todos los expedientes necesarios para la Memoria de 2026: vivos, cerrados durante 2026 y no aceptados durante 2026. Coordinación carga la hoja si existe [D21]; si no, los equipos los teclean. Conserva número y fechas históricas de los aceptados, sin consumir nuevos correlativos, y el estado real de cada caso; los no aceptados no reciben número de aceptación.
+La pantalla cubre todos los expedientes necesarios para la Memoria de 2026: vivos, cerrados durante 2026 y no aceptados durante 2026. Incluye todos los abiertos de cualquier año anterior. No existe hoja [D21, 14/10/2026]: los equipos suben actas o introducen los datos a mano. Conserva número y fechas históricas de los aceptados, sin consumir nuevos correlativos, y el estado real de cada caso; los no aceptados no reciben número de aceptación.
 
 El servidor de hoja de F2.08b devuelve incidencias por fila y columna con mensajes en castellano o inglés, sin valores personales, y conserva el número original de fila. El formato provisional D21 está en ESQUEMA_BACKEND §7.2. CA1 añade `/coordinacion/carga-2026` para hoja y `/equipo/expedientes/alta-historica` para tecleo, con ambos perfiles autorizados por el servidor y el profesional limitado a su equipo. El alta agrupa derivación, aceptación, familia y menores, y episodios; su revisión muestra iniciales y fechas históricas. La carga por hoja anuncia el antivirus, conserva las filas originales enmascaradas y traduce las columnas de las incidencias a etiquetas. La confirmación muestra el resultado y la marca «Cargado para revisión». Cada resultado permite consultar los datos guardados por la lectura auditada existente y ofrece un enlace recuperable, también para no aceptados y números desconocidos. El alta manual admite nombres conocidos de menores en no aceptados, sin exigir sexo ni datos de aceptación. Si se pierde la conexión, permite recuperar el mismo envío sin preparar otro. La ayuda se abre aparte; desde la pantalla se descarga una hoja CSV inventada con el formato provisional.
 
-La vista previa del lote muestra filas enmascaradas, estado, incidencias y campos pendientes, sin guardar parcialmente. Al confirmar se aplica todo el lote o ninguno. El alta manual ofrece los mismos estados y controles. Las fechas efectivas históricas se confirman sin generar documentos para simular hitos.
+La vista previa del lote muestra filas enmascaradas, estado, incidencias y campos pendientes, sin guardar parcialmente. Al confirmar se aplica todo el lote o ninguno. RESP2 añade al alta una sección inicial de equipo y lectura opcional de Acta de Aceptación y Acta de Cierre, PDF/DOCX hasta 10 MB. La lectura avisa que sustituye el formulario, anuncia antivirus y deja una propuesta editable. Los campos que no se leen quedan pendientes; el estado actual y el sexo desconocido de adultos se confirman a mano. El PDF sin texto permite seguir a mano. La fecha leída de firma se identifica como propuesta sin validar la firma. Los ficheros se descartan y sólo se guardan datos confirmados. La carga por hoja queda como compatibilidad. El alta manual ofrece los mismos estados y controles. Las fechas efectivas históricas se confirman sin generar documentos para simular hitos.
 
 La carga con datos reales sólo se hace en producción, con la aplicación desplegada al acabar la fase 2 y tras aprobar EIPD, seguridad, copias y restauración. Desarrollo y preproducción usan exclusivamente datos inventados. No se espera a recibir datos reales de 2025. Servidor, copias y EIPD avanzan desde ahora; manuales, vídeo y formación quedan para el final (PLAN_IMPLEMENTACION.md).
 
 GAP1 completa la pestaña Familia con formularios de datos familiares y personas adultas, guardados por separado y una fecha de vigencia. Conserva el formulario ante un conflicto y muestra los datos actuales para comparar. Los avisos de la ficha abren Familia y llevan el foco al campo, también dentro de un desplegable. Cierre ofrece el anexo de finalización del subprograma, con aviso antes de descargar y bloqueo mientras haya datos sin guardar. Coordinación conserva la consulta.
+
+
+En la revisión de actas, los nombres completos leídos deben separarse a mano en nombre y apellidos antes de validar. La referencia leída permanece visible y no se envía al guardar. Si ya hay datos, leer otras actas exige confirmar la sustitución; cancelar conserva el formulario y devuelve el foco. La vista previa agrupa adultos y menores por iniciales y muestra ubicación, subprograma y motivos de cierre. La entrada de compatibilidad se llama «Cargar desde una hoja».
 
 ## 6. Responsive
 
@@ -573,7 +577,7 @@ Tras 25 años desde el cierre, el expediente se anonimiza ([D14]): en pantalla s
 | Carga sólo de vivos y al final del proyecto | Vivos, cerrados y no aceptados de 2026, sólo en producción al acabar la fase 2 (5.11) |
 | Temas con SVG y archivos sobrescritos | JSON, PNG y WOFF2; versiones inmutables y activación auditada (3.1, 5.9 y 5.10) |
 | Subida de idioma y exportador de auditoría pendientes | Administración funcional gestiona los idiomas y exporta auditoría (5.9) |
-| Anexo era el único fichero subido; caída del antivirus permitía todos | Política por tipo; excepción de antivirus sólo para anexo (5.10) |
+| Anexo era el único fichero subido; caída del antivirus permitía todos | Política por tipo; excepción de antivirus para anexos y actas históricas (5.10) |
 | Cerrar desde ACEPTADA y editar cerrados no estaban fijados | Cierre por falta de consentimiento permitido; tras cerrar sólo seguimiento editable, resto exige reapertura (5.2) |
 | Cualquier respuesta al Anexo 5 desbloqueaba | Sólo las dos respuestas definitivas acordadas; «a la espera» bloquea; Coordinación puede forzar con motivo (5.2) |
 | Textos de catálogo en base de datos | Todos en `idiomas/<código>/catalogos/`; los textos libres de negocio sí se conservan en sus datos (8.1) |

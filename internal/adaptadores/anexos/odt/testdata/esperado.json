@@ -1,0 +1,493 @@
+{
+  "anexo3": {
+    "desproteccion.antecedentes": [
+      "Sin información"
+    ],
+    "desproteccion.dificultades_parentales": [
+      "Sospecha"
+    ],
+    "desproteccion.imposibilidad_proteccion": [
+      "Si"
+    ],
+    "desproteccion.migrantes_sin_referentes": [
+      "No"
+    ],
+    "desproteccion.migrantes_vinculo_no_acreditado": [
+      "No"
+    ],
+    "familia.contacto.apellidos": [
+      "Pérez Pérez",
+      "González González"
+    ],
+    "familia.contacto.correo": [
+      "asd@servicios.invalid",
+      "dsa@servicios.invalid"
+    ],
+    "familia.contacto.nombre": [
+      "Francisco",
+      "Ana"
+    ],
+    "familia.contacto.telefono": [
+      "1234565789",
+      "2345657890"
+    ],
+    "familia.direccion": [
+      "C/ Alta, 1234, Orce (Granada)"
+    ],
+    "intervenciones.correo": [
+      "asdqwe@servicios.invalid"
+    ],
+    "intervenciones.descripcion": [
+      "Desde los Servicios Sociales Comunitarios se ha instruido a la madre y estimulado para que ponga a la menor su correcta alimentación. Se trabaja la toma de conciencia y la importancia de esta conducta. Se transmite la negligencia tan grave que supone este olvido y las consecuencias tan graves que tiene en la menor y la necesidad de adoptar medidas de protección en este sentido si no se elimina dicho factor de riesgo."
+    ],
+    "intervenciones.profesional": [
+      "Pepi Pérez Pérez (Trabajadora Social)"
+    ],
+    "intervenciones.resultados": [
+      "Hemos obtenido cambios significativos y últimamente no ocurre con tanta persistencia."
+    ],
+    "intervenciones.servicio": [
+      "Servicios Sociales Comunitarios de Orce."
+    ],
+    "intervenciones.telefono": [
+      "123456789"
+    ],
+    "menores.persona.centro": [
+      "Príncipe de Asturias",
+      "Príncipe de Asturias"
+    ],
+    "menores.persona.escolarizacion": [
+      "Educación infantil",
+      "Educación infantil"
+    ],
+    "menores.persona.nacimiento": [
+      "14/03/2024",
+      "12/03/2022"
+    ],
+    "menores.persona.nombre": [
+      "Yosua Pérez González",
+      "Mikel Pérez González"
+    ],
+    "observaciones.documentacion_obligatoria": [
+      "☒ VALÓRAME"
+    ],
+    "observaciones.otra_documentacion": [
+      "HOJA SIMIA, INFORME VALORAME."
+    ],
+    "observaciones.texto": [
+      "El vehículo del que disponen no tiene la documentación vigente y es el que utilizan para trasladar los menores al colegio."
+    ],
+    "servicio.correo": [
+      "asdasd@servicios.invalid"
+    ],
+    "servicio.fecha_derivacion": [
+      "06/10/2026"
+    ],
+    "servicio.fecha_entrada_sscc": [
+      "08/10/2026"
+    ],
+    "servicio.nombre": [
+      "Servicios Sociales Comunitarios de Orce"
+    ],
+    "servicio.profesional": [
+      "Pepe Pérez España"
+    ],
+    "servicio.telefono": [
+      "123456789"
+    ],
+    "sociodemografia.adulto.edad": [
+      "50",
+      "49"
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Estudios obligatorios (ESO, EGB)",
+      "Estudios obligatorios (ESO, EGB)"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Francisco Pérez Pérez",
+      "Ana González González"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "",
+      ""
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2"
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Padre",
+      "Madre"
+    ],
+    "sociodemografia.estructura": [
+      "Familias biparentales"
+    ],
+    "sociodemografia.ingresos": [
+      ""
+    ],
+    "sociodemografia.otras_formas": [
+      "Actualmente los progenitores de los menores están en proceso de separación, aún no hay convenio regulador provisional."
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "González Martínez"
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Amalia."
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Abuela Materna"
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "12378901"
+    ],
+    "sociodemografia.situacion_economica": [
+      "con dificultades económicas que no afectan a la cobertura de las necesidades básicas"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Autónomo"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "50-100% SMI/Año"
+    ],
+    "sociodemografia.vivienda": [
+      "En propiedad"
+    ],
+    "valoracion.actitud": [
+      "Colaborativa"
+    ],
+    "valoracion.adecuacion": [
+      "Bastante"
+    ],
+    "valoracion.conciencia": [
+      "Bastante"
+    ],
+    "valoracion.crisis": [
+      "NO"
+    ],
+    "valoracion.descripcion": [
+      "Los menmores no están lo correctamente atendidos en cuanto a su higiene y alimentación."
+    ],
+    "valoracion.dificultades": [
+      "Han tenido problemas con los vecinos."
+    ],
+    "valoracion.duracion": [
+      "12 meses."
+    ],
+    "valoracion.expectativas": [
+      "Bastante bajas"
+    ],
+    "valoracion.historia": [
+      "La pareja vivió durante un tiempo en Alaska y luego se trasladó a Orce. Actualmente tienen una tienda de donde perciben sus ingresos. Los menores acuden al colegio del pueblo."
+    ],
+    "valoracion.integracion": [
+      "Relaciones conflictivas"
+    ],
+    "valoracion.motivacion": [
+      "Bastante"
+    ],
+    "valoracion.motivo_dificultades": [
+      "Problemas de ruidos entre los vecinos."
+    ],
+    "valoracion.personas_dificultad": [
+      "El marido con los vecinos."
+    ],
+    "valoracion.pronostico": [
+      "5"
+    ],
+    "valoracion.tiempo_convivencia": [
+      "5 años"
+    ],
+    "valorame.abandono": [
+      "Riesgo leve"
+    ],
+    "valorame.corrupcion": [
+      "Riesgo leve"
+    ],
+    "valorame.descripcion": [
+      "Tenemos SOSPECHA de que la menor haya podido presenciar situaciones de violencia, dada la agresividad que presenta el padre asociada a su patología dual. ESTIMULACIÓN con valoración de GRAVEDAD, los progenitores suelen olvidarse de ponerle la comida a los menores.En el padre existen graves dificultades para ejercer la guarda y la tutela, principalmente por la Patología Dual que padece."
+    ],
+    "valorame.global": [
+      "Riesgo"
+    ],
+    "valorame.incapacidad_parental": [
+      "Riesgo leve"
+    ],
+    "valorame.maltrato_fisico": [
+      "Gravedad moderada"
+    ],
+    "valorame.maltrato_prenatal": [
+      "Riesgo leve"
+    ],
+    "valorame.maltrato_psicologico": [
+      "Sospecha"
+    ],
+    "valorame.negligencia": [
+      "Gravedad moderada"
+    ],
+    "valorame.otras": [
+      "Riesgo leve"
+    ],
+    "valorame.violencia_sexual": [
+      "No existe"
+    ]
+  },
+  "anexo4": {
+    "desproteccion.antecedentes": [
+      "No"
+    ],
+    "desproteccion.dificultades_parentales": [
+      "Si"
+    ],
+    "desproteccion.imposibilidad_proteccion": [
+      "No"
+    ],
+    "desproteccion.migrantes_sin_referentes": [
+      "No"
+    ],
+    "desproteccion.migrantes_vinculo_no_acreditado": [
+      "No"
+    ],
+    "familia.contacto.apellidos": [
+      "López López",
+      "Gutiérrez Gutiérrez"
+    ],
+    "familia.contacto.correo": [
+      "asdvbn@servicios.invalid",
+      ""
+    ],
+    "familia.contacto.nombre": [
+      "Antonio",
+      "Ana"
+    ],
+    "familia.contacto.telefono": [
+      "123456789",
+      "123412341"
+    ],
+    "familia.direccion": [
+      "C/ Estrecha, 1234, Cúllar (Granada)"
+    ],
+    "intervenciones.correo": [
+      "zxczxc@servicios.invalid"
+    ],
+    "intervenciones.descripcion": [
+      "Se ha trabajado con la familia para que cambie sus hábitos en cuanto a sus hábitos de sueño con los menores y de levantarse para ir al colegio. Así mismo se ha trabajado el tema de la alimentación e higiene de los menores."
+    ],
+    "intervenciones.profesional": [
+      "Pepa Pérez"
+    ],
+    "intervenciones.resultados": [
+      "Hemos tenido avances leves. Hemos conseguido que los niños acudan al colegio con cierta asiduidad y que vayan moderadamente bien vestidos."
+    ],
+    "intervenciones.servicio": [
+      "Servicios Sociales Comunitarios de Cúllar"
+    ],
+    "intervenciones.telefono": [
+      "123456789"
+    ],
+    "menores.persona.centro": [
+      "Virgen Alta",
+      ""
+    ],
+    "menores.persona.escolarizacion": [
+      "Educación infantil",
+      "no escolarizado"
+    ],
+    "menores.persona.nacimiento": [
+      "03/03/2025",
+      "03/02/2026"
+    ],
+    "menores.persona.nombre": [
+      "Férdinant López Gutiérrez",
+      "Anuski López Gutiérrez"
+    ],
+    "observaciones.documentacion_obligatoria": [
+      "☒ VALÓRAME ☒ Los informes técnicos que procedan. ☐ Los principales objetivos del plan de intervención. ☐ El consentimiento de la familia a participar en la intervención."
+    ],
+    "observaciones.otra_documentacion": [
+      "Informe del colegio."
+    ],
+    "observaciones.texto": [
+      ""
+    ],
+    "resoluciones.existencia": [
+      "NO"
+    ],
+    "resoluciones.fecha": [
+      ""
+    ],
+    "resoluciones.medidas": [
+      ""
+    ],
+    "resoluciones.organismo": [
+      ""
+    ],
+    "resoluciones.resultados": [
+      ""
+    ],
+    "resoluciones.tipo": [
+      ""
+    ],
+    "servicio.correo": [
+      "asdasd@servicios.invalid"
+    ],
+    "servicio.equipo_menores": [
+      "Equipo de Menores n.º 51"
+    ],
+    "servicio.etf": [
+      "ETF Norte"
+    ],
+    "servicio.fecha_derivacion": [
+      "08/10/2026"
+    ],
+    "servicio.fecha_entrada_sscc": [
+      "09/10/2026"
+    ],
+    "servicio.nombre": [
+      "SPM"
+    ],
+    "servicio.profesional": [
+      "Pepi Pérez"
+    ],
+    "servicio.subprograma": [
+      "Riesgo"
+    ],
+    "servicio.telefono": [
+      "123456789"
+    ],
+    "sociodemografia.adulto.edad": [
+      "50",
+      "48"
+    ],
+    "sociodemografia.adulto.estudios": [
+      "Sabe leer y escribir, no finaliza estudios obligatorios",
+      "Estudios obligatorios (ESO, EGB)"
+    ],
+    "sociodemografia.adulto.nombre": [
+      "Antonio López López",
+      "Ana Gutiérrez Gutiérrez"
+    ],
+    "sociodemografia.adulto.otros_datos": [
+      "Fontanero",
+      "Ama de casa"
+    ],
+    "sociodemografia.adulto.papel": [
+      "Tutor 1",
+      "Tutor 2"
+    ],
+    "sociodemografia.adulto.parentesco": [
+      "Padre",
+      "Madre"
+    ],
+    "sociodemografia.estructura": [
+      "Familias biparentales"
+    ],
+    "sociodemografia.ingresos": [
+      ""
+    ],
+    "sociodemografia.otras_formas": [
+      ""
+    ],
+    "sociodemografia.persona_significativa.apellidos": [
+      "Gutiérrez Manzanares"
+    ],
+    "sociodemografia.persona_significativa.nombre": [
+      "Anatolia"
+    ],
+    "sociodemografia.persona_significativa.parentesco": [
+      "Abuela materna"
+    ],
+    "sociodemografia.persona_significativa.telefono": [
+      "123456789"
+    ],
+    "sociodemografia.situacion_economica": [
+      "con dificultades económicas que no afectan a la cobertura de las necesidades básicas"
+    ],
+    "sociodemografia.situacion_laboral": [
+      "Contratado por cuenta ajena (empleo fijo)"
+    ],
+    "sociodemografia.tramo_ingresos": [
+      "100-150% SMI/Año"
+    ],
+    "sociodemografia.vivienda": [
+      "Alquilada"
+    ],
+    "valoracion.actitud": [
+      "Colaborativa"
+    ],
+    "valoracion.adecuacion": [
+      "Poco"
+    ],
+    "valoracion.conciencia": [
+      "Poco"
+    ],
+    "valoracion.crisis": [
+      ""
+    ],
+    "valoracion.descripcion": [
+      "Falta de habilidades parentales. Los menores no acuden al colegio con asiduidad. Así mismo se han detectado problemas en cuanto a la higiene y vestimenta."
+    ],
+    "valoracion.dificultades": [
+      ""
+    ],
+    "valoracion.duracion": [
+      "12 meses"
+    ],
+    "valoracion.expectativas": [
+      "Bastante bajas"
+    ],
+    "valoracion.historia": [
+      "Anteriormente vivían en Granada capital y se trasladaron a este municipio. El progenitor trabaja en una empresa de la localidad, con trabajo estable."
+    ],
+    "valoracion.integracion": [
+      "No se han detectado problemas de integración y relaciones sociales."
+    ],
+    "valoracion.motivacion": [
+      "Poco"
+    ],
+    "valoracion.motivo_dificultades": [
+      ""
+    ],
+    "valoracion.personas_dificultad": [
+      ""
+    ],
+    "valoracion.pronostico": [
+      "3"
+    ],
+    "valoracion.tiempo_convivencia": [
+      "5 años."
+    ],
+    "valorame.abandono": [
+      "Riesgo leve"
+    ],
+    "valorame.corrupcion": [
+      "Riesgo leve"
+    ],
+    "valorame.descripcion": [
+      "Tenemos SOSPECHA de que la menor haya podido presenciar situaciones de violencia, dada la agresividad que presenta el padre asociada a su patología dual. ESTIMULACIÓN con valoración de GRAVEDAD, los progenitores suelen olvidarse de ponerle la comida a los menores.En el padre existen graves dificultades para ejercer la guarda y la tutela, principalmente por la Patología Dual que padece."
+    ],
+    "valorame.global": [
+      "Riesgo"
+    ],
+    "valorame.incapacidad_parental": [
+      "Gravedad moderada"
+    ],
+    "valorame.maltrato_fisico": [
+      "Riesgo leve"
+    ],
+    "valorame.maltrato_prenatal": [
+      "Sin información"
+    ],
+    "valorame.maltrato_psicologico": [
+      "Riesgo leve"
+    ],
+    "valorame.negligencia": [
+      "Riesgo leve"
+    ],
+    "valorame.otras": [
+      "Sospecha"
+    ],
+    "valorame.violencia_sexual": [
+      "Riesgo leve"
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	evaluacion "github.com/aavidad/expedientes-etf/internal/aplicacion/evaluacion/puertos/entrada"
 	expediente "github.com/aavidad/expedientes-etf/internal/aplicacion/expediente/puertos/entrada"
 	d "github.com/aavidad/expedientes-etf/internal/dominio/documento"
 	familia "github.com/aavidad/expedientes-etf/internal/dominio/expediente"
@@ -18,6 +19,7 @@ import (
 // DatosEntrada combina puertos de los módulos propietarios. Todas las lecturas
 // de base reciben la transacción que ya abrió Emitir; ninguna abre otra.
 type DatosEntrada struct {
+	Evaluaciones evaluacion.DatosDocumentos
 	Expedientes  expediente.DatosDocumentos
 	Salidas      expediente.SalidasServicio
 	Catalogos    catalogo.Repositorio
@@ -301,6 +303,13 @@ func (f DatosEntrada) Obtener(ctx context.Context, actor d.Actor, s d.Solicitud)
 			a.Finalizacion["motivo_otros"] = a.MarcaSeleccion
 		}
 		versiones["catalogo_cierre"] = final.CatalogoVersionID
+		if f.Evaluaciones != nil {
+			registro, err := f.Evaluaciones.ParaDocumentos(ctx, evaluacion.Actor{UsuarioID: actor.UsuarioID, EquipoID: actor.EquipoID, Perfiles: actor.Perfiles}, e.ID)
+			if err != nil {
+				return d.Datos{}, d.ErrNoDisponible
+			}
+			rellenarEscalas(a, registro, nombres, textos, versiones)
+		}
 	}
 	return d.Datos{ExpedienteID: e.ID, EquipoID: equipo, FechaDocumento: time.Date(ahora.Year(), ahora.Month(), ahora.Day(), 0, 0, 0, 0, time.UTC), Aceptacion: a, Versiones: versiones}, nil
 }

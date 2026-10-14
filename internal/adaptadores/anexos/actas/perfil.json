@@ -1,0 +1,84 @@
+{
+  "titulos": {
+    "aceptacion": "acta de aceptaci[oó]n",
+    "cierre": "acta de cierre"
+  },
+  "campos": [
+    {
+      "codigo": "numero",
+      "patron": "(?i)n[ºo°.]*\\.?\\s*(?:expt\\.?|expediente)[^:]*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "equipo",
+      "patron": "(?i)^e\\.t\\.f\\.:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "centro",
+      "patron": "(?i)^centro de ss\\.ss\\.cc\\.?\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "municipio",
+      "patron": "(?i)^municipio\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "subprograma",
+      "patron": "(?i)^subprograma\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "fecha",
+      "patron": "(?i)^fecha de (?:aceptaci[oó]n|cierre)\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "fecha",
+      "patron": "(?i)^en granada[,]?\\s+a\\s+(\\d.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "descripcion",
+      "patron": "(?i)^descripci[oó]n de la situaci[oó]n familiar\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "familia",
+      "patron": "(?i)^nombre de la familia\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "madre",
+      "patron": "(?i)^madre[.:]\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "padre",
+      "patron": "(?i)^padre[.:]\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "menor.nombre",
+      "patron": "(?i)^nombre\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "menor.nacimiento",
+      "patron": "(?i)^fecha de nacimiento\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "menor.sexo",
+      "patron": "(?i)^sexo\\s*:\\s*(.*)",
+      "siguiente": false
+    },
+    {
+      "codigo": "motivo",
+      "patron": "(?i)^motivo del cierre\\s*:\\s*(.*)",
+      "siguiente": false,
+      "fin": "(?i)^se adjunta|^en granada|^fecha de cierre|^fdo\\."
+    }
+  ]
+}

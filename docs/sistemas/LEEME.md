@@ -7,6 +7,14 @@ La [evidencia de FX2](FX2.md) recoge la actualización de roles en un volumen
 anterior, la instalación limpia y las comprobaciones de credenciales y permisos.
 Las reglas de despliegue y conservación están en [TRD §§10–14](../producto/TRD.md#10-seguridad).
 
+Para pruebas en un PC Windows 10/11, utiliza [la guía del paquete](../../despliegue/windows/LEEME.md).
+`make paquete-windows` prepara imágenes, ZIP versionado y suma SHA-256. El motor
+principal es Podman Desktop con WSL2; Rancher Desktop con Moby es la alternativa.
+Crea accesos de escritorio e Inicio con una copia privada del paquete; parar
+conserva los datos y permite reabrir, desinstalar retira sus accesos y volúmenes.
+Sólo admite datos inventados. La operación y el alcance comprobado se recogen en
+[WIN1](WIN1.md); este paquete no sustituye el despliegue de producción.
+
 ## 1. Requisitos y responsabilidades
 
 La aplicación es interna. Sólo deben acceder la red corporativa, la red provincial

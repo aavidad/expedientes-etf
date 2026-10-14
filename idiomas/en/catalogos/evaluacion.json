@@ -16,5 +16,6 @@
   "evaluacion.instrumento.ACTIVACION_EMPATICA": "Empathic activation",
   "evaluacion.instrumento.CEIC_CEICA": "CEIC-CEICA",
   "evaluacion.instrumento.ACHENBACH": "Achenbach scale",
-  "evaluacion.instrumento.OTROS": "Other"
+  "evaluacion.instrumento.OTROS": "Other",
+  "evaluacion.item.score15.fortalezas": "Strengths and adaptability"
 }

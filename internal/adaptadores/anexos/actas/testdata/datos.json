@@ -1,0 +1,215 @@
+[
+  {
+    "Nombre": "aceptacion-2022",
+    "Plantilla": "idiomas/es/plantillas/entrada/aceptacion/v1.1.1.docx",
+    "Datos": {
+      "Campos": {
+        "centro": "Santa Fe",
+        "centro_alfacar": "",
+        "centro_alhama": "",
+        "centro_alpujarra": "",
+        "centro_costa": "",
+        "centro_huetor_tajar_montefrio": "",
+        "centro_montes_orientales": "",
+        "centro_norte": "",
+        "centro_pinos_puente_moclin": "",
+        "centro_rio_fardes": "",
+        "centro_santa_fe": "☒",
+        "centro_sierra_nevada": "",
+        "centro_valle_lecrin_ogijares": "",
+        "centro_vega_temple": "",
+        "centro_vegas_altas": "",
+        "descripcion": "La familia necesita apoyo para organizar los cuidados y la asistencia escolar.",
+        "equipo": "ETF - 2 Vega Temple - Santa Fe",
+        "equipo_01": "",
+        "equipo_02": "☒",
+        "equipo_03": "",
+        "equipo_04": "",
+        "equipo_05": "",
+        "equipo_06": "",
+        "equipo_07": "",
+        "equipo_08": "",
+        "familia": "Familia Villena Robles",
+        "firmante": "Marta Rojas Medina",
+        "madre": "Irene Robles Serrano",
+        "madre_nacimiento": "17/02/1987",
+        "marca_h": "☐",
+        "marca_m": "☒",
+        "municipio": "Santa Fe",
+        "nacimiento": "",
+        "nombre": "",
+        "numero": "02-71-22",
+        "orden": "1",
+        "origen_anexo3": "☒",
+        "origen_anexo4": "",
+        "origen_etf": "",
+        "padre": "Daniel Villena Márquez",
+        "padre_nacimiento": "24/09/1985",
+        "parentesco": "Madre",
+        "profesional": "Elena Torres Marín",
+        "profesional_es": "",
+        "profesional_ps": "",
+        "profesional_ts": "",
+        "servicio_derivante": "Servicios Sociales Comunitarios"
+      },
+      "Filas": {
+        "adultos": [
+          {
+            "orden": "",
+            "nombre": "",
+            "parentesco": "",
+            "nacimiento": ""
+          }
+        ],
+        "menores": [
+          {
+            "nombre": "Clara Villena Robles",
+            "nacimiento": "14/06/2014",
+            "sexo": "M",
+            "marca_h": "☐",
+            "marca_m": "☒"
+          }
+        ]
+      }
+    },
+    "Fecha": "17/05/2022",
+    "EtiquetaFecha": "Fecha de aceptación: ",
+    "Subprograma": "Riesgo social"
+  },
+  {
+    "Nombre": "aceptacion-2023",
+    "Plantilla": "idiomas/es/plantillas/entrada/aceptacion/v1.1.1.docx",
+    "Datos": {
+      "Campos": {
+        "centro": "Santa Fe",
+        "centro_alfacar": "",
+        "centro_alhama": "",
+        "centro_alpujarra": "",
+        "centro_costa": "",
+        "centro_huetor_tajar_montefrio": "",
+        "centro_montes_orientales": "",
+        "centro_norte": "",
+        "centro_pinos_puente_moclin": "",
+        "centro_rio_fardes": "",
+        "centro_santa_fe": "☒",
+        "centro_sierra_nevada": "",
+        "centro_valle_lecrin_ogijares": "",
+        "centro_vega_temple": "",
+        "centro_vegas_altas": "",
+        "descripcion": "La familia necesita apoyo para organizar los cuidados y la asistencia escolar.",
+        "equipo": "ETF - 2 Vega Temple - Santa Fe",
+        "equipo_01": "",
+        "equipo_02": "☒",
+        "equipo_03": "",
+        "equipo_04": "",
+        "equipo_05": "",
+        "equipo_06": "",
+        "equipo_07": "",
+        "equipo_08": "",
+        "familia": "Familia Villena Robles",
+        "firmante": "Marta Rojas Medina",
+        "madre": "Irene Robles Serrano",
+        "madre_nacimiento": "17/02/1987",
+        "marca_h": "☐",
+        "marca_m": "☒",
+        "municipio": "Santa Fe",
+        "nacimiento": "",
+        "nombre": "",
+        "numero": "02-72-23",
+        "orden": "1",
+        "origen_anexo3": "☒",
+        "origen_anexo4": "",
+        "origen_etf": "",
+        "padre": "Daniel Villena Márquez",
+        "padre_nacimiento": "24/09/1985",
+        "parentesco": "Madre",
+        "profesional": "Elena Torres Marín",
+        "profesional_es": "",
+        "profesional_ps": "",
+        "profesional_ts": "",
+        "servicio_derivante": "Servicios Sociales Comunitarios"
+      },
+      "Filas": {
+        "adultos": [
+          {
+            "orden": "",
+            "nombre": "",
+            "parentesco": "",
+            "nacimiento": ""
+          }
+        ],
+        "menores": [
+          {
+            "nombre": "Clara Villena Robles",
+            "nacimiento": "14/06/2014",
+            "sexo": "M",
+            "marca_h": "☐",
+            "marca_m": "☒"
+          }
+        ]
+      }
+    },
+    "Fecha": "09/03/2023",
+    "EtiquetaFecha": "Fecha de aceptación: ",
+    "Subprograma": "Riesgo social"
+  },
+  {
+    "Nombre": "cierre-2026",
+    "Plantilla": "idiomas/es/plantillas/cierre/acta_cierre/v1.0.1.docx",
+    "Datos": {
+      "Campos": {
+        "adulto1": "",
+        "adulto1_nacimiento": "",
+        "adulto1_parentesco": "",
+        "adulto2": "",
+        "adulto2_nacimiento": "",
+        "adulto2_parentesco": "",
+        "adulto3": "",
+        "adulto3_nacimiento": "",
+        "adulto3_parentesco": "",
+        "adulto4": "",
+        "adulto4_nacimiento": "",
+        "adulto4_parentesco": "",
+        "adulto5": "",
+        "adulto5_nacimiento": "",
+        "adulto5_parentesco": "",
+        "centro": "Santa Fe",
+        "equipo": "ETF - 2 Vega Temple - Santa Fe",
+        "familia": "Familia Villena Robles",
+        "firmante": "Marta Rojas Medina",
+        "madre": "Irene Robles Serrano",
+        "madre_nacimiento": "17/02/1987",
+        "motivo_cierre": "Se alcanzan los objetivos previstos en el proyecto de intervención familiar.",
+        "municipio": "Santa Fe",
+        "nacimiento": "",
+        "nombre": "",
+        "numero": "02-72-23",
+        "padre": "Daniel Villena Márquez",
+        "padre_nacimiento": "24/09/1985",
+        "sexo": "Mujer"
+      },
+      "Filas": {
+        "adultos": [
+          {
+            "orden": "",
+            "nombre": "",
+            "parentesco": "",
+            "nacimiento": ""
+          }
+        ],
+        "menores": [
+          {
+            "nombre": "Clara Villena Robles",
+            "nacimiento": "14/06/2014",
+            "sexo": "M",
+            "marca_h": "☐",
+            "marca_m": "☒"
+          }
+        ]
+      }
+    },
+    "Fecha": "20/06/2026",
+    "EtiquetaFecha": "Fecha de cierre: ",
+    "Subprograma": "Riesgo social"
+  }
+]

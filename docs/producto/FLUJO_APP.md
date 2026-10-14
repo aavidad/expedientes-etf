@@ -391,7 +391,7 @@ anterior. La pestaña Consentimiento permite estas confirmaciones con la versió
 
 La bandeja de F2.06 está en `/equipo`; su lectura usa `GET /api/equipo/expedientes` con búsqueda, filtros y paginación. El enlace del número abre la ficha, cuya lectura y auditoría se confirman juntas. Las pestañas muestran Familia, Menores, Intervención, Consentimiento, Evaluación, Documentos, Cierre, Salidas e Historial. FI1 permite al profesional del ETF editar Menores e Intervención y a Coordinación consultarlas. Cierre conecta con la finalización y propuesta de F3.02a; Salidas permite preparar la derivación al Servicio de Protección de Menores, descargar el Anexo 5 y confirmar por separado su envío y respuesta. Cambiar de pestaña con una edición pendiente usa la guardia común de cambios sin guardar. GAP1 permite al profesional editar Familia con F2.01a: contacto, composición, vivienda, economía, ingresos o tramo del SMI, y personas adultas. Los datos familiares y las personas adultas se guardan por separado, con fecha de vigencia. Un conflicto conserva el borrador y permite comparar los datos actuales antes de conservarlo o sustituirlo. Los avisos abren la pestaña y enfocan el campo pendiente; Coordinación consulta sin editar.
 
-Evaluación permite registrar el instrumento aplicado a cada adulto en su momento inicial, intermedio o final. Las respuestas se editan por ítem cuando existe una definición publicada; el catálogo actual no contiene cuestionarios oficiales, pendientes de D17. La pantalla lo explica y no calcula puntuaciones totales.
+Evaluación permite registrar opcionalmente el instrumento aplicado a cada adulto en su momento inicial, intermedio o final. Una línea indica que las escalas son opcionales y se pueden rellenar después en el Word de los Anexos 11 y 12. No se avisa de escalas pendientes ni se exige completar instrumentos o momentos. Las respuestas se editan por ítem cuando existe una definición publicada; el catálogo actual no contiene cuestionarios oficiales, pendientes de publicación por el Programa. La pantalla lo explica y no calcula puntuaciones totales.
 
 ```mermaid
 flowchart LR
@@ -552,8 +552,8 @@ Errores y vueltas atrás:
 - Si la coordinación no está de acuerdo con la propuesta, no hay todavía una acción
   «devolver al equipo» decidida. Mientras, la coordinación no cierra y lo habla con
   el equipo; el equipo puede retirar la propuesta (`POST /api/expedientes/{id}/retirar-propuesta-cierre`).
-  Lo decidel responsable del producto.
-- Las escalas se guardan y se rellenan en el Word según la decisión vigente del responsable del producto [D17].
+  Lo decide responsable del producto.
+- Las escalas son opcionales [D17, responsable del producto, 14/10/2026]. Se guardan sólo las anotadas y se rellenan sus casillas en el Word de los Anexos 11 y 12; las demás quedan vacías y editables. No generan avisos de falta ni bloquean documentos, cierre o Memoria. En una casilla con varios sujetos, cada resultado lleva sus iniciales y se separa del siguiente por «; », sin nombres completos ni cálculos conjuntos.
 
 ### 3.9 Seguimiento tras cese
 
@@ -748,41 +748,57 @@ y ofrecen consultar los registros actuales antes de repetir el cambio.
 Son registros del equipo, no de un expediente. Si un año tiene la Memoria cerrada,
 los cambios no la alteran.
 
-### 3.15 Carga de todos los expedientes de 2026
+### 3.15 Carga de los expedientes necesarios para 2026
 
-Al acabar la fase 2 se cargan en **producción**, con la app desplegada, los vivos,
-los cerrados durante 2026 y los no aceptados de 2026. Las unas 180 familias en
-tratamiento son sólo una parte. Servidor, copias y EIPD se preparan en paralelo
-desde el inicio; antes de cargar deben estar aprobada la EIPD, probada la
-restauración y superada la revisión de seguridad. Desarrollo y preproducción
-sólo usan datos inventados. No se espera a recibir datos reales de 2025.
+Al acabar la fase 2 se cargan en **producción** todos los expedientes no cerrados,
+de cualquier año anterior, los cerrados durante 2026 y las derivaciones no
+aceptadas de 2026. Incluye aceptaciones de 2022 o 2023 que siguen activas.
+Antes de cargar datos reales deben estar aprobada la EIPD, probada la restauración
+y superada la revisión de seguridad. Desarrollo y preproducción usan datos inventados.
+
+El Programa confirma que no dispone de hoja de cálculo [D21, 14/10/2026].
+La vía habitual es subir las actas o introducir los datos a mano.
 
 ```mermaid
 flowchart TD
-  A{El Programa tiene hoja de cálculo?} -- sí --> B[Subir hoja · Coordinación]
-  B --> C[Revisar errores y datos por fila · Coordinación]
-  C --> D[Confirmar lote completo · Coordinación]
-  A -- no --> E[Alta histórica a mano · cada equipo]
-  D --> F[Expedientes con estado y fechas históricos · Sistema]
-  E --> F
-  F --> G[Comprobar ficha; aplicar reglas de cerrado y reapertura · equipo]
+  A[Elegir equipo · propio o cualquiera para Coordinación] --> B{Tienes las actas?}
+  B -- sí --> C[Subir aceptación y cierre opcional · PDF o Word]
+  C --> D[Antivirus y lectura local · fichero descartado]
+  D --> E[Revisar propuestas y completar lo que falta]
+  B -- no --> E
+  E --> F[Revisar el expediente · todavía sin guardar]
+  F --> G[Confirmar · fechas y número originales · cargado para revisión]
 ```
 
-| Paso | Quién | Qué hace | Estado antes → después | Pantalla / API | Estado |
-| --- | --- | --- | --- | --- | --- |
-| 1a | Coordinación | Sube la hoja del Programa, si existe [D21]; validación y antivirus local, sin conservar el fichero | — | `/coordinacion/carga-2026` · `POST /api/carga-2026/hoja` | CA1 disponible |
-| 2a | Sistema y Coordinación | Valida número, equipo, fechas, menores y estado; muestra errores por fila y datos para revisar, sin crear expedientes | — | misma pantalla | CA1 disponible |
-| 3a | Coordinación | Confirma el lote validado; entra completo o ninguno | (nada) → estado histórico, incluidos CERRADA y NO ACEPTADA | `POST /api/carga-2026/hoja/{lote}/confirmar` | CA1 disponible |
-| 1b | Profesional de ETF | Teclea los expedientes de su equipo con fechas, datos y estado históricos | (nada) → estado histórico | `/equipo/expedientes/alta-historica` · `POST /api/carga-2026` para revisar y `POST /api/carga-2026/{lote}/confirmar` para guardar | CA1 disponible |
-| 4 | Profesional de ETF | Revisa y completa antes de confirmar; después se aplican las reglas ordinarias de edición y reapertura | — | revisión previa y resultado de carga | CA1 disponible |
+| Paso | Quién | Qué hace | Pantalla / API |
+| --- | --- | --- | --- |
+| 1 | Equipo o Coordinación | Elige equipo y, opcionalmente, Acta de Aceptación y Acta de Cierre del mismo expediente | `/equipo/expedientes/alta-historica` |
+| 2 | Sistema | Lee PDF, PDF firmado o DOCX en memoria, tras validar el tipo y revisar el antivirus; devuelve propuestas sin crear expediente | `POST /api/carga-2026/actas/leer/{tipo}` |
+| 3 | Persona que carga | Corrige número, fechas, ubicación, subprograma, familia, adultos y menores; completa derivación, estado actual, puesto de referencia y datos que faltan. El sexo no leído queda pendiente | alta asistida existente |
+| 4 | Persona que carga | Revisa datos y episodios; confirma sólo tras corregir incidencias | `POST /api/carga-2026` y `POST /api/carga-2026/{lote}/confirmar` |
+| 5 | Sistema y equipo | Conserva número y fechas reales, con marca de carga histórica para revisión; comprobar ficha | resultado de CA1 |
 
-Se conservan los números originales, fechas y episodios sin consumir números
-nuevos; una no aceptación no recibe número. La carga evita duplicados y colisiones
-con la numeración posterior. Los registros quedan identificados como cargados.
-La hoja y el borrador no persisten. El navegador conserva los datos sólo en memoria
-y reenvía el mismo contenido al confirmar; el servidor lo valida de nuevo. El formato y la existencia de hoja siguen en
-[D21]; si no existe, cargan los equipos a mano. Manuales, vídeo y formación se
-completan al final del plan.
+Las actas admiten hasta 10 MB cada una. Un PDF escaneado sin texto requiere completar
+los datos a mano; no se usa OCR externo. La fecha declarada en la firma de un PDF
+puede proponerse si falta fecha explícita, siempre para confirmar: la lectura no
+verifica la validez de la firma. Si el antivirus no responde se permite la lectura
+con aviso visible y auditado, según la política de anexos. Una infección impide leer.
+La lectura sustituye el formulario y lo avisa antes de pulsar. No guarda ficheros,
+nombres de fichero ni borradores, y confirma la auditoría antes de entregar los datos.
+
+Se conservan números, fechas y episodios sin consumir números nuevos. La numeración
+ordinaria reserva por equipo y año y salta correlativos ya ocupados; la restricción
+única evita una colisión concurrente. Las no aceptaciones no reciben número.
+Cada profesional carga sólo su equipo; Coordinación carga cualquiera.
+
+La compatibilidad CSV/XLSX de CA1 sigue en `/coordinacion/carga-2026`, con revisión por
+fila, antivirus obligatorio y confirmación completa o ninguna. No es requisito del
+Programa. El navegador conserva propuestas sólo en memoria y reenvía los datos al
+confirmar; el servidor los valida de nuevo. Una pérdida de conexión al confirmar se
+recupera con la misma clave, sin repetir un alta nueva.
+
+
+En la revisión de actas, los nombres completos leídos deben separarse a mano en nombre y apellidos antes de validar. La referencia leída permanece visible y no se envía al guardar. Si ya hay datos, leer otras actas exige confirmar la sustitución; cancelar conserva el formulario y devuelve el foco. La vista previa agrupa adultos y menores por iniciales y muestra ubicación, subprograma y motivos de cierre. La entrada de compatibilidad se llama «Cargar desde una hoja».
 
 ### 3.16 Subida del Anexo 3 o 4 con antivirus y aviso «revisando»
 
@@ -791,10 +807,11 @@ idiomas y hojas de carga, cada uno con su política:
 
 | Tipo | Límite y formato | Persistencia y antivirus |
 | --- | --- | --- |
-| Anexo de derivación | 10 MB; DOCX o PDF | Sólo memoria; nunca persistido por proxy, aplicación, temporales ni ClamAV. Única excepción: si ClamAV no responde se permite con aviso auditado |
+| Anexo de derivación | 10 MB; DOCX, ODT o PDF | Sólo memoria; nunca persistido por proxy, aplicación, temporales ni ClamAV. Igual que las actas de carga histórica: si ClamAV no responde se permite con aviso auditado |
 | Plantilla | 10 MB; DOCX | Versión inmutable tras validación y antivirus local; sin revisión no se publica |
 | Tema | 20 MB; ZIP con JSON, PNG y WOFF2, sin SVG | Versión inmutable; sin revisión antivirus no se publica |
 | Idioma | 20 MB; ZIP con JSON y DOCX | Versión inmutable; sin revisión antivirus no se publica |
+| Actas de carga histórica | 10 MB por acta; PDF o DOCX | Sólo memoria; se descartan. Caída del antivirus con aviso auditado, como los anexos |
 | Hoja de carga | 10 MB; XLSX o CSV | No se conserva el fichero; sin revisión antivirus no se importa |
 
 Los paquetes tienen además un máximo de 100 MB descomprimidos y 1.000 entradas.
@@ -803,7 +820,7 @@ Los límites y controles de tipo real se aplican en el servidor (detalle en `TRD
 ```mermaid
 flowchart TD
   A[Elegir fichero · Coordinación] --> B[Subiendo el fichero, con progreso · Sistema]
-  B --> C{Word o PDF real, hasta 10 MB, sin macros, descompresión dentro del límite?}
+  B --> C{Word, LibreOffice o PDF real, hasta 10 MB, sin macros, descompresión dentro del límite?}
   C -- no --> C1[Rechazo con el motivo · Sistema]
   C -- sí --> D[Revisando el fichero con el antivirus · Sistema]
   D --> E{Resultado de ClamAV}
@@ -818,12 +835,14 @@ flowchart TD
 | --- | --- | --- | --- | --- | --- |
 | 1 | Coordinación | Elige el fichero (o lo arrastra) | — | `/coordinacion/anexos/nuevo` | falta |
 | 2 | Sistema | Muestra «Subiendo el fichero…» con el avance de la subida | — | `POST /api/coordinacion/derivaciones` (multipart, una sola petición) | falta |
-| 3 | Sistema | Comprueba tipo real (Word `.docx` o PDF; `.docm` rechazado), tamaño máximo 10 MB, límite de descompresión y lector XML sin entidades externas | — | conector `ValidadorFichero` | falta |
+| 3 | Sistema | Comprueba tipo real (Word `.docx`, LibreOffice `.odt` o PDF; `.docm` rechazado), tamaño máximo 10 MB, límite de descompresión y lector XML sin entidades externas | — | conector `ValidadorFichero` | falta |
 | 4 | Sistema | Al terminar la subida y hasta la respuesta, muestra «Revisando el fichero con el antivirus…» | — | conector `Antivirus` (ClamAV en su contenedor) | falta |
 | 5 | Sistema | Si está infectado, lo rechaza y lo apunta en la auditoría | — | — | falta |
 | 6 | Sistema | Si ClamAV no responde, lo acepta, muestra un aviso visible («No se ha podido revisar con el antivirus») y anota en la derivación y en la auditoría que no se revisó | — | — | falta |
 | 7 | Sistema | Lee los datos en memoria (Word con fiabilidad; PDF peor; un escaneo no se lee y la coordinación teclea [D6]), descarta el fichero sin escribirlo en disco ni en la base de datos | — | conector `LectorAnexo` | falta |
 | 8 | Sistema | Abre «Revisar derivación» con los campos dudosos marcados (sigue en 3.1, paso 3) | — | `/coordinacion/derivaciones/{id}` | falta |
+
+RESP4 permite subir el ODT recibido del Programa o el PDF firmado habitual [D6]. La revisión muestra los campos leídos, normaliza fechas y escolarización y omite filas de personas sin rellenar. En el Anexo 4 también propone ETF y subprograma; la persona confirma la ubicación como antes. El PDF conserva la confirmación de todos los valores; las casillas perdidas y la situación económica ilegible quedan vacías. Leer un PDF firmado no acredita su firma. La confirmación crea la derivación con el formato original ODT o PDF y recupera el caso tras recargar; no asigna número hasta aceptar. [Recorrido y capturas RESP4](../recorridos/RESP4.md).
 
 El aviso de antivirus no revisado se ve también en la lista de derivaciones
 recibidas hasta que se decide sobre ella.
@@ -966,7 +985,7 @@ usuarios y expedientes quedan por concretar con el DPD en la EIPD y el registro 
 | Memoria: cerrar | todas; sólo Coordinación la provincial | la de su equipo | no | no |
 | Memoria: reabrir con motivo | sí | no | no | no |
 | Carga de expedientes de 2026 por hoja | sí | no | no | no |
-| Alta histórica de 2026 a mano | sí | su equipo | no | no |
+| Alta histórica desde actas o a mano | sí | su equipo | no | no |
 | SMI | sí | no | no | no |
 | Usuarios, catálogos, plazos y tramos, plantillas, firmantes, temas, idiomas | no | no | no | sí |
 | Exportar la auditoría para el DPD | no | no | no | sí |
@@ -987,12 +1006,12 @@ Resueltas por la entrevista y el consenso del responsable del producto del 13/10
 
 1. **Identidad:** permisos en la app, nunca por grupos de AD; identidad estable por `objectGUID`; primer administrador concedido una sola vez y un solo equipo simultáneo por profesional (1 y 2.5).
 2. **Administración funcional:** mantiene usuarios, catálogos, plazos, plantillas, firmantes, temas e idiomas y exporta auditoría para el DPD; no ve fichas (2.4 y 6).
-3. **Ficheros:** el anexo admite DOCX/PDF hasta 10 MB y no persiste en ningún componente. Plantillas, temas, idiomas y hojas tienen políticas propias; la excepción por caída del antivirus sólo vale para anexos (3.16).
-4. **Escalas y DNI:** se guardan las escalas [D17]; no se guarda el DNI del representante y el Word lleva el hueco blanco [D16]. Ambas decisiones son firmes.
+3. **Ficheros:** el anexo admite DOCX/ODT/PDF hasta 10 MB y no persiste en ningún componente. Plantillas, temas, idiomas y hojas tienen políticas propias; la excepción por caída del antivirus sólo vale para anexos (3.16).
+4. **Escalas y DNI:** las escalas se anotan opcionalmente y las casillas no anotadas quedan vacías en Word [D17]; no se guarda el DNI del representante y el Word lleva el hueco blanco [D16]. Ambas decisiones son firmes.
 5. **Emisión e hito:** generar usa `POST`, también SPAF y Memoria; registra emisión, nunca firma ni hito automático. La persona confirma la fecha real; regenerar no altera estados (3).
 6. **Cierre del expediente:** ACEPTADA permite cierre si la familia no consiente, con motivo de catálogo y doble intervención. El Anexo 5 sólo desbloquea cierre ordinario con las dos respuestas válidas; Coordinación puede forzar con motivo. Un cerrado sólo admite seguimiento sin reabrir; los episodios anteriores se conservan (3.5 a 3.11).
 7. **Memoria:** el equipo cierra la suya y sólo Coordinación la provincial; reabre Coordinación. La provincial se calcula directamente; las diferencias frente a fotos de equipo se avisan. Reglas vigentes el 31/12 e historia de datos; Consulta recibe sólo cifras (3.13).
-8. **Carga:** todos los expedientes de 2026, vivos, cerrados y no aceptados; producción al terminar fase 2 tras EIPD, restauración y seguridad, con hoja o tecleo de equipos. No se espera a 2025 (3.15).
+8. **Carga:** todos los no cerrados de cualquier año anterior, cerrados y no aceptados de 2026; producción al terminar fase 2 tras EIPD, restauración y seguridad. Sin hoja: actas o tecleo de equipos [D21, 14/10/2026]. No se espera a 2025 (3.15).
 9. **Textos y publicación:** textos traducibles sólo en directorios de idioma; versiones inmutables y activación con auditoría atómica. Los textos libres de negocio siguen siendo datos (2.4).
 10. **Auditoría:** se confirma antes de entregar datos, incluidas lecturas y descargas (6). Avisos sólo en la app; registro de salida manual con conector futuro MOAD (3.17 y 5).
 
@@ -1004,7 +1023,7 @@ Sin resolver (decidel responsable del producto, el Programa a través de él o e
 14. Quién revisa antes de anonimizar [D14], y política de conservación y exportación de vínculos usuario-expediente para la EIPD (4.1 y 6).
 15. Orden del número de expediente [D1]: provisional equipo-correlativo-año, `08-01-26`.
 16. Reparto por sexo incoherente entre apartados 2 y 25 de la Memoria oficial de 2025 [D22]: Programa valida cuál corresponde y por qué, apartado por apartado (3.13).
-17. Existencia y formato de hoja para cargar 2026 [D21]; el alcance y la alternativa manual ya están decididos.
+17. D21 resuelta el 14/10/2026: no hay hoja; carga desde actas o a mano, incluidos todos los abiertos de años anteriores.
 
 ## 8. Cómo mantener este documento
 

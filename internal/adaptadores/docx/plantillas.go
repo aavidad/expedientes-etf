@@ -16,6 +16,28 @@ import (
 // DiferenciaMarcadores identifica el campo y su bloque dentro del contrato.
 type DiferenciaMarcadores struct{ Faltan, Sobran []string }
 
+// CompletarCamposOpcionales conserva valores y rellena con blanco sólo los
+// marcadores opcionales del contrato validado de la plantilla.
+func CompletarCamposOpcionales(plantilla []byte, campos map[string]string, prefijo string) (map[string]string, error) {
+	marcas, err := contratoPlantilla(plantilla)
+	if err != nil {
+		return nil, err
+	}
+	resultado := maps.Clone(campos)
+	if resultado == nil {
+		resultado = map[string]string{}
+	}
+	for clave := range marcas {
+		bloque, campo, _ := strings.Cut(clave, ":")
+		if bloque == "" && strings.HasPrefix(campo, prefijo) {
+			if _, existe := resultado[campo]; !existe {
+				resultado[campo] = ""
+			}
+		}
+	}
+	return resultado, nil
+}
+
 func (*DiferenciaMarcadores) Error() string { return "docx.marcador_invalido" }
 
 // ValidarCambio conserva el contrato de campos y bloques de la versión actual.

@@ -74,6 +74,37 @@ func TestNumeroHistoricoFormatoEquipoYAnio(t *testing.T) {
 	}
 }
 
+func TestCargaAbiertosDeCualquierAnioAnteriorYCerrados2026(t *testing.T) {
+	ahora := time.Date(2026, 10, 14, 12, 0, 0, 0, time.UTC)
+	for _, anio := range []int{2001, 2010, 2022, 2023, 2025, 2026} {
+		fecha := time.Date(anio, 2, 1, 0, 0, 0, 0, time.UTC).Format("2006-01-02")
+		p := cargaCivil()
+		c := &p.Casos[0]
+		c.FechaDerivacion = fecha
+		c.Aceptacion.FechaActa = fecha
+		c.Episodios = []EpisodioHistorico{{Apertura: fecha}}
+		c.Estado = EnIntervencion
+		if err := p.Validar(ahora); err != nil {
+			t.Fatal(anio, err)
+		}
+		if _, err := (NumeroHistorico{Numero: "08-31-" + fecha[2:4]}).Validar("08", anio); err != nil {
+			t.Fatal(anio, err)
+		}
+		c.Estado = Cerrada
+		c.Episodios[0].Cierre = "2026-06-20"
+		c.Episodios[0].MotivoCierre = "OBJ_TOTAL"
+		if err := p.Validar(ahora); err != nil {
+			t.Fatal("cerrado2026", anio, err)
+		}
+		if anio < 2026 {
+			c.Episodios[0].Cierre = fecha
+			if err := p.Validar(ahora); err == nil {
+				t.Fatal("cierre ajeno a2026 admitido", anio)
+			}
+		}
+	}
+}
+
 func TestCargaHistoricaIdentidadesOriginalesYVigenciasPorColeccion(t *testing.T) {
 	ahora := time.Date(2026, 10, 14, 12, 0, 0, 0, time.UTC)
 	const id = "55555555-5555-4555-8555-555555555555"

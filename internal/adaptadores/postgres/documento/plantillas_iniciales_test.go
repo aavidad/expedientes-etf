@@ -41,7 +41,10 @@ func TestPlantillasInicialesCorregidasPostgres(t *testing.T) {
 			if nueva {
 				memoria++
 			}
-			if !nueva && p.Plantilla.Version != "1.0.1" && p.Plantilla.Version != "1.1.1" {
+			if d.EsFinalizacion(p.Plantilla.Tipo) && p.Plantilla.Version != "1.0.2" {
+				t.Fatal("finalización sin escalas opcionales", p.Plantilla.Version)
+			}
+			if !nueva && !d.EsFinalizacion(p.Plantilla.Tipo) && p.Plantilla.Version != "1.0.1" && p.Plantilla.Version != "1.1.1" {
 				t.Fatalf("predeterminada histórica: %+v", p.Plantilla)
 			}
 			idioma, err := almacen.Resolver(ctx, p.Plantilla.Idioma)

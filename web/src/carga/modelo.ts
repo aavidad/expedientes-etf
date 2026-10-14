@@ -5,11 +5,13 @@ export type Opciones = {
   subprogramas: { codigo: string; clave_texto: string }[]; textos: Record<string, string>;
 };
 export type Episodio = { apertura_fecha: string; cierre_fecha: string; motivo_cierre: string; motivo_acta_texto: string; motivo_reapertura: string };
-export type Menor = { id: string; nombre: string; apellidos: string; sexo: string; fecha_nacimiento: string };
+export type Menor = { id: string; nombre: string; apellidos: string; sexo: string; fecha_nacimiento: string; nombreCompleto?: boolean; nombreLeido?: string };
+export type Adulto = Menor & { papel: string };
 export type Formulario = {
   equipo: string; numero: string; estado: string; tipo: string; derivacion: string; aceptacion: string;
   municipio: string; centro: string; subprograma: string; puesto: string; descripcion: string;
   noAceptacion: string; causa: string; direccion: string; telefono: string; email: string;
+  familiaNombre: string; adultos: Adulto[];
   menores: Menor[]; episodios: Episodio[];
 };
 export type Resumen = { fila: number; numero: string; estado: string; iniciales: string };
@@ -19,10 +21,16 @@ export const estados = ['aceptada', 'en_intervencion', 'cerrada', 'no_aceptada']
 export const columnas = ['numero', 'fecha_derivacion', 'estado', 'tipo_anexo', 'fecha_aceptacion', 'municipio_id', 'centro_ss_id', 'subprograma', 'profesional_referencia_puesto', 'profesional_referencia_id', 'descripcion_situacion', 'sexos_menores', 'fecha_no_aceptacion', 'causa_no_aceptacion', 'campos_derivacion', 'episodios', 'familia', 'menores'];
 export function episodio(): Episodio { return { apertura_fecha: '', cierre_fecha: '', motivo_cierre: '', motivo_acta_texto: '', motivo_reapertura: '' }; }
 export function menor(): Menor { return { id: crypto.randomUUID(), nombre: '', apellidos: '', sexo: '', fecha_nacimiento: '' }; }
-export function formulario(): Formulario { return { equipo: '', numero: '', estado: '', tipo: '', derivacion: '', aceptacion: '', municipio: '', centro: '', subprograma: '', puesto: '', descripcion: '', noAceptacion: '', causa: '', direccion: '', telefono: '', email: '', menores: [menor()], episodios: [episodio()] }; }
+export function adulto(): Adulto { return { ...menor(), papel: '' }; }
+export function formulario(): Formulario { return { equipo: '', numero: '', estado: '', tipo: '', derivacion: '', aceptacion: '', municipio: '', centro: '', subprograma: '', puesto: '', descripcion: '', noAceptacion: '', causa: '', direccion: '', telefono: '', email: '', familiaNombre: '', adultos: [], menores: [menor()], episodios: [episodio()] }; }
 export function iniciales(nombre: string): string { return nombre.split(/\s+/).filter(Boolean).map(p => `${p[0]}.`).join(' '); }
+export function tieneDatos(f: Formulario): boolean {
+  return Object.entries(f).some(([k,v]) => k !== 'equipo' && typeof v === 'string' && !!v) || f.adultos.length > 0 || f.menores.some(m => Object.entries(m).some(([k,v]) => k !== 'id' && !!v)) || f.episodios.some(e => Object.values(e).some(Boolean));
+}
+export function separarNombre<T extends Menor>(persona:T):T { return { ...persona, nombreLeido:persona.nombre, nombreCompleto:false, nombre:'', apellidos:'' }; }
 export function preparar(f: Formulario) {
   const campos = f.menores.filter(m => m.nombre.trim()).map(m => ({ codigo: 'menores.persona.nombre', valor: [m.nombre, m.apellidos].filter(Boolean).join(' '), pagina: 1, dudoso: false, motivos: [] }));
+  if (f.familiaNombre.trim()) campos.push({ codigo: 'familia.nombre', valor: f.familiaNombre, pagina: 0, dudoso: false, motivos: [] });
   const caso = {
     numero: f.estado === 'no_aceptada' ? '' : f.numero, fecha_derivacion: f.derivacion, estado: f.estado,
     derivacion_datos: { contenido: { tipo: f.tipo, campos, avisos: [], version: '1', plantilla_reconocida: false }, esquema_version: '1' },
@@ -30,8 +38,11 @@ export function preparar(f: Formulario) {
       aceptacion: { version: 1, fecha_acta: f.aceptacion, municipio_id: f.municipio, centro_ss_id: f.centro, equipo_id: f.equipo, subprograma: f.subprograma, profesional_referencia_puesto: f.puesto, profesional_referencia_id: null, menores: f.menores.map((m, i) => ({ orden: i + 1, sexo: m.sexo })), descripcion_situacion: f.descripcion },
     }),
     episodios: f.estado === 'no_aceptada' ? [] : f.episodios.map((e, i) => ({ ...e, apertura_fecha: i === 0 ? f.aceptacion : e.apertura_fecha, ...(e.cierre_fecha ? {} : { motivo_cierre: '', motivo_acta_texto: '' }) })),
-    familia: f.estado === 'no_aceptada' || !(f.direccion || f.telefono || f.email) ? [] : [{ version: 1, vigente_desde: f.aceptacion, familia: { direccion: f.direccion, telefono_contacto: f.telefono, email_contacto: f.email } }],
-    menores: f.estado === 'no_aceptada' ? [] : [{ version: 1, vigente_desde: f.aceptacion, menores: f.menores.map((m, i) => ({ ...m, orden: i + 1, fecha_nacimiento: m.fecha_nacimiento || null, subprograma: f.subprograma })) }],
+    familia: f.estado === 'no_aceptada' ? [] : [
+      ...(f.direccion || f.telefono || f.email ? [{ version: 1, vigente_desde: f.aceptacion, familia: { direccion: f.direccion, telefono_contacto: f.telefono, email_contacto: f.email } }] : []),
+      ...(f.adultos.length ? [{ version: 1, vigente_desde: f.aceptacion, adultos: f.adultos.map((a, i) => ({ id: a.id, nombre: a.nombre, apellidos: a.apellidos, sexo: a.sexo, papel: a.papel, orden: i + 1, fecha_nacimiento: a.fecha_nacimiento || null })) }] : []),
+    ],
+    menores: f.estado === 'no_aceptada' ? [] : [{ version: 1, vigente_desde: f.aceptacion, menores: f.menores.map((m, i) => ({ id: m.id, nombre: m.nombre, apellidos: m.apellidos, sexo: m.sexo, orden: i + 1, fecha_nacimiento: m.fecha_nacimiento || null, subprograma: f.subprograma })) }],
   };
   return { equipo_id: f.equipo, casos: [caso] };
 }

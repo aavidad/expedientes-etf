@@ -17,7 +17,7 @@ La [formación](docs/formacion/LEEME.md) incluye una sesión de 150 minutos por 
 
 ## Licencia y autoría
 
-Copyright © 2026 Alberto Avidad. Programa desarrollado por Alberto Avidad con sus propios medios.
+Copyright © 2026 Expedientes ETF. Proyecto desarrollado con medios propios.
 
 Es software libre: se distribuye con la [Licencia Pública de la Unión Europea, versión 1.2](LICENSE) (EUPL-1.2). Puedes usarlo, estudiarlo, modificarlo y redistribuirlo; si distribuyes una versión modificada o la ofreces como servicio en red, debes publicar sus cambios con la misma licencia o una compatible. La [versión oficial en castellano](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32017D0863) tiene la misma validez. Las fuentes tipográficas conservan su licencia SIL OFL 1.1; el detalle está en [NOTICE](NOTICE) y [REUSE.toml](REUSE.toml).
 
@@ -67,6 +67,15 @@ Ejecuta `make demo` desde la raíz del repositorio. Prepara una demostración co
 usuarios inventados y sus perfiles asignados. Consulta los requisitos, las
 cuentas, el recorrido del Anexo 3 al Acta y los comandos de parada en
 [la guía de demostración](despliegue/demo/LEEME.md).
+
+## Probar en Windows
+
+Descarga el ZIP y su suma SHA-256 desde las
+[Releases públicas](https://github.com/aavidad/expedientes-etf/releases).
+La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) te acompaña desde
+un Windows sin preparar: virtualización, WSL2, Podman Desktop, instalación y
+primer Acta. Usa sólo datos inventados. La [evidencia WIN1](docs/sistemas/WIN1.md)
+recoge versiones y resultados de las pruebas.
 
 ## Arquitectura en breve
 
@@ -184,7 +193,7 @@ Avance aproximado: un 37 % del plan.
 - Entrada con Active Directory (LDAPS), sesión y estado «pendiente de alta».
 - Perfiles dados desde Administración, con autorización en una sola tabla y denegación por defecto.
 - Catálogos versionados (174 municipios, equipos y centros), con edición de catálogos y de firmantes.
-- Lector de los Anexos 3 y 4 en Word y PDF, y propuesta de municipio. El PDF usa `dslipak/pdf v0.0.2` en un trabajador efímero, con límite de 10 MB y 20 páginas; los valores leídos requieren confirmación y los campos no recuperados quedan vacíos. Los escaneados se registran con aviso para teclear sus datos, sin OCR ni ficheros temporales. El ensayo HTTP con ClamAV de compose se ejecuta con `python3 -B internal/adaptadores/anexos/pdf/probar_subida.py` y usa recursos desechables y firmas sintéticas.
+- Lector de los Anexos 3 y 4 en Word, LibreOffice (ODT) y PDF, y propuesta de municipio. El PDF usa `dslipak/pdf v0.0.2` en un trabajador efímero, con límite de 10 MB y 20 páginas; los valores leídos requieren confirmación y los campos no recuperados quedan vacíos. Los escaneados se registran con aviso para teclear sus datos, sin OCR ni ficheros temporales. RESP4 confirma derivaciones desde los ODT del Programa y sus PDF con firma digital local; `expediente/0026` admite el formato ODT sin cambiar permisos; [evidencia y límites](docs/recorridos/RESP4.md). El ensayo HTTP con ClamAV de compose se ejecuta con `python3 -B internal/adaptadores/anexos/pdf/probar_subida.py` y usa recursos desechables y firmas sintéticas.
 - Subida del Anexo 3 o 4 con antivirus, revisión editable y propuesta de municipio, centro y equipo. El análisis no crea derivación; se guarda sólo al confirmar, con idempotencia y auditoría. Pantalla en `/coordinacion/anexos/nuevo`. Descartar elimina la revisión temporal.
 - Aceptación con numeración, no aceptación y lista de espera.
 - Emisión de documentos Word sin guardarlos.
@@ -230,7 +239,7 @@ FI1 añade edición de Menores e Intervención, vigencias, excepciones por menor
 La [evidencia de validación](docs/capturas/EVIDENCIA_F2.06.md) describe los recorridos y sus límites.
 
 
-**Disponible en el servidor (F2.08b):** CSV/XLSX de 2026 sobre el alta asistida histórica: vista previa sin guardar datos, ClamAV obligatorio, informe por fila en es/en y lotes atómicos e idempotentes. Hasta 10 MB y 100 casos por equipo; no se conserva la hoja. Formato provisional D21 y API en [ESQUEMA_BACKEND §7.2](docs/producto/ESQUEMA_BACKEND.md#72-carga-por-hoja-de-2026-formato-provisional-v1-f208b-d21). Migración carga/0001. CA1 añade las pantallas de alta asistida y hoja, con revisión y resultado, y un CSV inventado descargable.
+**Disponible en el servidor (F2.08b):** CSV/XLSX de 2026 sobre el alta asistida histórica: vista previa sin guardar datos, ClamAV obligatorio, informe por fila en es/en y lotes atómicos e idempotentes. Hasta 10 MB y 100 casos por equipo; no se conserva la hoja. Formato provisional D21 y API en [ESQUEMA_BACKEND §7.2](docs/producto/ESQUEMA_BACKEND.md#72-compatibilidad-de-carga-por-hoja-formato-v1-f208b). Migración carga/0001. CA1 añade las pantallas de alta asistida y hoja, con revisión y resultado, y un CSV inventado descargable.
 
 **Pendiente:** completar la ficha del expediente, el resto de la Memoria y sus pantallas, el despliegue en producción. Cierre, seguimiento y Tabla Mensual del SPAF ya tienen pantallas. Las rutas de pantalla y de API que describen los documentos son previstas salvo las ya entregadas.
 
@@ -342,6 +351,15 @@ Tabla Mensual para el SPAF (SP1), con datos inventados: [escritorio, 1440 px](do
 
 Pantallas CO2 de salidas y cierre ([recorrido y revisión](docs/capturas/salidas.md)): [escritorio, 1440 px](docs/capturas/salidas-escritorio.png), [móvil, 390 px](docs/capturas/salidas-movil.png), [cierres propuestos](docs/capturas/salidas-cierres-escritorio.png) y [alto contraste en móvil](docs/capturas/salidas-alto-contraste-movil.png).
 
+RESP2 amplía CA1 con lectura de Actas de Aceptación y de Cierre (PDF/DOCX, PDF firmado), revisión humana y carga de todos los abiertos de años anteriores. No persiste actas; reutiliza la numeración por equipo/año y la confirmación histórica. [Contrato y evidencia](docs/evidencias/RESP2.md).
+
+Capturas de carga desde actas:
+
+- Elegir equipo y actas: [1440 px](docs/capturas/carga-actas-inicio-1440.png) · [390 px](docs/capturas/carga-actas-inicio-390.png).
+- Datos leídos para revisar: [1440 px](docs/capturas/carga-actas-datos-1440.png) · [390 px](docs/capturas/carga-actas-datos-390.png).
+- Resultado confirmado: [1440 px](docs/capturas/carga-actas-resultado-1440.png) · [390 px](docs/capturas/carga-actas-resultado-390.png).
+- [Alto contraste, 390 px](docs/capturas/carga-actas-contraste-390.png).
+
 Pantallas CA1 de carga de 2026 ([recorrido y revisión](docs/capturas/carga.md)):
 
 - Alta asistida: [escritorio, 1440 px](docs/capturas/carga-alta-escritorio.png) y [móvil, 390 px](docs/capturas/carga-alta-movil.png).
@@ -406,3 +424,5 @@ Pantallas TR1 ([recorrido y revisión](docs/capturas/traslado.md)): [traslado en
 | `/pendiente` | Pendiente de alta | [Ver captura](docs/capturas/accesibilidad-pendiente-pendiente-1440.png) | [Ver captura](docs/capturas/accesibilidad-pendiente-pendiente-390.png) |
 
 GAP1 completa Familia y la descarga de documentos de finalización desde Cierre. Con datos inventados: [Familia en escritorio](docs/capturas/equipo-gap1-familia-escritorio.png), [Familia en móvil](docs/capturas/equipo-gap1-familia-movil.png), [Cierre en escritorio](docs/capturas/equipo-gap1-cierre-escritorio.png) y [Cierre en móvil](docs/capturas/equipo-gap1-cierre-movil.png). [Recorrido y límites](docs/capturas/GAP1.md). Repite el recorrido con `node scripts/recorridos/gap1.mjs http://127.0.0.1:18513` tras `make demo`, ajustando el puerto.
+
+RESP3 aplica la decisión de escalas opcionales: puedes anotarlas en Evaluación o rellenarlas después en el Word de los Anexos 11 y 12. Las casillas sin resultados quedan vacías y no bloquean documentos, cierre o Memoria. Capturas con datos inventados: [sin escalas en escritorio](docs/capturas/resp3-sin-escalas-escritorio.png), [sin escalas en móvil](docs/capturas/resp3-sin-escalas-movil.png), [resultados parciales en escritorio](docs/capturas/resp3-parciales-escritorio.png) y [resultados parciales en móvil](docs/capturas/resp3-parciales-movil.png). [Evidencia y límites de RESP3](docs/evidencias/RESP3.md). Repite el recorrido con `node scripts/recorridos/resp3.mjs http://127.0.0.1:18133` tras `make demo`, ajustando el puerto.

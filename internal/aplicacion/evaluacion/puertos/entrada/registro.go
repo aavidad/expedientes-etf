@@ -25,3 +25,8 @@ var (
 	ErrIdempotencia  = d.ErrIdempotencia
 	ErrNoDisponible  = d.ErrNoDisponible
 )
+
+// DatosDocumentos lee dentro de la transacción de emisión; el llamador la audita.
+type DatosDocumentos interface {
+	ParaDocumentos(context.Context, Actor, string) (d.DatosDocumento, error)
+}

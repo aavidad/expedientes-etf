@@ -19,13 +19,21 @@ Vídeo de acceso: «Entrar y dar acceso a un profesional» ([guion](../recorrido
 ## Cómo subo un Anexo 3 o un Anexo 4
 
 1. Abre «Subir Anexo 3 o 4». El Anexo 3 procede de Servicios Sociales Comunitarios; el Anexo 4, del Servicio de Protección de Menores (SPM).
-2. Elige el documento y pulsa «Subir y leer anexo». Se admiten Word DOCX y PDF de hasta 10 MB; el PDF tiene un máximo de 20 páginas.
+2. Elige el documento y pulsa «Subir y leer anexo». Se admiten Word DOCX, LibreOffice ODT y PDF de hasta 10 MB; el PDF tiene un máximo de 20 páginas.
 3. Espera la revisión del antivirus y la lectura. Si se rechaza el fichero, revisa el motivo antes de intentarlo otra vez. Si el antivirus no responde, puede continuar con un aviso de que no se ha revisado.
 4. Revisa los datos leídos, incluidos los campos dudosos. Abre los apartados plegados. Un PDF escaneado puede requerir que teclees los datos.
 5. Confirma municipio, centro y equipo por separado. Comprueba de qué frase salió la propuesta de municipio; si no hay una propuesta clara, debes elegirlo.
 6. Pulsa «Confirmar y crear derivación». Comprueba que se abre el caso para decidir sobre él.
 
 ![Revisión real del anexo: municipio, centro y equipo antes de crear la derivación](../capturas/anexo-escritorio.png)
+
+Puedes subir, revisar y confirmar el ODT de LibreOffice o el PDF firmado que te envíe el servicio. La aplicación lee el texto del PDF, pero no comprueba su firma. Revisa las fechas completas, la escolarización, el tramo de ingresos y, en el Anexo 4, el equipo y el subprograma. Las filas sin rellenar no aparecen como personas.
+
+Si una casilla o un texto no se puede leer, queda vacío para que lo completes mirando el original. En los PDF recibidos del Programa esto afecta a crisis, actitud de la familia, documentación obligatoria y situación económica. El tramo de ingresos sí se lee.
+
+![Revisión del ODT de LibreOffice con los menores leídos](../capturas/resp4-odt-1440.png)
+
+![Revisión del PDF firmado en móvil](../capturas/resp4-pdf-firmado-390.png)
 
 La revisión previa no equivale a haber creado el caso. El anexo se descarta tras su lectura: conserva el original donde indique el Programa. Los datos que no conoces pueden quedar pendientes, salvo los obligatorios para confirmar.
 
@@ -164,19 +172,35 @@ Sólo Coordinación reabre Memorias. Si se pierde la respuesta, usa la recuperac
 
 ## Cómo cargo los casos de 2026 desde una hoja
 
-Antes de introducir datos reales, confirma con la dirección que producción está preparada, la evaluación de impacto en protección de datos está aprobada, la revisión de seguridad está superada y la restauración de copias está probada. En demostración sólo se usan datos inventados.
+El Programa confirma que no existe hoja de cálculo. La vía habitual es
+«Añadir un expediente histórico»: elige equipo, sube el Acta de Aceptación y,
+para un caso cerrado, el Acta de Cierre, o introduce los datos a mano. Sigue
+[los pasos del alta desde actas](profesionales.md#cómo-cargo-un-caso-de-2026-a-mano).
+Coordinación puede elegir cualquier equipo; cada profesional carga sólo el suyo.
 
-1. Reúne con cada equipo los casos necesarios para la Memoria de 2026: vivos, cerrados durante 2026 y no aceptados durante 2026.
-2. Abre «Cargar expedientes de 2026» y elige el equipo. La hoja debe contener entre 1 y 100 casos de ese equipo y ocupar como máximo 10 MB.
-3. Si necesitas la estructura, pulsa «Descargar una hoja con datos inventados». Mantén sus cabeceras y sustituye los datos inventados por los que vayas a cargar. Usa fechas con año, mes y día, como 2026-10-14. La ayuda explica el formato especial de las listas y la historia; pide apoyo para prepararlas si lo necesitas. El formato sigue siendo provisional hasta que lo confirme el Programa.
-4. Elige la hoja CSV o XLSX y pulsa «Subir y revisar la hoja». Espera la revisión del antivirus. Todavía no se guarda ningún expediente.
-5. Revisa las incidencias de cada fila. Si hay errores, corrige la hoja y usa «Elegir otra hoja» para revisarla de nuevo. Comprueba estados, números originales y episodios de cierre y reapertura antes de continuar.
-6. Pulsa «Confirmar el lote completo». Entra todo el lote o no entra ninguno. Cuando aparezca «Carga completada», abre la revisión de los datos guardados de cada caso y acuerda su comprobación con el equipo.
+Reúne todos los expedientes que siguen abiertos, de cualquier año anterior,
+los cerrados durante 2026 y las derivaciones no aceptadas de 2026. Conserva el
+número y las fechas originales. Un expediente iniciado en 2022 o 2023 que sigue
+activo también se carga. La lectura de un acta no guarda el fichero ni confirma
+por sí sola el estado: corrige los datos, revisa el expediente y confirma.
 
-![Carga por hoja: elección del equipo y del archivo que se revisará](../capturas/carga-hoja-escritorio.png)
+![Elección del equipo y de las actas antes de leer sus datos](../capturas/carga-actas-inicio-1440.png)
 
-![Incidencias por fila que debes corregir antes de confirmar el lote](../capturas/carga-incidencias-escritorio.png)
+Antes de introducir datos reales, confirma con la dirección que producción está
+preparada, la evaluación de impacto en protección de datos está aprobada,
+la revisión de seguridad está superada y la restauración de copias está probada.
+En demostración sólo se usan datos inventados.
 
-La carga conserva números, fechas e historia; no consume correlativos nuevos ni genera documentos. Un no aceptado no recibe número de aceptación. El archivo y la revisión sin confirmar no se conservan: si sales antes de confirmar, tendrás que preparar la carga otra vez.
+### Compatibilidad con CSV y XLSX
 
-Si se pierde la conexión después de confirmar, pulsa «Recuperar el resultado» antes de empezar otra carga. Para un caso sin hoja, pulsa «Añadir un expediente a mano» y sigue [los pasos del alta histórica](profesionales.md#cómo-cargo-un-caso-de-2026-a-mano). Coordinación elige equipo; cada profesional sólo puede cargar el suyo. No hay un vídeo de carga de 2026 entre los recorridos disponibles.
+Si dispones de una hoja preparada, la carga anterior sigue disponible:
+
+1. Abre «Cargar desde una hoja» y elige el equipo. La hoja contiene entre 1 y 100 expedientes del mismo equipo, hasta 10 MB.
+2. Pulsa «Descargar una hoja con datos inventados» si necesitas sus cabeceras. La ayuda explica fechas y listas; pide apoyo para preparar las columnas especiales.
+3. Elige CSV o XLSX y pulsa «Subir y revisar la hoja». Espera la revisión del antivirus. Todavía no se guarda ningún expediente.
+4. Revisa las incidencias por fila. Corrige la hoja y usa «Elegir otra hoja» cuando haga falta. Comprueba estados, números originales y episodios.
+5. Pulsa «Confirmar el lote completo». Entra todo o no entra ninguno. Revisa los datos guardados con el equipo.
+
+El fichero y la revisión sin confirmar no se conservan. Un no aceptado no recibe
+número de aceptación. Si se pierde la conexión después de confirmar, pulsa
+«Recuperar el resultado» antes de empezar otra carga.

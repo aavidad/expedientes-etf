@@ -118,3 +118,33 @@ func TestMacrosBombaZIPYRutas(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestODTRealYExtension(t *testing.T) {
+	b, err := os.ReadFile("../odt/testdata/anexo3.odt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	f, err := (Validador{}).Validar(context.Background(), "Derivacion.ODT", b)
+	if err != nil || f != "odt" {
+		t.Fatal(f, err)
+	}
+	e, err := NuevoLector().Leer(context.Background(), f, b)
+	if err != nil || !e.PlantillaReconocida || e.Tipo != "anexo3" {
+		t.Fatal(e, err)
+	}
+	for _, nombre := range []string{"Derivacion.docx", "Derivacion.pdf"} {
+		if _, err := (Validador{}).Validar(context.Background(), nombre, b); err == nil {
+			t.Fatal("extensión falsa admitida")
+		}
+	}
+	docx, err := os.ReadFile("../docx/testdata/anexo3.docx")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := (Validador{}).Validar(context.Background(), "Derivacion.odt", docx); err == nil {
+		t.Fatal("Word disfrazado de ODT")
+	}
+	if _, err := (Validador{}).Validar(context.Background(), "Derivacion.odt", make([]byte, dominio.MaxBytes+1)); !errors.Is(err, dominio.ErrTamano) {
+		t.Fatal(err)
+	}
+}

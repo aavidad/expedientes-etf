@@ -44,12 +44,14 @@ func IDValido(id string) bool {
 // Item contiene las reglas de una versión publicada. No fija baremos en código.
 // Paso permite distinguir enteros, medias y puntuaciones transformadas.
 type Item struct {
-	Codigo  string   `json:"codigo"`
-	Tipo    string   `json:"tipo"`
-	Minimo  float64  `json:"minimo"`
-	Maximo  float64  `json:"maximo"`
-	Paso    float64  `json:"paso"`
-	Valores []string `json:"valores,omitempty"`
+	// CampoDocumento identifica una fila de los Anexos 11/12; nunca calcula baremos.
+	CampoDocumento string   `json:"campo_documento,omitempty"`
+	Codigo         string   `json:"codigo"`
+	Tipo           string   `json:"tipo"`
+	Minimo         float64  `json:"minimo"`
+	Maximo         float64  `json:"maximo"`
+	Paso           float64  `json:"paso"`
+	Valores        []string `json:"valores,omitempty"`
 }
 
 type Escala struct {
@@ -64,11 +66,18 @@ func (e Escala) Validar() error {
 		return ErrVersionEscala
 	}
 	items := make(map[string]bool, len(e.Items))
+	campos := map[string]bool{}
 	for _, i := range e.Items {
 		if i.Codigo == "" || items[i.Codigo] {
 			return ErrVersionEscala
 		}
 		items[i.Codigo] = true
+		if i.CampoDocumento != "" {
+			if !regexp.MustCompile(`^escala_[a-z0-9_]+_[1-9][0-9]*$`).MatchString(i.CampoDocumento) || campos[i.CampoDocumento] {
+				return ErrVersionEscala
+			}
+			campos[i.CampoDocumento] = true
+		}
 		switch i.Tipo {
 		case "numerico":
 			if !finito(i.Minimo) || !finito(i.Maximo) || !finito(i.Paso) || i.Minimo > i.Maximo || i.Paso <= 0 || !finito((i.Maximo-i.Minimo)/i.Paso) || len(i.Valores) != 0 {

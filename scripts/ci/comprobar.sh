@@ -45,6 +45,7 @@ printf '\n== Frontend: npm ci, tsc, pruebas y build ==\n'
 
 python3 -B -m unittest discover -s scripts/recorridos -p 'test_*.py'
 python3 -B -m unittest discover -s despliegue/demo -p 'test_*.py'
+python3 -B -m unittest discover -s despliegue/windows -p 'test_*.py'
 python3 -B -m unittest discover -s scripts/pwa1 -p 'test_*.py'
 
 printf '\n== Textos e idiomas ==\n'
@@ -93,4 +94,6 @@ demo.compose("up", "--detach", "--no-deps", "--wait", "app")
 PYTHON
 puerto_carga=$(cat despliegue/demo/.local/puerto)
 node scripts/recorridos/carga.mjs "http://127.0.0.1:${puerto_carga}"
+node scripts/recorridos/carga-actas.mjs "http://127.0.0.1:${puerto_carga}"
+node scripts/recorridos/resp4.mjs "http://127.0.0.1:${puerto_carga}"
 printf '\nCI mínima completada.\n'

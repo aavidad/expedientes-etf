@@ -13,7 +13,11 @@ func (Motor) Generar(ctx context.Context, b []byte, r d.Relleno) ([]byte, error)
 	if err := ctx.Err(); err != nil {
 		return nil, err
 	}
-	contenido, err := docx.Generar(b, docx.Datos{Campos: r.Campos, Filas: r.Filas})
+	campos, err := docx.CompletarCamposOpcionales(b, r.Campos, "escala_")
+	if err != nil {
+		return nil, d.ErrPlantilla
+	}
+	contenido, err := docx.Generar(b, docx.Datos{Campos: campos, Filas: r.Filas})
 	if err != nil {
 		return nil, d.ErrPlantilla
 	}

@@ -957,8 +957,8 @@ retirar el cierre con sus versiones, historia e idempotencia propias.
 
 ### 1.5 `evaluacion`: escalas por momento (Anexos 7, 8, 11 y 12)
 
-El análisis dejaba las escalas en blanco. **La entrevista lo cambia** (2.5): se
-guardan las puntuaciones de VALÓRAME, ECP-12, SCORE-15, SDQ (versión
+D17, decidido por responsable del producto el 14/10/2026: las escalas son **opcionales**. Se
+guardan sólo las puntuaciones anotadas de VALÓRAME, ECP-12, SCORE-15, SDQ (versión
 autoinformada y versión de las figuras parentales), SOATIF (versión familias y
 versión profesionales), AAPI-2.5 y satisfacción con la intervención, en sus
 momentos [D17], por decisión del responsable del producto.
@@ -1002,7 +1002,7 @@ El catálogo enumera los instrumentos oficiales; las definiciones de ítems
 siguen pendientes porque los anexos disponibles no contienen cuestionarios.
 Los menores se rechazan hasta conectar F2.01b y añadir su vínculo compuesto
 en una migración nueva. Profesionales pendientes de adscripción histórica;
-el momento `derivacion` sólo admite lectura. Puntuación según baremo: pendiente de D17.
+el momento `derivacion` sólo admite lectura. Puntuación según baremo: pendiente de los cuestionarios y baremos oficiales; D17 ya fija la opcionalidad.
 
 La Memoria no usa estas puntuaciones; salen en los Word de los Anexos 11 y 12.
 Si la plantilla muestra una sola columna por momento y hay varios sujetos (por
@@ -1357,11 +1357,13 @@ macros, recursos remotos ni archivos anidados que eludan los límites.
 
 | Entrada | Límite y tipo | Antivirus y persistencia |
 | --- | --- | --- |
-| Anexo | 10 MB, DOCX o PDF | Sólo memoria en aplicación, proxy y ClamAV; nunca temporales, caché o cuarentena en disco. Se descarta tras leerlo. Si cae ClamAV, sólo este tipo puede aceptarse con aviso auditado según decisión vigente |
+| Anexo | 10 MB, DOCX, ODT o PDF | Sólo memoria en aplicación, proxy y ClamAV; nunca temporales, caché o cuarentena en disco. Se descarta tras leerlo. Si cae ClamAV, sólo este tipo puede aceptarse con aviso auditado según decisión vigente |
 | Plantilla | 10 MB, DOCX | Revisión local obligatoria antes de publicar; archivo inmutable en el idioma, referencia y huella en base |
 | Tema | 20 MB, ZIP con JSON, PNG y WOFF2 | Revisión local obligatoria; recursos exclusivamente PNG y WOFF2, sin SVG. Versión inmutable en `temas/<nombre>/` |
 | Idioma | 20 MB, ZIP con JSON y DOCX | Revisión local obligatoria; versión inmutable de textos, catálogos y plantillas en `idiomas/<código>/` |
 | Hoja de carga | 10 MB, XLSX o CSV | Revisión local obligatoria antes de importar; se procesa en memoria y no persiste; se guardan los datos validados y el recibo del lote |
+
+RESP4 añade ODT al análisis y a la revisión temporal. `expediente/0026` amplía el CHECK de `lectura_anexo.formato` a `docx`, `odt` y `pdf`; conserva RLS y permisos. La confirmación guarda el formato del análisis, sin admitirlo desde la petición del navegador. La migración `0001` aplicada permanece intacta. [Ensayo y evidencia](../recorridos/RESP4.md#confirmación-y-actualización-sql).
 
 Cada paquete admite como máximo 100 MB descomprimidos y 1.000 entradas. Si
 ClamAV no está disponible, plantillas, temas, idiomas y hojas no se publican ni
@@ -1627,7 +1629,7 @@ erDiagram
   }
   LECTURA_ANEXO {
     uuid id PK
-    text formato "docx, pdf"
+    text formato "docx, odt, pdf"
     bytea huella_sha256
     text antivirus "limpio, no_revisado"
     text plantilla_detectada
@@ -2243,7 +2245,7 @@ llevar la protección anti-falsificación.
 | expediente | `GET/POST /api/expedientes/{id}/seguimiento` | Profesional, Coordinación | Editar seguimiento aun cerrado; las demás correcciones exigen reabrir |
 | expediente | `GET /api/avisos` | Coordinación, Profesional | Avisos calculados de la bandeja |
 | expediente | `GET /api/conservacion/pendientes` · `POST /api/conservacion/{id}/proponer` · `POST /api/conservacion/{id}/anonimizar` | Administración; dos personas distintas [D14] | Marcas de 25 años y anonimización revisada |
-| expediente | `POST /api/carga-2026` · `POST /api/carga-2026/{lote}/confirmar` | Coordinación; Profesional en su equipo | Validar y confirmar lote de vivos, cerrados y no aceptados de 2026, sólo en producción al final de fase 2 [D21] |
+| expediente | `POST /api/carga-2026` · `POST /api/carga-2026/{lote}/confirmar` | Coordinación; Profesional en su equipo | Validar y confirmar todos los abiertos de cualquier año anterior, los cerrados y no aceptados de 2026, sólo en producción al final de fase 2 [D21] |
 
 | expediente | `POST /api/expedientes/historicos` | Coordinación; Profesional en su equipo | Alta asistida de un expediente histórico de 2026 con número y fechas originales, sin colisionar con altas nuevas |
 | evaluacion | `GET /api/expedientes/{id}/evaluaciones` · `PUT /api/expedientes/{id}/evaluaciones/{instrumento}/{momento}` · `PUT …/instrumentos` | Profesional | Escalas por momento y sujeto; instrumentos con fecha |
@@ -2290,7 +2292,42 @@ estable de usuario y clave, de modo que la recuperación devuelve el mismo recib
 La escritura requiere Coordinación o pertenencia al equipo del lote.
 
 
-### 7.2 Carga por hoja de 2026: formato provisional v1 (F2.08b, D21)
+### 7.1b Lectura de actas para alta histórica (RESP2)
+
+`POST /api/carga-2026/actas/leer/{tipo}`, con `tipo` igual a `aceptacion` o
+`cierre`, recibe una única parte multipart `anexo` y `X-Equipo-Carga` con el UUID
+del equipo elegido. Sesión y perfiles salen del servidor; exige CSRF.
+Coordinación puede elegir cualquier equipo y el profesional sólo el suyo.
+El servidor admite hasta 10 MB por PDF o DOCX, valida contenido real, ZIP/XML,
+macros y expansión, pasa ClamAV y ejecuta PDF en el trabajador efímero acotado.
+El modo actas está separado del lector de derivaciones. No admite formatos Word
+con macros ni Word binario antiguo.
+
+Respuesta: `contenido` con tipo, versión, reconocimiento y campos propuestos
+(número, fecha, equipo, municipio, centro, subprograma, familia, figuras parentales,
+menores y motivo de cierre), más `antivirus` (`limpio` o `no_revisado`). Cada valor
+leído requiere revisión. Si no reconoce el acta o el PDF carece de texto devuelve
+campos vacíos para completarlos a mano. Una fecha explícita tiene prioridad; en
+su ausencia propone la fecha declarada en un campo de firma PDF. Firmas con fechas
+distintas no proponen fecha. Esto no valida firmas, certificados ni sellos de tiempo.
+No interpreta el año del número como fecha ni completa el estado de un caso abierto.
+La persona confirma los datos obligatorios desconocidos, incluido el sexo de adultos.
+Los adultos confirmados usan el contrato `CambioFamilia.Adultos` de CA1.
+
+La auditoría se confirma antes de la respuesta. Infección bloquea la lectura;
+caída del antivirus permite continuar con aviso visible y evento específico,
+como en anexos. El fichero se transmite por tuberías/memoria y se descarta, sin
+persistir nombre, contenido, borrador ni huella de archivo. Sólo la confirmación
+histórica existente guarda los datos revisados. No añade tablas ni migraciones.
+La carga admite todos los no cerrados de cualquier año anterior, cerrados durante
+2026 y no aceptados de 2026 [D21, 14/10/2026]. El año de numeración se obtiene de
+la fecha real de aceptación; la reserva ordinaria por equipo/año salta números
+históricos ocupados y mantiene la restricción única en concurrencia.
+
+
+En la revisión de actas, los nombres completos leídos deben separarse a mano en nombre y apellidos antes de validar. La referencia leída permanece visible y no se envía al guardar. Si ya hay datos, leer otras actas exige confirmar la sustitución; cancelar conserva el formulario y devuelve el foco. La vista previa agrupa adultos y menores por iniciales y muestra ubicación, subprograma y motivos de cierre. La entrada de compatibilidad se llama «Cargar desde una hoja».
+
+### 7.2 Compatibilidad de carga por hoja: formato v1 (F2.08b)
 
 No se ha recibido una hoja del cliente. Este formato permite preparar un lote
 con los campos del alta histórica de F2.08a. La hoja es otra entrada del mismo

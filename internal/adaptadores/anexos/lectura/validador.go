@@ -7,6 +7,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/docx"
+	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/odt"
 	"io"
 	"path"
 	"strings"
@@ -32,6 +33,11 @@ func (Validador) Validar(ctx context.Context, nombre string, b []byte) (string, 
 			return "", dominio.ErrFormato
 		}
 		return "pdf", nil
+	case ".odt":
+		if err := odt.Validar(b); err != nil {
+			return "", err
+		}
+		return "odt", nil
 	case ".docx":
 		if err := validarDOCX(ctx, b); err != nil {
 			return "", err

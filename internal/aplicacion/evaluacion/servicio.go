@@ -18,15 +18,17 @@ import (
 )
 
 type Servicio struct {
-	Repo          salida.Repositorio
-	Catalogo      salida.Catalogo
-	Familias      expediente.Familias
-	Adultos       expediente.ConsultaAdultos
-	Menores       salida.ConsultaMenores
-	Profesionales salida.ConsultaProfesionales
-	Tx            plataforma.Transacciones
-	Auditoria     registro.Registro
-	Ahora         func() time.Time
+	MenoresDocumento lecturaMenoresDocumento
+	SujetosDocumento expediente.SujetosDocumento
+	Repo             salida.Repositorio
+	Catalogo         salida.Catalogo
+	Familias         expediente.Familias
+	Adultos          expediente.ConsultaAdultos
+	Menores          salida.ConsultaMenores
+	Profesionales    salida.ConsultaProfesionales
+	Tx               plataforma.Transacciones
+	Auditoria        registro.Registro
+	Ahora            func() time.Time
 }
 
 func (s *Servicio) ejecutar(ctx context.Context, a d.Actor, id string, escribir bool, fn func(context.Context) error) error {

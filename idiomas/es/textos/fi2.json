@@ -24,7 +24,7 @@
   "fi2.descargado": "Se ha descargado el Word. Contiene datos personales: guárdalo sólo donde te indique el Programa.",
   "fi2.ver_cambios": "Ver datos actuales",
   "fi2.evaluacion.titulo": "Evaluación por adulto",
-  "fi2.evaluacion.sin_baremo": "No mostramos una puntuación total porque falta el baremo del Programa.",
+  "fi2.evaluacion.sin_baremo": "Las puntuaciones totales no se calculan automáticamente.",
   "fi2.evaluacion.sin_adultos": "No hay adultos registrados. Completa los datos de Familia antes de registrar una evaluación.",
   "fi2.evaluacion.registrar": "Registrar instrumento o escala",
   "fi2.evaluacion.editar": "Editar respuestas de la escala",
@@ -35,7 +35,7 @@
   "fi2.evaluacion.elige_instrumento": "Elige un instrumento o escala",
   "fi2.evaluacion.fecha": "Fecha de aplicación",
   "fi2.evaluacion.otros": "Nombre del instrumento",
-  "fi2.evaluacion.items_pendientes": "Falta publicar el cuestionario oficial. Puedes registrar que has aplicado el instrumento; las respuestas por ítem estarán disponibles cuando se publique.",
+  "fi2.evaluacion.items_pendientes": "Puedes registrar qué instrumento has aplicado. Las respuestas por ítem estarán disponibles cuando se publique el cuestionario oficial.",
   "fi2.evaluacion.respuestas": "Respuestas por ítem",
   "fi2.evaluacion.sin_respuesta": "Sin respuesta",
   "fi2.evaluacion.descripcion": "Valoración cualitativa",
@@ -52,5 +52,6 @@
   "fi2.momento.derivacion": "Derivación",
   "equipo.pestana.consentimiento": "Consentimiento",
   "equipo.pestana.evaluacion": "Evaluación",
-  "fi2.evaluacion.duplicada": "Ya hay una escala registrada para este adulto, instrumento y momento. Abre sus respuestas para revisarlas."
+  "fi2.evaluacion.duplicada": "Ya hay una escala registrada para este adulto, instrumento y momento. Abre sus respuestas para revisarlas.",
+  "fi2.evaluacion.opcional": "Las escalas son opcionales. Puedes anotarlas aquí o rellenarlas después en el Word de los Anexos 11 y 12."
 }

@@ -3,7 +3,7 @@
 Generado por `scripts/ci/indice/generar.py`; no se edita a mano. Cada apartado con sus líneas,
 para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 
-## PRD.md (493 líneas)
+## PRD.md (494 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -23,20 +23,20 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 4.9 Equivalencias entre listas | 231-276 |
 | 4.10 Memoria Técnica Anual | 277-330 |
 | 4.11 Avisos | 331-335 |
-| 4.12 Carga de todos los expedientes de 2026 | 336-343 |
-| 4.13 Qué se guarda y qué no | 344-358 |
-| 4.14 Auditoría | 359-363 |
-| 4.15 Idiomas y temas | 364-368 |
-| 5. Requisitos no funcionales de producto | 369-380 |
-| 6. Normativa y obligaciones | 381-392 |
-| 7. Métricas de éxito y criterio de cierre | 393-408 |
-| 8. Recorrido de demostración | 409-422 |
-| 9. Decisiones pendientes | 423-452 |
-| 10. Contradicciones encontradas | 453-486 |
-| 11. Cómo mantener este documento | 487-490 |
-| Configuración de la edición pública | 491-493 |
+| 4.12 Carga de los expedientes necesarios para 2026 | 336-344 |
+| 4.13 Qué se guarda y qué no | 345-359 |
+| 4.14 Auditoría | 360-364 |
+| 4.15 Idiomas y temas | 365-369 |
+| 5. Requisitos no funcionales de producto | 370-381 |
+| 6. Normativa y obligaciones | 382-393 |
+| 7. Métricas de éxito y criterio de cierre | 394-409 |
+| 8. Recorrido de demostración | 410-423 |
+| 9. Decisiones pendientes | 424-453 |
+| 10. Contradicciones encontradas | 454-487 |
+| 11. Cómo mantener este documento | 488-491 |
+| Configuración de la edición pública | 492-494 |
 
-## TRD.md (457 líneas)
+## TRD.md (464 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -57,16 +57,16 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | Aplicación de escritorio (PWA1) | 294-303 |
 | 8c. Plantillas Word | 304-314 |
 | 9. Rendimiento y observabilidad | 315-323 |
-| 10. Seguridad | 324-363 |
-| 11. Pruebas e integración continua | 364-389 |
-| 12. Despliegue | 390-408 |
-| 13. Integraciones externas | 409-419 |
-| 14. Lo que falta para producción | 420-430 |
-| 15. Contradicciones encontradas | 431-450 |
-| 16. Cómo mantener este documento | 451-454 |
-| Identidad configurable de la entidad | 455-457 |
+| 10. Seguridad | 324-368 |
+| 11. Pruebas e integración continua | 369-394 |
+| 12. Despliegue | 395-415 |
+| 13. Integraciones externas | 416-426 |
+| 14. Lo que falta para producción | 427-437 |
+| 15. Contradicciones encontradas | 438-457 |
+| 16. Cómo mantener este documento | 458-461 |
+| Identidad configurable de la entidad | 462-464 |
 
-## FLUJO_APP.md (1023 líneas)
+## FLUJO_APP.md (1042 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -95,20 +95,20 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 3.12 Tabla mensual para el SPAF | 643-673 |
 | 3.13 Memoria anual por equipo y provincial, con cierre | 674-726 |
 | 3.14 Comisiones técnicas e informes técnicos | 727-750 |
-| 3.15 Carga de todos los expedientes de 2026 | 751-786 |
-| 3.16 Subida del Anexo 3 o 4 con antivirus y aviso «revisando» | 787-830 |
-| 3.17 Registro de salida manual | 831-856 |
-| 4. Estados de los objetos principales | 857-858 |
-| 4.1 Expediente | 859-878 |
-| 4.2 Fase de intervención | 879-895 |
-| 4.3 Derivación de salida | 896-902 |
-| 4.4 Memoria anual | 903-909 |
-| 5. Avisos | 910-933 |
-| 6. Reglas de acceso por paso | 934-983 |
-| 7. Contradicciones encontradas | 984-1008 |
-| 8. Cómo mantener este documento | 1009-1023 |
+| 3.15 Carga de los expedientes necesarios para 2026 | 751-802 |
+| 3.16 Subida del Anexo 3 o 4 con antivirus y aviso «revisando» | 803-849 |
+| 3.17 Registro de salida manual | 850-875 |
+| 4. Estados de los objetos principales | 876-877 |
+| 4.1 Expediente | 878-897 |
+| 4.2 Fase de intervención | 898-914 |
+| 4.3 Derivación de salida | 915-921 |
+| 4.4 Memoria anual | 922-928 |
+| 5. Avisos | 929-952 |
+| 6. Reglas de acceso por paso | 953-1002 |
+| 7. Contradicciones encontradas | 1003-1027 |
+| 8. Cómo mantener este documento | 1028-1042 |
 
-## DISENO_UI_UX.md (630 líneas)
+## DISENO_UI_UX.md (634 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -134,25 +134,25 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 5.7 Tabla Mensual para el SPAF | 354-363 |
 | 5.8 Listas de trabajo de coordinación | 364-367 |
 | 5.9 Administración de temas e idiomas | 368-389 |
-| 5.10 Política visible por tipo de fichero | 390-403 |
-| 5.11 Carga de los expedientes de 2026 | 404-415 |
-| 6. Responsive | 416-428 |
-| 7. Accesibilidad | 429-456 |
-| 8. Textos e idiomas en pantalla | 457-458 |
-| 8.1 Dónde viven los textos | 459-466 |
-| 8.2 Tono | 467-474 |
-| 8.3 Términos | 475-488 |
-| 8.4 Formatos | 489-497 |
-| 9. Privacidad visible | 498-521 |
-| 10. Lista de comprobación antes de dar por buena una pantalla | 522-550 |
-| 11. Contradicciones encontradas | 551-552 |
-| Resueltas por la entrevista del 13/10/2026 | 553-563 |
-| Resueltas en el consenso del 13/10/2026 | 564-582 |
-| Cambios pendientes en la maqueta | 583-613 |
-| Huecos sin resolver | 614-621 |
-| 12. Cómo mantener este documento | 622-630 |
+| 5.10 Política visible por tipo de fichero | 390-404 |
+| 5.11 Carga de los expedientes de 2026 | 405-419 |
+| 6. Responsive | 420-432 |
+| 7. Accesibilidad | 433-460 |
+| 8. Textos e idiomas en pantalla | 461-462 |
+| 8.1 Dónde viven los textos | 463-470 |
+| 8.2 Tono | 471-478 |
+| 8.3 Términos | 479-492 |
+| 8.4 Formatos | 493-501 |
+| 9. Privacidad visible | 502-525 |
+| 10. Lista de comprobación antes de dar por buena una pantalla | 526-554 |
+| 11. Contradicciones encontradas | 555-556 |
+| Resueltas por la entrevista del 13/10/2026 | 557-567 |
+| Resueltas en el consenso del 13/10/2026 | 568-586 |
+| Cambios pendientes en la maqueta | 587-617 |
+| Huecos sin resolver | 618-625 |
+| 12. Cómo mantener este documento | 626-634 |
 
-## ESQUEMA_BACKEND.md (2481 líneas)
+## ESQUEMA_BACKEND.md (2518 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -166,28 +166,29 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 1.6 `documento`: plantillas, emisiones y registro de salida | 1012-1130 |
 | 1.7 `actividad`, `estadistica` y `auditoria` | 1131-1327 |
 | 1.8 Índices previstos para la rapidez | 1328-1349 |
-| 1.9 Entradas de ficheros y persistencia | 1350-1371 |
-| 1.10 Contrato estadístico por apartado | 1372-1452 |
-| 2. Diagrama por módulo principal | 1453-1457 |
-| 2.1 `identidad` | 1458-1501 |
-| 2.2 `catalogo` | 1502-1591 |
-| 2.3 `expediente` | 1592-1711 |
-| 2.4 `evaluacion` | 1712-1750 |
-| 2.5 `documento` | 1751-1789 |
-| 2.6 `auditoria` | 1790-1817 |
-| 3. Roles y permisos de la base de datos | 1818-1841 |
-| 3.1 Seguridad por filas por equipo y perfil | 1842-1883 |
-| 3.2 Integridad de expediente, equipo y sujeto | 1884-1905 |
-| 4. Historia, versiones e idempotencia | 1906-1983 |
-| 5. Auditoría en datos | 1984-2071 |
-| 6. Migraciones | 2072-2139 |
-| 7. API | 2140-2207 |
-| 7.1 Rutas principales por módulo | 2208-2292 |
-| 7.2 Carga por hoja de 2026: formato provisional v1 (F2.08b, D21) | 2293-2401 |
-| 8. Contradicciones encontradas | 2402-2470 |
-| 9. Cómo mantener este documento | 2471-2481 |
+| 1.9 Entradas de ficheros y persistencia | 1350-1373 |
+| 1.10 Contrato estadístico por apartado | 1374-1454 |
+| 2. Diagrama por módulo principal | 1455-1459 |
+| 2.1 `identidad` | 1460-1503 |
+| 2.2 `catalogo` | 1504-1593 |
+| 2.3 `expediente` | 1594-1713 |
+| 2.4 `evaluacion` | 1714-1752 |
+| 2.5 `documento` | 1753-1791 |
+| 2.6 `auditoria` | 1792-1819 |
+| 3. Roles y permisos de la base de datos | 1820-1843 |
+| 3.1 Seguridad por filas por equipo y perfil | 1844-1885 |
+| 3.2 Integridad de expediente, equipo y sujeto | 1886-1907 |
+| 4. Historia, versiones e idempotencia | 1908-1985 |
+| 5. Auditoría en datos | 1986-2073 |
+| 6. Migraciones | 2074-2141 |
+| 7. API | 2142-2209 |
+| 7.1 Rutas principales por módulo | 2210-2294 |
+| 7.1b Lectura de actas para alta histórica (RESP2) | 2295-2329 |
+| 7.2 Compatibilidad de carga por hoja: formato v1 (F2.08b) | 2330-2438 |
+| 8. Contradicciones encontradas | 2439-2507 |
+| 9. Cómo mantener este documento | 2508-2518 |
 
-## PLAN_IMPLEMENTACION.md (365 líneas)
+## PLAN_IMPLEMENTACION.md (368 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -199,18 +200,18 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | Mapa único y reparto de ficheros | 76-100 |
 | Fase 0: base y pruebas tempranas | 101-131 |
 | Fase 1: coordinación y documentos de entrada | 132-154 |
-| Fase 2: ficha, carga de 2026 y puesta en producción | 155-178 |
-| Fase 3: salidas, cierre y Tabla SPAF | 179-195 |
-| Fase 4: completar Memoria | 196-227 |
-| Fase 5: acabado, documentación y formación | 228-250 |
-| 4. Cómo se trabaja | 251-252 |
-| 4.1 Reparto de papeles | 253-256 |
-| 4.2 Qué lleva cada encargo | 257-265 |
-| 4.3 Puertas para fusionar: CI progresiva | 266-286 |
-| 4.4 Formato de entrega | 287-290 |
-| 4.5 Despliegues | 291-294 |
-| 4.6 Trabajo en paralelo sin pisarse | 295-306 |
-| 5. Riesgos y bloqueos | 307-323 |
-| 6. Hitos | 324-336 |
-| 7. Contradicciones encontradas | 337-358 |
-| 8. Cómo mantener este documento | 359-365 |
+| Fase 2: ficha, carga de 2026 y puesta en producción | 155-179 |
+| Fase 3: salidas, cierre y Tabla SPAF | 180-196 |
+| Fase 4: completar Memoria | 197-228 |
+| Fase 5: acabado, documentación y formación | 229-253 |
+| 4. Cómo se trabaja | 254-255 |
+| 4.1 Reparto de papeles | 256-259 |
+| 4.2 Qué lleva cada encargo | 260-268 |
+| 4.3 Puertas para fusionar: CI progresiva | 269-289 |
+| 4.4 Formato de entrega | 290-293 |
+| 4.5 Despliegues | 294-297 |
+| 4.6 Trabajo en paralelo sin pisarse | 298-309 |
+| 5. Riesgos y bloqueos | 310-326 |
+| 6. Hitos | 327-339 |
+| 7. Contradicciones encontradas | 340-361 |
+| 8. Cómo mantener este documento | 362-368 |

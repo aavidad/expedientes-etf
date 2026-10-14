@@ -3,16 +3,19 @@ package http
 import (
 	"context"
 	catalogo "github.com/aavidad/expedientes-etf/internal/aplicacion/catalogo/puertos/entrada"
+	expediente "github.com/aavidad/expedientes-etf/internal/aplicacion/expediente/puertos/entrada"
 	"net/http"
 	"time"
 )
 
 type ModuloCarga struct {
 	Opciones catalogo.ConsultaOpcionesCarga
+	Actas    expediente.Actas
 }
 
 func (m ModuloCarga) Rutas() []Ruta {
 	return rutasDeModulo(func(mux *muxHTTP) {
+		registrarActasCarga(mux, m.Actas)
 		mux.declarar(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			ctx, cancelar := context.WithTimeout(r.Context(), 25*time.Second)
 			defer cancelar()

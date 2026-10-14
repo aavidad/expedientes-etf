@@ -124,8 +124,8 @@ sys.stdout.buffer.write(b.getvalue())`, csvRuta]);
  await p.getByRole('button', { name: 'Preparar otra carga', exact: true }).click();
  for (const ancho of [1024, 360, 390]) { await p.setViewportSize({ width: ancho, height: 1100 }); await comprobar(); }
  await preferencias(); await p.locator('#tema').selectOption('alto-contraste'); await cerrarPreferencias(); await captura('carga-alto-contraste-movil.png', 390);
- await preferencias(); await p.locator('#idioma').selectOption('en'); await p.getByRole('heading', { name: 'Load 2026 case files', exact: true }).waitFor(); await cerrarPreferencias(); await comprobar();
- await preferencias(); await p.locator('#idioma').selectOption('es'); await p.getByRole('heading', { name: 'Cargar expedientes de 2026', exact: true }).waitFor(); await preferencias(); await p.locator('#tema').selectOption('expedientes-etf'); await cerrarPreferencias();
+ await preferencias(); await p.locator('#idioma').selectOption('en'); await p.getByRole('heading', { name: 'Load from a spreadsheet', exact: true }).waitFor(); await cerrarPreferencias(); await comprobar();
+ await preferencias(); await p.locator('#idioma').selectOption('es'); await p.getByRole('heading', { name: 'Cargar desde una hoja', exact: true }).waitFor(); await preferencias(); await p.locator('#tema').selectOption('expedientes-etf'); await cerrarPreferencias();
  await salir(); await entrar('marta.cabrera'); await manual(); const own = (await leer('/api/carga-2026/opciones?idioma=es')).datos; assert.equal(own.equipos.length, 1); assert.equal(own.equipos[0].codigo, '02');
  const otro = opciones.equipos.find(e => e.id !== own.equipos[0].id); assert(otro);
  const denegado = await p.evaluate(async ({ equipo, csv }) => { const sesion = await (await fetch('/api/sesion')).json(); return (await fetch('/api/carga-2026/hoja', { method: 'POST', headers: { 'Content-Type': 'text/csv', 'X-CSRF-Token': sesion.csrf, 'X-Equipo-Carga': equipo }, body: csv })).status; }, { equipo: otro.id, csv: csv.toString() }); assert.equal(denegado, 403);

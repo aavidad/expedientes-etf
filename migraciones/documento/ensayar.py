@@ -236,6 +236,14 @@ def main():
         shutil.rmtree(previo / 'estadistica')
         # Esta instantánea precede a expediente/0018, dependencia de carga/0001.
         shutil.rmtree(previo / 'carga')
+        previo_resp3 = tmp / 'previo-resp3'
+        shutil.copytree(RAIZ / 'migraciones', previo_resp3)
+        manifest_resp3 = previo_resp3 / 'documento' / 'manifiesto.json'
+        entradas_resp3 = json.loads(manifest_resp3.read_text())
+        for entrada in entradas_resp3:
+            if entrada['numero'] >= '0015':
+                (previo_resp3 / 'documento' / entrada['archivo']).unlink()
+        manifest_resp3.write_text(json.dumps([e for e in entradas_resp3 if e['numero'] < '0015']))
         montar = ['--mount' , f'type=bind,source={tmp},target=/pruebas,readonly',
                   '--mount', f'type=bind,source={RAIZ},target=/repo,readonly']
         try:
@@ -300,6 +308,69 @@ RESET ROLE;""")
             print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_limpia',
                         'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
             print('ENSAYO-OK base limpia, RLS, auditoría, concurrencia e integridad', flush=True)
+            orden(sql, 'CREATE DATABASE etf_resp3 OWNER etf_propietario')
+            sql_resp3 = [*sql]
+            sql_resp3[sql_resp3.index('-d') + 1] = 'etf_resp3'
+            print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_resp3',
+                        'ETF_MIGRACIONES_RUTA=/pruebas/previo-resp3', '/pruebas/migrar']), flush=True)
+            orden(sql_resp3, """
+SET ROLE etf_propietario;
+INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
+VALUES('11111111-1111-4111-8111-111111111111','11111111-1111-4111-8111-111111111111',
+ 'elena.serrano','Elena Serrano Molina','activo',clock_timestamp(),clock_timestamp());
+INSERT INTO documento.activacion_plantilla(tipo_documento,idioma,revision,plantilla_id,activada_por)
+SELECT tipo_documento,idioma,1,id,(SELECT id FROM identidad.usuario ORDER BY id LIMIT 1)
+FROM documento.plantilla WHERE tipo_documento='finalizacion/anexo12' AND idioma='es' AND version='1.0.1';
+RESET ROLE;
+""")
+            print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_resp3',
+                        'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
+            orden(sql_resp3, """
+DO $$ BEGIN
+ IF (SELECT count(*) FROM documento.plantilla WHERE tipo_documento IN
+ ('finalizacion/anexo11','finalizacion/anexo12') AND idioma IN ('es','en') AND version='1.0.2') <> 4
+ OR (SELECT count(*) FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
+ WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12') AND p.version='1.0.2') <> 3
+ OR (SELECT p.version FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
+ WHERE r.tipo_documento='finalizacion/anexo12' AND r.idioma='es') <> '1.0.1'
+ THEN RAISE EXCEPTION 'documento.ensayo_escalas_opcionales'; END IF;
+END $$;
+""")
+            print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_resp3',
+                        'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
+            print('RESP3-SQL-OK: actualización desde main, repetición y activación administrativa conservada', flush=True)
+            # Una publicación administrativa puede ocupar v1.0.1 antes de 0013.
+            # Se conserva y no impide crear la nueva versión del paquete inicial.
+            orden(sql, 'CREATE DATABASE etf_resp3_publicacion OWNER etf_propietario')
+            sql_pub = [*sql]
+            sql_pub[sql_pub.index('-d') + 1] = 'etf_resp3_publicacion'
+            print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_resp3_publicacion',
+                        'ETF_MIGRACIONES_RUTA=/pruebas/previo-plv', '/pruebas/migrar']), flush=True)
+            orden(sql_pub, """
+SET ROLE etf_propietario;
+INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
+VALUES('11111111-1111-4111-8111-111111111111','11111111-1111-4111-8111-111111111111',
+ 'elena.serrano','Elena Serrano Molina','activo',clock_timestamp(),clock_timestamp());
+INSERT INTO documento.plantilla(id,tipo_documento,idioma,version,ruta_relativa,huella_sha256,
+ rol_firmante,vigente_desde,subida_por,comprobacion,antivirus)
+SELECT '55555555-5555-4555-8555-555555555555',tipo_documento,idioma,'1.0.1',
+ 'plantillas/finalizacion/anexo11/.versiones/55555555-5555-4555-8555-555555555555/v1.0.1.docx',
+ huella_sha256,rol_firmante,vigente_desde,'11111111-1111-4111-8111-111111111111',comprobacion,'limpio'
+FROM documento.plantilla WHERE tipo_documento='finalizacion/anexo11' AND idioma='es' AND version='1.0.0';
+RESET ROLE;
+""")
+            print(orden(ejecutar + ['env', 'ETF_BD_NOMBRE=etf_resp3_publicacion',
+                        'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
+            orden(sql_pub, """
+DO $$ BEGIN
+ IF (SELECT count(*) FROM documento.plantilla WHERE id='55555555-5555-4555-8555-555555555555'
+ AND subida_por='11111111-1111-4111-8111-111111111111' AND version='1.0.1') <> 1
+ OR (SELECT count(*) FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
+ WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12') AND p.version='1.0.2') <> 4
+ THEN RAISE EXCEPTION 'documento.ensayo_publicacion_conservada'; END IF;
+END $$;
+""")
+            print('RESP3-PUBLICACION-OK: colisión administrativa v1.0.1 conservada; cuatro referencias iniciales actualizadas', flush=True)
         finally:
             subprocess.run(['docker', 'rm', '-fv', bd], stdout=subprocess.DEVNULL,
                            stderr=subprocess.DEVNULL)

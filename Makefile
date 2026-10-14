@@ -1,4 +1,7 @@
-.PHONY: ci test vet web build comprobar textos temas videos video demo demo-parar demo-comprobar demo-recorrido demo-limpiar recorridos
+.PHONY: ci test vet web build comprobar textos temas videos video demo demo-parar demo-comprobar demo-recorrido demo-limpiar recorridos paquete-windows
+
+paquete-windows:
+	python3 -B despliegue/windows/paquete.py
 
 demo:
 	python3 -B despliegue/demo/demo.py iniciar

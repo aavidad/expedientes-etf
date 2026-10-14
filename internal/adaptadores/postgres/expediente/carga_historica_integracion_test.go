@@ -43,6 +43,53 @@ func casoHistorico(p d.Aceptacion, numero string) d.CasoHistorico {
 	}
 }
 func ptrFamilia(f d.Familia) *d.Familia { return &f }
+
+func TestCargaHistoricaRESP2ReservaPorEquipoYAnio(t *testing.T) {
+	b, ctx, deps, a, p := prepararAceptacion(t)
+	deps = dependenciasHistoricas(deps)
+	s := app.Nuevo(deps)
+	antes := contador(t, b, ctx, a, p)
+	if antes >= 98 {
+		t.Fatal("correlativos insuficientes en el entorno desechable")
+	}
+	anterior := casoHistorico(p, "08-01-22")
+	anterior.FechaDerivacion = "2022-02-01"
+	anterior.Aceptacion.FechaActa = "2022-03-09"
+	anterior.Estado = d.EnIntervencion
+	anterior.Episodios = []d.EpisodioHistorico{{Apertura: "2022-03-09"}}
+	anterior.Familia = nil
+	anterior.Menores = nil
+	actual := casoHistorico(p, fmt.Sprintf("08-%02d-26", antes+1))
+	actual.Estado = d.EnIntervencion
+	actual.Episodios = []d.EpisodioHistorico{{Apertura: p.FechaActa}}
+	actual.Familia = nil
+	actual.Menores = nil
+	carga := d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{anterior, actual}}
+	v, err := s.ValidarCargaHistorica(ctx, a, carga)
+	if err != nil {
+		t.Fatal(err)
+	}
+	r, err := s.CargarHistoricos(ctx, a, v.LoteID, "resp2-"+v.LoteID, carga)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if contador(t, b, ctx, a, p) != antes {
+		t.Fatal("carga consume correlativos nuevos")
+	}
+	ficha, err := s.Consultar(ctx, a, r.Expedientes[0])
+	if err != nil || ficha.Numero == nil || *ficha.Numero != "08-01-22" || !ficha.CargadoParaRevision {
+		t.Fatal("número histórico perdido", ficha, err)
+	}
+	derivacion := subir(t, ctx, deps, a)
+	nueva, err := s.Aceptar(ctx, a, derivacion.ID, "resp2-nueva-"+derivacion.ID, conMenores(p, derivacion))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if nueva.Numero != fmt.Sprintf("08-%02d-26", antes+2) || nueva.Anio != 2026 {
+		t.Fatal("colisión o año incorrecto", nueva)
+	}
+	t.Log("RESP2_POSTGRES_OK: abierto 2022 conserva 08-01-22; carga no consume contador; nueva aceptación 2026 salta correlativo histórico ocupado")
+}
 func numeroHistoricoLibre(t *testing.T, b *postgres.Base, ctx context.Context, a d.Actor, p d.Aceptacion) string {
 	t.Helper()
 	var n int

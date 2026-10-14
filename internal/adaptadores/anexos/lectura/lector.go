@@ -5,6 +5,7 @@ import (
 	"io"
 
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/docx"
+	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/odt"
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/pdf"
 	dominio "github.com/aavidad/expedientes-etf/internal/dominio/expediente"
 	"github.com/aavidad/expedientes-etf/internal/puertos/salida/expediente"
@@ -21,6 +22,19 @@ var _ expediente.LectorAnexo = (*Lector)(nil)
 
 func NuevoLector() *Lector { return &Lector{plazas: make(chan struct{}, 1), pdf: pdf.NuevoLector()} }
 
+func (l *Lector) LeerActa(ctx context.Context, formato string, b []byte) (dominio.Extraccion, error) {
+	select {
+	case l.plazas <- struct{}{}:
+		defer func() { <-l.plazas }()
+	case <-ctx.Done():
+		return dominio.Extraccion{}, ctx.Err()
+	}
+	if formato == "docx" {
+		return docx.LeerActa(b)
+	}
+	return l.pdf.LeerActa(ctx, formato, b)
+}
+
 func (l *Lector) Leer(ctx context.Context, formato string, b []byte) (dominio.Extraccion, error) {
 	if err := ctx.Err(); err != nil {
 		return dominio.Extraccion{}, err
@@ -31,8 +45,14 @@ func (l *Lector) Leer(ctx context.Context, formato string, b []byte) (dominio.Ex
 	case <-ctx.Done():
 		return dominio.Extraccion{}, ctx.Err()
 	}
-	if formato == "docx" {
-		e, err := docx.Leer(b)
+	if formato == "docx" || formato == "odt" {
+		var e docx.Lectura
+		var err error
+		if formato == "odt" {
+			e, err = odt.Leer(b)
+		} else {
+			e, err = docx.Leer(b)
+		}
 		if err != nil {
 			return dominio.Extraccion{}, err
 		}

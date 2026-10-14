@@ -36,6 +36,15 @@ Los enlaces siguientes abren el guion. Para ver la grabación, pide el MP4 por s
 
 En «Cerrar un expediente», el vídeo muestra la emisión del Anexo 11 en Documentos. Ahora también puedes descargarlo desde Cierre; en reunificación se ofrece el Anexo 12. La descarga y la propuesta de cierre son acciones separadas.
 
+## Cargar expedientes desde las actas
+
+Incluye todos los abiertos de cualquier año anterior, los cerrados durante 2026
+y las derivaciones no aceptadas de 2026. El Programa no tiene hoja de cálculo.
+Sube el Acta de Aceptación y, si está cerrado, el Acta de Cierre, o completa los
+datos a mano. La aplicación propone lo que lee; revisa y confirma antes de guardar.
+Consulta [los pasos para equipos](profesionales.md#cómo-cargo-un-caso-de-2026-a-mano)
+y [la carga de Coordinación](coordinacion.md#cómo-cargo-los-casos-de-2026-desde-una-hoja).
+
 ## Glosario del Programa
 
 | Término | Qué significa aquí |

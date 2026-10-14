@@ -1,8 +1,8 @@
 {
-  "expediente.valorame_pendiente": "The VALÓRAME assessment needs to be recorded in the assessment section.",
+  "expediente.valorame_pendiente": "VALÓRAME is optional. You can record it in Assessment or fill it in later in the Word document.",
   "expediente.acceso_denegado": "You need the Coordination role to access referrals.",
   "expediente.anexo_tamano": "The file exceeds the 10 MB limit.",
-  "expediente.anexo_formato": "Upload a valid Word (.docx) or PDF document.",
+  "expediente.anexo_formato": "Upload a valid Word (.docx), LibreOffice (.odt) or PDF document.",
   "expediente.anexo_infectado": "The antivirus detected a threat. The referral has not been recorded.",
   "expediente.no_disponible": "The operation could not be completed. Check the result before trying again.",
   "expediente.derivacion_no_encontrada": "This referral could not be found.",

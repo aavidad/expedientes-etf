@@ -23,5 +23,6 @@
   "documento.anotar_registro_salida": "Se ha anotado el registro de salida del oficio.",
   "documento.requiere_no_aceptada": "Solo puedes emitir el Acta de No Aceptación de una derivación no aceptada. Comprueba el estado de la derivación.",
   "documento.requiere_lista_espera": "Solo puedes emitir el Oficio de Lista de Espera de una derivación que esté en lista de espera. Comprueba su estado.",
-  "documento.consentimiento.formato_fecha": "02/01/2006"
+  "documento.consentimiento.formato_fecha": "02/01/2006",
+  "documento.escala.separador_decimal": ","
 }
