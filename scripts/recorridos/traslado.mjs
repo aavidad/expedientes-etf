@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import { readFile, mkdir } from 'node:fs/promises';
 import { chromium } from '../../web/node_modules/playwright-core/index.mjs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 const origen = process.argv[2] ?? 'http://127.0.0.1:18431';
 assert.match(origen, /^http:\/\/127\.0\.0\.1:\d+$/);
 const claves = JSON.parse(await readFile(new URL('../../despliegue/demo/.local/usuarios.json', import.meta.url)));
@@ -157,4 +159,4 @@ try {
   await preferencias(); await pagina.locator('#tema').selectOption('alto-contraste'); await pagina.keyboard.press('Escape'); await pagina.keyboard.press('Escape');
   await ancho(390); await captura('alto-contraste-movil'); await preferencias(); await pagina.locator('#idioma').selectOption('en'); await pagina.keyboard.press('Escape'); await pagina.keyboard.press('Escape'); await ancho(360); await ancho(1024);
   assert.deepEqual(errores, []); console.log('TR1 visual: escritorio, 1024/390/360, teclado, alto contraste e inglés OK');
-} catch (e) { await pagina.screenshot({ path: `${process.env.TMPDIR ?? 'bin/temporales'}/tr1-fallo.png`, fullPage: true }); throw e; } finally { await navegador.close(); }
+} catch (e) { await pagina.screenshot({ path: join(tmpdir(), 'tr1-fallo.png'), fullPage: true }); throw e; } finally { await navegador.close(); }

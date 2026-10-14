@@ -2,7 +2,8 @@
 import { chromium } from 'playwright-core';
 import { readFileSync, mkdirSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { resolve } from 'node:path';
+import { join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 const raiz = resolve(import.meta.dirname, '../..');
 const usuarios = readFileSync(resolve(raiz, 'despliegue/demo/USUARIOS.local.md'), 'utf8');
 const puerto = readFileSync(resolve(raiz, 'despliegue/demo/.local/puerto'), 'utf8').trim();
@@ -116,7 +117,7 @@ try {
   await ines.getByLabel('Organismo destinatario', { exact: true }).selectOption('OTROS');
   await ines.screenshot({ path: resolve(capturas, 'actividad-informes-escritorio.png'), fullPage: true });
   await ines.getByLabel('Desde el día', { exact: true }).fill('2026-10-12'); await ines.getByText('No hay informes técnicos con estos filtros.', { exact: true }).waitFor(); await ines.getByLabel('Desde el día', { exact: true }).fill('');
-  for (const ancho of [1024, 390, 360, 320]) { await ines.setViewportSize({ width: ancho, height: 1000 }); await ines.waitForTimeout(100); const sinDesbordar = await sinDesborde(ines); if (!sinDesbordar) { console.log(await ines.evaluate(() => [...document.querySelectorAll('body *')].map((e) => ({ tag: e.tagName, clase: e.className, right: e.getBoundingClientRect().right, width: e.getBoundingClientRect().width })).filter((e) => e.right > document.documentElement.clientWidth))); await ines.screenshot({ path: '/dev/shm/etf/tmp/a1-desborde.png', fullPage: true }); } assert.equal(sinDesbordar, true, `Sin desborde a ${ancho}`); }
+  for (const ancho of [1024, 390, 360, 320]) { await ines.setViewportSize({ width: ancho, height: 1000 }); await ines.waitForTimeout(100); const sinDesbordar = await sinDesborde(ines); if (!sinDesbordar) { console.log(await ines.evaluate(() => [...document.querySelectorAll('body *')].map((e) => ({ tag: e.tagName, clase: e.className, right: e.getBoundingClientRect().right, width: e.getBoundingClientRect().width })).filter((e) => e.right > document.documentElement.clientWidth))); await ines.screenshot({ path: join(tmpdir(), 'a1-desborde.png'), fullPage: true }); } assert.equal(sinDesbordar, true, `Sin desborde a ${ancho}`); }
   await ines.setViewportSize({ width: 390, height: 1000 }); await ines.screenshot({ path: resolve(capturas, 'actividad-informes-movil.png'), fullPage: true });
   await ines.getByRole('button', { name: 'Ayuda sobre comisiones e informes' }).focus(); await ines.keyboard.press('Enter'); await ines.getByRole('dialog').waitFor(); await ines.keyboard.press('Escape'); assert.equal(await ines.getByRole('button', { name: 'Ayuda sobre comisiones e informes' }).evaluate((e) => e === document.activeElement), true);
 

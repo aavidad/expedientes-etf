@@ -40,7 +40,7 @@ def comprobar_word(evidencia):
 
 def main():
     inicio = time.monotonic()
-    temporal = Path(os.environ.get('TMPDIR', str(RAIZ / 'bin/temporales')))
+    temporal = Path(tempfile.gettempdir())
     temporal.mkdir(parents=True, exist_ok=True)
     evidencia = Path(tempfile.mkdtemp(prefix='f409-', dir=temporal))
     entorno = dict(os.environ)

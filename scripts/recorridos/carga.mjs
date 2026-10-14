@@ -3,6 +3,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../web/node_modules/playwright-core/index.mjs';
+import { tmpdir } from 'node:os';
 const base = process.argv[2] ?? 'http://127.0.0.1:51481';
 assert.match(base, /^http:\/\/127\.0\.0\.1:\d+$/);
 // Las imágenes nuevas no sustituyen los ficheros del volumen de idiomas ya creado.
@@ -105,7 +106,7 @@ try {
  const recuperacion = p.waitForResponse(r => r.url().includes('/hoja/') && r.url().endsWith('/confirmar')); await p.getByRole('button', { name: 'Recuperar el resultado', exact: true }).click(); const recuperado = await recuperacion; assert.equal(recuperado.request().headers()['idempotency-key'], clave); assert.deepEqual(await recuperado.json(), primero); await p.locator('#carga-resultado').waitFor(); assert.equal(primero.expedientes.length, 3); await captura('carga-resultado-escritorio.png', 1440); await captura('carga-resultado-movil.png', 390);
  await p.getByRole('button', { name: 'Preparar otra carga', exact: true }).click();
  // XLSX con un caso no aceptado, a partir de la misma cabecera descargada.
- const temp = process.env.TMPDIR ?? 'bin/temporales'; const csvRuta = `${temp}/ca1-hoja.csv`; await writeFile(csvRuta, csv);
+ const temp = tmpdir(); const csvRuta = `${temp}/ca1-hoja.csv`; await writeFile(csvRuta, csv);
  const xlsx = execFileSync('python3', ['-c', `import sys,csv,io,zipfile,html
 r=list(csv.reader(open(sys.argv[1],encoding='utf-8-sig'),delimiter=';'));r=[r[0],r[-1]]
 f=['<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>']

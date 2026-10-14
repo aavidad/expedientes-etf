@@ -47,7 +47,7 @@ ROLLBACK;
 
 def main():
     inicio = time.monotonic()
-    temporal = Path(os.environ.get('TMPDIR', str(RAIZ / 'bin/temporales')))
+    temporal = Path(tempfile.gettempdir())
     temporal.mkdir(parents=True, exist_ok=True)
     evidencia = Path(tempfile.mkdtemp(prefix='f207-', dir=temporal))
     if not (RAIZ / 'despliegue/demo/.local/puerto').exists() and not os.environ.get('ETF_DEMO_PUERTO'):

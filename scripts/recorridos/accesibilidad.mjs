@@ -3,10 +3,12 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { chrome, baseLocal, restringir } from './comun.mjs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 const require = createRequire(new URL('../../web/package.json', import.meta.url));
 const axe = require('axe-core');
 const base = baseLocal(process.argv[2]);
-const salida = process.argv[3] || '/dev/shm/etf/tmp/f503-axe';
+const salida = process.argv[3] || join(tmpdir(), 'f503-axe');
 await mkdir(salida, { recursive: true });
 for (const idioma of ['es', 'en']) {
   const carpeta = new URL(`../../idiomas/${idioma}/textos/`, import.meta.url);

@@ -39,7 +39,7 @@ def preparar_reserva(demo):
 
 
 def main():
-    temporal = Path(os.environ.get('TMPDIR', str(RAIZ / 'bin/temporales')))
+    temporal = Path(tempfile.gettempdir())
     temporal.mkdir(parents=True, exist_ok=True)
     evidencia = Path(tempfile.mkdtemp(prefix='f503-', dir=temporal))
     entorno = {k: v for k, v in os.environ.items() if k not in ('ETF_AXE_PERFIL', 'ETF_AXE_RUTA', 'ETF_AXE_DEBUG', 'ETF_AXE_CAPTURAS')}

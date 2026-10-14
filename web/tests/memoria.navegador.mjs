@@ -3,6 +3,8 @@ import { chromium } from '../node_modules/playwright-core/index.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 const raiz = fileURLToPath(new URL('../../', import.meta.url));
 const puerto = (await readFile(raiz + 'despliegue/demo/.local/puerto', 'utf8')).trim();
 const base = `http://127.0.0.1:${puerto}`;
@@ -87,7 +89,7 @@ try {
     const recuperacion = respuesta(pagina, '/api/estadistica/memoria/word', 'POST'); const descarga = pagina.waitForEvent('download');
     await pagina.getByRole('button', { name: t(recuperar === 'reintentar' ? 'memoria.reintentar' : 'memoria.descargar'), exact: true }).click(); const repetida = await recuperacion;
     assert.equal(repetida.status(), 200); assert.equal(repetida.headers()['x-idempotencia-repetida'], 'true'); assert.equal(repetida.headers()['x-emision-id'], perdida.emision); assert.equal(repetida.request().headers()['idempotency-key'], perdida.clave);
-    await (await descarga).saveAs('/dev/shm/etf/tmp/f402-memoria.docx');
+    await (await descarga).saveAs(join(tmpdir(), 'f402-memoria.docx'));
   }
   resultados.push('Coordinación: provincial/equipo, 33 tablas de cálculo, narrativas persistidas y Word recuperado con la misma emisión: PASS');
   let cierrePerdido;
@@ -147,7 +149,7 @@ try {
   const wordIngles = respuesta(pagina, '/api/estadistica/memoria/word', 'POST'); const archivoIngles = pagina.waitForEvent('download');
   await pagina.getByRole('button', { name: ingles['memoria.descargar'], exact: true }).click();
   const docIngles = await wordIngles; assert.equal(docIngles.status(), 201); assert.equal(docIngles.request().postDataJSON().idioma, 'en');
-  await (await archivoIngles).saveAs('/dev/shm/etf/tmp/f402-memoria-en.docx');
+  await (await archivoIngles).saveAs(join(tmpdir(), 'f402-memoria-en.docx'));
   resultados.push('Alto contraste, inglés y Word del idioma elegido: PASS');
   await contexto.close();
   const profesional = await entrar('marta.cabrera');
@@ -162,5 +164,5 @@ try {
   assert.equal((await pedir(consulta.pagina, `/api/estadistica/memoria/estado?anio=${propio.anio}`)).estado, 403);
   resultados.push('Consulta: sólo cifras al momento o foto cerrada; sin narrativas ni composición; descarga numérica y narrativas 403: PASS'); await consulta.contexto.close();
   console.log(resultados.join('\n'));
-  await writeFile('/dev/shm/etf/tmp/f402-recorrido.txt', resultados.join('\n') + '\n');
+  await writeFile(join(tmpdir(), 'f402-recorrido.txt'), resultados.join('\n') + '\n');
 } finally { await navegador.close(); }

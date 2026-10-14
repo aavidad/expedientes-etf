@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { chromium, baseLocal, restringir } from './comun.mjs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 const base = baseLocal(process.argv[2]);
 // Los volúmenes de una demo anterior no se renuevan al reconstruir su imagen.
 process.stdout.write(execFileSync('python3', ['-B', 'scripts/pwa1/preparar_demo.py', base], { cwd: new URL('../../', import.meta.url), encoding: 'utf8' }));
@@ -11,7 +13,7 @@ const es = JSON.parse(await readFile(new URL('../../idiomas/es/textos/pwa1.json'
 const en = JSON.parse(await readFile(new URL('../../idiomas/en/textos/pwa1.json', import.meta.url)));
 const capturas = new URL('../../docs/capturas/', import.meta.url);
 await mkdir(capturas, { recursive: true });
-const perfil = await mkdtemp(`${process.env.TMPDIR || '/dev/shm/etf/tmp'}/pwa1-chrome-`);
+const perfil = await mkdtemp(join(tmpdir(), 'pwa1-chrome-'));
 const context = await chromium.launchPersistentContext(perfil, { executablePath: '/usr/bin/google-chrome', headless: true, viewport: { width: 1440, height: 1000 } });
 try {
  await restringir(context, base);
