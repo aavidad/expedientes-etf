@@ -1,12 +1,18 @@
 ; Instalador de Windows de Expedientes ETF (pruebas). Lo compila paquete.py
 ; con makensis 3.10 a partir de la misma carpeta que el ZIP:
 ;   makensis /DCARPETA=... /DSALIDA=... /DVERSION=... /DIDIOMAS=... /DARCHIVOS=...
+;            /DACCESO_NOMBRE=... /DACCESO_DESCRIPCION=...
 ; Los textos viven en idiomas/<código>/textos/windows.json (claves
 ; windows.instalador_*); paquete.py los convierte en IDIOMAS.
 ;
 ; Se instala por usuario, sin permiso de administrador, directamente en la
 ; copia estable que usan los accesos (comun.ps1, accesos.ps1), para no
 ; duplicar las imágenes en disco.
+;
+; Los accesos .lnk los gestiona sólo código NSIS (accesos.nsh): este asistente,
+; su desinstalador y el lanzador «Expedientes ETF.exe». Ningún cmd.exe ni
+; powershell.exe abre, crea ni borra accesos directos, porque algunos
+; antivirus de comportamiento matan esa secuencia.
 
 Unicode true
 Target amd64-unicode
@@ -18,6 +24,7 @@ SetCompressorDictSize 64
 !include MUI2.nsh
 !include LogicLib.nsh
 !include FileFunc.nsh
+!include "${__FILEDIR__}/accesos.nsh"
 
 !define CLAVE_DESINSTALAR "Software\Microsoft\Windows\CurrentVersion\Uninstall\Expedientes-ETF"
 !define DESINSTALADOR "desinstalar-expedientes-etf.exe"
@@ -93,6 +100,10 @@ FunctionEnd
 !macroend
 !insertmacro CONTAR_ENTRADAS ""
 !insertmacro CONTAR_ENTRADAS "un."
+!insertmacro ACCESOS_LECTURA ""
+!insertmacro ACCESOS_CREAR ""
+!insertmacro ACCESOS_LECTURA "un."
+!insertmacro ACCESOS_QUITAR "un."
 
 ; Instalador de 64 bits: la consola, PowerShell, WSL y Podman son los nativos.
 !define CONSOLA "$WINDIR\System32\cmd.exe"
@@ -123,6 +134,14 @@ Section
             Abort "$(instalador_ajeno)"
         ${EndIf}
     ${EndIf}
+    ; Antes de copiar nada: un acceso con el mismo nombre de otra instalación
+    ; se conserva y la instalación no sigue.
+    StrCpy $R3 "$INSTDIR"
+    Call ComprobarAccesos
+    ${If} $R5 == 1
+        MessageBox MB_ICONSTOP|MB_OK "$(instalador_acceso_ocupado)" /SD IDOK
+        Abort "$(instalador_acceso_ocupado)"
+    ${EndIf}
 
     SetOutPath "$INSTDIR"
     File /r "${CARPETA}\*"
@@ -139,6 +158,14 @@ Section
     ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
     IntFmt $0 "0x%08X" $0
     WriteRegDWORD HKCU "${CLAVE_DESINSTALAR}" "EstimatedSize" "$0"
+
+    ; Al actualizar, los accesos (también los antiguos que abrían PowerShell)
+    ; pasan ya al lanzador. En una instalación nueva los crea el lanzador al
+    ; final de instalar.cmd, cuando la aplicación ya puede abrirse.
+    ${If} $Accion == "actualizar"
+        StrCpy $R3 "$INSTDIR"
+        Call CrearAccesos
+    ${EndIf}
 
     ; instalar.cmd o actualizar.cmd en una consola visible: instala WSL y
     ; Podman si faltan, crea los accesos y abre la aplicación.
@@ -172,4 +199,8 @@ Section "Uninstall"
         RMDir "$Privado"
         RMDir "$LOCALAPPDATA\Expedientes-ETF"
     ${EndIf}
+    ; Los accesos se borran al final, desde NSIS y después de PowerShell: ningún
+    ; intérprete toca un .lnk (algunos antivirus matan esa secuencia).
+    StrCpy $R3 "$INSTDIR"
+    Call un.QuitarAccesos
 SectionEnd

@@ -1,5 +1,6 @@
 """Ensaya límites de la instalación y la retirada de archivos en PowerShell."""
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -7,6 +8,9 @@ import unittest
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[2]
+WINDOWS = RAIZ / "despliegue/windows"
+# Órdenes NSIS que lanzan otro programa.
+ORDEN_EXEC = re.compile(r"^\s*(Exec|ExecWait|ExecShell|ExecShellWait|nsExec::\w+)\s", re.MULTILINE)
 PWSH = shutil.which("pwsh") or str(Path.home() / ".local/bin/pwsh")
 
 
@@ -56,82 +60,46 @@ if (Test-Path (Join-Path $cache 'abrir.ps1')) { throw 'No retira el archivo regi
 if (-not (Test-Path (Join-Path $cache 'nota-personal.txt')) -or -not (Test-Path (Join-Path $script:Privado 'notas.txt'))) { throw 'Borra archivos añadidos' }
 Preparar-Directorio (Join-Path $Raiz 'privado')
 if (-not (Test-Path (Join-Path $script:Privado 'notas.txt'))) { throw 'Impide reinstalar conservando notas' }
-[IO.File]::WriteAllText((Join-Path $script:Paquete 'abrir.ps1'), 'Nueva instalación')
-[IO.File]::WriteAllText((Join-Path $script:Paquete 'SUMAS.json'), '{"abrir.ps1":"registro"}')
-Guardar-PaqueteInstalado
-if (-not (Test-Path (Join-Path (Ruta-PaqueteInstalado) 'abrir.ps1')) -or -not (Get-ChildItem $script:Privado -Recurse -Filter 'nota-personal.txt')) { throw 'No reinstala conservando la nota de la copia' }
 """)
 
-    def test_cierra_auxiliares_y_respeta_perfiles_ajenos(self):
-        self.ejecutar("""
+    def test_accesos_solo_mediante_el_lanzador(self):
+        # Los scripts no abren, crean ni borran accesos: ejecutan el lanzador
+        # «/accesos crear|quitar» y traducen su código de salida.
+        self.ejecutar(r"""
 Preparar-Directorio (Join-Path $Raiz 'privado')
-$perfil = Join-Path $script:Privado 'perfil-navegador'
-$script:cerrados = [Collections.Generic.List[int]]::new()
-function Get-CimInstance {
-    [CmdletBinding()] param([string]$ClassName, [string]$Filter)
-    @(
-      [pscustomobject]@{ProcessId=1; ParentProcessId=0; CommandLine=('msedge --user-data-dir="' + $perfil + '"')},
-      [pscustomobject]@{ProcessId=2; ParentProcessId=1; CommandLine='msedge --type=gpu-process'},
-      [pscustomobject]@{ProcessId=3; ParentProcessId=1; CommandLine='chrome --user-data-dir="/perfil-ajeno"'},
-      [pscustomobject]@{ProcessId=4; ParentProcessId=3; CommandLine='chrome --type=renderer'},
-      [pscustomobject]@{ProcessId=5; ParentProcessId=1; CommandLine=$null},
-      [pscustomobject]@{ProcessId=6; ParentProcessId=0; CommandLine='chrome --user-data-dir="/perfil-ajeno"'}
-    )
+$script:EsWindows = $true
+$script:llamadas = [Collections.Generic.List[string]]::new()
+$script:codigo = 0
+function Buscar-Navegador { return 'navegador' }
+function Guardar-PaqueteInstalado { }
+function Write-Host { param($Object) }
+function Start-Process {
+    param([string]$FilePath, [string[]]$ArgumentList, [switch]$Wait, [switch]$PassThru)
+    if (-not $Wait -or -not $PassThru) { throw 'No espera al lanzador' }
+    $script:llamadas.Add((Split-Path -Leaf $FilePath) + ' ' + ($ArgumentList -join ' '))
+    return [pscustomobject]@{ ExitCode = $script:codigo }
 }
-function Stop-Process { [CmdletBinding()] param([int]$Id, [switch]$Force); $script:cerrados.Add($Id) }
-function Wait-Process { [CmdletBinding()] param([int]$Id, [int]$Timeout) }
-Cerrar-NavegadorPropio
-if (($script:cerrados | Sort-Object) -join ',' -ne '1,2') { throw 'Cierra un perfil ajeno o deja abierto un auxiliar propio' }
+Crear-Accesos
+if (($script:llamadas -join ';') -ne 'Expedientes ETF.exe /accesos crear') { throw ('Crear: ' + ($script:llamadas -join ';')) }
+if (-not (Test-Path (Join-Path $script:Privado 'inicio.json'))) { throw 'No guarda el motor para el acceso' }
+$script:codigo = 2
+$mensaje = $null
+try { Crear-Accesos } catch { $mensaje = $_.Exception.Message }
+if ($mensaje -ne (Texto 'acceso_ocupado')) { throw ('Ocupado: ' + $mensaje) }
+$script:codigo = 1
+$mensaje = $null
+try { Crear-Accesos } catch { $mensaje = $_.Exception.Message }
+if (-not $mensaje -or $mensaje -ne (Texto 'accesos_error')) { throw ('Fallo: ' + $mensaje) }
+# Sin lanzador en la copia estable no se ejecuta nada.
+$script:llamadas.Clear()
+$script:codigo = 0
+Eliminar-Accesos
+if ($script:llamadas.Count) { throw 'Ejecuta un lanzador que no existe' }
+New-Item -ItemType Directory (Ruta-PaqueteInstalado) -Force | Out-Null
+[IO.File]::WriteAllText((Ruta-Lanzador), 'lanzador')
+Eliminar-Accesos
+if (($script:llamadas -join ';') -ne 'Expedientes ETF.exe /accesos quitar') { throw ('Quitar: ' + ($script:llamadas -join ';')) }
 """)
-
-    def test_rechaza_ruta_fuera_del_paquete(self):
-        self.ejecutar("""
-Preparar-Directorio (Join-Path $Raiz 'privado')
-$cache = Ruta-PaqueteInstalado
-New-Item -ItemType Directory $cache | Out-Null
-$otro = Join-Path $script:Privado 'datos.txt'
-[IO.File]::WriteAllText($otro, 'Datos conservados')
-[IO.File]::WriteAllText((Join-Path $cache 'SUMAS.json'), '{"../datos.txt":"registro"}')
-$rechaza = $false
-try { Eliminar-ArchivosInstalados } catch { $rechaza = $true }
-if (-not $rechaza -or -not (Test-Path $otro)) { throw 'Se sale del paquete registrado' }
-""")
-
-    def test_copia_estable_no_incorpora_archivos_ajenos(self):
-        self.ejecutar("""
-Preparar-Directorio (Join-Path $Raiz 'privado')
-[IO.File]::WriteAllText((Join-Path $script:Paquete 'nota-personal.txt'), 'Documento ajeno')
-[IO.File]::WriteAllText((Join-Path $script:Paquete 'abrir.ps1'), 'Aplicación')
-[IO.File]::WriteAllText((Join-Path $script:Paquete 'SUMAS.json'), '{"abrir.ps1":"registro"}')
-Guardar-PaqueteInstalado
-$cache = Ruta-PaqueteInstalado
-if (-not (Test-Path (Join-Path $cache 'abrir.ps1')) -or (Test-Path (Join-Path $cache 'nota-personal.txt'))) { throw 'Copia archivos ajenos' }
-""")
-
-
-    def test_accesos_abren_el_lanzador_y_migran_los_anteriores(self):
-        self.ejecutar("""
-$env:SystemRoot = Join-Path $Raiz 'Windows'
-Preparar-Directorio (Join-Path $Raiz 'privado')
-$lanzador = Join-Path (Ruta-PaqueteInstalado) 'Expedientes ETF.exe'
-if ((Ruta-Lanzador) -ne $lanzador) { throw 'El lanzador no está en la copia estable' }
-if (-not (Es-AccesoPropio ([pscustomobject]@{TargetPath=$lanzador; Arguments=''}))) { throw 'No reconoce el acceso al lanzador' }
-if (Es-AccesoPropio ([pscustomobject]@{TargetPath=$lanzador; Arguments='-otro'})) { throw 'Acepta argumentos ajenos' }
-$powershell = Join-Path $env:SystemRoot 'System32\\WindowsPowerShell\\v1.0\\powershell.exe'
-$abrir = Join-Path (Ruta-PaqueteInstalado) 'abrir.ps1'
-$anterior = [pscustomobject]@{TargetPath=$powershell; Arguments=('-NoLogo -NoProfile -ExecutionPolicy Bypass -File "' + $abrir + '"')}
-if (-not (Es-AccesoPropio $anterior)) { throw 'No migra el acceso anterior a PowerShell' }
-$ajeno = [pscustomobject]@{TargetPath=$powershell; Arguments='-File "C:\\otro.ps1"'}
-if (Es-AccesoPropio $ajeno) { throw 'Adopta un acceso ajeno' }
-""")
-
-    def test_crear_accesos_apunta_al_lanzador_sin_script(self):
-        codigo = (RAIZ / "despliegue/windows/accesos.ps1").read_text(encoding="utf-8-sig")
-        crear = codigo[codigo.index("function Crear-Accesos"):codigo.index("function Eliminar-Accesos")]
-        self.assertIn("$enlace.TargetPath = Ruta-Lanzador", crear)
-        self.assertIn("$enlace.Arguments = ''", crear)
-        self.assertNotIn("powershell", crear.lower())
-
 
     PODMAN_SIMULADO = """
 $script:Maquina = 'podman-machine-default'
@@ -223,6 +191,64 @@ if (-not $mensaje -or $mensaje -ne (Texto 'antivirus')) { throw ('Mensaje inespe
         arranque = codigo[codigo.index("function Arrancar"):]
         self.assertLess(arranque.index("'clamav', 'ldap', 'app', 'entrada-demo'"), arranque.index("Esperar-Antivirus"))
         self.assertLess(arranque.index("Esperar-Antivirus"), arranque.index("'herramientas', 'sembrar'"))
+
+class AccesosEnNsis(unittest.TestCase):
+    """Los .lnk sólo los tocan el lanzador, el instalador y su desinstalador."""
+    NSH = (WINDOWS / "accesos.nsh").read_text(encoding="utf-8")
+    LANZADOR = (WINDOWS / "lanzador.nsi").read_text(encoding="utf-8")
+    INSTALADOR = (WINDOWS / "instalador.nsi").read_text(encoding="utf-8")
+
+    def test_ningun_script_toca_accesos_directos(self):
+        # Algunos antivirus matan cmd o PowerShell si abren un .lnk y después
+        # crean ejecutables en AppData y lanzan otro intérprete.
+        scripts = sorted(WINDOWS.glob("*.ps1")) + sorted(WINDOWS.glob("*.cmd"))
+        self.assertTrue(scripts)
+        for ruta in scripts:
+            codigo = ruta.read_text(encoding="utf-8-sig").lower()
+            for prohibido in (".lnk", "createshortcut", "iwshshortcut", "shell.application"):
+                self.assertNotIn(prohibido, codigo, f"{ruta.name}: {prohibido}")
+            # WScript.Shell sólo para el aviso de error de abrir.ps1 (Popup,
+            # en proceso, sin ficheros); nunca para accesos directos.
+            if "wscript.shell" in codigo:
+                self.assertEqual(ruta.name, "abrir.ps1")
+                self.assertEqual(codigo.count("wscript.shell"), 1)
+                self.assertIn("$aviso.popup(", codigo)
+
+    def test_nsis_crea_migra_y_borra_los_accesos(self):
+        for carpeta in ("$DESKTOP", "$SMPROGRAMS"):
+            acceso = f'"{carpeta}\\${{ACCESO_NOMBRE}}.lnk"'
+            self.assertIn(f'CreateShortCut {acceso} "$R3\\${{LANZADOR_EXE}}" "" "$R3\\aplicacion.ico" 0 SW_SHOWNORMAL "" "${{ACCESO_DESCRIPCION}}"', self.NSH)
+            self.assertIn(f"Delete {acceso}", self.NSH)
+        # Sólo se sustituyen o borran los propios, también los antiguos a PowerShell.
+        self.assertIn('${If} $R1 == "$R3\\${LANZADOR_EXE}"', self.NSH)
+        self.assertIn('-File "$R3\\abrir.ps1"', self.NSH)
+        self.assertIn('-WindowStyle Hidden -File "$R3\\abrir.ps1"', self.NSH)
+        self.assertFalse(re.search(ORDEN_EXEC, self.NSH))
+
+    def test_lanzador_acepta_accesos_crear_y_quitar(self):
+        self.assertIn('!include "${__FILEDIR__}/accesos.nsh"', self.LANZADOR)
+        crear = self.LANZADOR.index('${ElseIf} $0 == "/accesos crear"')
+        quitar = self.LANZADOR.index('${ElseIf} $0 == "/accesos quitar"')
+        self.assertLess(self.LANZADOR.index('${If} $0 == ""'), self.LANZADOR.index("Exec "))
+        self.assertLess(self.LANZADOR.index("Exec "), crear)
+        self.assertIn("Call ComprobarAccesos", self.LANZADOR[crear:quitar])
+        self.assertIn("SetErrorLevel 2", self.LANZADOR[crear:quitar])
+        self.assertIn("Call CrearAccesos", self.LANZADOR[crear:quitar])
+        self.assertIn("Call QuitarAccesos", self.LANZADOR[quitar:])
+        # Con /accesos no se lanza ningún intérprete.
+        self.assertEqual(len(re.findall(ORDEN_EXEC, self.LANZADOR)), 1)
+
+    def test_instalador_comprueba_antes_y_desinstalador_borra_al_final(self):
+        seccion = self.INSTALADOR[self.INSTALADOR.index("Section\n"):self.INSTALADOR.index('Section "Uninstall"')]
+        self.assertLess(seccion.index("Call ComprobarAccesos"), seccion.index("File /r"))
+        self.assertIn("$(instalador_acceso_ocupado)", seccion)
+        self.assertLess(seccion.index("Call CrearAccesos"), seccion.index("Exec '"))
+        retirada = self.INSTALADOR[self.INSTALADOR.index('Section "Uninstall"'):]
+        # PowerShell termina antes de tocar los accesos, y no se lanza después.
+        self.assertLess(retirada.index("desinstalar.ps1"), retirada.index("Call un.QuitarAccesos"))
+        self.assertEqual(len(re.findall(ORDEN_EXEC, retirada)), 1)
+        self.assertEqual(retirada.rstrip().splitlines()[-2].strip(), "Call un.QuitarAccesos")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -29,6 +29,7 @@
   "windows.acceso_descripcion": "Abrir Expedientes ETF en una ventana propia.",
   "windows.accesos_listos": "Acceso directo creado en el escritorio y en el menú Inicio. Puedes abrir la aplicación desde ahí, incluso después de pararla.",
   "windows.acceso_ocupado": "Ya existe un acceso directo con ese nombre que pertenece a otra instalación. Conserva ese acceso y pide ayuda a Informática.",
+  "windows.accesos_error": "No se han podido crear o quitar los accesos directos del escritorio y de Inicio. Vuelve a intentarlo; si se repite, pide ayuda a Informática.",
   "windows.navegador": "No se encuentra Microsoft Edge ni Google Chrome. Instala uno de ellos y vuelve a abrir la aplicación.",
   "windows.abrir_error": "No se ha podido volver a arrancar la aplicación. Abre el programa de contenedores, enciende su máquina y ejecuta instalar.cmd para ver el mensaje de ayuda.",
   "windows.desinstalar_pregunta": "Se borrarán todos los datos de esta demostración y sus accesos directos. Escribe DESINSTALAR y pulsa Intro para continuar, o pulsa Intro para cancelar",
@@ -78,6 +79,7 @@
   "windows.instalador_fin_texto": "Se ha abierto una ventana negra que termina la instalación. Sigue sus indicaciones y espera a que se abra la aplicación.\n\nPara quitarla más adelante, ve a Configuración > Aplicaciones y busca Expedientes ETF.",
   "windows.instalador_consola": "Abriendo la ventana que termina la instalación…",
   "windows.instalador_ajeno": "No se puede instalar: la carpeta %LOCALAPPDATA%\\Expedientes-ETF\\pruebas tiene archivos de otra aplicación. Muévelos a otra carpeta y vuelve a abrir el instalador.",
+  "windows.instalador_acceso_ocupado": "No se puede instalar: ya hay un acceso directo «Expedientes ETF» en el escritorio o en Inicio que pertenece a otra instalación. Consérvalo y pide ayuda a Informática.",
   "windows.instalador_desinstalar_aviso": "Se abrirá una ventana negra que te pedirá confirmación antes de borrar los datos de pruebas.",
   "windows.instalador_desinstalar_cancelado": "Expedientes ETF sigue instalado. Si lo has cancelado tú, no tienes que hacer nada. Si la ventana mostró un error, léelo y vuelve a intentarlo."
 }

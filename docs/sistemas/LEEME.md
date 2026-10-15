@@ -29,7 +29,8 @@ principal es Podman con WSL2: instalar.cmd instala WSL2 (con permiso de
 administrador), Podman, su máquina y Compose si faltan. Rancher Desktop con Moby
 es la alternativa.
 Crea accesos de escritorio e Inicio con una copia privada del paquete; abren el
-lanzador `Expedientes ETF.exe` para que los antivirus no corten el arranque; parar
+lanzador `Expedientes ETF.exe` para que los antivirus no corten el arranque, y
+ese lanzador es el único que crea y borra los accesos; parar
 conserva los datos y permite reabrir, desinstalar retira sus accesos y volúmenes.
 Sólo admite datos inventados. La operación y el alcance comprobado se recogen en
 [WIN1](WIN1.md); este paquete no sustituye el despliegue de producción.

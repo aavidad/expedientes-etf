@@ -4,23 +4,30 @@ Esta guía te ayuda a instalar una demostración en tu PC. Usa sólo datos inven
 Nunca introduzcas datos reales de personas o expedientes, aunque trabajes desde casa.
 No necesitas Docker ni herramientas de programación.
 
-## Novedades de la versión 1.0.4
+## Novedades de la versión 1.0.5
 
-- Instalador: ahora basta con descargar un solo archivo,
-  `Expedientes-ETF-1.0.4-instalador.exe`. Es un asistente que instala la
+- Accesos directos: ahora sólo los crean y los borran el instalador, el
+  desinstalador y el pequeño programa `Expedientes ETF.exe`. Ningún script los
+  toca, porque algunos antivirus detienen un script que abre o crea un acceso
+  directo, y eso podía cortar la instalación, la actualización o la
+  desinstalación. El cambio se probó en Windows con uno de esos antivirus
+  (Fibratus): actualizar, crear los accesos y desinstalar terminaron sin
+  bloqueos.
+
+La versión 1.0.5 conserva lo que trajeron las anteriores:
+
+- Instalador: basta con descargar un solo archivo,
+  `Expedientes-ETF-1.0.5-instalador.exe`. Es un asistente que instala la
   aplicación sólo para tu cuenta, sin permiso de administrador, y al terminar
   abre la ventana que pone lo que falte. El ZIP con instalar.cmd sigue
   disponible como alternativa.
-- Accesos: el acceso del escritorio y de Inicio abre un pequeño programa,
-  `Expedientes ETF.exe`, en lugar de un script. Así los antivirus que bloquean
-  scripts lanzados desde accesos directos ya no cortan la aplicación. Al
-  actualizar, los accesos antiguos se cambian solos.
+- Accesos: el acceso del escritorio y de Inicio abre `Expedientes ETF.exe` en
+  lugar de un script, así que los antivirus que bloquean scripts lanzados desde
+  accesos directos no cortan la aplicación. Al actualizar, los accesos antiguos
+  se cambian solos.
 - Quitar la aplicación: si instalaste con el asistente, aparece como
   **Expedientes ETF (pruebas)** en Configuración → Aplicaciones y se desinstala
   desde ahí.
-
-La versión 1.0.4 conserva lo que trajeron las anteriores:
-
 - Instalación sin preparar Windows: se activa WSL2 si falta, se instala Podman
   para tu usuario y se usa el Compose que viene en el paquete. Si Windows tiene
   que reiniciarse, la instalación sigue sola cuando vuelves a entrar.
@@ -61,11 +68,11 @@ otros programas. Para comprobar tu versión, abre Inicio, escribe `winver` y pul
 Intro. Puedes ver la RAM en Configuración → Sistema → Acerca de.
 
 El instalador exige **15 GB libres en la unidad de tu perfil**, normalmente C:.
-En esta entrega el asistente ocupa unos **370 MiB**, el ZIP **467 MiB**
-y la aplicación instalada, unos **802 MiB** antes de cargar las imágenes y
+En esta entrega el asistente ocupa unos **369 MiB**, el ZIP **466 MiB**
+y la aplicación instalada, unos **801 MiB** antes de cargar las imágenes y
 los datos. Reserva **17 GiB libres antes de descargar** para mantener los 15 GB
 que comprueba el instalador. Las medidas exactas se anotan en la
-[evidencia de la entrega](../sistemas/WIN1.md#paquete-público-104).
+[evidencia de la entrega](../sistemas/WIN1.md#paquete-público-105).
 Comprueba el espacio desde Explorador → Este equipo → Disco local (C:).
 
 La primera instalación necesita Internet: WSL2 se descarga de Microsoft y Podman
@@ -91,14 +98,14 @@ Antes de instalar:
 ## 2. Descarga y comprueba el instalador
 
 1. Abre las [Releases de Expedientes ETF](https://github.com/aavidad/expedientes-etf/releases).
-   En la entrega 1.0.4 descarga **Expedientes-ETF-1.0.4-instalador.exe** y
-   **Expedientes-ETF-1.0.4-instalador.exe.sha256**. Guarda ambos en la misma carpeta.
+   En la entrega 1.0.5 descarga **Expedientes-ETF-1.0.5-instalador.exe** y
+   **Expedientes-ETF-1.0.5-instalador.exe.sha256**. Guarda ambos en la misma carpeta.
 2. En el Explorador, abre esa carpeta. Pulsa la barra de dirección, escribe
    `powershell` y pulsa Intro. Copia:
 
    ```powershell
-   Get-FileHash .\Expedientes-ETF-1.0.4-instalador.exe -Algorithm SHA256
-   Get-Content .\Expedientes-ETF-1.0.4-instalador.exe.sha256
+   Get-FileHash .\Expedientes-ETF-1.0.5-instalador.exe -Algorithm SHA256
+   Get-Content .\Expedientes-ETF-1.0.5-instalador.exe.sha256
    ```
 
 3. Compara los 64 caracteres de **Hash** con los del archivo `.sha256`.
@@ -111,7 +118,7 @@ Antes de instalar:
 
 ## 3. Instala la demostración
 
-1. Haz doble clic en **Expedientes-ETF-1.0.4-instalador.exe**. No lo abras como
+1. Haz doble clic en **Expedientes-ETF-1.0.5-instalador.exe**. No lo abras como
    administrador.
 2. Como el instalador **no está firmado** y aún no tiene reputación de
    descarga, Windows puede mostrar **Windows protegió su PC** (SmartScreen).
@@ -124,7 +131,7 @@ Antes de instalar:
    abre una ventana negra que completa la instalación.
 
 Si tu PC no deja ejecutar el asistente, usa el ZIP de la misma entrega:
-descarga **expedientes-etf-windows-1.0.4.zip** y su `.zip.sha256`, comprueba la
+descarga **expedientes-etf-windows-1.0.5.zip** y su `.zip.sha256`, comprueba la
 suma igual que arriba, pulsa el ZIP con el botón derecho y elige **Extraer
 todo** en una carpeta local corta, por ejemplo `C:\ETF-Pruebas`, fuera de
 OneDrive, unidades de red y carpetas compartidas. Después abre la carpeta

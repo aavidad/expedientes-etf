@@ -7,19 +7,19 @@ La guía completa está en
 https://github.com/aavidad/expedientes-etf/blob/main/docs/windows/PROBAR-EN-CASA.md
 La página de descargas es https://github.com/aavidad/expedientes-etf/releases.
 
-## Novedades de la versión 1.0.4
+## Novedades de la versión 1.0.5
 
-- Instalador: la descarga principal es ahora el asistente
-  `Expedientes-ETF-1.0.4-instalador.exe`. Instala la aplicación sólo para tu
-  cuenta, sin permiso de administrador, y aparece en Configuración >
-  Aplicaciones para desinstalarla desde ahí. El ZIP con instalar.cmd sigue
-  disponible como alternativa.
-- Accesos: el acceso del escritorio y de Inicio abre un pequeño programa,
-  `Expedientes ETF.exe`, en lugar de un script, para que los antivirus que
-  bloquean scripts lanzados desde accesos directos no corten la aplicación. Al
-  actualizar, los accesos antiguos se cambian solos.
+- Accesos directos: sólo los crean y los borran el instalador, el desinstalador
+  y el pequeño programa `Expedientes ETF.exe`. Ningún script los toca, porque
+  algunos antivirus detienen un script que abre o crea un acceso directo y eso
+  podía cortar la instalación, la actualización o la desinstalación. Se probó
+  en Windows con uno de esos antivirus (Fibratus): actualizar, crear los accesos
+  y desinstalar terminaron sin bloqueos.
 
-La versión 1.0.4 conserva lo de las anteriores: la instalación sin preparar
+La versión 1.0.5 conserva lo de las anteriores: el asistente
+`Expedientes-ETF-1.0.5-instalador.exe` como descarga principal (el ZIP con
+instalar.cmd sigue de alternativa), los accesos que abren `Expedientes ETF.exe`
+en lugar de un script, la instalación sin preparar
 Windows (WSL2, Podman y Compose), la espera a Podman tras reiniciar, la parada
 que apaga su máquina, la desinstalación de lo instalado, las plantillas Word
 inglesas, la pantalla Ayuda con el manual de cada perfil y su lectura en voz
@@ -106,7 +106,11 @@ El instalador crea **Expedientes ETF** en el escritorio y en Inicio. Ese acceso
 abre el programa **Expedientes ETF.exe** de la copia del paquete, que a su vez
 abre una ventana propia en Microsoft Edge. Los accesos usan este lanzador .exe
 para no activar las reglas de los antivirus que bloquean scripts lanzados desde
-accesos directos; al actualizar, los accesos antiguos se cambian solos. El navegador es Edge; si no está instalado, utiliza Chrome.
+accesos directos; al actualizar, los accesos antiguos se cambian solos. Los
+accesos los crea, cambia y borra ese lanzador .exe (o el instalador .exe y su
+desinstalador). Ningún script toca accesos directos, porque algunos antivirus
+cortan PowerShell o cmd cuando abren un acceso directo y después crean
+programas en la carpeta de la cuenta. El navegador es Edge; si no está instalado, utiliza Chrome.
 Puedes mover o borrar la carpeta extraída: el acceso conserva una copia privada
 del paquete. La dirección es **http://localhost:18083**. Sólo se publica en este PC.
 Las contraseñas se guardan en
@@ -313,8 +317,9 @@ suma con NSIS (`makensis` 3.10 o posterior; en Debian y Ubuntu, el paquete
 `nsis`). Usa la misma carpeta que el ZIP, comprimida con LZMA sólida: con la
 1.0.3 pasaba de 543 MB en ZIP a 412 MB y tarda unos cinco minutos. Para
 rehacer sólo el `.exe` a partir de un ZIP ya construido:
-`VERSION=1.0.4 make instalador-windows`. El guion del asistente es
-`instalador.nsi` y el del lanzador de los accesos, `lanzador.nsi`; sus textos
+`VERSION=1.0.5 make instalador-windows`. El guion del asistente es
+`instalador.nsi` y el del lanzador de los accesos, `lanzador.nsi`; los dos
+usan `accesos.nsh` para crear y borrar los accesos directos; sus textos
 están en `idiomas/es/textos/windows.json` y `idiomas/en/textos/windows.json`
 (claves `windows.instalador_*`).
 

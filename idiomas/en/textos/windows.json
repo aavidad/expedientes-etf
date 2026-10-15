@@ -29,6 +29,7 @@
   "windows.acceso_descripcion": "Open Expedientes ETF in its own window.",
   "windows.accesos_listos": "Shortcuts created on the desktop and in the Start menu. You can reopen the application from them after stopping it.",
   "windows.acceso_ocupado": "A shortcut with this name belongs to another installation. Keep it and ask IT for help.",
+  "windows.accesos_error": "The desktop and Start menu shortcuts could not be created or removed. Try again; if it happens again, ask IT for help.",
   "windows.navegador": "Microsoft Edge and Google Chrome were not found. Install either browser and reopen the application.",
   "windows.abrir_error": "The application could not restart. Open the container application, start its machine and run instalar.cmd to see the help message.",
   "windows.desinstalar_pregunta": "All data and shortcuts for this demonstration will be deleted. Type DESINSTALAR and press Enter to proceed, or just press Enter to cancel",
@@ -78,6 +79,7 @@
   "windows.instalador_fin_texto": "A black window has opened to finish the installation. Follow its instructions and wait for the application to open.\n\nTo remove it later, go to Settings > Apps and look for Expedientes ETF.",
   "windows.instalador_consola": "Opening the window that finishes the installation…",
   "windows.instalador_ajeno": "Cannot install: the folder %LOCALAPPDATA%\\Expedientes-ETF\\pruebas contains another application's files. Move them to another folder and open the installer again.",
+  "windows.instalador_acceso_ocupado": "Cannot install: there is already an \"Expedientes ETF\" shortcut on the desktop or in the Start menu that belongs to another installation. Keep it and ask IT for help.",
   "windows.instalador_desinstalar_aviso": "A black window will open and ask you to confirm before the test data is deleted.",
   "windows.instalador_desinstalar_cancelado": "Expedientes ETF is still installed. If you cancelled, there is nothing to do. If the window showed an error, read it and try again."
 }

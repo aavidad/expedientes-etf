@@ -6,7 +6,7 @@ Cada administración designa a su responsable del producto y valida la puesta en
 
 ## Descargas
 
-- Instalable de Windows 1.0.4, con usuarios y datos inventados: [versión 1.0.4](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.4). La descarga principal es el asistente `Expedientes-ETF-1.0.4-instalador.exe`, que instala la aplicación para tu usuario sin permiso de administrador; el ZIP con instalar.cmd queda como alternativa. La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
+- Instalable de Windows 1.0.5, con usuarios y datos inventados: [versión 1.0.5](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.5). La descarga principal es el asistente `Expedientes-ETF-1.0.5-instalador.exe`, que instala la aplicación para tu usuario sin permiso de administrador; el ZIP con instalar.cmd queda como alternativa. La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
 - Curso de la aplicación en web, SCORM y eXeLearning, y los 12 vídeos de recorridos: [curso 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/curso-1.0.2).
 
 ## Documentación
@@ -82,12 +82,12 @@ instalación paso a paso. Usa sólo datos inventados. La
 [comprobación en Windows](docs/sistemas/WIN1.md) recoge versiones y resultados
 de las pruebas.
 
-La versión actual es la 1.0.4:
+La versión actual es la 1.0.5:
 
 | Archivo | Tamaño | SHA-256 |
 | --- | --- | --- |
-| `Expedientes-ETF-1.0.4-instalador.exe` (recomendado) | unos 370 MiB | `e4e307248b9a581827ac3a55af262276c4b49238c807ff7c415fb6952d06b04b` |
-| `expedientes-etf-windows-1.0.4.zip` (alternativa) | unos 467 MiB | `8a2ce1bf90d454b4cb33e8919b49ce16d9dd8b3cbc433f402ef274f4adba5ff8` |
+| `Expedientes-ETF-1.0.5-instalador.exe` (recomendado) | unos 369 MiB | `d545a2b8fac06fb73182acf808484dcec0de17f84e2246e9995916026a08f09a` |
+| `expedientes-etf-windows-1.0.5.zip` (alternativa) | unos 466 MiB | `97c9209d9e49b6d03849d33e62d3c5169ba51ce4fe5cc33c4bd1e57bbe7ee701` |
 
 El asistente instala la aplicación para tu usuario, sin permiso de
 administrador, y la deja en Configuración > Aplicaciones para quitarla desde
@@ -96,9 +96,12 @@ coincide, pulsa «Más información» y después «Ejecutar de todas formas». A
 terminar se abre la ventana que pone lo que falte: activa WSL2 si hace falta
 (pide permiso de administrador una vez y, si Windows tiene que reiniciarse,
 continúa solo después), instala Podman para tu usuario, crea su máquina y usa
-el Compose incluido. Los accesos del escritorio y de Inicio abren ahora un
-pequeño programa en lugar de un script, para que los antivirus no corten la
-aplicación al arrancar.
+el Compose incluido. Los accesos del escritorio y de Inicio abren un pequeño
+programa en lugar de un script, para que los antivirus no corten la aplicación
+al arrancar. Desde la 1.0.5, ese programa, el instalador y el desinstalador son
+los únicos que crean y borran los accesos: ningún script los toca, porque
+algunos antivirus detienen esa operación y cortaban la instalación o la
+desinstalación.
 
 Incluye también lo de versiones anteriores: la pantalla Ayuda con los manuales
 de cada perfil y su lectura en voz alta, la derivación a otros servicios

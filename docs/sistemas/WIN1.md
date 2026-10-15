@@ -456,3 +456,46 @@ ejemplos de Anexo 3 sólo usan correos de dominios `.invalid`.
 
 La versión 1.0.4 pública no se ha probado todavía en un Windows real. No se ha
 hecho push ni se ha creado una Release.
+
+## Paquete público 1.0.5
+
+La rama `publico` integra `main` en el commit `94213e73`, con el cambio que
+deja los accesos directos en manos del instalador, el desinstalador y el
+lanzador `Expedientes ETF.exe` (`accesos.nsh`, `/accesos crear|quitar`).
+Ningún `.cmd` ni `.ps1` toca ya un `.lnk`. La limpieza pública se repite sobre
+lo nuevo: la estimación de `docs/envios` sigue fuera, los textos nuevos del
+asistente no nombran a la entidad original y el editor sigue siendo «Alberto
+Avidad · Expedientes ETF».
+
+`make ci` terminó bien:
+
+```text
+CI mínima completada.
+```
+
+Orden: `VERSION=1.0.5 make paquete-windows`, que reutiliza las grabaciones de
+`bin/voz`.
+
+| Archivo | Medida |
+| --- | --- |
+| `Expedientes-ETF-1.0.5-instalador.exe` | 386593283 bytes (368,69 MiB) |
+| `expedientes-etf-windows-1.0.5.zip` | 488255120 bytes (465,64 MiB) |
+| Contenido extraído del ZIP, 26 archivos | 840051890 bytes (801,13 MiB) |
+
+```text
+PAQUETE-OK: expedientes-etf-windows-1.0.5.zip; SHA-256 97c9209d9e49b6d03849d33e62d3c5169ba51ce4fe5cc33c4bd1e57bbe7ee701
+INSTALADOR-OK: Expedientes-ETF-1.0.5-instalador.exe; 386593283 bytes; SHA-256 d545a2b8fac06fb73182acf808484dcec0de17f84e2246e9995916026a08f09a
+```
+
+Comprobaciones: `sha256sum -c` correcto para los dos archivos. El `.exe` se
+extrae con `7z x` y contiene los mismos archivos que el ZIP, con el mismo
+contenido. El análisis local de secretos no encuentra nada en el contenido del
+ZIP, en el del `.exe`, en el tar de imágenes ni en sus 49 capas extraídas. La
+búsqueda de nombres reales, dominios privados, rutas personales y la entidad
+original no encuentra nada en el repositorio, en esos contenidos (también en
+binario) ni en el texto y los metadatos de los 382 DOCX, ODT y PDF del
+repositorio y del paquete, cuyo autor es siempre «Expedientes ETF». Los
+ejemplos de Anexo 3 sólo usan correos de dominios `.invalid`.
+
+La versión 1.0.5 pública no se ha probado todavía en un Windows real. No se ha
+hecho push ni se ha creado una Release.

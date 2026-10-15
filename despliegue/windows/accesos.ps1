@@ -90,25 +90,18 @@ function Eliminar-PaqueteRegistrado([string]$Cache) {
     Eliminar-DirectoriosVacios $Cache
 }
 
-function Rutas-Accesos {
-    $nombre = (Texto 'acceso_nombre') + '.lnk'
-    foreach ($tipo in @('DesktopDirectory', 'Programs')) {
-        Join-Path ([Environment]::GetFolderPath($tipo)) $nombre
-    }
-}
-
 # Los accesos abren un lanzador .exe y no PowerShell: los antivirus de
 # comportamiento cortan los scripts lanzados desde un acceso directo.
 function Ruta-Lanzador { return Join-Path (Ruta-PaqueteInstalado) 'Expedientes ETF.exe' }
 
-function Es-AccesoPropio($Enlace) {
-    if ($Enlace.TargetPath -eq (Ruta-Lanzador) -and -not $Enlace.Arguments) { return $true }
-    # Accesos de versiones anteriores, que se sustituyen al actualizar.
-    $programa = Join-Path (Ruta-PaqueteInstalado) 'abrir.ps1'
-    $argumentos = '-NoLogo -NoProfile -ExecutionPolicy Bypass -File "' + $programa + '"'
-    $anteriores = $argumentos.Replace(' -File ', ' -WindowStyle Hidden -File ')
-    return $Enlace.TargetPath -eq (Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe') -and
-        $Enlace.Arguments -in @($argumentos, $anteriores)
+# Los accesos directos los crea, migra y borra el lanzador (código NSIS,
+# accesos.nsh). Ningún script abre, crea ni borra un acceso directo: algunos
+# antivirus de comportamiento matan PowerShell o cmd cuando lo hacen. Aquí
+# sólo se ejecuta el lanzador y se espera su código: 0 bien, 2 acceso de otra
+# instalación, cualquier otro fallo.
+function Ejecutar-Lanzador([string]$Orden) {
+    $proceso = Start-Process -FilePath (Ruta-Lanzador) -ArgumentList @('/accesos', $Orden) -Wait -PassThru
+    return [int]$proceso.ExitCode
 }
 
 function Eliminar-ArchivosInstalados {
@@ -150,29 +143,18 @@ function Crear-Accesos {
     [void](Buscar-Navegador)
     Guardar-PaqueteInstalado
     Guardar-Privado (Join-Path $script:Privado 'inicio.json') (@{ motor = $Motor } | ConvertTo-Json)
-    $carpeta = Ruta-PaqueteInstalado
-    $shell = New-Object -ComObject WScript.Shell
-    foreach ($ruta in @(Rutas-Accesos)) {
-        $enlace = $shell.CreateShortcut($ruta)
-        if ((Test-Path $ruta) -and -not (Es-AccesoPropio $enlace)) { throw (Texto 'acceso_ocupado') }
-        $enlace.TargetPath = Ruta-Lanzador
-        $enlace.Arguments = ''
-        $enlace.WorkingDirectory = $carpeta
-        $enlace.IconLocation = (Join-Path $carpeta 'aplicacion.ico') + ',0'
-        $enlace.Description = Texto 'acceso_descripcion'
-        $enlace.Save()
-    }
+    $codigo = Ejecutar-Lanzador 'crear'
+    if ($codigo -eq 2) { throw (Texto 'acceso_ocupado') }
+    if ($codigo -ne 0) { throw (Texto 'accesos_error') }
     Write-Host (Texto 'accesos_listos')
 }
 
 function Eliminar-Accesos {
     if (-not $script:EsWindows) { return }
-    $shell = New-Object -ComObject WScript.Shell
-    foreach ($ruta in @(Rutas-Accesos)) {
-        if ((Test-Path $ruta) -and (Es-AccesoPropio ($shell.CreateShortcut($ruta)))) {
-            Remove-Item -LiteralPath $ruta -Force
-        }
-    }
+    # Sin lanzador en la copia estable no hay accesos que apunten a él: la
+    # instalación se cortó antes de copiarla o es anterior a la 1.0.4.
+    if (-not (Test-Path -LiteralPath (Ruta-Lanzador) -PathType Leaf)) { return }
+    if ((Ejecutar-Lanzador 'quitar') -ne 0) { throw (Texto 'accesos_error') }
 }
 
 function Cerrar-NavegadorPropio {

@@ -140,6 +140,13 @@ def idiomas_nsis(raiz=RAIZ):
     return "\n".join(lineas) + "\n"
 
 
+def accesos_nsis(raiz=RAIZ):
+    """Nombre y descripción de los accesos para accesos.nsh, del mismo catálogo que mensajes.json."""
+    textos = json.loads((raiz / "idiomas/es/textos/windows.json").read_text(encoding="utf-8"))
+    return [f"-DACCESO_{clave.upper()}={escapar_nsis(textos['windows.acceso_' + clave])}"
+            for clave in ("nombre", "descripcion")]
+
+
 def archivos_nsis(carpeta):
     """Órdenes del desinstalador: sólo los archivos y carpetas copiados."""
     lineas, carpetas = [], set()
@@ -204,7 +211,7 @@ def construir_lanzador(carpeta, makensis=None):
     """«Expedientes ETF.exe»: los accesos lo abren en lugar de PowerShell."""
     destino = carpeta / LANZADOR
     subprocess.run([buscar_makensis(makensis), "-V2", "-NOCD", f"-DICONO={carpeta / 'aplicacion.ico'}",
-                    f"-DSALIDA={destino}", str(WINDOWS / "lanzador.nsi")], cwd=carpeta, check=True)
+                    f"-DSALIDA={destino}", *accesos_nsis(), str(WINDOWS / "lanzador.nsi")], cwd=carpeta, check=True)
     return destino
 
 
@@ -218,7 +225,7 @@ def construir_instalador(carpeta, version, salida, makensis=None, raiz=RAIZ):
         (temporal / "idiomas.nsh").write_text(idiomas_nsis(raiz), encoding="utf-8-sig")
         (temporal / "archivos.nsh").write_text(archivos_nsis(carpeta), encoding="utf-8-sig")
         orden = [makensis, "-V2", "-NOCD", f"-DCARPETA={carpeta}", f"-DSALIDA={archivo}", f"-DVERSION={version}",
-                 f"-DIDIOMAS={temporal / 'idiomas.nsh'}", f"-DARCHIVOS={temporal / 'archivos.nsh'}"]
+                 f"-DIDIOMAS={temporal / 'idiomas.nsh'}", f"-DARCHIVOS={temporal / 'archivos.nsh'}", *accesos_nsis(raiz)]
         if version_numerica(version):
             orden.append(f"-DVERSION_NUMERICA={version_numerica(version)}")
         if (raiz / "LICENSE").is_file():
