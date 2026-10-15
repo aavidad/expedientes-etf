@@ -7,7 +7,7 @@ Cada administración designa a su responsable del producto y valida la puesta en
 ## Descargas
 
 - Instalable de Windows 1.0.5, con usuarios y datos inventados: [versión 1.0.5](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.5). La descarga principal es el asistente `Expedientes-ETF-1.0.5-instalador.exe`, que instala la aplicación para tu usuario sin permiso de administrador; el ZIP con instalar.cmd queda como alternativa. La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
-- Curso de la aplicación en web, SCORM y eXeLearning, y los 12 vídeos de recorridos: [curso 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/curso-1.0.2).
+- Manuales en PDF, curso de la aplicación (web, SCORM y eXeLearning) y los 12 vídeos de recorridos: todo en la misma [descarga 1.0.5](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.5).
 
 ## Documentación
 
