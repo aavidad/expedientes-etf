@@ -2,22 +2,22 @@
 
 Aplicación web para administraciones que gestionan expedientes de tratamiento familiar para llevar los expedientes de las familias atendidas por los Equipos de Tratamiento Familiar (ETF). Cubre el recorrido completo, desde que llega una derivación hasta el cierre y el seguimiento posterior, y saca de la propia ficha del expediente los documentos Word y las cifras que hoy se montan a mano.
 
-La aplicación permite el alta asistida de expedientes históricos necesarios para 2026: conserva números, fechas, cierres, reaperturas y vigencias, y señala los casos cargados para revisión. Coordinación o el equipo pueden revisar y confirmar un caso a mano o un lote desde una hoja mediante las pantallas CA1.
-
-F4.07 incorpora navegación de Memoria por año y ámbito en el servidor. Consulta dispone de API y Word exclusivos de cifras: foto definitiva si está cerrada, cálculo al momento si está abierta. El cálculo requiere `ETF_CALCULO_MEMORIA_CONTRASENA`; usa un rol técnico independiente sin acceso a tablas personales. La vista de Consulta en `/memoria` muestra sólo cifras, fecha y carácter provisional o definitivo, y descarga el Word numérico. Contratos, preparación del rol y pruebas en [la evidencia F4.07](docs/evidencias/F4.07.md).
-
 Cada administración designa a su responsable del producto y valida la puesta en servicio.
 
-Informática dispone del [manual de sistemas](docs/sistemas/LEEME.md), con arquitectura, instalación en servidor y Windows, configuración, copias cifradas, restauración, auditoría, conservación y resolución de problemas. Incluye [PDF para imprimir](docs/sistemas/sistemas.pdf) y [evidencia MANSIS](docs/sistemas/MANSIS.md).
+## Descargas
 
-AN6 incorpora la preparación de derivaciones a otros servicios desde la ficha y Salidas/cierre: destino de catálogo o escrito si no hay opciones, motivo, Word con datos vigentes y versión de plantilla, y confirmación separada de la fecha real de envío. Administración puede publicar destinos para ofrecerlos en una lista. [Validación de AN6](docs/evidencias/AN6.md).
+- Instalable de Windows 1.0.2, con usuarios y datos inventados: [versión 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.2). La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
+- Curso de la aplicación en web, SCORM y eXeLearning, y los 12 vídeos de recorridos: [curso 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/curso-1.0.2).
+
+## Documentación
+
+Informática dispone del [manual de sistemas](docs/sistemas/LEEME.md), con arquitectura, instalación en servidor y Windows, configuración, copias cifradas, restauración, auditoría, conservación y resolución de problemas. Incluye [PDF para imprimir](docs/sistemas/sistemas.pdf) y [la comprobación del manual](docs/sistemas/MANSIS.md).
 
 El [manual de programadores](docs/desarrollo/LEEME.md) explica la arquitectura, PostgreSQL, API, interfaz, paquetes, lectores, cálculos y pruebas. Incluye recetas de ampliación, capturas de la demo y [PDF](docs/desarrollo/programadores.pdf).
 
-Los manuales de usuario de [profesionales de los ETF](docs/manuales/profesionales.md) ([PDF](docs/manuales/profesionales.pdf)) y [Coordinación](docs/manuales/coordinacion.md) ([PDF](docs/manuales/coordinacion.pdf)), siguen las tareas de cada perfil: acceso, avisos, ficha, documentos, cierre, traslado, seguimiento, Tabla SPAF, Memoria y carga histórica desde actas. Incluyen capturas con datos inventados y [ayuda común, glosario y preguntas frecuentes](docs/manuales/comun.md). El [manual completo de Administración funcional](docs/manuales/administracion.md) conserva sus instrucciones propias.
+Los manuales de usuario de [profesionales de los ETF](docs/manuales/profesionales.md) ([PDF](docs/manuales/profesionales.pdf)) y [Coordinación](docs/manuales/coordinacion.md) ([PDF](docs/manuales/coordinacion.pdf)) siguen las tareas de cada perfil: acceso, avisos, ficha, documentos, cierre, traslado, seguimiento, Tabla SPAF, Memoria y carga histórica desde actas. Incluyen capturas con datos inventados y [ayuda común, glosario y preguntas frecuentes](docs/manuales/comun.md). El [manual completo de Administración funcional](docs/manuales/administracion.md) conserva sus instrucciones propias.
 
 La [formación](docs/formacion/LEEME.md) incluye una sesión de 150 minutos por perfiles, ejercicios y soluciones, preparación del aula y recursos. El vídeo [Del Anexo a la Memoria](docs/recorridos/guiones/11-ciclo-completo.md) sigue un único caso inventado; se repite con `make video RECORRIDO=11-ciclo-completo`. El MP4 queda en la carpeta `ETF_VIDEOS_SALIDA`; [revisión y capítulos](docs/recorridos/EVIDENCIA-11.md). El [lanzador del aula](docs/formacion/preparar-aula.md) prepara Chrome con sesiones separadas y el calendario de la práctica.
-
 
 ## Licencia y autoría
 
@@ -54,14 +54,15 @@ Los catálogos incluidos conservan los municipios y equipos de partida. Su susti
 
 ## Qué hace
 
-- **Derivaciones.** Coordinación sube el Anexo 3 (lo envían los Servicios Sociales Comunitarios) o el Anexo 4 (lo envía el Servicio de Protección de Menores, SPM). La aplicación lee el anexo, propone los datos y una persona los confirma.
-- **Salida al SPM (servidor).** Genera el Anexo 5, confirma la fecha real por separado y registra la respuesta del SPM con historia. Expone la consulta de cierre ordinario y registra el forzado de Coordinación con motivo auditado. La descarga está comprobada para Coordinación y el profesional del equipo. Pantallas pendientes; cierre confirmado disponible en F3.02b.
+- **Derivaciones.** Coordinación sube el Anexo 3 (lo envían los Servicios Sociales Comunitarios) o el Anexo 4 (lo envía el Servicio de Protección de Menores, SPM). La aplicación lee el anexo en Word, LibreOffice o PDF, propone los datos y una persona los confirma.
 - **Aceptación.** Coordinación acepta, no acepta o deja en lista de espera. Al aceptar se asigna equipo y número, y se generan el Acta de Aceptación y los oficios.
-- **Traslado y seguimiento (F3.02c y TR1).** Traslado con cierre en origen, copia independiente de familia, adultos y menores vigentes y aceptación con número nuevo y Acta en destino. Seguimiento tras cese con avisos, fin automático e historia. El catálogo fija inicialmente 12 meses y un aviso 30 días antes del fin. El equipo puede terminarlo antes con un motivo; Coordinación puede reabrirlo, incluso tras el vencimiento, con el plazo completo desde la reapertura. Migraciones `expediente/0021` y `catalogo/0013`; instalación nueva y actualización ensayadas con PostgreSQL 18. TR1 añade el traslado desde Salidas de Coordinación y Seguimiento como pestaña de la ficha del equipo.
-- **Ficha del expediente.** Reúne datos de la familia y los menores, intervención, evaluaciones, derivaciones de salida, cierre y seguimiento. Es la única fuente de las cifras.
-- **Documentos Word.** Actas, oficios y anexos se rellenan desde plantillas. Se descargan en el momento; la aplicación no guarda los documentos generados. El servidor también incorpora emisión mensual SPAF por POST, con plantilla por idioma, versiones e idempotencia; espera el lector persistente de ficha de F2.01.
+- **Ficha del expediente.** Reúne familia y adultos, menores, intervención, consentimiento, evaluación, documentos, salidas, cierre, seguimiento e historial. Es la única fuente de las cifras.
+- **Salidas.** Desde la ficha se prepara la derivación al SPM (Anexo 5) o a otro servicio (Anexo 6), con su fecha real de envío y la respuesta del SPM confirmadas por separado.
+- **Cierre, traslado y seguimiento.** El equipo propone el cierre y otra persona de Coordinación lo confirma; se puede reabrir con motivo. El traslado cierra el expediente en el equipo de origen y abre uno nuevo, con número propio, en el de destino. El seguimiento tras el cese dura 12 meses y avisa 30 días antes del fin.
+- **Documentos Word.** Actas, oficios y anexos se rellenan desde plantillas. Se descargan en el momento; la aplicación no guarda los documentos generados.
 - **Tabla Mensual del SPAF.** Cada equipo la obtiene por mes para el Servicio de Prevención y Apoyo a la Familia (SPAF) de la administración competente.
-- **Memoria Técnica Anual.** Se calcula por equipo y para toda la provincia, con las reglas vigentes el 31 de diciembre del año, y se puede cerrar para fijar las cifras.
+- **Memoria Técnica Anual.** Se calcula por equipo y para toda la provincia, con las reglas vigentes el 31 de diciembre del año, y se puede cerrar para fijar las cifras. Consulta ve sólo las cifras, y las pequeñas se ocultan.
+- **Carga histórica de 2026.** Alta asistida de casos, importación desde una hoja de cálculo y lectura de Actas de Aceptación y de Cierre, siempre con revisión de una persona antes de guardar.
 
 La aplicación no firma documentos, no envía correos, no guarda los anexos recibidos y no usa inteligencia artificial. El alcance completo está en [PRD.md](docs/producto/PRD.md).
 
@@ -78,14 +79,15 @@ Descarga el ZIP y su suma SHA-256 desde las
 [Releases públicas](https://github.com/aavidad/expedientes-etf/releases).
 La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) te acompaña desde
 un Windows sin preparar: virtualización, WSL2, Podman Desktop, instalación y
-primer Acta. Usa sólo datos inventados. La [evidencia WIN1](docs/sistemas/WIN1.md)
+primer Acta. Usa sólo datos inventados. La [comprobación en Windows](docs/sistemas/WIN1.md)
 recoge versiones y resultados de las pruebas.
 
 La versión actual es la 1.0.2 (`expedientes-etf-windows-1.0.2.zip`, unos 426 MiB,
 SHA-256 `f4b29737477ba8b7b322ef3afc9f702bf38313e84852616b5e69c1756da5d641`). Añade la pantalla Ayuda con los manuales
-por perfil, la lectura en voz alta de ayudas y manuales, un arranque más fiable
-con Podman y la espera al antivirus antes de abrir la aplicación. Incluye lo de
-la 1.0.1: el Anexo 6, el desglose de la Memoria, la ocultación de cifras
+por perfil y la lectura en voz alta de ayudas y manuales. Al arrancar, recupera
+sola la conexión con Podman si se ha perdido y espera a que el antivirus esté
+listo antes de abrir la aplicación. Incluye lo de la 1.0.1: la derivación a otros
+servicios (Anexo 6), el desglose de la Memoria, la ocultación de cifras
 pequeñas en Consulta, el cierre de sesión por inactividad, el control de la
 carga histórica, la revisión tras restaurar una copia y la actualización de
 textos, plantillas y temas.
@@ -94,7 +96,7 @@ textos, plantillas y temas.
 
 Es un monolito modular con arquitectura hexagonal. Las reglas del Programa (estados, plazos, numeración, cálculo de la Tabla y de la Memoria) viven en un núcleo que no conoce la base de datos, el directorio de usuarios, HTTP ni Word. Todo lo externo entra por un conector, que es un puerto definido por la aplicación más un adaptador que lo implementa.
 
-- **Enganches por módulo (INT5).** Cada capacidad aporta sus rutas HTTP y pantallas; la composición es explícita en `cmd/etf/modulos.go` y `web/src/pantallas.ts`. El arranque valida métodos, permisos y duplicados. Cómo añadir una capacidad, en [TRD §2.3](docs/producto/TRD.md#23-módulos).
+- **Enganches por módulo.** Cada capacidad aporta sus rutas HTTP y pantallas; la composición es explícita en `cmd/etf/modulos.go` y `web/src/pantallas.ts`. El arranque valida métodos, permisos y duplicados. Cómo añadir una capacidad, en [TRD §2.3](docs/producto/TRD.md#23-módulos).
 - **Diez módulos** con sus propias tablas y migraciones: `plataforma`, `identidad`, `catalogo`, `paquete`, `expediente`, `evaluacion`, `documento`, `actividad`, `estadistica` y `auditoria`. Un módulo nunca toca las tablas de otro.
 - **Conectores** para el directorio de usuarios (LDAPS), el antivirus (ClamAV), la lectura de anexos, la generación de Word, el registro de salida y la lectura de idiomas y temas.
 - **Idiomas y temas fuera del código.** Ningún texto visible está escrito en Go ni en React: el código usa claves, y los textos viven en `idiomas/<código>/`. El aspecto vive en paquetes `temas/<nombre>/` hechos de datos. Cambiar un idioma o un tema es cambiar un directorio.
@@ -171,6 +173,8 @@ make build        # compila la interfaz y deja bin/etf y bin/migrar
 
 Se configura con variables de entorno con prefijo `ETF_` (por ejemplo `ETF_HTTP_DIRECCION`, `ETF_IDIOMAS_RUTA`, `ETF_TEMAS_RUTA`, `ETF_IDIOMA` y `ETF_TEMA`), descritas en [TRD.md](docs/producto/TRD.md). Las funciones que dependen de la base de datos, del directorio de usuarios o del antivirus necesitan esos servicios; por eso lo normal es arrancar con Compose.
 
+Si ejecutas varias demos a la vez, puedes fijar subredes distintas mediante `ETF_DEMO_RED_SUBRED` y `ETF_DEMO_ENTRADA_SUBRED` en `despliegue/demo/.local/entorno.env`. Si la instalación repite muchas copias de dependencias, `npm_config_install_strategy=linked make demo` conserva las versiones e integridades del lock y usa enlaces. Esta misma variable se puede usar con `make ci`. Para recrear una demostración anterior con la siembra nueva: `make demo-limpiar` y `make demo`; el primer comando borra sólo los datos inventados de esa demostración.
+
 ## Integración continua en local
 
 ```sh
@@ -179,98 +183,29 @@ make build        # sólo compilar
 make recorridos   # entrada, permisos, ficha integrada, salidas, SPAF y Memoria
 ```
 
-`make ci` comprueba el formato de Go, los enlaces de los documentos, los secretos, los tipos, las pruebas y la compilación. Incluye los ensayos completos de Catálogo y del Expediente inicial recuperados en [FX6](docs/evidencias/FX6.md), además de los otros ensayos de migraciones y del arranque definitivo de PostgreSQL por TCP, con diagnósticos acotados sin credenciales ([FX5](docs/evidencias/FX5.md)). Necesita Bash, Git, Python 3.9 o posterior, Go, Node con npm, Docker, Chrome del sistema y Gitleaks (ver [scripts/ci/README.md](scripts/ci/README.md)). Existen también `make test`, `make vet` y `make comprobar`.
+`make ci` comprueba el formato de Go, los enlaces de los documentos, los secretos, los tipos, las pruebas y la compilación. Incluye los ensayos completos de las migraciones de Catálogo y del Expediente ([ensayos recuperados](docs/evidencias/FX6.md)) y el del arranque de PostgreSQL por TCP, con diagnósticos acotados que no muestran credenciales ([arranque por TCP](docs/evidencias/FX5.md)). Necesita Bash, Git, Python 3.9 o posterior, Go, Node con npm, Docker, Chrome del sistema y Gitleaks (ver [scripts/ci/README.md](scripts/ci/README.md)). Existen también `make test`, `make vet` y `make comprobar`.
 
-`make recorridos` prueba la entrada y el alta con Chrome del sistema contra
-`make demo`, y todos los métodos del registro INT5 con cada perfil y PostgreSQL.
-Añade [F2.07](docs/recorridos/F2.07.md): nueve pestañas de la ficha, conflicto sin perder el formulario, aislamiento HTTP/RLS y cuatro cortes históricos. Exige también menores y fase al corte en SPAF; termina con error mientras falte su conexión estadística. Después ejecuta salidas, cierre, traslado y seguimiento y las seis tablas
-SPAF de F3.06/F3.07, con datos preparados por API y cifras calculadas a mano.
-Termina con [F4.09](docs/recorridos/F4.09.md): cálculo de los 28 apartados de
-Memoria, Word, cierres, corrección, discrepancia, aislamiento y reapertura.
-Se puede ejecutar por separado con `python3 -B scripts/recorridos/memoria_integrada.py`.
-Alcance, requisitos y evidencia en [F0.11](docs/recorridos/F0.11.md) y
-[F3.06/F3.07](docs/recorridos/F3.06-F3.07.md). Sólo F0.11 se ejecuta también en
-`make ci`; los cuatro necesitan Chrome del sistema. F3.06/F3.07 conservan los fallos
-de producto detectados y terminan con error mientras no se resuelvan.
+`make recorridos` prueba con Chrome del sistema, contra `make demo`:
+
+- la entrada y el alta, y todos los métodos del registro de módulos con cada perfil y PostgreSQL ([alcance y requisitos](docs/recorridos/F0.11.md));
+- las nueve pestañas de la ficha, un conflicto de edición sin perder el formulario, el aislamiento entre equipos y cuatro cortes históricos ([ficha integrada](docs/recorridos/F2.07.md));
+- salidas, cierre, traslado, seguimiento y las seis tablas del SPAF, con datos preparados por API y cifras calculadas a mano ([salidas y SPAF](docs/recorridos/F3.06-F3.07.md));
+- los 28 apartados de la Memoria, su Word, cierres, corrección, discrepancia, aislamiento y reapertura ([Memoria integrada](docs/recorridos/F4.09.md)). Se puede ejecutar por separado con `python3 -B scripts/recorridos/memoria_integrada.py`.
+
+Cuando un recorrido detecta un fallo de producto, lo registra y termina con error. Sólo el primero se ejecuta también en `make ci`.
 
 ## Estado del proyecto
 
-Avance aproximado: un 37 % del plan.
+A 15/10/2026 están integradas en `main` todas las fases del plan: entrada y aceptación de derivaciones, ficha completa, documentos Word, salidas, cierre, traslado y seguimiento, Tabla Mensual del SPAF, Memoria con su desglose, carga histórica de 2026, administración, auditoría, conservación, accesibilidad, manuales, curso, lector de voz y paquete de Windows.
 
-**Funciona hoy en `main`:**
+Lo que falta no depende del código:
 
-- Docker Compose con la aplicación, PostgreSQL 18 y ClamAV, y el migrador como contenedor aparte.
-- Integración continua (`make ci`).
-- Idiomas por directorio y temas instalables, con revisión de antivirus al instalar un paquete.
-- Auditoría encadenada en PostgreSQL.
-- Entrada con Active Directory (LDAPS), sesión y estado «pendiente de alta».
-- Perfiles dados desde Administración, con autorización en una sola tabla y denegación por defecto.
-- Catálogos versionados (174 municipios, equipos y centros), con edición de catálogos y de firmantes.
-- Lector de los Anexos 3 y 4 en Word, LibreOffice (ODT) y PDF, y propuesta de municipio. El PDF usa `dslipak/pdf v0.0.2` en un trabajador efímero, con límite de 10 MB y 20 páginas; los valores leídos requieren confirmación y los campos no recuperados quedan vacíos. Los escaneados se registran con aviso para teclear sus datos, sin OCR ni ficheros temporales. RESP4 confirma derivaciones desde los ODT del Programa y sus PDF con firma digital local; `expediente/0026` admite el formato ODT sin cambiar permisos; [evidencia y límites](docs/recorridos/RESP4.md). El ensayo HTTP con ClamAV de compose se ejecuta con `python3 -B internal/adaptadores/anexos/pdf/probar_subida.py` y usa recursos desechables y firmas sintéticas.
-- Subida del Anexo 3 o 4 con antivirus, revisión editable y propuesta de municipio, centro y equipo. El análisis no crea derivación; se guarda sólo al confirmar, con idempotencia y auditoría. Pantalla en `/coordinacion/anexos/nuevo`. Descartar elimina la revisión temporal.
-- Aceptación con numeración, no aceptación y lista de espera.
-- Emisión de documentos Word sin guardarlos.
-- Conservación en `/admin/conservacion` (F5.04): 25 años desde el cierre, configurables en Plazos y tramos. Dos personas distintas de Administración revisan y confirman la retirada de datos personales, sin abrir fichas. La operación incluye textos y recibos de Expediente, Evaluación y Documentos; mantiene cifras históricas y auditoría. Alcance sujeto al DPD en D14 (véase el PRD).
-- Plantillas Word para Administración en `/admin/plantillas` (PL1): activa e historial por documento e idioma, subida DOCX de hasta 10 MB con antivirus y detalle de marcadores, y activación confirmada con autor y fecha. Permite restaurar versiones anteriores sin borrar la historia.
-- Modelo estadístico de la Memoria (apartados 1, 2, 7, 8, 9, 13 y 25).
+- La evaluación de impacto en protección de datos de cada entidad, con su delegado de protección de datos, antes de usar datos reales.
+- Lo que tiene que preparar Informática: el proxy HTTPS, la conexión cifrada con el directorio (LDAPS), las copias cifradas y el sellado diario de la auditoría.
+- La puesta en producción y la carga de los expedientes reales.
+- Las dudas que el Programa aún no ha respondido: el uso de dos de los motivos de cierre, el fin del seguimiento tras el cese, el total y los porcentajes del apartado 24 de la Memoria, el recuento de derivaciones a otros servicios y si cabe el Anexo 6 mientras se espera respuesta del SPM. El [PRD](docs/producto/PRD.md) recoge las reglas vigentes.
 
-**Bandeja de Coordinación (F1.10):** `/coordinacion` reúne pendientes de revisar, aceptados recientes, no aceptados y lista de espera. Puedes filtrar por estado, equipo, municipio y recepción, y buscar por número o familia. La API devuelve sólo iniciales y confirma la auditoría antes de entregar datos. Las filas enlazan a la revisión de P3 y «Subir Anexo» a P2.
-
-**Disponible en esta rama:** F1.09 permite a Coordinación consultar y mantener el salario mínimo interprofesional (SMI) por año en `/coordinacion/smi`. La API es `/api/coordinacion/smi`; las escrituras exigen CSRF.
-
-**Disponible:** F2.04 permite registrar, corregir, retirar y consultar comisiones e informes del equipo; Coordinación consulta todos. Las cifras por año alimentan los apartados 15 y 16 de la Memoria mediante un puerto de consulta. Pantalla en `/equipo/comisiones`, con filtros de fechas, equipo y organismo; Consulta accede sólo a cifras de Memoria. Contrato y ensayo en [migraciones/actividad/LEEME.md](migraciones/actividad/LEEME.md).
-
-**Disponible en el servidor (F3.01b):** se registra la derivación a otro servicio con destino de catálogo y motivo, se descarga el Anexo 6 en castellano o inglés y se confirma su fecha por separado. La emisión no cambia el estado ni bloquea el cierre. Administración publica los destinos de catálogo antes de su uso. Pantalla pendiente. Contrato en [FLUJO_APP.md](docs/producto/FLUJO_APP.md#37-derivar-a-otro-servicio-anexo-6).
-
-**Calculado y probado (F3.04a):** la tabla mensual SPAF dispone de motor puro y API de lectura en `GET /api/estadistica/spaf?anio=&mes=&etf=`, con permisos por equipo y auditoría. El puerto de lectura está conectado a las vistas históricas de expediente, con RLS por equipo y corte de conocimiento; los campos todavía no recogidos se mantienen desconocidos. Pantalla y Word pendientes; ZTS sin dato hasta resolver D19.
-
-**Disponible en esta rama (P3):** revisión de una derivación, aceptación con número confirmado, no aceptación y lista de espera con aceptación posterior. La ficha permite descargar actas y oficios y anotar su registro de salida. La entrada del menú es «Lista de espera»; el detalle está en `/coordinacion/derivaciones/{id}`. La selección del profesional se hace por puesto, según la API actual.
-
-**En curso:** la ficha completa, el armazón visual y un entorno de demostración.
-
-**Disponible en el servidor (F2.03):** servidor de consentimientos y fechas de Anexos 7/8, con firma separada de la emisión y sin guardar DNI. Las plantillas se activan mediante documento/0009. El profesional descarga los anexos de su equipo con el catálogo de idioma activo; confirmar la firma cambia a intervención. FI2 incorpora la pestaña Consentimiento en la ficha del equipo.
-
-**Disponible en el servidor (F3.02a):** el equipo guarda la finalización, descarga los Anexos 11/12 y propone o retira el cierre, también desde ACEPTADA por falta de consentimiento con motivo de catálogo D5. Coordinación dispone de la bandeja de propuestas. Emisiones sin cambios de estado ni hitos; F3.02b añade confirmación por otra persona de Coordinación, Acta oficial es/en por POST independiente y reapertura con episodios conservados. Bloqueo SPM y forzado auditado; edición de datos cerrados exige reapertura. CO2 añade las pantallas de Coordinación para registrar respuestas del SPM, autorizar una excepción motivada, revisar propuestas, confirmar fecha y cierre, descargar el Acta por separado y reabrir. La bandeja y el detalle del expediente enlazan con ellas. TR1 añade el traslado desde estas pantallas y el seguimiento tras cese desde la ficha del equipo. La vista de pendientes del SPM sigue fuera de CO2: la bandeja aún no ofrece ese filtro.
-
-F2.06 ofrece la bandeja del equipo y la ficha desde el armazón común. Permite buscar sin mostrar nombres en los resultados, filtrar y consultar hitos, emisiones e historial. Muestra los avisos calculados de consentimiento, duración de fase y datos pendientes de la Memoria. Cierre conecta con la finalización y las propuestas de F3.02a; Salidas permite preparar la derivación al Servicio de Protección de Menores, descargar el Anexo 5 y confirmar por separado su fecha y respuesta. Las pestañas de capacidades pendientes se ocultan. La demostración incluye dos expedientes inventados de ETF2 y uno de ETF4.
-
-### Capturas de la bandeja y la ficha
-
-- [Revisión tras restauración en escritorio](docs/capturas/restauracion-escritorio.png)
-- [Revisión tras restauración en móvil](docs/capturas/restauracion-movil.png)
-- [Bandeja en escritorio](docs/capturas/equipo-bandeja-escritorio.png)
-- [Bandeja en móvil](docs/capturas/equipo-bandeja-movil.png)
-- [Ficha en escritorio](docs/capturas/equipo-ficha-escritorio.png)
-- [Ficha en móvil](docs/capturas/equipo-ficha-movil.png)
-- [Menores FI1 en escritorio](docs/capturas/fi1-menores-escritorio.png)
-- [Menores FI1 en móvil](docs/capturas/fi1-menores-movil.png)
-- [Intervención FI1 en escritorio](docs/capturas/fi1-intervencion-escritorio.png)
-- [Intervención FI1 en móvil](docs/capturas/fi1-intervencion-movil.png)
-
-Capturas de la comprobación de las respuestas del Programa (RESP1):
-
-- [Anexo 6 en escritorio (1440 px)](docs/capturas/anexo6-1440.png)
-- [Anexo 6 en móvil (390 px)](docs/capturas/anexo6-390.png)
-
-- [Derivación del SPM en escritorio](docs/capturas/resp1-spm-1440.png)
-- [Derivación del SPM en móvil](docs/capturas/resp1-spm-390.png)
-- [Tabla SPAF en escritorio](docs/capturas/resp1-spaf-1440.png)
-- [Tabla SPAF en móvil](docs/capturas/resp1-spaf-390.png)
-
-El recorrido se ejecuta con `node scripts/recorridos/respuestas_programa.mjs http://127.0.0.1:18083` tras `make demo`; ajusta el puerto. Comprueba el SMI de 2026, la ausencia de lista de espera para el Anexo 4, su rechazo en el servidor, la aceptación de un municipio fuera del ámbito y la columna de municipio del SPAF. Comprueba también el incremento de pendientes en la Memoria de equipo y provincia, la fecha y el correlativo de la aceptación real y los Word SPAF es/en con sus nuevas referencias.
-
-El recorrido se repite con `node despliegue/demo/equipo-recorrido.mjs http://127.0.0.1:18083` después de `make demo`; sustituye el puerto si la demostración usa otro.
-
-FI1 añade edición de Menores e Intervención, vigencias, excepciones por menor y comparación ante conflictos sin perder el formulario. Marta Cabrera edita los expedientes de ETF 02; Inés Moreno consulta. El recorrido se repite con `node scripts/recorridos/fi1.mjs http://127.0.0.1:18341` después de `make demo`; ajusta el puerto. [Recorrido y límites de FI1](docs/capturas/FI1.md).
-
-La [evidencia de validación](docs/capturas/EVIDENCIA_F2.06.md) describe los recorridos y sus límites.
-
-
-**Disponible en el servidor (F2.08b):** CSV/XLSX de 2026 sobre el alta asistida histórica: vista previa sin guardar datos, ClamAV obligatorio, informe por fila en es/en y lotes atómicos e idempotentes. Hasta 10 MB y 100 casos por equipo; no se conserva la hoja. Formato provisional D21 y API en [ESQUEMA_BACKEND §7.2](docs/producto/ESQUEMA_BACKEND.md#72-compatibilidad-de-carga-por-hoja-formato-v1-f208b). Migración carga/0001. CA1 añade las pantallas de alta asistida y hoja, con revisión y resultado, y un CSV inventado descargable.
-
-**Pendiente:** completar la ficha del expediente, el resto de la Memoria y sus pantallas, el despliegue en producción. Cierre, seguimiento y Tabla Mensual del SPAF ya tienen pantallas. Las rutas de pantalla y de API que describen los documentos son previstas salvo las ya entregadas.
-
-El orden y los criterios de cada entrega están en [PLAN_IMPLEMENTACION.md](docs/producto/PLAN_IMPLEMENTACION.md).
+Los cuestionarios oficiales de las escalas de evaluación esperan una decisión del responsable del producto; mientras tanto las escalas son opcionales y no bloquean documentos, cierre ni Memoria. El orden y los criterios de cada entrega están en [PLAN_IMPLEMENTACION.md](docs/producto/PLAN_IMPLEMENTACION.md).
 
 ## Documentos de producto
 
@@ -287,29 +222,131 @@ Son la única fuente de verdad. Si algo contradice a uno de ellos, se corrige en
 
 Para contribuir, lee los seis documentos de producto en `docs/producto/` y ejecuta `make ci`.
 
-## Vídeos de recorridos
+## Curso y vídeos de recorridos
 
 El [curso de la aplicación](curso/LEEME.md), de Alberto Avidad (CC BY-SA 4.0), se construye con `make curso` para eXeLearning 4.0.5, web offline y SCORM 1.2.
 
 `make videos` graba todos los guiones; `make videos RECORRIDOS="05-ficha 06-spaf 08-traslado"` selecciona los tres de ficha, tabla y traslado. `make videos RECORRIDOS="09-memoria 10-carga-2026"` graba Memoria y carga. `make video RECORRIDO=02-coordinacion` graba sólo la recepción y aceptación de una derivación. También están disponibles `01-entrada`, sobre acceso y asignación de perfil; `03-actividad`, sobre comisiones, informes y consulta provincial; `04-plantillas`, sobre revisión y activación de una plantilla Word; `05-ficha`, sobre avisos, menores, intervención, consentimiento y evaluación; `06-spaf`, sobre la tabla mensual con cifras de menores; `07-cierre`, sobre propuesta, confirmación y Acta de Cierre; `08-traslado`, sobre el número nuevo en destino y el seguimiento tras cese del origen; `09-memoria`, sobre revisión, textos, Word, cierre y reapertura de la Memoria; y `10-carga-2026`, sobre alta histórica e importación de una hoja con incidencias por fila. Incluyen una vista previa animada sobre pantallas reales, acciones sincronizadas con la voz, ratón visible y cierre sobre la última pantalla difuminada. Los rótulos breves usan el tema activo. Los resultados se guardan fuera de Git, en la carpeta elegida con `ETF_VIDEOS_SALIDA` (por defecto `~/Videos/Expedientes-ETF`). La herramienta arranca el entorno local de demostración y utiliza sus cuentas inventadas; también permite probar el montaje con imágenes sintéticas. Requisitos, arranque manual y revisión de fotogramas en [la guía de recorridos](docs/recorridos/LEEME.md).
 
-**Servidor de Memoria (F4.05):** GET/PUT `/api/estadistica/memoria/narrativas?anio=&etf=` guardan A, D, E, F y G con versión e historia auditada. POST `/api/estadistica/memoria/word`, con `Idempotency-Key`, descarga el Word de la administración competente por año, equipo e idioma, sin guardar el fichero ni cerrar la Memoria. Coordinación y el equipo autorizado acceden a sus textos; Consulta y Administración no acceden a la Memoria completa. Parámetros iniciales versionados en `datos/catalogos/memoria/`; fuentes todavía ausentes y porcentajes sin base validada se muestran como «sin dato». El lector reconstruye familia, adultos, menores e intervención por vigencia y fecha de conocimiento. FX1 conecta las vistas de `expediente/0022`, distingue listas sin valorar de listas vacías y aplica exclusiones por menor. SPAF recibe menores, nacimientos, códigos de protección y fase históricos; nombres históricos y otras columnas sin fuente siguen pendientes. La fecha del Anexo 5 desde intervención cambia el estado a `derivada_spm`; una respuesta habilitante fechada lo devuelve a `en_intervencion`, con versión e historia en la transacción auditada. F4.06 añade cierre, reapertura con motivo, revisiones inmutables, estado e instantáneas y discrepancias en `/api/estadistica/memoria/`. El equipo cierra la suya; sólo Coordinación cierra la provincial y reabre. Cerrar y reabrir llevan versión, CSRF e idempotencia. Una corrección estadística genera avisos para Coordinación en la misma transacción; el Word cerrado usa la foto conservada. F4.02 conecta la pantalla Memoria: cuatro bloques, avisos, edición narrativa, Word, estado, cierre y reapertura. F4.07 conecta Consulta a cifras al momento o a la foto cerrada, con fecha y carácter provisional o definitivo; MEMDES conecta el desglose por números, equipo y aporte para Equipo/Coordinación; la foto cerrada usa su revisión y el acceso a la ficha se comprueba actualmente. Ensayo: `python3 -B migraciones/estadistica/ensayar.py`, incluido en `make ci`.
-
-Servidor F2.01a: edición de familia y adultos con historia estadística, versión, idempotencia y RLS por equipo. La pantalla sigue pendiente; el contrato HTTP y el puerto de adultos para evaluación están en [ESQUEMA_BACKEND.md](docs/producto/ESQUEMA_BACKEND.md).
-
 ## Lector de voz
 
-`make voz` genera grabaciones de curso, ayuda contextual y manuales con edge-tts 7.3.1 y `es-ES-AlvaroNeural`. Sólo envía texto redactado por el proyecto, sin datos de expedientes ni de la base. Los audios quedan fuera de Git en `bin/voz/`, con caché por texto. La aplicación reproduce recursos estáticos; si faltan, conserva la lectura sin controles de audio. En inglés el lector permanece oculto.
+`make voz` genera las grabaciones del curso, la ayuda contextual y los manuales con edge-tts 7.3.1 y la voz `es-ES-AlvaroNeural`; la última generación produjo 243 audios. Sólo envía texto redactado por el proyecto, sin datos de expedientes ni de la base. Los audios quedan fuera de Git en `bin/voz/`, con caché por texto. La aplicación reproduce recursos estáticos; si faltan, conserva la lectura sin controles de audio. En inglés el lector permanece oculto.
 
-El menú Ayuda ofrece el manual de los perfiles de la sesión, con índice y capturas. `make curso` incluye escucha de página y secciones tanto en web como en SCORM. Docker y el paquete Windows incorporan los audios existentes. [Construcción y pruebas](scripts/voz/LEEME.md), [operación y estado de la generación real](docs/sistemas/VOZ.md).
+El menú Ayuda ofrece el manual de los perfiles de la sesión, con índice y capturas. `make curso` incluye escucha de página y secciones tanto en web como en SCORM. Docker y el paquete de Windows incorporan los audios existentes. [Construcción y pruebas](scripts/voz/LEEME.md) y [operación de la generación](docs/sistemas/VOZ.md).
 
-## Capturas de la interfaz
+## Detalle de lo construido
 
-VOZ: [recorrido y resultados](docs/capturas/VOZ.md). [Ayuda 1440](docs/capturas/voz-ayuda-1440.png), [Ayuda 390](docs/capturas/voz-ayuda-390.png), [ayuda contextual 1440](docs/capturas/voz-contextual-1440.png), [ayuda contextual 390](docs/capturas/voz-contextual-390.png), [curso 1440](docs/capturas/voz-curso-1440.png) y [curso 390](docs/capturas/voz-curso-390.png). Capturas de la demo y de la exportación web real, con datos inventados y audios simulados locales. La síntesis real devolvió HTTP 403; [estado](docs/sistemas/VOZ.md).
+Cada apartado enlaza su comprobación, sus capturas con datos inventados y el recorrido que se repite tras `make demo`. Los puertos de los comandos son ejemplos: usa el de tu demostración.
 
-SEG3 permite a Administración fijar el cierre de la carga histórica y a Coordinación revisar y anular lotes intactos dentro del plazo. Las coincidencias requieren confirmación expresa; un lote no puede agotar los números ordinarios del equipo. [Pruebas y límites de SEG3](docs/evidencias/SEG3.md). Recorrido: `node scripts/recorridos/seg3.mjs http://127.0.0.1:18423`, tras `make demo` con ese puerto.
+### Entrada de derivaciones
 
-| Control de carga histórica | Escritorio | Móvil |
+El lector de anexos acepta Word, LibreOffice (ODT) y PDF, también los PDF con firma digital. El PDF usa `dslipak/pdf v0.0.2` en un trabajador efímero, con límite de 10 MB y 20 páginas. Los valores leídos requieren confirmación y los campos no recuperados quedan vacíos. Los escaneados se registran con aviso para teclear sus datos, sin reconocimiento de texto ni ficheros temporales. [Lectura de los ODT y PDF del Programa](docs/recorridos/RESP4.md). El ensayo HTTP con ClamAV se ejecuta con `python3 -B internal/adaptadores/anexos/pdf/probar_subida.py`, con recursos desechables y firmas sintéticas.
+
+La subida pasa por el antivirus y muestra una revisión editable con la propuesta de municipio, centro y equipo. Analizar no crea la derivación: se guarda sólo al confirmar, una sola vez y con auditoría. Descartar elimina la revisión temporal. La pantalla está en `/coordinacion/anexos/nuevo`.
+
+La bandeja de Coordinación (`/coordinacion`) reúne pendientes de revisar, aceptados recientes, no aceptados y lista de espera. Filtra por estado, equipo, municipio y recepción, y busca por número o familia; la lista muestra sólo iniciales. Desde la revisión de una derivación (`/coordinacion/derivaciones/{id}`) se acepta con número confirmado, se rechaza o se deja en lista de espera, se descargan actas y oficios y se anota su registro de salida.
+
+- [Bandeja en escritorio](docs/capturas/bandeja-escritorio.png) y [en móvil](docs/capturas/bandeja-movil.png).
+- [Revisión del anexo en escritorio](docs/capturas/anexo-escritorio.png) y [en móvil](docs/capturas/anexo-movil.png).
+- Decisión sobre la derivación: [escritorio, 1440 px](docs/capturas/decision-escritorio.png) y [móvil, 390 px](docs/capturas/decision-movil.png).
+
+Recorrido: `node scripts/recorridos/decision.mjs http://127.0.0.1:18186`. Sube y confirma los anexos por API, prepara un destinatario inventado para el SPM si falta y comprueba decisiones, descargas y registros con Coordinación.
+
+Coordinación mantiene el salario mínimo interprofesional (SMI) por año en `/coordinacion/smi`.
+
+### Ficha del expediente
+
+La bandeja del equipo y la ficha comparten el armazón común. Se busca sin mostrar nombres en los resultados y se consultan hitos, emisiones e historial. La ficha muestra los avisos de consentimiento vencido, fase prolongada y datos que faltan para la Memoria. Sus pestañas son Familia, Menores, Intervención, Consentimiento, Evaluación, Documentos, Cierre, Salidas e Historial. Guardan versión e historia con vigencia, comparan los cambios ante un conflicto sin perder el formulario y sólo dejan ver a cada equipo lo suyo. [Validación de la bandeja y la ficha](docs/capturas/EVIDENCIA_F2.06.md).
+
+- Familia y adultos, con historia para las estadísticas.
+- Hasta 15 menores, con subprograma propio, centro de protección opcional y excepciones por menor.
+- Intervención: fase, coordinación, factores y tipologías. Distingue un dato sin valorar de una lista vacía.
+- Consentimiento: descarga el Anexo 1 o 2 y confirma por separado la firma y la fecha del Anexo 7 u 8, sin guardar el DNI.
+- Evaluación: instrumentos por adulto y momento, con respuestas por ítem. Las escalas son opcionales: se pueden anotar aquí o rellenar después en el Word de los Anexos 11 y 12, y las casillas sin resultado quedan vacías. No calcula puntuaciones totales sin los baremos del Programa.
+- Comisiones e informes del equipo en `/equipo/comisiones`, que alimentan los apartados 15 y 16 de la Memoria.
+
+Capturas:
+
+- [Bandeja en escritorio](docs/capturas/equipo-bandeja-escritorio.png) y [en móvil](docs/capturas/equipo-bandeja-movil.png); [ficha en escritorio](docs/capturas/equipo-ficha-escritorio.png) y [en móvil](docs/capturas/equipo-ficha-movil.png).
+- [Familia en escritorio](docs/capturas/equipo-gap1-familia-escritorio.png) y [en móvil](docs/capturas/equipo-gap1-familia-movil.png).
+- [Menores en escritorio](docs/capturas/fi1-menores-escritorio.png) y [en móvil](docs/capturas/fi1-menores-movil.png); [Intervención en escritorio](docs/capturas/fi1-intervencion-escritorio.png) y [en móvil](docs/capturas/fi1-intervencion-movil.png).
+- [Consentimiento en escritorio](docs/capturas/fi2-consentimiento-escritorio.png) y [en móvil](docs/capturas/fi2-consentimiento-movil.png); [Evaluación en escritorio](docs/capturas/fi2-evaluacion-escritorio.png) y [en móvil](docs/capturas/fi2-evaluacion-movil.png).
+- Evaluación sin escalas: [escritorio](docs/capturas/resp3-sin-escalas-escritorio.png) y [móvil](docs/capturas/resp3-sin-escalas-movil.png); con resultados parciales: [escritorio](docs/capturas/resp3-parciales-escritorio.png) y [móvil](docs/capturas/resp3-parciales-movil.png).
+- [Comisiones en escritorio](docs/capturas/actividad-comisiones-escritorio.png), [informes en escritorio](docs/capturas/actividad-informes-escritorio.png) e [informes en móvil](docs/capturas/actividad-informes-movil.png).
+
+Recorridos y límites: [bandeja y ficha](docs/capturas/EVIDENCIA_F2.06.md), [familia y cierre](docs/capturas/GAP1.md), [menores e intervención](docs/capturas/FI1.md), [consentimiento y evaluación](docs/capturas/FI2.md), [escalas opcionales](docs/evidencias/RESP3.md) y [comisiones e informes](docs/capturas/actividad.md). Se repiten con `node despliegue/demo/equipo-recorrido.mjs`, `node scripts/recorridos/gap1.mjs`, `node scripts/recorridos/fi1.mjs`, `node scripts/recorridos/fi2.mjs` y `node scripts/recorridos/resp3.mjs`, seguidos de la dirección de la demo (por ejemplo `http://127.0.0.1:18083`). En la demo, Marta Cabrera edita los expedientes de ETF 02 e Inés Moreno consulta.
+
+### Salidas, cierre, traslado y seguimiento
+
+Salidas prepara la derivación al SPM con el Anexo 5 y registra su respuesta con historia. Al enviar el Anexo 5, el expediente pasa a «derivado al SPM»; una respuesta favorable con fecha lo devuelve a intervención. También prepara la derivación a otro servicio con el Anexo 6: destino de catálogo, o escrito a mano si no hay opciones, motivo y versión de plantilla. Administración publica los destinos. Ninguna de las dos salidas cierra el expediente. [Derivación a otros servicios](docs/evidencias/AN6.md).
+
+El equipo guarda la finalización, descarga los Anexos 11 y 12 y propone o retira el cierre; también puede proponerlo desde «aceptado» si falta el consentimiento. Otra persona de Coordinación revisa la propuesta, confirma fecha y cierre y descarga el Acta de Cierre. Si el SPM no ha respondido, el cierre queda bloqueado salvo una excepción motivada y auditada. Para editar un expediente cerrado hay que reabrirlo, y los episodios anteriores se conservan.
+
+El traslado cierra el expediente en el equipo de origen, copia familia, adultos y menores vigentes y lo abre en el de destino con número nuevo y Acta. El seguimiento tras el cese dura 12 meses según el catálogo, avisa 30 días antes del fin y termina solo; el equipo puede terminarlo antes con un motivo y Coordinación puede reabrirlo, incluso vencido, con el plazo completo desde la reapertura.
+
+- Salidas y cierre: [escritorio, 1440 px](docs/capturas/salidas-escritorio.png), [móvil, 390 px](docs/capturas/salidas-movil.png), [cierres propuestos](docs/capturas/salidas-cierres-escritorio.png) y [alto contraste en móvil](docs/capturas/salidas-alto-contraste-movil.png). [Recorrido y revisión](docs/capturas/salidas.md).
+- Familia y cierre: [Cierre en escritorio](docs/capturas/equipo-gap1-cierre-escritorio.png) y [en móvil](docs/capturas/equipo-gap1-cierre-movil.png).
+- Traslado y seguimiento: [traslado en escritorio](docs/capturas/traslado-escritorio.png), [traslado en móvil](docs/capturas/traslado-movil.png), [seguimiento en escritorio](docs/capturas/traslado-seguimiento-escritorio.png), [seguimiento en móvil](docs/capturas/traslado-seguimiento-movil.png) y [alto contraste en móvil](docs/capturas/traslado-alto-contraste-movil.png). [Recorrido y revisión](docs/capturas/traslado.md); se repite con `node scripts/recorridos/traslado.mjs http://127.0.0.1:18431`.
+
+### Respuestas del Programa
+
+Las respuestas del Programa del 14/10/2026 ya están aplicadas: el SMI de 2026, la lista de espera sólo para el Anexo 3, la aceptación de municipios fuera del ámbito, la columna de municipio en el SPAF, el recuento de pendientes en la Memoria y la fecha y el número reales de la aceptación.
+
+- [Anexo 6 en escritorio (1440 px)](docs/capturas/anexo6-1440.png) y [en móvil (390 px)](docs/capturas/anexo6-390.png).
+- [Derivación del SPM en escritorio](docs/capturas/resp1-spm-1440.png) y [en móvil](docs/capturas/resp1-spm-390.png).
+- [Tabla SPAF en escritorio](docs/capturas/resp1-spaf-1440.png) y [en móvil](docs/capturas/resp1-spaf-390.png).
+
+Recorrido: `node scripts/recorridos/respuestas_programa.mjs http://127.0.0.1:18083`. Comprueba además el rechazo en el servidor de la lista de espera para el Anexo 4 y los Word del SPAF en castellano e inglés.
+
+### Tabla Mensual del SPAF
+
+La tabla se calcula desde la historia de los expedientes, con permisos por equipo, auditoría y el corte de lo que se sabía en cada fecha. Los campos que todavía no se recogen se muestran como desconocidos. Se descarga en Word, en castellano o inglés. La columna «Municipio / ZTS» recoge sólo el municipio de la familia, como pidió el Programa.
+
+Capturas: [escritorio, 1440 px](docs/capturas/spaf-escritorio.png), [móvil, 390 px](docs/capturas/spaf-movil.png) y [alto contraste en móvil](docs/capturas/spaf-alto-contraste-movil.png). [Recorrido y límites](docs/capturas/spaf.md). La demo incluye septiembre de 2026: en ETF 02, 2 altas, 2 bajas y 3 casos; en ETF 01, 1 alta. Recorrido: `node scripts/recorridos/spaf.mjs http://127.0.0.1:18273`.
+
+### Memoria Técnica Anual
+
+La pantalla Memoria (`/memoria`) tiene cuatro bloques, avisos, textos editables, descarga en Word, estado, cierre y reapertura. Los textos A, D, E, F y G se guardan con versión e historia auditada. El Word de la administración competente se descarga por año, equipo e idioma sin guardar el fichero. El equipo cierra la suya; sólo Coordinación cierra la provincial y reabre, con motivo. Al cerrar se guarda una foto de las cifras; si después cambia un dato, Coordinación recibe un aviso de discrepancia y el Word cerrado sigue usando la foto. Los parámetros iniciales están en `datos/catalogos/memoria/`; las fuentes que aún faltan y los porcentajes sin base validada se muestran como «sin dato».
+
+Consulta ve sólo cifras, la fecha y si son provisionales o definitivas, y descarga un Word numérico. El cálculo para Consulta usa un rol técnico propio sin acceso a tablas personales y necesita `ETF_CALCULO_MEMORIA_CONTRASENA` ([cifras para Consulta](docs/evidencias/F4.07.md)). Las cifras pequeñas se ocultan y la sesión avisa antes de caducar ([protección de cifras y sesión](docs/evidencias/SEG1.md)).
+
+El desglose permite comprobar cada cifra por expediente: número, equipo y aporte, sin nombres. Las comisiones y los informes son actividad del equipo y no se vinculan a expedientes ([desglose de la Memoria](docs/evidencias/MEMDES.md)).
+
+- Memoria: [escritorio](docs/capturas/memoria-escritorio.png), [móvil](docs/capturas/memoria-movil.png) y [foto cerrada](docs/capturas/memoria-cerrada.png). [Recorrido de permisos, edición y descarga](docs/capturas/memoria.md).
+- Desglose: [escritorio, 1440 px](docs/capturas/memoria-desglose-1440.png) y [móvil, 390 px](docs/capturas/memoria-desglose-390.png). Recorrido: `node scripts/recorridos/memoria-desglose.mjs http://127.0.0.1:18543`, que también corre en `make ci`.
+- Consulta: [1440 px](docs/capturas/seg1-consulta-1440.png) y [390 px](docs/capturas/seg1-consulta-390.png); aviso de sesión a [1440 px](docs/capturas/seg1-sesion-1440.png) y [390 px](docs/capturas/seg1-sesion-390.png); [límite absoluto](docs/capturas/seg1-maxima-390.png) y [entrada tras caducar](docs/capturas/seg1-caducada-390.png). Recorrido: `node scripts/recorridos/seg1.mjs`.
+
+El ensayo de las migraciones de estadística se ejecuta con `python3 -B migraciones/estadistica/ensayar.py` y forma parte de `make ci`.
+
+### Carga histórica de 2026
+
+Permite dar de alta los expedientes históricos que hacen falta para 2026 conservando números, fechas, cierres, reaperturas y vigencias. Los casos cargados quedan señalados para que Coordinación o el equipo los revisen y confirmen uno a uno o por lotes.
+
+- Alta asistida de un caso.
+- Importación de una hoja CSV o XLSX de hasta 10 MB y 100 casos por equipo: vista previa sin guardar, antivirus obligatorio, informe por fila en castellano o inglés y lotes que se guardan enteros o no se guardan. La hoja no se conserva. El formato es provisional y su contrato está en [ESQUEMA_BACKEND §7.2](docs/producto/ESQUEMA_BACKEND.md#72-compatibilidad-de-carga-por-hoja-formato-v1-f208b). Hay un CSV inventado para descargar.
+- Importación de Actas de Aceptación y de Cierre en PDF, DOCX u ODT, también firmadas, con revisión de una persona, para cargar los expedientes abiertos de años anteriores. Las actas no se guardan ([importación de actas](docs/evidencias/RESP2.md), [actas en ODT](docs/evidencias/RESP5.md)).
+- Control de la carga: Administración fija la fecha de cierre y Coordinación revisa y anula lotes intactos dentro del plazo. Las coincidencias con expedientes existentes requieren confirmación expresa, y un lote no puede agotar los números ordinarios del equipo ([pruebas y límites](docs/evidencias/SEG3.md)).
+
+Capturas de la carga ([recorrido y revisión](docs/capturas/carga.md)):
+
+- Alta asistida: [escritorio, 1440 px](docs/capturas/carga-alta-escritorio.png) y [móvil, 390 px](docs/capturas/carga-alta-movil.png).
+- Revisión histórica: [escritorio](docs/capturas/carga-revision-escritorio.png) y [móvil](docs/capturas/carga-revision-movil.png).
+- Carga de hoja: [escritorio](docs/capturas/carga-hoja-escritorio.png) y [móvil](docs/capturas/carga-hoja-movil.png).
+- Incidencias por fila: [escritorio](docs/capturas/carga-incidencias-escritorio.png) y [móvil](docs/capturas/carga-incidencias-movil.png).
+- Resultado: [escritorio](docs/capturas/carga-resultado-escritorio.png), [móvil](docs/capturas/carga-resultado-movil.png) y [alto contraste](docs/capturas/carga-alto-contraste-movil.png).
+- Revisión de un no aceptado por el equipo: [escritorio](docs/capturas/carga-no-aceptado-profesional-escritorio.png) y [móvil](docs/capturas/carga-no-aceptado-profesional-movil.png). El resultado enlaza a la consulta auditada de cada expediente, también si no tiene número.
+
+Capturas de la importación de actas:
+
+- Elegir equipo y actas: [1440 px](docs/capturas/carga-actas-inicio-1440.png) · [390 px](docs/capturas/carga-actas-inicio-390.png).
+- Datos leídos para revisar: [1440 px](docs/capturas/carga-actas-datos-1440.png) · [390 px](docs/capturas/carga-actas-datos-390.png).
+- Resultado confirmado: [1440 px](docs/capturas/carga-actas-resultado-1440.png) · [390 px](docs/capturas/carga-actas-resultado-390.png).
+- [Alto contraste, 390 px](docs/capturas/carga-actas-contraste-390.png).
+
+Capturas del control de la carga:
+
+
+| Control de la carga histórica | Escritorio | Móvil |
 | --- | --- | --- |
 | Fecha de cierre (Administración) | [Ver captura](docs/capturas/carga-seg3-plazo-1440.png) | [Ver captura](docs/capturas/carga-seg3-plazo-390.png) |
 | Carga cerrada | [Ver captura](docs/capturas/carga-seg3-cerrada-1440.png) | [Ver captura](docs/capturas/carga-seg3-cerrada-390.png) |
@@ -318,22 +355,39 @@ SEG3 permite a Administración fijar el cierre de la carga histórica y a Coordi
 | Confirmar anulación | [Ver captura](docs/capturas/carga-seg3-anular-1440.png) | [Ver captura](docs/capturas/carga-seg3-anular-390.png) |
 | Inglés y alto contraste | [Ver captura](docs/capturas/carga-seg3-contraste-en-1440.png) | [Ver captura](docs/capturas/carga-seg3-contraste-en-390.png) |
 
-SEG1 protege las cifras pequeñas de Consulta y avisa antes de terminar la sesión. Recorrido: `node scripts/recorridos/seg1.mjs` tras `make demo`; usa el puerto de esta demostración y sólo datos inventados. [Consulta a 1440 px](docs/capturas/seg1-consulta-1440.png), [Consulta a 390 px](docs/capturas/seg1-consulta-390.png), [aviso a 1440 px](docs/capturas/seg1-sesion-1440.png), [aviso a 390 px](docs/capturas/seg1-sesion-390.png), [límite absoluto](docs/capturas/seg1-maxima-390.png) y [entrada tras caducar](docs/capturas/seg1-caducada-390.png). [Evidencia y límites de SEG1](docs/evidencias/SEG1.md).
+Recorridos: `node scripts/recorridos/carga.mjs http://127.0.0.1:51481`, con Inés Moreno y Marta Cabrera, que conserva los expedientes de la prueba en la demo, y `node scripts/recorridos/seg3.mjs http://127.0.0.1:18423` para el control de la carga.
 
-Auditoría (AUD1): [escritorio, 1440 px](docs/capturas/auditoria-escritorio.png) y [móvil, 390 px](docs/capturas/auditoria-movil.png). Administración descarga CSV o JSON con prueba de integridad, filtros y límites. Comprobación local: `go run ./cmd/verificar-exportacion /ruta/autorizada/auditoria.zip`; añade `ID_ANTERIOR HUELLA_ANTERIOR ID_FINAL HUELLA_FINAL` para contrastar ambos puntos custodiados fuera del archivo. [Recorrido y pruebas](docs/evidencias/AUD1.md).
-UBI1 añade «Equipos, municipios y centros» para Administración funcional: altas y bajas con vigencia, asignaciones independientes, ámbito y variantes de escritura. Conserva versiones anteriores, expedientes numerados y Memorias cerradas. Capturas: [escritorio 1440](docs/capturas/ubicaciones-1440.png), [móvil 390](docs/capturas/ubicaciones-390.png), [alto contraste](docs/capturas/ubicaciones-390-alto-contraste.png) e [inglés](docs/capturas/ubicaciones-390-en.png). Repite la comprobación con `node scripts/recorridos/ubicaciones.mjs http://127.0.0.1:18095` después de `make demo`, ajustando el puerto.
+### Administración
 
-PWA1 permite instalar la aplicación en Edge y Chrome. [Cómo instalarla desde Edge](docs/manuales/usuario.md#instalar-la-aplicación-desde-edge). Necesita conexión al servidor; no guarda expedientes para trabajar sin conexión. Iconos reproducibles: `node scripts/pwa1/iconos.mjs`. Prueba de instalación y privacidad: `node scripts/recorridos/pwa1.mjs http://127.0.0.1:18541`, tras `make demo` con ese puerto (o ajustando la URL). El recorrido comprueba que es la demo de este worktree y utiliza la misma preparación que `make demo`: instala idiomas y temas, incluidos los recursos PWA1, sustituyendo la base de la distribución y conservando las versiones publicadas y lo cambiado a mano (FX8).
+- **Usuarios y permisos.** Perfiles, vigencias, equipo y baja. Los permisos propios los cambia otra persona de Administración: «Ver mis permisos» abre la configuración en consulta, y el servidor y la base de datos bloquean y auditan el intento. La primera cuenta se concede una sola vez mediante el [alta inicial de sistemas](docs/sistemas/LEEME.md). Capturas: [escritorio, 1440 px](docs/capturas/usuarios-seg2-1440.png) y [móvil, 390 px](docs/capturas/usuarios-seg2-390.png). [Pruebas y revisiones](docs/evidencias/SEG2.md). Recorrido: `node scripts/recorridos/seg2.mjs http://127.0.0.1:18142`.
+- **Catálogos, plazos, tramos, firmantes y SMI.** Las etiquetas salen en el idioma activo, idiomas y temas tienen una sola entrada y los importes del SMI no se cortan en móvil. [Recorrido y límites](docs/capturas/UI2.md).
+- **Equipos, municipios y centros.** Altas y bajas con vigencia, asignaciones independientes, ámbito y variantes de escritura, sin tocar versiones anteriores, expedientes numerados ni Memorias cerradas. Capturas: [escritorio 1440](docs/capturas/ubicaciones-1440.png), [móvil 390](docs/capturas/ubicaciones-390.png), [alto contraste](docs/capturas/ubicaciones-390-alto-contraste.png) e [inglés](docs/capturas/ubicaciones-390-en.png). Recorrido: `node scripts/recorridos/ubicaciones.mjs http://127.0.0.1:18095`.
+- **Plantillas Word** (`/admin/plantillas`). Versión activa e historial por documento e idioma, subida de DOCX de hasta 10 MB con antivirus, detalle de marcadores y activación confirmada con autor y fecha. Se puede volver a una versión anterior sin borrar la historia. Capturas: [escritorio, 1440 px](docs/capturas/plantillas-escritorio.png) y [móvil, 390 px](docs/capturas/plantillas-movil.png). [Recorrido y comprobaciones](docs/capturas/plantillas.md); se repite con `node scripts/recorridos/plantillas.mjs http://127.0.0.1:18231`.
+- **Auditoría.** Descarga en CSV o JSON con prueba de integridad, filtros y límites. Se comprueba en local con `go run ./cmd/verificar-exportacion /ruta/autorizada/auditoria.zip`; añade `ID_ANTERIOR HUELLA_ANTERIOR ID_FINAL HUELLA_FINAL` para contrastar los dos puntos custodiados fuera del archivo. Capturas: [escritorio, 1440 px](docs/capturas/auditoria-escritorio.png) y [móvil, 390 px](docs/capturas/auditoria-movil.png). [Recorrido y pruebas](docs/evidencias/AUD1.md).
+- **Conservación** (`/admin/conservacion`). 25 años desde el cierre, configurables en Plazos y tramos. Dos personas distintas de Administración revisan y confirman la retirada de datos personales sin abrir fichas. Se mantienen las cifras históricas y la auditoría. El alcance depende de lo que diga el delegado de protección de datos.
+- **Revisión tras restaurar una copia.** Hasta decidir los cambios y confirmar la revisión, nadie más puede entrar. Capturas: [escritorio](docs/capturas/restauracion-escritorio.png) y [móvil](docs/capturas/restauracion-movil.png).
 
-| PWA1 | Escritorio | Móvil |
+| Pantalla | Escritorio (1440 px) | Móvil (390 px) | Alto contraste: escritorio | Alto contraste: móvil |
+| --- | --- | --- | --- | --- |
+| Usuarios y permisos | [Ver captura](docs/capturas/ui2-usuarios-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-usuarios-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-usuarios-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-usuarios-390-alto-contraste.png) |
+| Catálogos | [Ver captura](docs/capturas/ui2-catalogos-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-catalogos-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-catalogos-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-catalogos-390-alto-contraste.png) |
+| Plazos | [Ver captura](docs/capturas/ui2-reglas-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-reglas-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-reglas-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-reglas-390-alto-contraste.png) |
+| Tramos | [Ver captura](docs/capturas/ui2-tramos-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-tramos-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-tramos-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-tramos-390-alto-contraste.png) |
+| Firmantes y destinatarios | [Ver captura](docs/capturas/ui2-firmantes-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-firmantes-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-firmantes-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-firmantes-390-alto-contraste.png) |
+| Salario mínimo interprofesional | [Ver captura](docs/capturas/ui2-smi-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-smi-390-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-smi-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-smi-390-alto-contraste.png) |
+
+### Aplicación instalable
+
+La aplicación se puede instalar en Edge y Chrome como una aplicación más ([cómo instalarla desde Edge](docs/manuales/usuario.md#instalar-la-aplicación-desde-edge)). Necesita conexión con el servidor y no guarda expedientes para trabajar sin conexión. Los iconos se regeneran con `node scripts/pwa1/iconos.mjs`. La prueba de instalación y privacidad es `node scripts/recorridos/pwa1.mjs http://127.0.0.1:18541`: comprueba que la demo es la de esta copia de trabajo y la prepara igual que `make demo`, instalando idiomas, temas e iconos sin perder las versiones publicadas ni lo cambiado a mano.
+
+| Aplicación instalable | Escritorio | Móvil |
 | --- | --- | --- |
 | Sesión de Coordinación | [Ver captura](docs/capturas/pwa1-escritorio.png) | [Ver captura](docs/capturas/pwa1-movil.png) |
 | Sin conexión | [Ver captura](docs/capturas/pwa1-sin-conexion-escritorio.png) | [Ver captura](docs/capturas/pwa1-sin-conexion-movil.png) |
 
+### Aspecto general
 
-Memoria: [escritorio](docs/capturas/memoria-escritorio.png), [móvil](docs/capturas/memoria-movil.png) y [foto cerrada](docs/capturas/memoria-cerrada.png). El [recorrido de Memoria](docs/capturas/memoria.md) recoge permisos, edición y descarga.
-
-UI3: [recorrido y comprobaciones](docs/capturas/UI3.md). Capturas con datos inventados:
+Menú por secciones, decisión de derivación, avisos de menores, persona y equipo, y SPAF con casos históricos. Donde el lector todavía no conecta un dato, el SPAF lo muestra como desconocido y la Memoria como «Sin dato». [Recorrido y comprobaciones](docs/capturas/UI3.md); se repite con `node scripts/recorridos/ui3.mjs http://127.0.0.1:18343`.
 
 | Pantalla | Escritorio 1440 | Móvil 390 |
 | --- | --- | --- |
@@ -343,99 +397,11 @@ UI3: [recorrido y comprobaciones](docs/capturas/UI3.md). Capturas con datos inve
 | Persona y equipo | [Ver captura](docs/capturas/ui3-equipo-persona-1440.png) | [Ver captura](docs/capturas/ui3-equipo-persona-390.png) |
 | SPAF con casos históricos | [Ver captura](docs/capturas/ui3-spaf-1440.png) | [Ver captura](docs/capturas/ui3-spaf-390.png) |
 
-Para recrear una demostración anterior con la nueva siembra: `make demo-limpiar` y `make demo`. El primer comando elimina sólo los datos locales inventados de esa demostración. Recorrido: `node scripts/recorridos/ui3.mjs http://127.0.0.1:18343`, ajustando el puerto. SPAF conserva datos desconocidos donde su lector todavía no conecta la información. Memoria usa la lectura histórica de menores e intervención de FX1 mediante F4.02; los campos sin fuente siguen como «Sin dato».
+Lector de voz: [recorrido y resultados](docs/capturas/VOZ.md). [Ayuda 1440](docs/capturas/voz-ayuda-1440.png), [Ayuda 390](docs/capturas/voz-ayuda-390.png), [ayuda contextual 1440](docs/capturas/voz-contextual-1440.png), [ayuda contextual 390](docs/capturas/voz-contextual-390.png), [curso 1440](docs/capturas/voz-curso-1440.png) y [curso 390](docs/capturas/voz-curso-390.png).
 
-Los retoques de UI2 muestran las etiquetas de Catálogos en el idioma activo, una
-sola entrada para idiomas y temas y los importes del SMI sin cortes en móvil.
-El recorrido, las comprobaciones y sus límites están en [UI2](docs/capturas/UI2.md).
+### Accesibilidad
 
-| Pantalla | Escritorio (1440 px) | Móvil (390 px) | Alto contraste: escritorio | Alto contraste: móvil |
-| --- | --- | --- | --- | --- |
-| Usuarios y permisos | [Ver captura](docs/capturas/ui2-usuarios-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-usuarios-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-usuarios-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-usuarios-390-alto-contraste.png) |
-| Catálogos | [Ver captura](docs/capturas/ui2-catalogos-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-catalogos-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-catalogos-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-catalogos-390-alto-contraste.png) |
-| Plazos | [Ver captura](docs/capturas/ui2-reglas-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-reglas-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-reglas-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-reglas-390-alto-contraste.png) |
-| Tramos | [Ver captura](docs/capturas/ui2-tramos-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-tramos-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-tramos-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-tramos-390-alto-contraste.png) |
-| Firmantes y destinatarios | [Ver captura](docs/capturas/ui2-firmantes-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-firmantes-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-firmantes-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-firmantes-390-alto-contraste.png) |
-| Salario mínimo interprofesional | [Ver captura](docs/capturas/ui2-smi-1440-expedientes-etf.png) | [Ver captura](docs/capturas/ui2-smi-390-expedientes-etf.png) [Ver captura](docs/capturas/ui2-smi-1440-alto-contraste.png) | [Ver captura](docs/capturas/ui2-smi-390-alto-contraste.png) |
-
-### Permisos propios de Administración (SEG2)
-
-Tus perfiles, vigencias, equipo y baja los cambia otra persona de Administración funcional. «Ver mis permisos» abre la configuración en consulta. Servidor y base de datos bloquean los cambios propios y auditan el intento rechazado. La primera cuenta se concede mediante el [alta inicial de sistemas](docs/sistemas/LEEME.md), una sola vez.
-
-Capturas con datos inventados: [escritorio, 1440 px](docs/capturas/usuarios-seg2-1440.png) y [móvil, 390 px](docs/capturas/usuarios-seg2-390.png). [Pruebas y revisiones de SEG2](docs/evidencias/SEG2.md). Recorrido: `node scripts/recorridos/seg2.mjs http://127.0.0.1:18142`, con la demo de este worktree arrancada y el puerto ajustado.
-
-### Coordinación
-
-La bandeja y la subida y revisión de anexos se han diseñado para escritorio y
-móvil. Las capturas contienen datos inventados.
-
-Pantallas P3 con datos inventados: [escritorio, 1440 px](docs/capturas/decision-escritorio.png) y [móvil, 390 px](docs/capturas/decision-movil.png).
-
-Con la demo arrancada, el recorrido se ejecuta con `node scripts/recorridos/decision.mjs http://127.0.0.1:18186` (ajusta el puerto). Sube y confirma los anexos por API, prepara un destinatario inventado para el SPM si falta y comprueba decisiones, descargas y registros. Las decisiones se prueban con Coordinación y se generan las capturas.
-
-Si ejecutas varias demos a la vez, puedes fijar subredes distintas mediante `ETF_DEMO_RED_SUBRED` y `ETF_DEMO_ENTRADA_SUBRED` en `despliegue/demo/.local/entorno.env`. Si la instalación repite muchas copias de dependencias, `npm_config_install_strategy=linked make demo` conserva las versiones e integridades del lock y usa enlaces. Esta misma variable se puede usar con `make ci`.
-
-- [Bandeja de Coordinación en escritorio](docs/capturas/bandeja-escritorio.png).
-- [Bandeja de Coordinación en móvil](docs/capturas/bandeja-movil.png).
-- [Revisión del anexo en escritorio](docs/capturas/anexo-escritorio.png).
-- [Revisión del anexo en móvil](docs/capturas/anexo-movil.png).
-
-### Comisiones e informes
-
-Comisiones e informes, con datos inventados y acceso de Coordinación.
-[Recorrido, revisión y límites de la comprobación](docs/capturas/actividad.md):
-
-- [Comisiones en escritorio](docs/capturas/actividad-comisiones-escritorio.png).
-- [Informes en escritorio](docs/capturas/actividad-informes-escritorio.png).
-- [Informes en móvil](docs/capturas/actividad-informes-movil.png).
-
-Servidor F2.01b: edición de hasta 15 menores, con subprograma propio y centro de protección opcional, vigencias estadísticas, versión e idempotencia. Publica la consulta para evaluación y estadística. Pantalla pendiente; contrato en [ESQUEMA_BACKEND.md](docs/producto/ESQUEMA_BACKEND.md).
-
-Servidor F2.01c: fase del expediente, coordinación, factores y tipologías con exclusiones por menor. Conserva las revisiones con vigencia y publica la consulta histórica para Memoria y avisos; distingue datos desconocidos de listas vacías. Catálogos en español e inglés, sin pantalla. Contrato en [ESQUEMA_BACKEND.md](docs/producto/ESQUEMA_BACKEND.md).
-
-Servidor F2.02: avisos por expediente y recuento por equipo para Profesional de ETF y Coordinación. Calcula consentimiento vencido, fase prolongada y datos faltantes de la ficha para la Memoria; los plazos se publican por Administración sin programar. API y alcance en [ESQUEMA_BACKEND.md](docs/producto/ESQUEMA_BACKEND.md). Sin pantallas.
-
-
-F2.05 incorpora el servidor de registro de instrumentos y persistencia de respuestas por ítem, con versión, idempotencia, RLS y auditoría. Los cuestionarios oficiales siguen pendientes: el catálogo enumera instrumentos y rechaza escalas sin definición de ítems. No calcula totales sin baremos del Programa. Menores pendientes de F2.01b; FI2 añade Evaluación a la ficha del equipo, con instrumentos por adulto y momento y respuestas por ítem preparadas para las definiciones publicadas.
-
-Plantillas Word (PL1), con datos inventados ([recorrido y comprobaciones](docs/capturas/plantillas.md)): [escritorio, 1440 px](docs/capturas/plantillas-escritorio.png) y [móvil, 390 px](docs/capturas/plantillas-movil.png). El recorrido se ejecuta con `node scripts/recorridos/plantillas.mjs http://127.0.0.1:18231` tras `make demo`; ajusta el puerto si hace falta.
-
-FI2 añade Consentimiento y Evaluación a la ficha del equipo. La integración con FI1 usa un registro común para Familia, Menores, Intervención, Consentimiento, Evaluación, Documentos, Cierre, Salidas e Historial; conserva la última ficha durante el refresco y bloquea las acciones de FI2 hasta recibir la nueva versión. Consentimiento descarga el Anexo 1 o 2 y confirma por separado la firma y la fecha del Anexo 7 u 8. Evaluación registra instrumentos por adulto y momento; las respuestas por ítem dependen de los cuestionarios oficiales pendientes de D17. No calcula puntuaciones totales.
-
-Capturas con datos inventados: [Consentimiento en escritorio](docs/capturas/fi2-consentimiento-escritorio.png), [Consentimiento en móvil](docs/capturas/fi2-consentimiento-movil.png), [Evaluación en escritorio](docs/capturas/fi2-evaluacion-escritorio.png) y [Evaluación en móvil](docs/capturas/fi2-evaluacion-movil.png). [Recorrido, revisión y límites](docs/capturas/FI2.md).
-
-Con la demo arrancada, ejecuta `node scripts/recorridos/fi2.mjs http://127.0.0.1:18242` (ajusta el puerto). Usa Coordinación y Marta Cabrera, registra adultos inventados si faltan y crea un expediente de Reunificación con el Anexo 4 de pruebas. El empaquetado de la demo incluye el catálogo de tramos necesario para dar de alta los adultos.
-
-Tabla Mensual para el SPAF (SP1), con datos inventados: [escritorio, 1440 px](docs/capturas/spaf-escritorio.png), [móvil, 390 px](docs/capturas/spaf-movil.png) y [alto contraste en móvil](docs/capturas/spaf-alto-contraste-movil.png). [Recorrido y límites](docs/capturas/spaf.md). La demo incluye septiembre de 2026 para ETF 02: 2 altas, 2 bajas y 3 casos; ETF 01: 1 alta. Ejecuta `node scripts/recorridos/spaf.mjs http://127.0.0.1:18273` con la demo arrancada y ajusta el puerto si hace falta.
-
-Pantallas CO2 de salidas y cierre ([recorrido y revisión](docs/capturas/salidas.md)): [escritorio, 1440 px](docs/capturas/salidas-escritorio.png), [móvil, 390 px](docs/capturas/salidas-movil.png), [cierres propuestos](docs/capturas/salidas-cierres-escritorio.png) y [alto contraste en móvil](docs/capturas/salidas-alto-contraste-movil.png).
-
-RESP2 y RESP5 amplían CA1 con lectura de Actas de Aceptación y de Cierre (PDF/DOCX/ODT, PDF firmado), revisión humana y carga de todos los abiertos de años anteriores. No persiste actas; reutiliza la numeración por equipo/año y la confirmación histórica. [Contrato y evidencia](docs/evidencias/RESP2.md). [Evidencia ODT](docs/evidencias/RESP5.md).
-
-Capturas de carga desde actas:
-
-- Elegir equipo y actas: [1440 px](docs/capturas/carga-actas-inicio-1440.png) · [390 px](docs/capturas/carga-actas-inicio-390.png).
-- Datos leídos para revisar: [1440 px](docs/capturas/carga-actas-datos-1440.png) · [390 px](docs/capturas/carga-actas-datos-390.png).
-- Resultado confirmado: [1440 px](docs/capturas/carga-actas-resultado-1440.png) · [390 px](docs/capturas/carga-actas-resultado-390.png).
-- [Alto contraste, 390 px](docs/capturas/carga-actas-contraste-390.png).
-
-Pantallas CA1 de carga de 2026 ([recorrido y revisión](docs/capturas/carga.md)):
-
-- Alta asistida: [escritorio, 1440 px](docs/capturas/carga-alta-escritorio.png) y [móvil, 390 px](docs/capturas/carga-alta-movil.png).
-- Revisión histórica: [escritorio](docs/capturas/carga-revision-escritorio.png) y [móvil](docs/capturas/carga-revision-movil.png).
-- Carga de hoja: [escritorio](docs/capturas/carga-hoja-escritorio.png) y [móvil](docs/capturas/carga-hoja-movil.png).
-- Incidencias por fila: [escritorio](docs/capturas/carga-incidencias-escritorio.png) y [móvil](docs/capturas/carga-incidencias-movil.png).
-- Resultado: [escritorio](docs/capturas/carga-resultado-escritorio.png), [móvil](docs/capturas/carga-resultado-movil.png) y [alto contraste](docs/capturas/carga-alto-contraste-movil.png).
-
-Tras `make demo`, ejecuta `node scripts/recorridos/carga.mjs http://127.0.0.1:51481` con el puerto elegido. Usa Inés Moreno y Marta Cabrera, datos inventados y Chrome del sistema. Conserva los expedientes de la prueba en la demo.
-
-Revisión de un no aceptado por el equipo: [escritorio](docs/capturas/carga-no-aceptado-profesional-escritorio.png) y [móvil](docs/capturas/carga-no-aceptado-profesional-movil.png). El resultado ofrece un enlace recuperable a la consulta auditada de cada expediente, también sin número.
-
-Pantallas TR1 ([recorrido y revisión](docs/capturas/traslado.md)): [traslado en escritorio, 1440 px](docs/capturas/traslado-escritorio.png), [traslado en móvil, 390 px](docs/capturas/traslado-movil.png), [seguimiento en escritorio](docs/capturas/traslado-seguimiento-escritorio.png), [seguimiento en móvil](docs/capturas/traslado-seguimiento-movil.png) y [alto contraste en móvil](docs/capturas/traslado-alto-contraste-movil.png). El recorrido se repite con `node scripts/recorridos/traslado.mjs http://127.0.0.1:18431` tras `make demo`, ajustando el puerto. Usa sólo datos inventados.
-
-### Accesibilidad F5.03
-
-[Informe por pantalla y perfil](docs/accesibilidad/README.md), con matriz axe en español e inglés y ambos temas. Las capturas de escritorio de 1440 px y móvil de 390 px están enlazadas desde cada informe de la [matriz](docs/accesibilidad/matriz.md). El ejecutor automático se incorpora a `make recorridos` y exige cero infracciones serias o críticas de axe. Permanecen pendientes las revisiones manuales y Word indicadas en el informe.
+[Informe por pantalla y perfil](docs/accesibilidad/README.md), con la comprobación automática de axe en castellano e inglés y con ambos temas. Las capturas de escritorio (1440 px) y móvil (390 px) están enlazadas desde cada informe de la [matriz](docs/accesibilidad/matriz.md). La comprobación forma parte de `make recorridos` y exige cero fallos serios o críticos. Quedan las revisiones manuales y de los Word que indica el informe.
 
 | Pantalla | Perfil | Escritorio, 1440 px | Móvil, 390 px |
 | --- | --- | --- | --- |
@@ -481,9 +447,3 @@ Pantallas TR1 ([recorrido y revisión](docs/capturas/traslado.md)): [traslado en
 | `/memoria` | Coordinación | [Ver captura](docs/capturas/accesibilidad-coordinacion-memoria-1440.png) | [Ver captura](docs/capturas/accesibilidad-coordinacion-memoria-390.png) |
 | `/memoria` | Profesional de ETF | [Ver captura](docs/capturas/accesibilidad-profesional_etf-memoria-1440.png) | [Ver captura](docs/capturas/accesibilidad-profesional_etf-memoria-390.png) |
 | `/pendiente` | Pendiente de alta | [Ver captura](docs/capturas/accesibilidad-pendiente-pendiente-1440.png) | [Ver captura](docs/capturas/accesibilidad-pendiente-pendiente-390.png) |
-
-GAP1 completa Familia y la descarga de documentos de finalización desde Cierre. Con datos inventados: [Familia en escritorio](docs/capturas/equipo-gap1-familia-escritorio.png), [Familia en móvil](docs/capturas/equipo-gap1-familia-movil.png), [Cierre en escritorio](docs/capturas/equipo-gap1-cierre-escritorio.png) y [Cierre en móvil](docs/capturas/equipo-gap1-cierre-movil.png). [Recorrido y límites](docs/capturas/GAP1.md). Repite el recorrido con `node scripts/recorridos/gap1.mjs http://127.0.0.1:18513` tras `make demo`, ajustando el puerto.
-
-RESP3 aplica la decisión de escalas opcionales: puedes anotarlas en Evaluación o rellenarlas después en el Word de los Anexos 11 y 12. Las casillas sin resultados quedan vacías y no bloquean documentos, cierre o Memoria. Capturas con datos inventados: [sin escalas en escritorio](docs/capturas/resp3-sin-escalas-escritorio.png), [sin escalas en móvil](docs/capturas/resp3-sin-escalas-movil.png), [resultados parciales en escritorio](docs/capturas/resp3-parciales-escritorio.png) y [resultados parciales en móvil](docs/capturas/resp3-parciales-movil.png). [Evidencia y límites de RESP3](docs/evidencias/RESP3.md). Repite el recorrido con `node scripts/recorridos/resp3.mjs http://127.0.0.1:18133` tras `make demo`, ajustando el puerto.
-
-MEMDES permite comprobar las cifras de Memoria por expedientes: número, equipo y aporte, sin nombres. La revisión cerrada conserva sus aportes y las fotos antiguas sin desglose explican el límite. Las comisiones y los informes son actividad de equipo sin vínculo con expedientes. Capturas con datos inventados: [desglose en escritorio, 1440 px](docs/capturas/memoria-desglose-1440.png) y [desglose en móvil, 390 px](docs/capturas/memoria-desglose-390.png). [Pruebas y revisión](docs/evidencias/MEMDES.md). Repite el recorrido con `node scripts/recorridos/memoria-desglose.mjs http://127.0.0.1:18543` tras `make demo`, ajustando el puerto. Se ejecuta también en `make ci`.

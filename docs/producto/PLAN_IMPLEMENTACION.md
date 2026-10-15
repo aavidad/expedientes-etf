@@ -18,27 +18,19 @@ Siglas utilizadas: ETF, Equipo de Tratamiento Familiar; SS.SS.CC., Servicios Soc
 
 ## 1. Estado actual
 
-SEG2 mitiga R-10 (14/10/2026): cambios propios de perfiles, vigencias, equipo y baja bloqueados en servidor y función SQL, con auditoría del rechazo. Usuarios muestra los permisos propios en consulta y remite a otra persona de Administración. La primera cuenta mantiene el alta inicial de sistemas; no se concede desde la pantalla. Migración `identidad/0003`; ensayo local y recorrido Chrome específicos integrados en CI.
+A 15/10/2026 están integradas en `main` todas las fases de construcción. La aplicación recibe y acepta derivaciones, lleva la ficha completa, genera los documentos Word, prepara salidas al SPM y a otros servicios, cierra, traslada y sigue expedientes, calcula la Tabla Mensual del SPAF y la Memoria con su desglose, y permite la carga histórica de 2026 desde formularios, hojas o actas. También están hechos la administración de usuarios, catálogos, plantillas, idiomas y temas; la auditoría y su exportación; la conservación; la accesibilidad; los manuales, el curso, los vídeos y el lector de voz; la aplicación instalable en Edge y Chrome; y el paquete de Windows.
 
-A 13/10/2026 el avance aproximado es del 37 %. Hechas e integradas en `main`: Docker Compose con la aplicación, PostgreSQL 18 y ClamAV y el migrador aparte; la integración continua; idiomas por directorio y temas instalables; la auditoría encadenada; la entrada con Active Directory, la sesión y «pendiente de alta»; los perfiles y la autorización por tabla única; los catálogos versionados con su edición y los firmantes; la instalación de paquetes con antivirus; el lector de Anexos 3 y 4 en Word, LibreOffice y PDF; la propuesta de municipio; la subida del anexo con antivirus y la derivación recibida; la aceptación con numeración; la emisión de Word sin guardarlo; y el modelo estadístico de la Memoria (apartados 1, 2, 7, 8, 9, 13 y 25). En esta rama está implementado el mantenimiento del SMI por año (F1.09). En curso: actas y oficios, el armazón visual. El resto sigue pendiente; una tarea escrita aquí no significa que se haya ejecutado.
+Lo que falta no depende del código:
 
-| Pieza | Estado | Falta |
+| Pieza | Quién | Falta |
 | --- | --- | --- |
-| Seis documentos de producto | Unificación de los acuerdos del 13/10/2026 | Revisión conjunta de coherencia y visto bueno del responsable del producto |
-| Fuentes del cliente y maqueta | Disponibles en las plantillas de `idiomas/` y referencia de la maqueta | Anexos 3 y 4 cumplimentados con datos inventados en el formato habitual [D6] |
-| Dudas del Programa | En el registro de decisiones del PRD | Respuestas pendientes, formato de una posible hoja de 2026 [D21] y discrepancia de la Memoria de 2025 [D22] |
-| Repositorio y CI | Repositorio público con comprobaciones locales y CI; sólo datos inventados | El equipo de mantenimiento define la revisión y la integración de contribuciones |
-| Guías de contribución | Reglas de SQL, seguridad, interfaz, recorridos y redacción en los documentos de producto | Revisar cuando cambie la pila o una regla |
-| Servidor, copias y acceso a AD | Por preparar con Informática | P.01 y P.02 desde ahora |
-| EIPD | responsable del producto la tramita con el DPD | P.03; aprobación antes de datos reales |
-| Arranque y migraciones | F0.03 hecha e integrada en `main`; evidencia en `despliegue/base/EVIDENCIA.md` | Suministro local de firmas ClamAV antes de producción |
-| Código y pruebas | Integrado en `main`: base técnica (F0.04 a F0.07), auditoría, entrada y perfiles, catálogos y paquetes, lector de anexos, subida, aceptación, emisión de Word y modelo estadístico parcial. En esta rama está implementado el mantenimiento del SMI por año (F1.09) y el cálculo de dominio de los apartados 3–6, 10–12.2, 13.3 y 17–24; faltan validación del Programa e integración. En curso: actas y oficios, armazón visual | Resto de las fases 1 a 5 |
+| Evaluación de impacto en protección de datos | Cada entidad con su delegado de protección de datos | Aprobación antes de usar datos reales |
+| Servidor | Informática | Proxy HTTPS, conexión LDAPS con el directorio, copias cifradas fuera del servidor, sellado diario de la auditoría y firmas locales de ClamAV |
+| Producción | Informática y responsable del producto | Puesta en producción, prueba de restauración y carga de los expedientes reales |
+| Dudas del Programa | Programa, vía responsable del producto | Uso de dos de los motivos de cierre, fin del seguimiento tras el cese, total y porcentajes del apartado 24 de la Memoria, recuento de derivaciones a otros servicios y Anexo 6 mientras se espera al SPM (registro de decisiones del PRD) |
+| Escalas de evaluación | Responsable del producto | Decidir los cuestionarios oficiales; mientras tanto son opcionales y no bloquean nada |
 
-La demostración local integra estas capacidades con siete usuarios inventados,
-perfiles y firmante sembrados por API. `make demo-recorrido` valida entrada en
-Chrome del sistema y Anexo 3 → aceptación → descarga del Acta por API.
-Las pantallas de coordinación siguen pendientes. Instrucciones en
-[despliegue/demo/LEEME.md](../../despliegue/demo/LEEME.md).
+La demostración local (`make demo`) usa siete usuarios inventados y se describe en [despliegue/demo/LEEME.md](../../despliegue/demo/LEEME.md). Las tablas de fase de abajo conservan el detalle y los códigos de cada tarea.
 
 ## 2. Orden de construcción
 

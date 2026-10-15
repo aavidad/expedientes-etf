@@ -189,30 +189,30 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 8. Contradicciones encontradas | 2495-2559 |
 | 9. Cómo mantener este documento | 2560-2570 |
 
-## PLAN_IMPLEMENTACION.md (387 líneas)
+## PLAN_IMPLEMENTACION.md (379 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
 | 0. Decisiones de base | 9-18 |
-| 1. Estado actual | 19-42 |
-| 2. Orden de construcción | 43-66 |
-| Preparación paralela: empieza ahora, termina antes de F2.09 | 67-76 |
-| 3. Fases y criterio de cierre | 77-78 |
-| Mapa único y reparto de ficheros | 79-103 |
-| Fase 0: base y pruebas tempranas | 104-135 |
-| Fase 1: coordinación y documentos de entrada | 136-158 |
-| Fase 2: ficha, carga de 2026 y puesta en producción | 159-184 |
-| Fase 3: salidas, cierre y Tabla SPAF | 185-201 |
-| Fase 4: completar Memoria | 202-233 |
-| Fase 5: acabado, documentación y formación | 234-266 |
-| 4. Cómo se trabaja | 267-268 |
-| 4.1 Reparto de papeles | 269-272 |
-| 4.2 Qué lleva cada encargo | 273-283 |
-| 4.3 Puertas para fusionar: CI progresiva | 284-308 |
-| 4.4 Formato de entrega | 309-312 |
-| 4.5 Despliegues | 313-316 |
-| 4.6 Trabajo en paralelo sin pisarse | 317-328 |
-| 5. Riesgos y bloqueos | 329-345 |
-| 6. Hitos | 346-358 |
-| 7. Contradicciones encontradas | 359-380 |
-| 8. Cómo mantener este documento | 381-387 |
+| 1. Estado actual | 19-34 |
+| 2. Orden de construcción | 35-58 |
+| Preparación paralela: empieza ahora, termina antes de F2.09 | 59-68 |
+| 3. Fases y criterio de cierre | 69-70 |
+| Mapa único y reparto de ficheros | 71-95 |
+| Fase 0: base y pruebas tempranas | 96-127 |
+| Fase 1: coordinación y documentos de entrada | 128-150 |
+| Fase 2: ficha, carga de 2026 y puesta en producción | 151-176 |
+| Fase 3: salidas, cierre y Tabla SPAF | 177-193 |
+| Fase 4: completar Memoria | 194-225 |
+| Fase 5: acabado, documentación y formación | 226-258 |
+| 4. Cómo se trabaja | 259-260 |
+| 4.1 Reparto de papeles | 261-264 |
+| 4.2 Qué lleva cada encargo | 265-275 |
+| 4.3 Puertas para fusionar: CI progresiva | 276-300 |
+| 4.4 Formato de entrega | 301-304 |
+| 4.5 Despliegues | 305-308 |
+| 4.6 Trabajo en paralelo sin pisarse | 309-320 |
+| 5. Riesgos y bloqueos | 321-337 |
+| 6. Hitos | 338-350 |
+| 7. Contradicciones encontradas | 351-372 |
+| 8. Cómo mantener este documento | 373-379 |
