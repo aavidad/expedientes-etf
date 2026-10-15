@@ -1,8 +1,12 @@
-.PHONY: voz voz-simulada curso ci test vet web build comprobar textos temas videos video demo demo-parar demo-comprobar demo-recorrido demo-limpiar recorridos paquete-windows
+.PHONY: voz voz-simulada curso ci test vet web build comprobar textos temas videos video demo demo-parar demo-comprobar demo-recorrido demo-limpiar recorridos paquete-windows instalador-windows
 
 paquete-windows:
 	python3 -B scripts/voz/construir.py
 	python3 -B despliegue/windows/paquete.py
+
+# Sólo el instalador .exe, a partir del ZIP ya construido de la misma VERSION.
+instalador-windows:
+	python3 -B despliegue/windows/paquete.py --solo-instalador
 
 demo:
 	python3 -B despliegue/demo/demo.py iniciar

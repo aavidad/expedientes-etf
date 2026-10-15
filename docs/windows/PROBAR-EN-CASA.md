@@ -4,24 +4,34 @@ Esta guía te ayuda a instalar una demostración en tu PC. Usa sólo datos inven
 Nunca introduzcas datos reales de personas o expedientes, aunque trabajes desde casa.
 No necesitas Docker ni herramientas de programación.
 
-## Novedades de la versión 1.0.3
+## Novedades de la versión 1.0.4
 
-- Instalación: ya no tienes que preparar Windows antes. instalar.cmd activa
-  WSL2 si falta, instala Podman para tu usuario, crea su máquina y usa el
-  Compose que viene en el paquete. Si Windows tiene que reiniciarse, la
-  instalación sigue sola cuando vuelves a entrar.
+- Instalador: ahora basta con descargar un solo archivo,
+  `Expedientes-ETF-1.0.4-instalador.exe`. Es un asistente que instala la
+  aplicación sólo para tu cuenta, sin permiso de administrador, y al terminar
+  abre la ventana que pone lo que falte. El ZIP con instalar.cmd sigue
+  disponible como alternativa.
+- Accesos: el acceso del escritorio y de Inicio abre un pequeño programa,
+  `Expedientes ETF.exe`, en lugar de un script. Así los antivirus que bloquean
+  scripts lanzados desde accesos directos ya no cortan la aplicación. Al
+  actualizar, los accesos antiguos se cambian solos.
+- Quitar la aplicación: si instalaste con el asistente, aparece como
+  **Expedientes ETF (pruebas)** en Configuración → Aplicaciones y se desinstala
+  desde ahí.
+
+La versión 1.0.4 conserva lo que trajeron las anteriores:
+
+- Instalación sin preparar Windows: se activa WSL2 si falta, se instala Podman
+  para tu usuario y se usa el Compose que viene en el paquete. Si Windows tiene
+  que reiniciarse, la instalación sigue sola cuando vuelves a entrar.
 - Arranque tras reiniciar: si Podman todavía se está encendiendo, la ventana
-  espera en lugar de fallar. Si algo sale mal, el aviso aparece delante de las
-  demás ventanas y queda un registro sin contraseñas.
+  espera en lugar de fallar, y queda un registro sin contraseñas.
 - Parar: parar.cmd apaga también la máquina de Podman, para que Windows pueda
   apagarse o reiniciarse sin quedarse esperando.
 - Desinstalar: quita sólo lo que puso el paquete y pregunta antes de quitar
   Podman. WSL2 se queda en el PC.
 - Plantillas: los documentos Word del paquete inglés están traducidos por
   completo.
-
-La versión 1.0.3 conserva lo que trajeron las anteriores:
-
 - Ayuda: el menú tiene un apartado con el manual de tu perfil, su índice, las
   capturas y un PDF para imprimir. Puedes escuchar en castellano la ayuda de
   cada pantalla y los manuales; las grabaciones vienen dentro del paquete.
@@ -51,15 +61,15 @@ otros programas. Para comprobar tu versión, abre Inicio, escribe `winver` y pul
 Intro. Puedes ver la RAM en Configuración → Sistema → Acerca de.
 
 El instalador exige **15 GB libres en la unidad de tu perfil**, normalmente C:.
-El ZIP ocupa unos **466 MiB** y la carpeta extraída, **801 MiB**, medidos en
-esta entrega. Reserva **17 GiB libres antes de descargar** para mantener
-los 15 GB que comprueba el instalador después de extraer. La copia privada del
-paquete ocupa otros 801 MiB dentro de esa reserva, además de las imágenes y los
-datos. Las medidas exactas se anotan en la [evidencia de la entrega](../sistemas/WIN1.md#paquete-público-103).
+En esta entrega el asistente ocupa unos **370 MiB**, el ZIP **467 MiB**
+y la aplicación instalada, unos **802 MiB** antes de cargar las imágenes y
+los datos. Reserva **17 GiB libres antes de descargar** para mantener los 15 GB
+que comprueba el instalador. Las medidas exactas se anotan en la
+[evidencia de la entrega](../sistemas/WIN1.md#paquete-público-104).
 Comprueba el espacio desde Explorador → Este equipo → Disco local (C:).
 
 La primera instalación necesita Internet: WSL2 se descarga de Microsoft y Podman
-descarga el sistema de su máquina (unos 250 MB). El resto viene en el ZIP.
+descarga el sistema de su máquina (unos 250 MB). El resto viene en el paquete.
 Después puedes usar la demostración sin conexión. Reserva entre 15 y 45 minutos
 para la primera instalación, según tu conexión y tu PC, y algo más si Windows
 tiene que reiniciarse. Son orientaciones, no tiempos garantizados.
@@ -78,45 +88,55 @@ Antes de instalar:
    clave que desconoces, pide ayuda a quien mantenga tu PC. Reinicia y vuelve a
    comprobar el Administrador de tareas.
 
-## 2. Descarga y comprueba el paquete
+## 2. Descarga y comprueba el instalador
 
 1. Abre las [Releases de Expedientes ETF](https://github.com/aavidad/expedientes-etf/releases).
-   En la entrega 1.0.3 descarga **expedientes-etf-windows-1.0.3.zip** y
-   **expedientes-etf-windows-1.0.3.zip.sha256**. Guarda ambos en la misma carpeta.
+   En la entrega 1.0.4 descarga **Expedientes-ETF-1.0.4-instalador.exe** y
+   **Expedientes-ETF-1.0.4-instalador.exe.sha256**. Guarda ambos en la misma carpeta.
 2. En el Explorador, abre esa carpeta. Pulsa la barra de dirección, escribe
    `powershell` y pulsa Intro. Copia:
 
    ```powershell
-   Get-FileHash .\expedientes-etf-windows-1.0.3.zip -Algorithm SHA256
-   Get-Content .\expedientes-etf-windows-1.0.3.zip.sha256
+   Get-FileHash .\Expedientes-ETF-1.0.4-instalador.exe -Algorithm SHA256
+   Get-Content .\Expedientes-ETF-1.0.4-instalador.exe.sha256
    ```
 
 3. Compara los 64 caracteres de **Hash** con los del archivo `.sha256`.
    Deben coincidir; las mayúsculas no importan. Si son distintos, borra esa
    descarga y vuelve a obtener ambos archivos de la misma Release. No instales
-   un ZIP cuya suma no coincide. La suma detecta cambios; descarga siempre del
-   repositorio público indicado.
-4. Cierra PowerShell. Pulsa el ZIP con el botón derecho y elige **Extraer todo**.
-   Usa una carpeta local corta, por ejemplo `C:\ETF-Pruebas`, fuera de OneDrive,
-   unidades de red y carpetas compartidas. Si no puedes crearla, usa una carpeta
-   en Documentos que no esté sincronizada. Espera a que termine la extracción.
+   un archivo cuya suma no coincide. La suma detecta cambios; descarga siempre
+   del repositorio público indicado.
 
 [Comprobación real de la suma en Windows](capturas/comprobar-sha256.png).
 
-[Asistente real «Extraer todo» de Windows](capturas/extraer-todo.png).
-
 ## 3. Instala la demostración
 
-1. Abre la carpeta extraída **Expedientes-ETF** y haz doble clic en
-   **instalar.cmd** desde el Explorador. No lo abras dentro del ZIP ni como administrador.
-2. Puede aparecer SmartScreen porque este paquete **no está firmado** y aún no
-   tiene reputación de descarga. Si has comprobado su procedencia y su suma,
-   pulsa **Más información → Ejecutar de todas formas**. Si tu PC no ofrece esa
-   opción, consulta a quien lo administre; no desactives la protección de Windows.
-   También puede salir «Editor desconocido» con un botón **Ejecutar**, como en
-   [el aviso real del ensayo](capturas/aviso-seguridad.png). Comprueba antes
-   procedencia y suma, y pulsa ese botón para continuar.
-3. Deja abierta la consola y lee lo que indica. Si falta algo, lo instala en
+1. Haz doble clic en **Expedientes-ETF-1.0.4-instalador.exe**. No lo abras como
+   administrador.
+2. Como el instalador **no está firmado** y aún no tiene reputación de
+   descarga, Windows puede mostrar **Windows protegió su PC** (SmartScreen).
+   Si has comprobado su procedencia y su suma, pulsa **Más información** y
+   después **Ejecutar de todas formas**. Si tu PC no ofrece esa opción,
+   consulta a quien lo administre; no desactives la protección de Windows.
+3. Sigue el asistente. Sale en castellano o en inglés según el idioma de
+   Windows, muestra la licencia EUPL y copia la aplicación en
+   `%LOCALAPPDATA%\Expedientes-ETF\pruebas\paquete`. Al pulsar **Terminar** se
+   abre una ventana negra que completa la instalación.
+
+Si tu PC no deja ejecutar el asistente, usa el ZIP de la misma entrega:
+descarga **expedientes-etf-windows-1.0.4.zip** y su `.zip.sha256`, comprueba la
+suma igual que arriba, pulsa el ZIP con el botón derecho y elige **Extraer
+todo** en una carpeta local corta, por ejemplo `C:\ETF-Pruebas`, fuera de
+OneDrive, unidades de red y carpetas compartidas. Después abre la carpeta
+**Expedientes-ETF** y haz doble clic en **instalar.cmd** desde el Explorador, no
+dentro del ZIP ni como administrador. SmartScreen o «Editor desconocido» pueden
+avisar igual que con el asistente, como en
+[el aviso real del ensayo](capturas/aviso-seguridad.png).
+[Asistente real «Extraer todo» de Windows](capturas/extraer-todo.png).
+
+A partir de aquí los dos caminos siguen igual:
+
+4. Deja abierta la consola y lee lo que indica. Si falta algo, lo instala en
    este orden:
    - **WSL2**, el componente de Windows que ejecuta los programas Linux de la
      demostración. Windows pide permiso de administrador: pulsa **Sí**. Si
@@ -127,21 +147,21 @@ Antes de instalar:
    - **La máquina de Podman**, con 4 GB de memoria y 2 procesadores. Se
      enciende sola.
    - **Compose**, que arranca juntos todos los componentes. Va dentro del paquete.
-4. Después comprueba las sumas de los archivos y verás «Cargando las imágenes
+5. Después comprueba las sumas de los archivos y verás «Cargando las imágenes
    incluidas» y «Preparando la base de datos y arrancando la aplicación». La
    primera carga tarda varios minutos. El antivirus incluido también necesita
    arrancar; no cierres la ventana mientras trabaja. Si se corta, vuelve a
-   ejecutar instalar.cmd: sigue donde lo dejó.
+   abrir el asistente o instalar.cmd: sigue donde lo dejó.
 
 Si Windows indica que la virtualización está deshabilitada, sigue los pasos del
-apartado 1 para activarla y vuelve a ejecutar instalar.cmd. Si tu cuenta no
-puede dar permiso de administrador, quien mantenga tu PC puede prepararlo con el
-plan B del LEEME.md que viene en la carpeta.
+apartado 1 para activarla y vuelve a abrir el asistente o instalar.cmd. Si tu
+cuenta no puede dar permiso de administrador, quien mantenga tu PC puede
+prepararlo con el plan B del LEEME.md que viene en el paquete.
 
-5. Al terminar aparecen el acceso **Expedientes ETF** en el escritorio y en
+6. Al terminar aparecen el acceso **Expedientes ETF** en el escritorio y en
    Inicio, la aplicación en una ventana propia de **Microsoft Edge** y un Bloc
    de notas con las cuentas y sus contraseñas. Si no tienes Edge, usa Chrome.
-6. Conserva ese archivo de contraseñas en privado. Cada instalación genera
+7. Conserva ese archivo de contraseñas en privado. Cada instalación genera
    contraseñas distintas. Puedes volver a abrir **USUARIOS.txt** desde
    `%LOCALAPPDATA%\Expedientes-ETF\pruebas`: pega esa ruta en el Explorador.
    No envíes su contenido ni el archivo `entorno.env` al pedir ayuda.
@@ -168,7 +188,8 @@ Estas siete cuentas son inventadas:
 
 1. Entra como **ines.moreno** con su contraseña del Bloc de notas. En el menú
    **Derivaciones**, pulsa **Subir Anexo 3 o 4**.
-2. Elige **Anexo-3-pruebas.docx**, incluido junto a instalar.cmd, y pulsa
+2. Elige **Anexo-3-pruebas.docx**, que está junto a instalar.cmd (si usaste
+   el asistente, en `%LOCALAPPDATA%\Expedientes-ETF\pruebas\paquete`), y pulsa
    **Subir y leer anexo**.
 3. Revisa los datos propuestos. Completa lo que pida la pantalla y pulsa **Confirmar y crear derivación**.
 4. Abre esa derivación y completa fecha, equipo y asignación;
@@ -197,7 +218,10 @@ prueba si ya existe. La carga histórica conserva los números que confirmas.
 - Para empezar de cero, abre **reiniciar-datos.cmd**. Escribe **BORRAR** y pulsa
   Intro sólo si quieres eliminar todos tus cambios. Se recrean las cuentas con
   contraseñas nuevas. Pulsa Intro sin escribir nada para cancelar.
-- Para quitar la aplicación, abre **desinstalar.cmd** y escribe **DESINSTALAR**.
+- Para quitar la aplicación, si usaste el asistente, ve a Configuración →
+  Aplicaciones, busca **Expedientes ETF (pruebas)** y pulsa **Desinstalar**; se
+  abre la misma ventana que desinstalar.cmd. Si usaste el ZIP, abre
+  **desinstalar.cmd**. En los dos casos escribe **DESINSTALAR** para confirmar.
   Elimina sus datos, contraseñas y accesos; conserva archivos que hayas añadido.
   Si la instalación puso Podman o su máquina, te pregunta si también quieres
   quitarlos: escribe **QUITAR** para hacerlo. Si la máquina tiene contenedores

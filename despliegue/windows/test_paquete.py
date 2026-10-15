@@ -8,6 +8,7 @@ import importlib.util
 import unittest
 from unittest.mock import patch
 import os
+import re
 import tempfile
 from pathlib import Path
 
@@ -359,6 +360,118 @@ class RequisitosFijados(unittest.TestCase):
             self.assertEqual(list(cache.iterdir()), [])
             with self.assertRaises(SystemExit):
                 paquete.descargar_requisito("http://ejemplo.invalid/x.exe", "a" * 64, cache, self.respuesta(b""))
+
+
+def icono_minimo():
+    """ICO de 16x16 y 32 bits, suficiente para que makensis compile."""
+    import struct
+    cabecera = struct.pack("<IiiHHIIiiII", 40, 16, 32, 1, 32, 0, 0, 0, 0, 0, 0)
+    imagen = cabecera + b"\x40\x20\x10\xff" * 256 + b"\x00" * 64
+    return struct.pack("<HHH", 0, 1, 1) + struct.pack("<BBBBHHII", 16, 16, 0, 0, 1, 32, len(imagen), 22) + imagen
+
+
+class InstaladorWindows(unittest.TestCase):
+    NSI = (Path(__file__).with_name("instalador.nsi")).read_text(encoding="utf-8")
+    LANZADOR = (Path(__file__).with_name("lanzador.nsi")).read_text(encoding="utf-8")
+
+    def test_instala_por_usuario_sin_administrador(self):
+        for guion in (self.NSI, self.LANZADOR):
+            self.assertIn("RequestExecutionLevel user", guion)
+            self.assertNotIn("RequestExecutionLevel admin", guion)
+            self.assertIn("Target amd64-unicode", guion)
+        self.assertIn('InstallDir "$LOCALAPPDATA\\Expedientes-ETF\\pruebas\\paquete"', self.NSI)
+        self.assertNotIn("HKLM", self.NSI)
+
+    def test_registra_entrada_de_desinstalacion_del_usuario(self):
+        self.assertIn('"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Expedientes-ETF"', self.NSI)
+        for valor in ("DisplayName", "DisplayVersion", "Publisher", "DisplayIcon", "UninstallString"):
+            self.assertIn(f'WriteRegStr HKCU "${{CLAVE_DESINSTALAR}}" "{valor}"', self.NSI)
+        self.assertIn('DeleteRegKey HKCU "${CLAVE_DESINSTALAR}"', self.NSI)
+        self.assertIn("WriteUninstaller", self.NSI)
+        # El desinstalador no borra carpetas enteras: sólo lo que copió.
+        self.assertNotIn("RMDir /r", self.NSI)
+
+    def test_instala_o_actualiza_segun_los_datos(self):
+        self.assertIn('${If} ${FileExists} "$Privado\\entorno.env"\n        StrCpy $Accion "actualizar"', self.NSI)
+        self.assertIn('StrCpy $Accion "instalar"', self.NSI)
+        self.assertIn("""Exec '"${CONSOLA}" /d /c ""$INSTDIR\\$Accion.cmd""'""", self.NSI)
+        self.assertIn('-File "$INSTDIR\\desinstalar.ps1"', self.NSI)
+
+    def test_lanzador_abre_abrir_ps1_con_ruta_absoluta(self):
+        self.assertIn('"$WINDIR\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"', self.LANZADOR)
+        self.assertIn('-File "$EXEDIR\\abrir.ps1"', self.LANZADOR)
+        self.assertIn("SilentInstall silent", self.LANZADOR)
+
+    def test_textos_del_asistente_en_cada_idioma(self):
+        textos = paquete.idiomas_nsis()
+        for clave in ("instalador_nombre", "instalador_bienvenida_texto", "instalador_ajeno"):
+            for idioma in ("SPANISH", "ENGLISH"):
+                self.assertIn(f"LangString {clave} ${{LANG_{idioma}}} ", textos)
+        usadas = set(re.findall(r"\$\((instalador_\w+)\)", self.NSI))
+        definidas = set(re.findall(r"LangString (\w+) ", textos))
+        self.assertEqual(usadas, definidas)
+        self.assertEqual(paquete.escapar_nsis('a$b "c"\nd'), 'a$$b $\\"c$\\"$\\r$\\nd')
+
+    def test_desinstalador_solo_borra_lo_copiado(self):
+        with tempfile.TemporaryDirectory() as temporal:
+            carpeta = Path(temporal)
+            (carpeta / "requisitos").mkdir()
+            (carpeta / "requisitos/podman.msi").write_bytes(b"x")
+            (carpeta / "Expedientes ETF.exe").write_bytes(b"x")
+            ordenes = paquete.archivos_nsis(carpeta).splitlines()
+            self.assertEqual(ordenes, ['Delete "$INSTDIR\\Expedientes ETF.exe"', 'Delete "$INSTDIR\\requisitos\\podman.msi"',
+                                       'RMDir "$INSTDIR\\requisitos"'])
+            (carpeta / 'mal"$nombre').write_bytes(b"x")
+            with self.assertRaises(SystemExit):
+                paquete.archivos_nsis(carpeta)
+
+    def test_version_numerica_para_propiedades(self):
+        self.assertEqual(paquete.version_numerica("1.0.3"), "1.0.3.0")
+        self.assertEqual(paquete.version_numerica("v2.1"), "2.1.0.0")
+        self.assertIsNone(paquete.version_numerica("a1b2c3d4e5f6"))
+        self.assertIsNone(paquete.version_numerica("1.99999"))
+
+    def test_firma_opcional_sin_secretos_en_el_repositorio(self):
+        llamadas = []
+        def simular(orden, check):
+            llamadas.append(orden)
+            Path(orden[orden.index("-out") + 1]).write_bytes(b"firmado")
+        with tempfile.TemporaryDirectory() as temporal:
+            raiz = Path(temporal)
+            exe = raiz / "a.exe"
+            exe.write_bytes(b"MZ")
+            self.assertFalse(paquete.firmar(exe, {}, simular))
+            with self.assertRaises(SystemExit):
+                paquete.firmar(exe, {"ETF_FIRMA_CERTIFICADO": str(exe)}, simular)
+            with self.assertRaises(SystemExit):
+                paquete.firmar(exe, {"ETF_FIRMA_CERTIFICADO": str(paquete.RAIZ / "README.md"),
+                                     "ETF_FIRMA_CLAVE": str(paquete.RAIZ / "README.md")}, simular)
+            (raiz / "c.pem").write_text("c")
+            (raiz / "k.pem").write_text("k")
+            self.assertTrue(paquete.firmar(exe, {"ETF_FIRMA_CERTIFICADO": str(raiz / "c.pem"),
+                                                 "ETF_FIRMA_CLAVE": str(raiz / "k.pem")}, simular))
+            self.assertEqual(exe.read_bytes(), b"firmado")
+            self.assertIn("osslsigncode", llamadas[0][0])
+            self.assertEqual(sorted(p.name for p in raiz.iterdir()), ["a.exe", "c.pem", "k.pem"])
+
+    @unittest.skipUnless(paquete.shutil.which("makensis"), "NSIS no está instalado en este puesto")
+    def test_genera_lanzador_e_instalador_exe(self):
+        with tempfile.TemporaryDirectory() as temporal:
+            raiz = Path(temporal)
+            carpeta, salida = raiz / "Expedientes-ETF", raiz / "salida"
+            carpeta.mkdir()
+            salida.mkdir()
+            (carpeta / "aplicacion.ico").write_bytes(icono_minimo())
+            for nombre in ("instalar.cmd", "actualizar.cmd", "desinstalar.ps1", "abrir.ps1", "SUMAS.json"):
+                (carpeta / nombre).write_text("prueba", encoding="utf-8")
+            with redirect_stderr(io.StringIO()), patch("builtins.print"):
+                lanzador = paquete.construir_lanzador(carpeta)
+                archivo = paquete.construir_instalador(carpeta, "1.2.3", salida)
+            self.assertEqual(lanzador.read_bytes()[:2], b"MZ")
+            self.assertEqual(archivo.name, "Expedientes-ETF-1.2.3-instalador.exe")
+            self.assertEqual(archivo.read_bytes()[:2], b"MZ")
+            suma = archivo.with_name(archivo.name + ".sha256").read_text(encoding="ascii")
+            self.assertEqual(suma, f"{paquete.suma_fichero(archivo)}  {archivo.name}\n")
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ Cada administración designa a su responsable del producto y valida la puesta en
 
 ## Descargas
 
-- Instalable de Windows 1.0.3, con usuarios y datos inventados: [versión 1.0.3](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.3). La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
+- Instalable de Windows 1.0.4, con usuarios y datos inventados: [versión 1.0.4](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.4). La descarga principal es el asistente `Expedientes-ETF-1.0.4-instalador.exe`, que instala la aplicación para tu usuario sin permiso de administrador; el ZIP con instalar.cmd queda como alternativa. La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
 - Curso de la aplicación en web, SCORM y eXeLearning, y los 12 vídeos de recorridos: [curso 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/curso-1.0.2).
 
 ## Documentación
@@ -75,21 +75,30 @@ cuentas, el recorrido del Anexo 3 al Acta y los comandos de parada en
 
 ## Probar en Windows
 
-Descarga el ZIP y su suma SHA-256 desde las
+Descarga el instalador y su suma SHA-256 desde las
 [Releases públicas](https://github.com/aavidad/expedientes-etf/releases).
 La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica la
 instalación paso a paso. Usa sólo datos inventados. La
 [comprobación en Windows](docs/sistemas/WIN1.md) recoge versiones y resultados
 de las pruebas.
 
-La versión actual es la 1.0.3 (`expedientes-etf-windows-1.0.3.zip`, unos 466 MiB,
-SHA-256 `7404c5d4c5d06b890556a8d1f44f721adb2e8683b15736a49748325b463d43c5`). Ya no hay que preparar Windows antes: `instalar.cmd` activa
-WSL2 si falta (pide permiso de administrador una vez y, si Windows tiene que
-reiniciarse, continúa solo después), instala Podman para tu usuario, crea su
-máquina y usa el Compose incluido. Tras reiniciar Windows, la aplicación espera
-a que Podman termine de encenderse en lugar de fallar. `parar.cmd` apaga también
-la máquina de Podman, y desinstalar quita sólo lo que puso el paquete, después
-de preguntar. Las plantillas Word inglesas están traducidas por completo.
+La versión actual es la 1.0.4:
+
+| Archivo | Tamaño | SHA-256 |
+| --- | --- | --- |
+| `Expedientes-ETF-1.0.4-instalador.exe` (recomendado) | unos 370 MiB | `e4e307248b9a581827ac3a55af262276c4b49238c807ff7c415fb6952d06b04b` |
+| `expedientes-etf-windows-1.0.4.zip` (alternativa) | unos 467 MiB | `8a2ce1bf90d454b4cb33e8919b49ce16d9dd8b3cbc433f402ef274f4adba5ff8` |
+
+El asistente instala la aplicación para tu usuario, sin permiso de
+administrador, y la deja en Configuración > Aplicaciones para quitarla desde
+ahí. Como no está firmado, Windows puede mostrar SmartScreen: si la suma
+coincide, pulsa «Más información» y después «Ejecutar de todas formas». Al
+terminar se abre la ventana que pone lo que falte: activa WSL2 si hace falta
+(pide permiso de administrador una vez y, si Windows tiene que reiniciarse,
+continúa solo después), instala Podman para tu usuario, crea su máquina y usa
+el Compose incluido. Los accesos del escritorio y de Inicio abren ahora un
+pequeño programa en lugar de un script, para que los antivirus no corten la
+aplicación al arrancar.
 
 Incluye también lo de versiones anteriores: la pantalla Ayuda con los manuales
 de cada perfil y su lectura en voz alta, la derivación a otros servicios

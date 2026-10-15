@@ -1,4 +1,5 @@
-"""Construye un ZIP autocontenido, sin secretos ni herramientas de desarrollo."""
+"""Construye un ZIP autocontenido y su instalador .exe, sin secretos ni herramientas de desarrollo."""
+import argparse
 import hashlib
 import importlib.util
 import json
@@ -26,6 +27,14 @@ REQUISITOS = (
      "https://github.com/docker/compose/releases/download/v5.5.1/docker-compose-windows-x86_64.exe",
      "a3c0c73033eaede90210345d0cc2233edf4fab8fe0282a91dad8fd8436809d2f"),
 )
+
+
+# Idiomas del asistente: código del catálogo y nombre del idioma en NSIS.
+IDIOMAS_NSIS = (("es", "SPANISH"), ("en", "ENGLISH"))
+PREFIJO_INSTALADOR = "windows.instalador_"
+# Firma opcional con el certificado de la entidad: rutas fuera del repositorio.
+FIRMA = ("ETF_FIRMA_CERTIFICADO", "ETF_FIRMA_CLAVE")
+LANZADOR = "Expedientes ETF.exe"
 
 
 def ejecutar(*args, **kwargs):
@@ -110,12 +119,152 @@ def configurar(config, version):
     return config
 
 
-def main():
+def escapar_nsis(texto):
+    """Cadena literal de NSIS entre comillas dobles."""
+    return (texto.replace("$", "$$").replace('"', '$\\"').replace("\r", "")
+            .replace("\n", "$\\r$\\n").replace("\t", "$\\t"))
+
+
+def idiomas_nsis(raiz=RAIZ):
+    """LangString de NSIS generados desde idiomas/<código>/textos/windows.json."""
+    lineas, claves = [], None
+    for codigo, nombre in IDIOMAS_NSIS:
+        textos = json.loads((raiz / "idiomas" / codigo / "textos/windows.json").read_text(encoding="utf-8"))
+        propios = {k[len("windows."):]: v for k, v in textos.items() if k.startswith(PREFIJO_INSTALADOR)}
+        if claves is None:
+            claves = set(propios)
+        if not propios or set(propios) != claves:
+            raise SystemExit(f"Textos del instalador incompletos en {codigo}.")
+        for clave in sorted(propios):
+            lineas.append(f'LangString {clave} ${{LANG_{nombre}}} "{escapar_nsis(propios[clave])}"')
+    return "\n".join(lineas) + "\n"
+
+
+def archivos_nsis(carpeta):
+    """Órdenes del desinstalador: sólo los archivos y carpetas copiados."""
+    lineas, carpetas = [], set()
+    for ruta in sorted(p for p in carpeta.rglob("*") if p.is_file()):
+        relativa = ruta.relative_to(carpeta)
+        if not re.fullmatch(r"[\w.-]+( [\w.-]+)*(/[\w.-]+)*", relativa.as_posix()):
+            raise SystemExit(f"Nombre no admitido en el instalador: {relativa}")
+        lineas.append(f'Delete "$INSTDIR\\{relativa.as_posix().replace("/", chr(92))}"')
+        carpetas.update(relativa.parents)
+    for subcarpeta in sorted(carpetas - {Path(".")}, key=lambda c: len(c.parts), reverse=True):
+        lineas.append(f'RMDir "$INSTDIR\\{subcarpeta.as_posix().replace("/", chr(92))}"')
+    return "\n".join(lineas) + "\n"
+
+
+def version_numerica(version):
+    """Versión X.X.X.X para las propiedades del .exe, si la etiqueta es numérica."""
+    partes = re.fullmatch(r"v?(\d{1,5})(?:\.(\d{1,5}))?(?:\.(\d{1,5}))?(?:\.(\d{1,5}))?", version)
+    if not partes or any(int(p) > 65535 for p in partes.groups() if p):
+        return None
+    return ".".join(p or "0" for p in partes.groups())
+
+
+def escribir_suma(archivo):
+    huella = suma_fichero(archivo)
+    archivo.with_name(archivo.name + ".sha256").write_text(f"{huella}  {archivo.name}\n", encoding="ascii")
+    return huella
+
+
+def firmar(archivo, entorno=os.environ, ejecutar_orden=subprocess.run):
+    """Firma con osslsigncode si se dan certificado y clave; si no, lo deja sin firmar."""
+    certificado, clave = (entorno.get(nombre, "") for nombre in FIRMA)
+    if not certificado and not clave:
+        return False
+    if not certificado or not clave:
+        raise SystemExit("Para firmar hacen falta ETF_FIRMA_CERTIFICADO y ETF_FIRMA_CLAVE.")
+    for ruta in (certificado, clave):
+        if not Path(ruta).is_file() or Path(ruta).resolve().is_relative_to(RAIZ):
+            raise SystemExit("El certificado y la clave deben existir fuera del repositorio.")
+    firmado = archivo.with_name(archivo.name + ".firmado")
+    orden = [shutil.which("osslsigncode") or "osslsigncode", "sign", "-h", "sha256",
+             "-certs", certificado, "-key", clave, "-n", "Expedientes ETF", "-in", str(archivo), "-out", str(firmado)]
+    if entorno.get("ETF_FIRMA_CONTRASENA_FICHERO"):
+        orden += ["-readpass", entorno["ETF_FIRMA_CONTRASENA_FICHERO"]]
+    if entorno.get("ETF_FIRMA_SELLO_URL"):
+        orden += ["-ts", entorno["ETF_FIRMA_SELLO_URL"]]
+    try:
+        ejecutar_orden(orden, check=True)
+        firmado.replace(archivo)
+    finally:
+        firmado.unlink(missing_ok=True)
+    return True
+
+
+def buscar_makensis(makensis=None):
+    makensis = makensis or shutil.which("makensis")
+    if not makensis:
+        raise SystemExit("Falta makensis (NSIS 3.10 o posterior) para generar el lanzador y el instalador .exe.")
+    return makensis
+
+
+def construir_lanzador(carpeta, makensis=None):
+    """«Expedientes ETF.exe»: los accesos lo abren en lugar de PowerShell."""
+    destino = carpeta / LANZADOR
+    subprocess.run([buscar_makensis(makensis), "-V2", "-NOCD", f"-DICONO={carpeta / 'aplicacion.ico'}",
+                    f"-DSALIDA={destino}", str(WINDOWS / "lanzador.nsi")], cwd=carpeta, check=True)
+    return destino
+
+
+def construir_instalador(carpeta, version, salida, makensis=None, raiz=RAIZ):
+    """Compila Expedientes-ETF-<versión>-instalador.exe con NSIS desde la carpeta del paquete."""
+    makensis = buscar_makensis(makensis)
+    archivo = salida / f"Expedientes-ETF-{version}-instalador.exe"
+    with tempfile.TemporaryDirectory(prefix="win1-nsis-") as temporal:
+        temporal = Path(temporal)
+        # Con BOM, makensis lee los textos como UTF-8.
+        (temporal / "idiomas.nsh").write_text(idiomas_nsis(raiz), encoding="utf-8-sig")
+        (temporal / "archivos.nsh").write_text(archivos_nsis(carpeta), encoding="utf-8-sig")
+        orden = [makensis, "-V2", "-NOCD", f"-DCARPETA={carpeta}", f"-DSALIDA={archivo}", f"-DVERSION={version}",
+                 f"-DIDIOMAS={temporal / 'idiomas.nsh'}", f"-DARCHIVOS={temporal / 'archivos.nsh'}"]
+        if version_numerica(version):
+            orden.append(f"-DVERSION_NUMERICA={version_numerica(version)}")
+        if (raiz / "LICENSE").is_file():
+            orden.append(f"-DLICENCIA={raiz / 'LICENSE'}")
+        orden.append(str(WINDOWS / "instalador.nsi"))
+        subprocess.run(orden, cwd=temporal, check=True)
+    firmar(archivo)
+    huella = escribir_suma(archivo)
+    print(f"INSTALADOR-OK: {archivo.name}; {archivo.stat().st_size} bytes; SHA-256 {huella}")
+    return archivo
+
+
+def leer_version():
     version = os.environ.get("VERSION", "") or ejecutar("git", "rev-parse", "--short=12", "HEAD", capture_output=True, text=True).stdout.strip()
     if not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9_.-]{0,63}", version):
         raise SystemExit("VERSION debe ser una etiqueta válida de hasta 64 caracteres.")
+    return version
+
+
+def instalador_desde_zip(version, salida=RAIZ / "bin/paquete-windows"):
+    """Genera el .exe a partir de un ZIP ya construido y comprobado con su suma."""
+    archivo = salida / f"expedientes-etf-windows-{version}.zip"
+    suma = archivo.with_suffix(".zip.sha256")
+    if not archivo.is_file() or not suma.is_file():
+        raise SystemExit(f"Falta {archivo.name} o su suma: ejecuta antes make paquete-windows.")
+    if suma.read_text(encoding="ascii").split()[0] != suma_fichero(archivo):
+        raise SystemExit(f"La suma SHA-256 de {archivo.name} no coincide.")
+    with tempfile.TemporaryDirectory(prefix="win1-zip-") as temporal, zipfile.ZipFile(archivo) as zip_:
+        for nombre in zip_.namelist():
+            if not nombre.startswith("Expedientes-ETF/") or ".." in Path(nombre).parts:
+                raise SystemExit(f"Entrada no admitida en el ZIP: {nombre}")
+        zip_.extractall(temporal)
+        return construir_instalador(Path(temporal) / "Expedientes-ETF", version, salida)
+
+
+def main():
+    argumentos = argparse.ArgumentParser(description=__doc__)
+    argumentos.add_argument("--solo-instalador", action="store_true",
+                            help="genera sólo el .exe a partir del ZIP de bin/paquete-windows")
+    if argumentos.parse_args().solo_instalador:
+        instalador_desde_zip(leer_version())
+        return
+    version = leer_version()
     # Primero los instaladores: si una suma no cuadra, se para antes de compilar.
     requisitos = {nombre: descargar_requisito(url, suma) for nombre, url, suma in REQUISITOS}
+    buscar_makensis()
     salida = RAIZ / "bin/paquete-windows"
     salida.mkdir(parents=True, exist_ok=True)
     spec = importlib.util.spec_from_file_location("demo", RAIZ / "despliegue/demo/demo.py")
@@ -159,6 +308,7 @@ def main():
         (carpeta / "LEEME.md").write_text((carpeta / "LEEME.md").read_text().replace("../../docs/capturas/", "capturas/"), encoding="utf-8")
         shutil.copyfile(RAIZ / "idiomas/es/textos/windows.json", carpeta / "mensajes.json")
         ejecutar("node", str(WINDOWS / "icono.mjs"), str(carpeta / "aplicacion.ico"))
+        firmar(construir_lanzador(carpeta))
         (carpeta / "capturas").mkdir()
         for nombre in set(re.findall(r"capturas/(windows-[\w-]+\.png)", (carpeta / "LEEME.md").read_text())):
             shutil.copyfile(RAIZ / "docs/capturas" / nombre, carpeta / "capturas" / nombre)
@@ -179,9 +329,10 @@ def main():
             for p in sorted(carpeta.rglob("*")):
                 if p.is_file():
                     zip_.write(p, "Expedientes-ETF/" + str(p.relative_to(carpeta)))
-        huella = hashlib.file_digest(archivo.open("rb"), "sha256").hexdigest()
-        archivo.with_suffix(".zip.sha256").write_text(f"{huella}  {archivo.name}\n", encoding="ascii")
+        huella = escribir_suma(archivo)
         print(f"PAQUETE-OK: {archivo.name}; SHA-256 {huella}")
+        # El mismo contenido, como asistente de instalación para Windows.
+        construir_instalador(carpeta, version, salida)
 
 
 if __name__ == "__main__":

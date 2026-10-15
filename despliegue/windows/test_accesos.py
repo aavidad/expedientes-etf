@@ -109,6 +109,30 @@ if (-not (Test-Path (Join-Path $cache 'abrir.ps1')) -or (Test-Path (Join-Path $c
 """)
 
 
+    def test_accesos_abren_el_lanzador_y_migran_los_anteriores(self):
+        self.ejecutar("""
+$env:SystemRoot = Join-Path $Raiz 'Windows'
+Preparar-Directorio (Join-Path $Raiz 'privado')
+$lanzador = Join-Path (Ruta-PaqueteInstalado) 'Expedientes ETF.exe'
+if ((Ruta-Lanzador) -ne $lanzador) { throw 'El lanzador no está en la copia estable' }
+if (-not (Es-AccesoPropio ([pscustomobject]@{TargetPath=$lanzador; Arguments=''}))) { throw 'No reconoce el acceso al lanzador' }
+if (Es-AccesoPropio ([pscustomobject]@{TargetPath=$lanzador; Arguments='-otro'})) { throw 'Acepta argumentos ajenos' }
+$powershell = Join-Path $env:SystemRoot 'System32\\WindowsPowerShell\\v1.0\\powershell.exe'
+$abrir = Join-Path (Ruta-PaqueteInstalado) 'abrir.ps1'
+$anterior = [pscustomobject]@{TargetPath=$powershell; Arguments=('-NoLogo -NoProfile -ExecutionPolicy Bypass -File "' + $abrir + '"')}
+if (-not (Es-AccesoPropio $anterior)) { throw 'No migra el acceso anterior a PowerShell' }
+$ajeno = [pscustomobject]@{TargetPath=$powershell; Arguments='-File "C:\\otro.ps1"'}
+if (Es-AccesoPropio $ajeno) { throw 'Adopta un acceso ajeno' }
+""")
+
+    def test_crear_accesos_apunta_al_lanzador_sin_script(self):
+        codigo = (RAIZ / "despliegue/windows/accesos.ps1").read_text(encoding="utf-8-sig")
+        crear = codigo[codigo.index("function Crear-Accesos"):codigo.index("function Eliminar-Accesos")]
+        self.assertIn("$enlace.TargetPath = Ruta-Lanzador", crear)
+        self.assertIn("$enlace.Arguments = ''", crear)
+        self.assertNotIn("powershell", crear.lower())
+
+
     PODMAN_SIMULADO = """
 $script:Maquina = 'podman-machine-default'
 $motor = Join-Path $Raiz 'podman'

@@ -69,5 +69,15 @@
   "windows.podman_quitando": "Uninstalling Podman, which this demo installed.",
   "windows.podman_quitar_fallo": "Podman could not be uninstalled (code {0}). Remove it from Settings > Apps. If it is not listed, ask IT for help and provide the log {1}.",
   "windows.podman_quitar_manual": "The Podman installation code is unknown. If you want to remove it, do so from Settings > Apps.",
-  "windows.wsl_conservado": "WSL2 has been kept because Windows and other applications may use it. To remove it, follow the section “Qué instala y cómo quitarlo” in LEEME.md."
+  "windows.wsl_conservado": "WSL2 has been kept because Windows and other applications may use it. To remove it, follow the section “Qué instala y cómo quitarlo” in LEEME.md.",
+  "windows.instalador_nombre": "Expedientes ETF (testing)",
+  "windows.instalador_editor": "Alberto Avidad · Expedientes ETF",
+  "windows.instalador_bienvenida_titulo": "Install the Expedientes ETF test version",
+  "windows.instalador_bienvenida_texto": "This wizard copies the test application to your Windows account. It does not ask for administrator permission.\n\nIf it is already installed, it updates it and keeps your data.\n\nWhen it finishes, a black window opens that installs anything missing (WSL2 and Podman), prepares the made-up data and opens the application. It takes a few minutes. Do not close it until it finishes.",
+  "windows.instalador_fin_titulo": "Copy finished",
+  "windows.instalador_fin_texto": "A black window has opened to finish the installation. Follow its instructions and wait for the application to open.\n\nTo remove it later, go to Settings > Apps and look for Expedientes ETF.",
+  "windows.instalador_consola": "Opening the window that finishes the installation…",
+  "windows.instalador_ajeno": "Cannot install: the folder %LOCALAPPDATA%\\Expedientes-ETF\\pruebas contains another application's files. Move them to another folder and open the installer again.",
+  "windows.instalador_desinstalar_aviso": "A black window will open and ask you to confirm before the test data is deleted.",
+  "windows.instalador_desinstalar_cancelado": "Expedientes ETF is still installed. If you cancelled, there is nothing to do. If the window showed an error, read it and try again."
 }

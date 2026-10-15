@@ -7,28 +7,26 @@ La guía completa está en
 https://github.com/aavidad/expedientes-etf/blob/main/docs/windows/PROBAR-EN-CASA.md
 La página de descargas es https://github.com/aavidad/expedientes-etf/releases.
 
-## Novedades de la versión 1.0.3
+## Novedades de la versión 1.0.4
 
-- Instalación: ya no hay que preparar Windows antes. instalar.cmd activa WSL2
-  si falta, instala Podman para tu usuario, crea su máquina y usa el Compose que
-  viene en el paquete. Si Windows tiene que reiniciarse, la instalación sigue
-  sola al volver a entrar.
-- Arranque tras reiniciar: si Podman todavía se está encendiendo, la ventana
-  espera en lugar de fallar. Si algo sale mal, el aviso aparece delante y queda
-  un registro sin contraseñas en la carpeta de datos.
-- Parar: parar.cmd apaga también la máquina de Podman, para que Windows pueda
-  apagarse o reiniciarse sin quedarse esperando.
-- Desinstalar: quita sólo lo que puso el paquete y pregunta antes. WSL2 se
-  queda en el PC.
-- Plantillas: los documentos Word del paquete inglés están traducidos por
-  completo.
+- Instalador: la descarga principal es ahora el asistente
+  `Expedientes-ETF-1.0.4-instalador.exe`. Instala la aplicación sólo para tu
+  cuenta, sin permiso de administrador, y aparece en Configuración >
+  Aplicaciones para desinstalarla desde ahí. El ZIP con instalar.cmd sigue
+  disponible como alternativa.
+- Accesos: el acceso del escritorio y de Inicio abre un pequeño programa,
+  `Expedientes ETF.exe`, en lugar de un script, para que los antivirus que
+  bloquean scripts lanzados desde accesos directos no corten la aplicación. Al
+  actualizar, los accesos antiguos se cambian solos.
 
-La versión 1.0.3 conserva lo de las anteriores: la pantalla Ayuda con el manual
-de cada perfil y su lectura en voz alta, la espera al antivirus antes de abrir
-la aplicación, el Anexo 6, el desglose de la Memoria, las cifras pequeñas
-ocultas en Consulta, el cierre de sesión por inactividad, el control de la carga
-histórica, la revisión tras restaurar una copia y la actualización de textos,
-plantillas y temas.
+La versión 1.0.4 conserva lo de las anteriores: la instalación sin preparar
+Windows (WSL2, Podman y Compose), la espera a Podman tras reiniciar, la parada
+que apaga su máquina, la desinstalación de lo instalado, las plantillas Word
+inglesas, la pantalla Ayuda con el manual de cada perfil y su lectura en voz
+alta, la espera al antivirus antes de abrir la aplicación, el Anexo 6, el
+desglose de la Memoria, las cifras pequeñas ocultas en Consulta, el cierre de
+sesión por inactividad, el control de la carga histórica, la revisión tras
+restaurar una copia y la actualización de textos, plantillas y temas.
 
 Necesitas Windows 10 de 64 bits (versión 2004 o posterior) o Windows 11,
 8 GB de memoria y 15 GB libres para las imágenes y los datos. Recomendamos
@@ -37,7 +35,35 @@ falte. La primera instalación necesita Internet, porque WSL2 se descarga de
 Microsoft y Podman descarga el sistema de su máquina (unos 250 MB). El resto va
 dentro del paquete.
 
-## 1. Descomprimir y ejecutar instalar.cmd
+## 1. Instalar con el asistente
+
+La forma más sencilla es el instalador **Expedientes-ETF-VERSIÓN-instalador.exe**.
+Instala la aplicación sólo para tu cuenta y no pide permiso de administrador.
+
+1. Descarga el `.exe` y su archivo `.exe.sha256` de la misma entrega. Para
+   comprobarlo, abre PowerShell en la carpeta de descargas y ejecuta
+   `Get-FileHash .\Expedientes-ETF-VERSIÓN-instalador.exe -Algorithm SHA256`.
+   El resultado debe coincidir con el contenido del archivo `.sha256`.
+2. Haz doble clic en el `.exe`. El instalador no está firmado, así que Windows
+   puede mostrar **Windows protegió su PC** (SmartScreen). Si el archivo
+   procede de la página de descargas y la suma coincide, pulsa **Más información** y
+   después **Ejecutar de todas formas**.
+3. Sigue el asistente, en castellano o en inglés según el idioma de Windows.
+   Copia la aplicación en `%LOCALAPPDATA%\Expedientes-ETF\pruebas\paquete`.
+4. Al terminar, se abre una ventana negra que hace lo mismo que instalar.cmd
+   (pasos 4 a 6 del apartado siguiente): instala lo que falte, prepara los datos
+   y abre la aplicación. No la cierres hasta que termine.
+
+Si ya tenías la aplicación instalada, el mismo `.exe` de una versión nueva la
+actualiza: copia los archivos nuevos y ejecuta actualizar.cmd, que conserva tus
+cuentas y datos. Para quitarla, ve a **Configuración > Aplicaciones**, busca
+**Expedientes ETF (pruebas)** y pulsa **Desinstalar**: se abre la ventana de
+desinstalar.cmd, que te pide confirmación, y después se borran los archivos
+copiados y la entrada de la lista de aplicaciones.
+
+## 1 bis. Alternativa: descomprimir el ZIP y ejecutar instalar.cmd
+
+Si tu equipo no permite ejecutar el instalador, usa el ZIP de la misma entrega.
 
 1. Descarga el ZIP y su archivo `.zip.sha256` de la misma entrega. Para
    comprobarlo, abre PowerShell en la carpeta descargada y ejecuta
@@ -77,7 +103,10 @@ cuenta. Si tu cuenta no puede conceder el permiso de administrador, Informática
 puede preparar el PC con el plan B de más abajo.
 
 El instalador crea **Expedientes ETF** en el escritorio y en Inicio. Ese acceso
-abre una ventana propia en Microsoft Edge; si no está instalado, utiliza Chrome.
+abre el programa **Expedientes ETF.exe** de la copia del paquete, que a su vez
+abre una ventana propia en Microsoft Edge. Los accesos usan este lanzador .exe
+para no activar las reglas de los antivirus que bloquean scripts lanzados desde
+accesos directos; al actualizar, los accesos antiguos se cambian solos. El navegador es Edge; si no está instalado, utiliza Chrome.
 Puedes mover o borrar la carpeta extraída: el acceso conserva una copia privada
 del paquete. La dirección es **http://localhost:18083**. Sólo se publica en este PC.
 Las contraseñas se guardan en
@@ -125,6 +154,8 @@ los datos antes de confirmar. Si el número ya existe, utiliza otro número inve
   Escribe **BORRAR** sólo si quieres perder sus cambios. Las contraseñas también
   cambian. Pulsar Intro sin escribir nada cancela la operación.
 
+- Si instalaste con el `.exe`, desinstala desde **Configuración > Aplicaciones**
+  (ver el apartado 1). Hace lo mismo que desinstalar.cmd.
 - **desinstalar.cmd** elimina los datos de esta demostración y sus accesos.
   Escribe **DESINSTALAR** para confirmarlo. Si la instalación puso Podman o
   su máquina, pregunta si también quieres quitarlos (escribe **QUITAR**).
@@ -145,6 +176,7 @@ lo que instala, y desinstalar.cmd sólo ofrece quitar lo anotado ahí.
 | Datos, contraseñas, registro y copia del paquete | `%LOCALAPPDATA%\Expedientes-ETF\pruebas` | desinstalar.cmd |
 | Accesos **Expedientes ETF** | Escritorio e Inicio | desinstalar.cmd |
 | Reanudación tras reiniciar | Entrada `ExpedientesETF` de RunOnce de tu usuario | Se borra al usarse o con desinstalar.cmd |
+| Entrada **Expedientes ETF (pruebas)** de la lista de aplicaciones, si usaste el `.exe` | `HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\Expedientes-ETF` | Desinstalar desde **Configuración > Aplicaciones** |
 
 No cambia otros ajustes de Windows ni crea tareas programadas o servicios.
 Si la máquina de Podman tiene contenedores de otras aplicaciones, desinstalar.cmd
@@ -275,3 +307,21 @@ GitHub y elige una versión estable de hace al menos dos semanas.
 No necesitas descargar el repositorio. El paquete no incorpora credenciales
 ni datos guardados en otras demostraciones.
 SHA-256 detecta cambios; comprueba además la procedencia del ZIP.
+
+La misma orden genera también `Expedientes-ETF-VERSIÓN-instalador.exe` y su
+suma con NSIS (`makensis` 3.10 o posterior; en Debian y Ubuntu, el paquete
+`nsis`). Usa la misma carpeta que el ZIP, comprimida con LZMA sólida: con la
+1.0.3 pasaba de 543 MB en ZIP a 412 MB y tarda unos cinco minutos. Para
+rehacer sólo el `.exe` a partir de un ZIP ya construido:
+`VERSION=1.0.4 make instalador-windows`. El guion del asistente es
+`instalador.nsi` y el del lanzador de los accesos, `lanzador.nsi`; sus textos
+están en `idiomas/es/textos/windows.json` y `idiomas/en/textos/windows.json`
+(claves `windows.instalador_*`).
+
+El `.exe` y el lanzador no van firmados, por eso Windows muestra el aviso de
+SmartScreen. Con el certificado de firma de código de la entidad se firman
+con `osslsigncode` al construir: define `ETF_FIRMA_CERTIFICADO` y
+`ETF_FIRMA_CLAVE` con las rutas al certificado y a la clave, fuera del
+repositorio. Opcionalmente, `ETF_FIRMA_CONTRASENA_FICHERO` (fichero con la
+contraseña de la clave) y `ETF_FIRMA_SELLO_URL` (servidor de sello de tiempo).
+Nunca guardes el certificado, la clave ni su contraseña en el repositorio.

@@ -97,7 +97,13 @@ function Rutas-Accesos {
     }
 }
 
+# Los accesos abren un lanzador .exe y no PowerShell: los antivirus de
+# comportamiento cortan los scripts lanzados desde un acceso directo.
+function Ruta-Lanzador { return Join-Path (Ruta-PaqueteInstalado) 'Expedientes ETF.exe' }
+
 function Es-AccesoPropio($Enlace) {
+    if ($Enlace.TargetPath -eq (Ruta-Lanzador) -and -not $Enlace.Arguments) { return $true }
+    # Accesos de versiones anteriores, que se sustituyen al actualizar.
     $programa = Join-Path (Ruta-PaqueteInstalado) 'abrir.ps1'
     $argumentos = '-NoLogo -NoProfile -ExecutionPolicy Bypass -File "' + $programa + '"'
     $anteriores = $argumentos.Replace(' -File ', ' -WindowStyle Hidden -File ')
@@ -149,9 +155,9 @@ function Crear-Accesos {
     foreach ($ruta in @(Rutas-Accesos)) {
         $enlace = $shell.CreateShortcut($ruta)
         if ((Test-Path $ruta) -and -not (Es-AccesoPropio $enlace)) { throw (Texto 'acceso_ocupado') }
-        $enlace.TargetPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
-        $enlace.Arguments = '-NoLogo -NoProfile -ExecutionPolicy Bypass -File "' + (Join-Path $carpeta 'abrir.ps1') + '"'
-        $enlace.WorkingDirectory = $env:SystemRoot
+        $enlace.TargetPath = Ruta-Lanzador
+        $enlace.Arguments = ''
+        $enlace.WorkingDirectory = $carpeta
         $enlace.IconLocation = (Join-Path $carpeta 'aplicacion.ico') + ',0'
         $enlace.Description = Texto 'acceso_descripcion'
         $enlace.Save()

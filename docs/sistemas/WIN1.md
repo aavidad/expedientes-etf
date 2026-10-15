@@ -406,3 +406,53 @@ el texto y los metadatos de los DOCX, ODT y PDF del paquete y del repositorio.
 
 La versión 1.0.3 pública no se ha probado todavía en un Windows real. No se ha
 hecho push ni se ha creado una Release.
+
+## Paquete público 1.0.4
+
+La rama `publico` integra `main` en el commit `92a2f436`, con el asistente de
+instalación `.exe` hecho con NSIS y el lanzador `Expedientes ETF.exe` al que
+apuntan los accesos del escritorio y de Inicio. La limpieza pública se repite
+sobre lo nuevo:
+
+- La estimación de necesidades que trae `main` en `docs/envios` no entra:
+  esa carpeta sigue borrada en la copia pública.
+- El LEEME del paquete habla del certificado de firma «de la entidad» y de
+  comprobar la procedencia en la página de descargas.
+- El asistente muestra la licencia EUPL del archivo `LICENSE`, se registra
+  como «Expedientes ETF (pruebas)» en la lista de aplicaciones y tiene como
+  editor «Alberto Avidad · Expedientes ETF».
+- El LEEME del paquete, la guía para probar en casa, el README y las notas de
+  la Release presentan el `.exe` como descarga principal y el ZIP como
+  alternativa, con el aviso de SmartScreen.
+
+`make ci` terminó bien:
+
+```text
+CI mínima completada.
+```
+
+Orden: `VERSION=1.0.4 make paquete-windows`, que reutiliza las grabaciones de
+`bin/voz` de la 1.0.3.
+
+| Archivo | Medida |
+| --- | --- |
+| `Expedientes-ETF-1.0.4-instalador.exe` | 387483777 bytes (369,53 MiB) |
+| `expedientes-etf-windows-1.0.4.zip` | 489504105 bytes (466,83 MiB) |
+| Contenido extraído del ZIP, 26 archivos | 841474261 bytes (802,49 MiB) |
+
+```text
+PAQUETE-OK: expedientes-etf-windows-1.0.4.zip; SHA-256 8a2ce1bf90d454b4cb33e8919b49ce16d9dd8b3cbc433f402ef274f4adba5ff8
+INSTALADOR-OK: Expedientes-ETF-1.0.4-instalador.exe; 387483777 bytes; SHA-256 e4e307248b9a581827ac3a55af262276c4b49238c807ff7c415fb6952d06b04b
+```
+
+Comprobaciones: `sha256sum -c` correcto para los dos archivos. El `.exe` se
+extrae con `7z x` y contiene los mismos archivos que el ZIP. El análisis local
+de secretos no encuentra nada en el contenido del ZIP, en el del `.exe`, en el
+tar de imágenes ni en sus 49 capas extraídas. La búsqueda de nombres reales,
+dominios privados, rutas personales y la entidad original no encuentra nada en
+el repositorio, en esos contenidos (también en binario) ni en el texto y los
+metadatos de los 382 DOCX, ODT y PDF del repositorio y del paquete. Los
+ejemplos de Anexo 3 sólo usan correos de dominios `.invalid`.
+
+La versión 1.0.4 pública no se ha probado todavía en un Windows real. No se ha
+hecho push ni se ha creado una Release.

@@ -69,5 +69,15 @@
   "windows.podman_quitando": "Desinstalando Podman, que instaló esta demostración.",
   "windows.podman_quitar_fallo": "No se ha podido desinstalar Podman (código {0}). Quítalo desde Configuración > Aplicaciones. Si no aparece, pide ayuda a Informática y facilita el registro {1}.",
   "windows.podman_quitar_manual": "No se conoce el código de instalación de Podman. Si quieres quitarlo, hazlo desde Configuración > Aplicaciones.",
-  "windows.wsl_conservado": "WSL2 se ha conservado porque Windows y otras aplicaciones pueden usarlo. Si quieres quitarlo, sigue el apartado «Qué instala y cómo quitarlo» de LEEME.md."
+  "windows.wsl_conservado": "WSL2 se ha conservado porque Windows y otras aplicaciones pueden usarlo. Si quieres quitarlo, sigue el apartado «Qué instala y cómo quitarlo» de LEEME.md.",
+  "windows.instalador_nombre": "Expedientes ETF (pruebas)",
+  "windows.instalador_editor": "Alberto Avidad · Expedientes ETF",
+  "windows.instalador_bienvenida_titulo": "Instalar Expedientes ETF de pruebas",
+  "windows.instalador_bienvenida_texto": "Este asistente copia la aplicación de pruebas en tu cuenta de Windows. No pide permiso de administrador.\n\nSi ya la tenías instalada, la actualiza y conserva tus datos.\n\nAl terminar se abre una ventana negra que instala lo que falte (WSL2 y Podman), prepara los datos inventados y abre la aplicación. Tarda unos minutos. No la cierres hasta que termine.",
+  "windows.instalador_fin_titulo": "Copia terminada",
+  "windows.instalador_fin_texto": "Se ha abierto una ventana negra que termina la instalación. Sigue sus indicaciones y espera a que se abra la aplicación.\n\nPara quitarla más adelante, ve a Configuración > Aplicaciones y busca Expedientes ETF.",
+  "windows.instalador_consola": "Abriendo la ventana que termina la instalación…",
+  "windows.instalador_ajeno": "No se puede instalar: la carpeta %LOCALAPPDATA%\\Expedientes-ETF\\pruebas tiene archivos de otra aplicación. Muévelos a otra carpeta y vuelve a abrir el instalador.",
+  "windows.instalador_desinstalar_aviso": "Se abrirá una ventana negra que te pedirá confirmación antes de borrar los datos de pruebas.",
+  "windows.instalador_desinstalar_cancelado": "Expedientes ETF sigue instalado. Si lo has cancelado tú, no tienes que hacer nada. Si la ventana mostró un error, léelo y vuelve a intentarlo."
 }
