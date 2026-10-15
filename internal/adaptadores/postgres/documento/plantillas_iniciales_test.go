@@ -24,6 +24,7 @@ func TestPlantillasInicialesCorregidasPostgres(t *testing.T) {
 	}
 	defer base.Cerrar()
 	almacen := ficheros.Plantillas{Raiz: "../../../../idiomas", Paquetes: idiomaDistribucion{}}
+	traducciones := traduccionesEN(t)
 	r := repo.Repositorio{}
 	err = base.Ejecutar(ctx, plataforma.Identidad{UsuarioID: usuario, Perfiles: []string{"administracion"}}, func(ctx context.Context) error {
 		ps, err := r.Listar(ctx)
@@ -48,6 +49,10 @@ func TestPlantillasInicialesCorregidasPostgres(t *testing.T) {
 			case d.ActaCierre, d.ActaNoAceptacion, d.OficioListaEspera, "spaf", d.Anexo11, d.Anexo12:
 				esperada = "1.0.2"
 			}
+			traduccion, traducida := traducciones[p.Plantilla.Tipo]
+			if p.Plantilla.Idioma == "en" && traducida {
+				esperada = traduccion.Nueva
+			}
 			if !nueva && p.Plantilla.Version != esperada {
 				t.Fatalf("predeterminada histórica: %+v", p.Plantilla)
 			}
@@ -64,6 +69,9 @@ func TestPlantillasInicialesCorregidasPostgres(t *testing.T) {
 			}
 			if err := docx.ValidarCambio(b, b); err != nil {
 				return err
+			}
+			if p.Plantilla.Idioma == "en" {
+				generarYComprobarEN(t, b)
 			}
 		}
 		if activas-memoria != 26 {

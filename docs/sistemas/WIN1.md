@@ -324,3 +324,85 @@ metadatos de los DOCX, ODT y PDF del paquete y del repositorio.
 
 La versión 1.0.2 no se ha probado todavía en un Windows real. No se ha hecho
 push ni se ha creado una Release.
+
+## Requisitos instalados por instalar.cmd (15/10/2026)
+
+Con el motor Podman, `instalar.cmd` instala lo que falte antes de comprobar el
+paquete. Cada paso se puede repetir y no rehace lo que ya está:
+
+- WSL2: si `wsl --version` o `wsl --status` fallan, ejecuta
+  `%SystemRoot%\System32\wsl.exe --install --no-distribution` con permiso UAC.
+  Si la persona lo rechaza, se detiene con un mensaje claro. Si Windows tiene
+  que reiniciarse, guarda el arranque en `wsl-pendiente.txt` (carpeta privada) y
+  una entrada `ExpedientesETF` en `HKCU\...\RunOnce` que relanza `instalar.ps1`
+  con la misma carpeta y puerto. Si tras reiniciar WSL2 sigue sin funcionar,
+  pide activar la virtualización en vez de pedir otro reinicio.
+- Podman 6.1.3: MSI oficial incluido, comprobado con `SUMAS.json` y ejecutado
+  con `msiexec /package … /quiet /norestart MSIINSTALLPERUSER=1
+  MACHINE_PROVIDER=wsl`, sin permiso de administrador. Se respeta un Podman ya
+  instalado por usuario, por equipo o con el instalador antiguo de Red Hat.
+- Máquina: si no hay ninguna WSL, `podman machine init --rootful --cpus 2
+  --memory 4096` con `CONTAINERS_MACHINE_PROVIDER=wsl` y `podman machine start`.
+  Podman descarga la imagen de su máquina de `quay.io/podman/machine-os` la
+  primera vez; el disco de WSL crece según el uso y lo limita la comprobación
+  de 15 GB libres.
+- Compose 5.5.1: sólo si `podman compose version` no encuentra proveedor; el
+  binario incluido se comprueba, se copia a `herramientas\` de la carpeta
+  privada y se usa con `PODMAN_COMPOSE_PROVIDER` en cada lanzador.
+
+Pruebas: `despliegue/windows/test_requisitos.py` simula cada ausencia en
+PowerShell 7 sobre Linux (WSL ausente, permiso rechazado, reinicio pendiente y
+repetido, Podman ausente, MSI alterado o fallido, máquina ausente, Compose
+ausente o alterado) y `test_paquete.py` comprueba las versiones y sumas fijadas
+y la descarga verificada. Falta el ensayo en un Windows limpio.
+
+## Paquete público 1.0.3
+
+La rama `publico` integra `main` en el commit `06bacda`, con el instalador
+que pone lo que falta (WSL2, Podman 6.1.3, su máquina y Compose 5.5.1), el
+arranque que espera a Podman tras reiniciar, la parada que apaga su máquina, la
+desinstalación de lo instalado y las plantillas Word inglesas. La limpieza
+pública se repite sobre lo nuevo:
+
+- Las doce plantillas inglesas nuevas se generan desde las versiones neutras
+  anteriores con los mapas `idiomas/en/plantillas/traduccion-*.json`, sin
+  logotipos ni membretes y con autor «Expedientes ETF». Sus huellas se
+  actualizan en `migraciones/documento/0017_plantillas_en.sql`. El detector de
+  texto castellano admite el nombre del producto, que figura en el pie neutro.
+- El LEEME del paquete y la guía para probar en casa describen la instalación
+  automática; la preparación manual queda como plan B en el LEEME.
+- La entrada dice «Usa tu usuario y contraseña de la entidad»: `entidad.nombre`
+  vale «la entidad» y «your organisation», con los textos ingleses ajustados.
+- Los audios se regeneran con `make voz` (edge-tts 7.3.1) desde los textos
+  públicos; se eliminan de `bin/voz` los 13 MP3 que no cita ningún manifiesto.
+  Quedan 243 grabaciones.
+
+La primera ejecución de `make ci` falló porque el detector de castellano de las
+plantillas inglesas encontraba «expediente» en el pie «Expedientes ETF»; tras
+admitir el nombre del producto, terminó bien:
+
+```text
+CI mínima completada.
+```
+
+Orden: `VERSION=1.0.3 make paquete-windows`.
+
+| Archivo | Medida |
+| --- | --- |
+| `expedientes-etf-windows-1.0.3.zip` | 488129947 bytes (465,52 MiB) |
+| Contenido extraído, 25 archivos | 839864892 bytes (800,96 MiB) |
+| `expedientes-etf-windows-1.0.3.zip.sha256` | Suma en formato SHA-256 estándar |
+
+```text
+PAQUETE-OK: expedientes-etf-windows-1.0.3.zip; SHA-256 7404c5d4c5d06b890556a8d1f44f721adb2e8683b15736a49748325b463d43c5
+```
+
+Comprobaciones del paquete: `sha256sum -c` correcto; análisis local de
+secretos sobre el contenido extraído, el tar de imágenes y sus 49 capas
+extraídas, `no leaks found`; la búsqueda de nombres reales, dominios privados,
+rutas personales y la entidad original no encuentra nada en los archivos, las
+capas (también en binario), los textos de idioma ni los audios incluidos, ni en
+el texto y los metadatos de los DOCX, ODT y PDF del paquete y del repositorio.
+
+La versión 1.0.3 pública no se ha probado todavía en un Windows real. No se ha
+hecho push ni se ha creado una Release.

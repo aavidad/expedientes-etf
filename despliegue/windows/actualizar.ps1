@@ -2,7 +2,7 @@
 . (Join-Path $PSScriptRoot 'comun.ps1')
 try {
     Preparar-Directorio $DirectorioPrivado
-    Comprobar-Requisitos $Motor
+    Comprobar-Requisitos $Motor -EncenderMaquina
     if (-not (Test-Path $script:Entorno)) { throw (Texto 'sin_instalacion') }
     Comprobar-Paquete
     [void](Componer -Argumentos @('stop', 'entrada-demo', 'app'))

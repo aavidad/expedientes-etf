@@ -1,0 +1,102 @@
+{
+  "consentimiento/anexo1": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "indicar entidad local.": "Specify the local organisation.",
+      "Haga clic o pulse aquí para escribir texto.": "Click or tap here to enter text.",
+      "indicar entidad local que corresponda": "Specify the relevant local organisation",
+      "Elija un elemento.": "Select an item.",
+      "nombre y apellidos": "Full name",
+      "número de DNI.": "ID number.",
+      "dirección completa.": "Full address.",
+      "localidad.": "Locality.",
+      "número de teléfono": "Telephone number",
+      "localidad": "Locality",
+      "Haga clic aquí o pulse para escribir una fecha.": "Click or tap here to enter a date.",
+      "Nombres y apellidos de los miembros de la familia firmantes.": "Full names of the family members signing.",
+      "Nombres y apellidos de la persona menor de edad .": "Full name of the child.",
+      "Nombre y apellidos.": "Full name.",
+      "fecha.": "Date.",
+      "Nombres y apellidos de la persona menor de edad; (En todo caso, tendrán que firmar la revocación las personas menores de edad con doce años cumplidos o más) .": "Full name of the child; (Children aged twelve or over must sign the withdrawal).",
+      "La Territorial Delegation of the Regional Ministry of Social Inclusion, Youth, Families and Equality, through its Prevention Service, is the public body responsible for coordinating and monitoring the Family Treatment Programme for families with children at risk or in need of protection. The local organisation responsible for delivering it is ____________________.": "The Territorial Delegation of the Regional Ministry of Social Inclusion, Youth, Families and Equality, through its Prevention Service, is the public body responsible for coordinating and monitoring the Family Treatment Programme for families with children at risk or in need of protection. The local organisation responsible for delivering it is ____________________."
+    }
+  },
+  "consentimiento/anexo2": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "indicar entidad local.": "Specify the local organisation.",
+      "Haga clic o pulse aquí para escribir texto.": "Click or tap here to enter text.",
+      "indicar entidad local que corresponda": "Specify the relevant local organisation",
+      "Elija un elemento.": "Select an item.",
+      "nombre y apellidos": "Full name",
+      "número de DNI.": "ID number.",
+      "dirección completa.": "Full address.",
+      "localidad.": "Locality.",
+      "número de teléfono": "Telephone number",
+      "localidad": "Locality",
+      "Haga clic aquí o pulse para escribir una fecha.": "Click or tap here to enter a date.",
+      "Nombres y apellidos de los miembros de la familia firmantes.": "Full names of the family members signing.",
+      "Nombres y apellidos de la persona menor de edad .": "Full name of the child.",
+      "Nombre y apellidos.": "Full name.",
+      "fecha.": "Date.",
+      "Nombres y apellidos de la persona menor de edad; (En todo caso, tendrán que firmar la revocación las personas menores de edad con doce años cumplidos o más) .": "Full name of the child; (Children aged twelve or over must sign the withdrawal).",
+      "La Territorial Delegation of the Regional Ministry of Social Inclusion, Youth, Families and Equality, through its Prevention Service, is the public body responsible for coordinating and monitoring the Family Treatment Programme for families with children at risk or in need of protection. The local organisation responsible for delivering it is ____________________.": "The Territorial Delegation of the Regional Ministry of Social Inclusion, Youth, Families and Equality, through its Prevention Service, is the public body responsible for coordinating and monitoring the Family Treatment Programme for families with children at risk or in need of protection. The local organisation responsible for delivering it is ____________________."
+    }
+  },
+  "salida/anexo6": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      " Indicar cualquier situación relevante, por ejemplo, problemas de salud mental, dificultades relacionales, abuso de sustancias, etc.": " Describe any relevant circumstances, for example, mental health problems, relationship difficulties, substance misuse, etc."
+    }
+  },
+  "finalizacion/anexo11": {
+    "previa": "1.0.2",
+    "nueva": "1.0.3",
+    "sustituciones": {
+      " Anexo 11   ": " Annex 11   ",
+      " SI": " YES",
+      " Programa de ayudas económicas familiares": " Family financial assistance programme",
+      " Programa de evaluación, diagnóstico y tratamiento a niños, niñas y adolescentes víctimas de violencia sexual en Andalucía": " Programme for the assessment, diagnosis and treatment of children and adolescents who have experienced sexual violence in Andalusia",
+      " Servicio de protección de menores": " Child Protection Service",
+      "(RI2) Capacitar a las familias para asegurar un adecuado funcionamiento familiar que promueva un entorno seguro y protector y evite situaciones de violencia.": "(RI2) Help families build healthy family relationships that provide a safe, protective environment and prevent violence.",
+      "(RI3) Adquirir y fortalecer las competencias necesarias para un ejercicio positivo y responsable de la parentalidad de las personas progenitoras o guardadoras que ejerzan el cuidado de la persona menor de edad.": "(RI3) Develop and strengthen the skills parents or guardians need to care for children in a positive and responsible way."
+    },
+    "opciones": {
+      "Elija un elemento.": "Select an item.",
+      "Elija.": "Select.",
+      "Insuficientemente alcanzado": "Insufficiently achieved",
+      "No abordado": "Not addressed",
+      "No alcanzado": "Not achieved",
+      "Suficientemente alcanzado": "Sufficiently achieved",
+      "Totalmente alcanzado": "Fully achieved"
+    }
+  },
+  "finalizacion/anexo12": {
+    "previa": "1.0.2",
+    "nueva": "1.0.3",
+    "sustituciones": {
+      " Anexo 12   ": " Annex 12   ",
+      " SI": " YES",
+      " Programa de ayudas económicas familiares": " Family financial assistance programme",
+      " Programa de evaluación, diagnóstico y tratamiento a niños, niñas y adolescentes víctimas de violencia sexual en Andalucía": " Programme for the assessment, diagnosis and treatment of children and adolescents who have experienced sexual violence in Andalusia",
+      " Servicio de protección de menores": " Child Protection Service"
+    },
+    "opciones": {
+      "Elija un elemento.": "Select an item.",
+      "Elija.": "Select.",
+      "Insuficientemente alcanzado": "Insufficiently achieved",
+      "No abordado": "Not addressed",
+      "No alcanzado": "Not achieved",
+      "Suficientemente alcanzado": "Sufficiently achieved",
+      "Totalmente alcanzado": "Fully achieved",
+      "Desp. grave": "Severe lack of protection",
+      "Desp. moderada": "Moderate lack of protection",
+      "No riesgo": "No risk",
+      "Riesgo": "Risk",
+      "Sospecha": "Suspected"
+    }
+  }
+}

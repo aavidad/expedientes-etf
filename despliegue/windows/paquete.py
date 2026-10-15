@@ -8,14 +8,54 @@ import re
 import shutil
 import subprocess
 import tempfile
+import urllib.request
 import zipfile
 
 RAIZ = Path(__file__).resolve().parents[2]
 WINDOWS = RAIZ / "despliegue/windows"
+DESCARGAS = RAIZ / "bin/descargas"
+
+# Instaladores oficiales que instalar.cmd usa si faltan en el PC (WREQ).
+# Versión y SHA-256 fijados; se descargan al construir y nunca en Windows.
+# Podman 6 sólo publica el instalador MSI, que admite instalación por usuario.
+REQUISITOS = (
+    ("requisitos/podman-installer-windows-amd64.msi",
+     "https://github.com/containers/podman/releases/download/v6.1.3/podman-installer-windows-amd64.msi",
+     "8eb4b84b9130f915a83d2b659caa430270f0de4fe566f97c32fc1c919d28e22b"),
+    ("requisitos/docker-compose.exe",
+     "https://github.com/docker/compose/releases/download/v5.5.1/docker-compose-windows-x86_64.exe",
+     "a3c0c73033eaede90210345d0cc2233edf4fab8fe0282a91dad8fd8436809d2f"),
+)
 
 
 def ejecutar(*args, **kwargs):
     return subprocess.run(list(args), cwd=RAIZ, check=True, **kwargs)
+
+
+def suma_fichero(ruta):
+    with open(ruta, "rb") as fichero:
+        return hashlib.file_digest(fichero, "sha256").hexdigest()
+
+
+def descargar_requisito(url, suma, cache=DESCARGAS, abrir=urllib.request.urlopen):
+    """Devuelve la copia local verificada; descarga sólo si falta o no cuadra."""
+    if not url.startswith("https://github.com/") or not re.fullmatch(r"[0-9a-f]{64}", suma):
+        raise SystemExit(f"Requisito sin origen o suma fijados: {url}")
+    cache.mkdir(parents=True, exist_ok=True)
+    destino = cache / suma
+    if destino.is_file() and suma_fichero(destino) == suma:
+        return destino
+    temporal = cache / (suma + ".descarga")
+    try:
+        with abrir(url, timeout=120) as respuesta, open(temporal, "wb") as salida:
+            shutil.copyfileobj(respuesta, salida)
+        obtenida = suma_fichero(temporal)
+        if obtenida != suma:
+            raise SystemExit(f"SHA-256 inesperado para {url}: {obtenida}")
+        temporal.replace(destino)
+    finally:
+        temporal.unlink(missing_ok=True)
+    return destino
 
 
 def configurar(config, version):
@@ -74,6 +114,8 @@ def main():
     version = os.environ.get("VERSION", "") or ejecutar("git", "rev-parse", "--short=12", "HEAD", capture_output=True, text=True).stdout.strip()
     if not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9_.-]{0,63}", version):
         raise SystemExit("VERSION debe ser una etiqueta válida de hasta 64 caracteres.")
+    # Primero los instaladores: si una suma no cuadra, se para antes de compilar.
+    requisitos = {nombre: descargar_requisito(url, suma) for nombre, url, suma in REQUISITOS}
     salida = RAIZ / "bin/paquete-windows"
     salida.mkdir(parents=True, exist_ok=True)
     spec = importlib.util.spec_from_file_location("demo", RAIZ / "despliegue/demo/demo.py")
@@ -123,6 +165,9 @@ def main():
         shutil.copyfile(RAIZ / "internal/adaptadores/anexos/docx/testdata/anexo3.docx", carpeta / "Anexo-3-pruebas.docx")
         shutil.copyfile(RAIZ / "internal/adaptadores/anexos/odt/testdata/anexo3.odt", carpeta / "Anexo-3-pruebas.odt")
         shutil.copyfile(RAIZ / "internal/adaptadores/anexos/actas/testdata/aceptacion-2022.docx", carpeta / "Acta-aceptacion-pruebas.docx")
+        for nombre, origen in requisitos.items():
+            (carpeta / nombre).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(origen, carpeta / nombre)
         (carpeta / "compose.json").write_text(json.dumps(configurar(config, version), indent=2), encoding="utf-8")
         (carpeta / "VERSION.txt").write_text(version + "\n", encoding="ascii")
         ejecutar("docker", "save", "--output", str(carpeta / "imagenes.tar"), *imagenes)

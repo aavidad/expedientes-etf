@@ -3,6 +3,10 @@ $ErrorActionPreference = 'Stop'
 $script:Paquete = $PSScriptRoot
 $script:Textos = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'mensajes.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $script:EsWindows = [Environment]::OSVersion.Platform -eq [PlatformID]::Win32NT
+$script:Maquina = $null
+$script:MaquinaApagada = $false
+$script:Registro = $null
+$script:ErrorMotor = $null
 
 function Texto([string]$Clave) { return $script:Textos.('windows.' + $Clave) }
 
@@ -14,7 +18,7 @@ function Unir-Argumentos([string[]]$Argumentos) {
 }
 
 function Ejecutar-Motor {
-    param([string[]]$Argumentos, [string]$Entrada = '')
+    param([string[]]$Argumentos, [string]$Entrada = '', [int]$Segundos = 1200)
     $inicio = New-Object System.Diagnostics.ProcessStartInfo
     $inicio.FileName = $script:Ejecutable
     $inicio.Arguments = Unir-Argumentos $Argumentos
@@ -27,16 +31,22 @@ function Ejecutar-Motor {
     $inicio.StandardErrorEncoding = New-Object System.Text.UTF8Encoding($false)
     $proceso = New-Object System.Diagnostics.Process
     $proceso.StartInfo = $inicio
+    $script:ErrorMotor = $null
     try {
         [void]$proceso.Start()
         $salida = $proceso.StandardOutput.ReadToEndAsync()
         $errores = $proceso.StandardError.ReadToEndAsync()
         $proceso.StandardInput.Write($Entrada)
         $proceso.StandardInput.Close()
-        if (-not $proceso.WaitForExit(1200000)) { $proceso.Kill(); throw (Texto 'tiempo') }
+        if (-not $proceso.WaitForExit($Segundos * 1000)) { $proceso.Kill(); throw (Texto 'tiempo') }
         $resultado = $salida.GetAwaiter().GetResult()
-        [void]$errores.GetAwaiter().GetResult()
-        if ($proceso.ExitCode -ne 0) { throw ((Texto 'motor_fallo') -f $Argumentos[0], $proceso.ExitCode) }
+        $detalle = $errores.GetAwaiter().GetResult()
+        if ($proceso.ExitCode -ne 0) {
+            # Sólo para el registro de diagnóstico, que oculta las contraseñas.
+            $script:ErrorMotor = ($Argumentos[0..([Math]::Min(2, $Argumentos.Count - 1))] -join ' ') + ': ' +
+                $(if ($detalle.Length -gt 2000) { $detalle.Substring($detalle.Length - 2000) } else { $detalle })
+            throw ((Texto 'motor_fallo') -f $Argumentos[0], $proceso.ExitCode)
+        }
         return $resultado
     } finally { $proceso.Dispose() }
 }
@@ -46,6 +56,41 @@ function Guardar-Privado([string]$Ruta, [string]$Contenido) {
     [IO.File]::WriteAllText($temporal, $Contenido, (New-Object Text.UTF8Encoding($false)))
     if (-not $script:EsWindows) { & chmod 600 -- $temporal; if ($LASTEXITCODE -ne 0) { throw (Texto 'privacidad') } }
     Move-Item -LiteralPath $temporal -Destination $Ruta -Force
+}
+
+# Registro de diagnóstico de la apertura en la carpeta privada. Antes de
+# escribir se sustituyen las contraseñas de entorno.env y usuarios.json.
+function Ocultar-Secretos([string]$Texto) {
+    if (-not $Texto) { return $Texto }
+    $secretos = @()
+    try {
+        if ($script:Entorno -and (Test-Path -LiteralPath $script:Entorno -PathType Leaf)) {
+            foreach ($coincidencia in [regex]::Matches([IO.File]::ReadAllText($script:Entorno), '(?m)^ETF_[A-Z_]+_CONTRASENA=([^\r\n]+)')) {
+                $secretos += $coincidencia.Groups[1].Value
+            }
+        }
+        $usuarios = Join-Path $script:Privado 'usuarios.json'
+        if (Test-Path -LiteralPath $usuarios -PathType Leaf) {
+            foreach ($cuenta in (Get-Content -LiteralPath $usuarios -Raw -Encoding UTF8 | ConvertFrom-Json).PSObject.Properties) { $secretos += [string]$cuenta.Value }
+        }
+    } catch { return '***' }
+    foreach ($secreto in @($secretos | Where-Object { $_.Length -ge 4 } | Sort-Object Length -Descending)) { $Texto = $Texto.Replace($secreto, '***') }
+    return ($Texto -replace '(?i)((contrase.a|password|passwd|secret)[a-z_]*\s*[=:]\s*)\S+', '$1***')
+}
+
+function Iniciar-Registro([string]$Nombre) {
+    $script:Registro = Join-Path $script:Privado ('registro-' + $Nombre + '.log')
+    if ((Test-Path -LiteralPath $script:Registro -PathType Leaf) -and (Get-Item -LiteralPath $script:Registro).Length -gt 262144) {
+        Move-Item -LiteralPath $script:Registro -Destination ($script:Registro + '.anterior') -Force
+    }
+}
+
+function Anotar-Registro([string]$Texto) {
+    if (-not $script:Registro) { return }
+    try {
+        $linea = [DateTime]::Now.ToString('yyyy-MM-dd HH:mm:ss') + '  ' + (Ocultar-Secretos $Texto) + [Environment]::NewLine
+        [IO.File]::AppendAllText($script:Registro, $linea, (New-Object Text.UTF8Encoding($false)))
+    } catch { }
 }
 
 function Preparar-Directorio([string]$DirectorioPrivado) {
@@ -108,25 +153,33 @@ function Preparar-Directorio([string]$DirectorioPrivado) {
     $script:Url = 'http://127.0.0.1:' + $script:PuertoLocal
 }
 
-function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$EncenderMaquina) {
+function Comprobar-Equipo {
+    $sistema = Get-CimInstance Win32_OperatingSystem
+    if ([int]$sistema.BuildNumber -lt 19041 -or -not [Environment]::Is64BitOperatingSystem) { throw (Texto 'windows') }
+    $instalada = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum
+    if ($instalada -lt 8GB) { throw (Texto 'memoria') }
+    $unidad = New-Object IO.DriveInfo([IO.Path]::GetPathRoot($script:Privado))
+    if ($unidad.AvailableFreeSpace -lt 15GB) { throw (Texto 'disco') }
+}
+
+# -PermitirApagada: con la máquina de Podman apagada no hay nada que hacer en
+# ella; se anota en $script:MaquinaApagada en vez de dar error (parar.ps1).
+function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$EncenderMaquina, [switch]$PermitirApagada) {
     if ($script:EsWindows -and -not $SoloMotor) {
-        $sistema = Get-CimInstance Win32_OperatingSystem
-        if ([int]$sistema.BuildNumber -lt 19041 -or -not [Environment]::Is64BitOperatingSystem) { throw (Texto 'windows') }
-        $instalada = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum
-        if ($instalada -lt 8GB) { throw (Texto 'memoria') }
+        Comprobar-Equipo
         if (-not (Get-Command wsl.exe -ErrorAction SilentlyContinue)) { throw (Texto 'wsl') }
         $wsl = ((& wsl.exe --list --verbose 2>&1) -join "`n") -replace "`0", ''
         if ($LASTEXITCODE -ne 0 -or $wsl -notmatch '\s2\s*(\r?\n|$)') { throw (Texto 'wsl') }
         if ($Motor -eq 'Rancher') {
             if (-not (Test-Path (Join-Path $env:ProgramFiles 'Rancher Desktop'))) { throw (Texto 'rancher') }
         }
-        $unidad = New-Object IO.DriveInfo([IO.Path]::GetPathRoot($script:Privado))
-        if ($unidad.AvailableFreeSpace -lt 15GB) { throw (Texto 'disco') }
     }
-    $nombre = if ($Motor -eq 'Podman') { 'podman' } else { 'docker' }
-    $comando = Get-Command $nombre -CommandType Application -ErrorAction SilentlyContinue
-    if (-not $comando) { throw (Texto 'podman') }
-    $script:Ejecutable = $comando.Source
+    if ($Motor -eq 'Podman') { $script:Ejecutable = Buscar-Podman }
+    else {
+        $comando = Get-Command docker -CommandType Application -ErrorAction SilentlyContinue
+        $script:Ejecutable = if ($comando) { $comando.Source } else { $null }
+    }
+    if (-not $script:Ejecutable) { throw (Texto 'podman') }
     if ($Motor -eq 'Podman') {
         if ($script:EsWindows) {
             # Windows PowerShell 5.1 entrega una matriz JSON como un único
@@ -138,9 +191,18 @@ function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$Encen
             $seleccionada = @($maquinas | Where-Object { $_.VMType -eq 'wsl' -and $activa[0].Name -in @($_.Name, ($_.Name + '-root')) })
             if ($seleccionada.Count -ne 1) { throw (Texto 'maquina') }
             $script:Maquina = $seleccionada[0].Name
-            if (-not $seleccionada[0].Running) {
+            $maquina = $seleccionada[0]
+            if (Maquina-Arrancando $maquina) { $maquina = Esperar-Arranque }
+            if (-not $maquina.Running) {
+                if ($PermitirApagada) { $script:MaquinaApagada = $true; return }
                 if (-not $EncenderMaquina) { throw (Texto 'maquina') }
-                [void](Ejecutar-Motor -Argumentos @('machine', 'start', $script:Maquina))
+                try { [void](Ejecutar-Motor -Argumentos @('machine', 'start', $script:Maquina)) }
+                catch {
+                    # Otro programa puede haber empezado a encenderla entre la consulta y la orden.
+                    $fallo = $_
+                    $maquina = Esperar-Arranque
+                    if (-not $maquina.Running) { throw $fallo }
+                }
             }
             Asegurar-TuberiaPodman $activa[0]
         }
@@ -150,8 +212,245 @@ function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$Encen
         $contexto = (Ejecutar-Motor -Argumentos @('context', 'show')).Trim()
         if ($script:EsWindows -and $contexto -ne 'rancher-desktop') { throw (Texto 'rancher') }
     }
-    [void](Ejecutar-Motor -Argumentos @('compose', 'version'))
+    if ($Motor -eq 'Podman') { Asegurar-Compose }
+    else { [void](Ejecutar-Motor -Argumentos @('compose', 'version')) }
     Write-Host (Texto 'requisitos_ok')
+}
+
+# --- Requisitos que instalar.cmd instala si faltan (WREQ) -------------------
+# WSL2 con permiso de administrador; Podman (MSI por usuario), su máquina WSL
+# y Compose sin él. Los instaladores van en el paquete con SHA-256 fijado.
+$script:ClaveReanudar = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\RunOnce'
+$script:NombreReanudar = 'ExpedientesETF'
+
+# La carpeta del sistema se pide a Windows, no a la variable SystemRoot, para
+# que el programa que se eleva con UAC sea siempre el de Windows.
+function Ruta-Sistema([string]$Relativa) {
+    $sistema = [Environment]::GetFolderPath('System')
+    if (-not $sistema) { $sistema = Join-Path $env:SystemRoot 'System32' }
+    return Join-Path $sistema $Relativa
+}
+
+function Comprobar-Requisito([string]$Relativa) {
+    $indice = Join-Path $script:Paquete 'SUMAS.json'
+    $ruta = Join-Path $script:Paquete $Relativa
+    if (-not (Test-Path -LiteralPath $indice) -or -not (Test-Path -LiteralPath $ruta -PathType Leaf)) { throw (Texto 'suma') }
+    $esperada = (Get-Content -LiteralPath $indice -Raw -Encoding UTF8 | ConvertFrom-Json).PSObject.Properties[$Relativa]
+    if (-not $esperada -or (Get-FileHash -LiteralPath $ruta -Algorithm SHA256).Hash -ne $esperada.Value) { throw (Texto 'suma') }
+    return $ruta
+}
+
+# Sin ventana y con la entrada cerrada: el wsl.exe de Windows sin WSL puede
+# quedarse esperando una tecla. Devuelve -1 si se agota el tiempo.
+function Ejecutar-Programa([string]$Programa, [string]$Argumentos, [int]$Segundos = 1800) {
+    $inicio = New-Object System.Diagnostics.ProcessStartInfo
+    $inicio.FileName = $Programa
+    $inicio.Arguments = $Argumentos
+    $inicio.UseShellExecute = $false
+    $inicio.CreateNoWindow = $true
+    $inicio.RedirectStandardInput = $true
+    $inicio.RedirectStandardOutput = $true
+    $inicio.RedirectStandardError = $true
+    $proceso = New-Object System.Diagnostics.Process
+    $proceso.StartInfo = $inicio
+    try {
+        [void]$proceso.Start()
+        $salida = $proceso.StandardOutput.ReadToEndAsync()
+        $errores = $proceso.StandardError.ReadToEndAsync()
+        $proceso.StandardInput.Close()
+        if (-not $proceso.WaitForExit($Segundos * 1000)) { $proceso.Kill(); return -1 }
+        [void]$salida.GetAwaiter().GetResult()
+        [void]$errores.GetAwaiter().GetResult()
+        return $proceso.ExitCode
+    } finally { $proceso.Dispose() }
+}
+
+# Pide el permiso con UAC; si la persona lo rechaza, Start-Process falla.
+# Espera como máximo 30 minutos; si se agota devuelve -1 y la instalación
+# se detiene con un mensaje en vez de quedarse esperando.
+function Ejecutar-Elevado([string]$Programa, [string]$Argumentos, [int]$Segundos = 1800) {
+    try { $proceso = Start-Process -FilePath $Programa -ArgumentList $Argumentos -Verb RunAs -PassThru }
+    catch { throw (Texto 'uac_rechazado') }
+    if (-not $proceso.WaitForExit($Segundos * 1000)) { return -1 }
+    return $proceso.ExitCode
+}
+
+function Probar-Wsl {
+    $wsl = Ruta-Sistema 'wsl.exe'
+    if (-not (Test-Path -LiteralPath $wsl -PathType Leaf)) { return $false }
+    foreach ($argumento in @('--version', '--status')) {
+        if ((Ejecutar-Programa $wsl $argumento 120) -ne 0) { return $false }
+    }
+    return $true
+}
+
+function Arranque-Sistema { return [string](Get-CimInstance Win32_OperatingSystem).LastBootUpTime.ToUniversalTime().ToString('o') }
+
+function Orden-Reanudacion {
+    $powershell = Ruta-Sistema 'WindowsPowerShell\v1.0\powershell.exe'
+    return '"' + $powershell + '" -NoLogo -NoProfile -ExecutionPolicy Bypass -NoExit -File "' +
+        (Join-Path $script:Paquete 'instalar.ps1') + '" -DirectorioPrivado "' + $script:Privado + '" -Puerto ' + $script:PuertoLocal
+}
+
+function Guardar-Reanudacion([string]$Orden) {
+    if (-not (Test-Path $script:ClaveReanudar)) { [void](New-Item -Path $script:ClaveReanudar -Force) }
+    Set-ItemProperty -Path $script:ClaveReanudar -Name $script:NombreReanudar -Value $Orden
+}
+
+function Quitar-Reanudacion {
+    Remove-ItemProperty -Path $script:ClaveReanudar -Name $script:NombreReanudar -ErrorAction SilentlyContinue
+}
+
+# Devuelve $true si Windows tiene que reiniciarse antes de seguir. La marca
+# guarda el arranque en que se instaló WSL: si tras reiniciar sigue sin estar
+# listo, se da un error en vez de pedir reinicios sin fin.
+function Asegurar-Wsl {
+    $marca = Join-Path $script:Privado 'wsl-pendiente.txt'
+    if (Probar-Wsl) {
+        if (Test-Path -LiteralPath $marca) { Remove-Item -LiteralPath $marca -Force }
+        Quitar-Reanudacion
+        return $false
+    }
+    $arranque = Arranque-Sistema
+    if (Test-Path -LiteralPath $marca) {
+        if ([IO.File]::ReadAllText($marca).Trim() -ne $arranque) { throw (Texto 'wsl_sin_activar') }
+    } else {
+        $wsl = Ruta-Sistema 'wsl.exe'
+        if (-not (Test-Path -LiteralPath $wsl -PathType Leaf)) { throw ((Texto 'wsl_fallo') -f 'wsl.exe') }
+        Write-Host (Texto 'wsl_instalando')
+        $codigo = Ejecutar-Elevado $wsl '--install --no-distribution'
+        if ($codigo -ne 0 -and $codigo -ne 3010) { throw ((Texto 'wsl_fallo') -f $codigo) }
+        Anotar-Instalado 'wsl' $true
+        if (Probar-Wsl) { return $false }
+        Guardar-Privado $marca $arranque
+    }
+    Guardar-Reanudacion (Orden-Reanudacion)
+    Write-Host (Texto 'reiniciar')
+    return $true
+}
+
+function Anadir-Ruta([string]$Carpeta) {
+    $separador = [IO.Path]::PathSeparator
+    if (@($env:PATH -split [regex]::Escape($separador)) -notcontains $Carpeta) { $env:PATH = $Carpeta + $separador + $env:PATH }
+}
+
+# Podman por usuario, por equipo o el antiguo de Red Hat; el primero hallado
+# se añade al PATH de este proceso.
+function Buscar-Podman {
+    $comando = Get-Command podman -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($comando) { return $comando.Source }
+    $carpetas = @()
+    if ($env:LOCALAPPDATA) { $carpetas += Join-Path $env:LOCALAPPDATA 'Programs\Podman' }
+    if ($env:ProgramFiles) { $carpetas += @((Join-Path $env:ProgramFiles 'Podman'), (Join-Path $env:ProgramFiles 'RedHat\Podman')) }
+    foreach ($carpeta in $carpetas) {
+        $ruta = Join-Path $carpeta 'podman.exe'
+        if (Test-Path -LiteralPath $ruta -PathType Leaf) { Anadir-Ruta $carpeta; return $ruta }
+    }
+    return $null
+}
+
+function Asegurar-Podman {
+    if (Buscar-Podman) { return }
+    $msi = Comprobar-Requisito 'requisitos/podman-installer-windows-amd64.msi'
+    $registro = Join-Path $script:Privado 'podman-instalacion.log'
+    $producto = Leer-CodigoProducto $msi
+    Write-Host (Texto 'podman_instalando')
+    $codigo = Ejecutar-Programa (Ruta-Sistema 'msiexec.exe') (
+        '/package "' + $msi + '" /quiet /norestart MSIINSTALLPERUSER=1 MACHINE_PROVIDER=wsl /l*v "' + $registro + '"')
+    if (($codigo -ne 0 -and $codigo -ne 3010) -or -not (Buscar-Podman)) { throw ((Texto 'podman_fallo') -f $codigo, $registro) }
+    Anotar-Instalado 'podman' $producto
+}
+
+# Código de producto del MSI incluido, para poder desinstalar exactamente
+# lo que se instaló. Si no se puede leer, desinstalar remite a Configuración.
+function Leer-CodigoProducto([string]$Msi) {
+    $objetos = @()
+    try {
+        $instalador = New-Object -ComObject WindowsInstaller.Installer
+        $objetos += $instalador
+        $base = $instalador.GetType().InvokeMember('OpenDatabase', 'InvokeMethod', $null, $instalador, @($Msi, 0))
+        $objetos += $base
+        $vista = $base.GetType().InvokeMember('OpenView', 'InvokeMethod', $null, $base, @("SELECT Value FROM Property WHERE Property = 'ProductCode'"))
+        $objetos += $vista
+        [void]$vista.GetType().InvokeMember('Execute', 'InvokeMethod', $null, $vista, $null)
+        $fila = $vista.GetType().InvokeMember('Fetch', 'InvokeMethod', $null, $vista, $null)
+        $objetos += $fila
+        $codigo = [string]$fila.GetType().InvokeMember('StringData', 'GetProperty', $null, $fila, @(1))
+        [void]$vista.GetType().InvokeMember('Close', 'InvokeMethod', $null, $vista, $null)
+        if ($codigo -match '^\{[0-9A-Fa-f-]{36}\}$') { return $codigo }
+    } catch {
+    } finally {
+        [array]::Reverse($objetos)
+        foreach ($objeto in $objetos) { try { [void][Runtime.InteropServices.Marshal]::ReleaseComObject($objeto) } catch { } }
+    }
+    return $null
+}
+
+# Lo que instala esta aplicación queda en instalado.json de la carpeta
+# privada; desinstalar.cmd sólo ofrece quitar lo anotado ahí.
+function Leer-Instalado {
+    $ruta = Join-Path $script:Privado 'instalado.json'
+    if (Test-Path -LiteralPath $ruta -PathType Leaf) {
+        $datos = Get-Content -LiteralPath $ruta -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($datos) { return $datos }
+    }
+    return [pscustomobject]@{}
+}
+
+function Anotar-Instalado([string]$Clave, $Valor) {
+    $datos = Leer-Instalado
+    $datos | Add-Member -NotePropertyName $Clave -NotePropertyValue $Valor -Force
+    Guardar-Privado (Join-Path $script:Privado 'instalado.json') ($datos | ConvertTo-Json)
+}
+
+function Valor-Instalado($Datos, [string]$Clave) {
+    if ($Datos.PSObject.Properties[$Clave]) { return $Datos.$Clave }
+    return $null
+}
+
+function Asegurar-MaquinaPodman {
+    $script:Ejecutable = Buscar-Podman
+    $maquinas = @(Ejecutar-Motor -Argumentos @('machine', 'list', '--format', 'json') | ConvertFrom-Json | ForEach-Object { $_ })
+    if (@($maquinas | Where-Object { $_.VMType -eq 'wsl' }).Count) { return }
+    Write-Host (Texto 'maquina_creando')
+    $proveedor = $env:CONTAINERS_MACHINE_PROVIDER
+    $env:CONTAINERS_MACHINE_PROVIDER = 'wsl'
+    try { [void](Ejecutar-Motor -Argumentos @('machine', 'init', '--rootful', '--cpus', '2', '--memory', '4096')) }
+    finally { $env:CONTAINERS_MACHINE_PROVIDER = $proveedor }
+    $creada = @(Ejecutar-Motor -Argumentos @('machine', 'list', '--format', 'json') | ConvertFrom-Json | ForEach-Object { $_ } | Where-Object { $_.VMType -eq 'wsl' })
+    if ($creada.Count -eq 1) { Anotar-Instalado 'maquina' ([string]$creada[0].Name) }
+    Write-Host (Texto 'maquina_encendiendo')
+    [void](Ejecutar-Motor -Argumentos @('machine', 'start'))
+}
+
+# Si Podman no encuentra proveedor de Compose, usa el docker-compose del
+# paquete, copiado tras comprobar su suma a la carpeta privada de la cuenta.
+function Asegurar-Compose {
+    try { [void](Ejecutar-Motor -Argumentos @('compose', 'version')); return } catch { }
+    $copia = Join-Path $script:Privado 'herramientas\docker-compose.exe'
+    if (Test-Path -LiteralPath (Join-Path $script:Paquete 'requisitos/docker-compose.exe') -PathType Leaf) {
+        $incluido = Comprobar-Requisito 'requisitos/docker-compose.exe'
+        if (-not (Test-Path -LiteralPath $copia -PathType Leaf) -or
+            (Get-FileHash -LiteralPath $copia -Algorithm SHA256).Hash -ne (Get-FileHash -LiteralPath $incluido -Algorithm SHA256).Hash) {
+            Write-Host (Texto 'compose_instalando')
+            [void](New-Item -ItemType Directory -Path (Split-Path -Parent $copia) -Force)
+            Copy-Item -LiteralPath $incluido -Destination ($copia + '.nuevo') -Force
+            Move-Item -LiteralPath ($copia + '.nuevo') -Destination $copia -Force
+        }
+    }
+    if (Test-Path -LiteralPath $copia -PathType Leaf) { $env:PODMAN_COMPOSE_PROVIDER = $copia }
+    try { [void](Ejecutar-Motor -Argumentos @('compose', 'version')) } catch { throw (Texto 'compose') }
+}
+
+# Devuelve $true si hay que reiniciar Windows antes de seguir.
+function Instalar-Requisitos {
+    if (-not $script:EsWindows) { return $false }
+    Write-Host (Texto 'requisitos_preparando')
+    Comprobar-Equipo
+    if (Asegurar-Wsl) { return $true }
+    Asegurar-Podman
+    Asegurar-MaquinaPodman
+    return $false
 }
 
 function Probar-Tuberia([string]$Ruta) { return [bool](Test-Path -Path $Ruta) }
@@ -164,8 +463,121 @@ function Esperar-Tuberia([string]$Ruta, [int]$Segundos) {
     return $false
 }
 
+# Estado de la máquina elegida; $null si ya no aparece.
+function Leer-Maquina {
+    $maquinas = @(Ejecutar-Motor -Argumentos @('machine', 'list', '--format', 'json') | ConvertFrom-Json | ForEach-Object { $_ })
+    return @($maquinas | Where-Object { $_.Name -eq $script:Maquina }) | Select-Object -First 1
+}
+
+function Maquina-Arrancando($Maquina) {
+    return [bool]($Maquina -and $Maquina.PSObject.Properties['Starting'] -and $Maquina.Starting)
+}
+
+# Podman Desktop puede estar encendiendo la máquina justo al iniciar sesión.
+# Se espera a que termine (hasta 3 minutos) en vez de pararla o arrancarla
+# encima, que deja la máquina a medias y sin la tubería de Compose.
+function Esperar-Arranque([int]$Segundos = 180, [int]$Pausa = 5) {
+    $maquina = Leer-Maquina
+    $vueltas = [Math]::Ceiling($Segundos / $Pausa)
+    for ($i = 0; (Maquina-Arrancando $maquina) -and $i -lt $vueltas; $i++) {
+        if ($i % 6 -eq 0) { Write-Host (Texto 'maquina_esperando') }
+        Start-Sleep -Seconds $Pausa
+        $maquina = Leer-Maquina
+    }
+    if (Maquina-Arrancando $maquina) { throw (Texto 'maquina_arrancando') }
+    if (-not $maquina) { throw (Texto 'maquina') }
+    return $maquina
+}
+
+# El proxy lanzado aquí se anota (identificador y hora de inicio) para que
+# parar.ps1 lo cierre sin confundirlo con otro proceso que reutilice el número.
 function Lanzar-Proxy([string]$Ejecutable, [string[]]$Argumentos) {
-    Start-Process -FilePath $Ejecutable -ArgumentList (Unir-Argumentos $Argumentos) -WindowStyle Hidden | Out-Null
+    Cerrar-ProxyPropio
+    $proceso = Start-Process -FilePath $Ejecutable -ArgumentList (Unir-Argumentos $Argumentos) -WindowStyle Hidden -PassThru
+    Guardar-Proxy $proceso
+}
+
+function Guardar-Proxy($Proceso) {
+    Guardar-Privado (Join-Path $script:Privado 'proxy.json') (@{ id = [int]$Proceso.Id; inicio = [int64]$Proceso.StartTime.ToUniversalTime().Ticks } | ConvertTo-Json)
+}
+
+function Cerrar-ProxyPropio {
+    $ruta = Join-Path $script:Privado 'proxy.json'
+    if (-not (Test-Path -LiteralPath $ruta -PathType Leaf)) { return }
+    try {
+        $datos = Get-Content -LiteralPath $ruta -Raw -Encoding UTF8 | ConvertFrom-Json
+        $proceso = Get-Process -Id ([int]$datos.id) -ErrorAction SilentlyContinue
+        if ($proceso -and $proceso.ProcessName -eq 'win-sshproxy' -and
+            [int64]$proceso.StartTime.ToUniversalTime().Ticks -eq [int64]$datos.inicio) {
+            Stop-Process -Id $proceso.Id -Force -ErrorAction SilentlyContinue
+            Wait-Process -Id $proceso.Id -Timeout 10 -ErrorAction SilentlyContinue
+        }
+    } catch { }
+    finally { Remove-Item -LiteralPath $ruta -Force -ErrorAction SilentlyContinue }
+}
+
+# Con la máquina de Podman encendida, Windows 10 puede quedarse en
+# «Reiniciando». Parar la apaga si ya no tiene contenedores en marcha, de esta
+# ni de otras aplicaciones, y cierra el proxy que hayamos lanzado.
+# Contenedores en marcha en las dos conexiones de la máquina (con y sin
+# permisos de administrador); $null si ninguna responde.
+function Contenedores-EnMarcha {
+    $enMarcha = @()
+    $respuestas = 0
+    foreach ($conexion in @($script:Maquina, ($script:Maquina + '-root'))) {
+        try {
+            $enMarcha += @(([string](Ejecutar-Motor -Argumentos @('--connection', $conexion, 'ps', '--quiet'))) -split '\r?\n' | Where-Object { $_.Trim() })
+            $respuestas++
+        } catch { }
+    }
+    if (-not $respuestas) { return $null }
+    return ,$enMarcha
+}
+
+function Apagar-MaquinaPodman {
+    if (-not $script:Maquina) { return }
+    # Si ninguna conexión responde no se sabe qué hay dentro y no se apaga.
+    $enMarcha = Contenedores-EnMarcha
+    if ($null -eq $enMarcha) { Write-Host (Texto 'maquina_no_apagada'); return }
+    if ($enMarcha.Count) { Write-Host (Texto 'maquina_en_uso'); return }
+    Write-Host (Texto 'maquina_apagando')
+    try { [void](Ejecutar-Motor -Argumentos @('machine', 'stop', $script:Maquina) -Segundos 120) }
+    catch { Write-Host (Texto 'maquina_no_apagada') }
+    Cerrar-ProxyPropio
+}
+
+# desinstalar.cmd: ofrece quitar sólo la máquina y el Podman que anotó esta
+# aplicación al instalarlos, y pregunta antes. Lo que ya había se conserva y
+# WSL no se toca. Un fallo se avisa sin detener el resto de la desinstalación.
+function Retirar-Requisitos {
+    $instalado = Leer-Instalado
+    $maquina = [string](Valor-Instalado $instalado 'maquina')
+    $podmanNuestro = [bool]$instalado.PSObject.Properties['podman']
+    $maquinas = @(Ejecutar-Motor -Argumentos @('machine', 'list', '--format', 'json') | ConvertFrom-Json | ForEach-Object { $_ })
+    $maquinaNuestra = $maquina -and @($maquinas | Where-Object { $_.Name -eq $maquina }).Count -eq 1
+    if (-not $maquinaNuestra -and -not $podmanNuestro) { Apagar-MaquinaPodman; return }
+    $enMarcha = Contenedores-EnMarcha
+    if ($null -eq $enMarcha -or $enMarcha.Count) { Write-Host (Texto 'requisitos_en_uso'); return }
+    $pregunta = if ($podmanNuestro) { Texto 'quitar_podman_pregunta' } else { Texto 'quitar_maquina_pregunta' }
+    if ((Read-Host $pregunta) -cne (Texto 'quitar_palabra')) {
+        Write-Host (Texto 'requisitos_conservados')
+        Apagar-MaquinaPodman
+        return
+    }
+    if ($maquinaNuestra) {
+        Write-Host (Texto 'maquina_quitando')
+        try { [void](Ejecutar-Motor -Argumentos @('machine', 'rm', '--force', $maquina) -Segundos 300) }
+        catch { Write-Host (Texto 'maquina_quitar_fallo'); return }
+    }
+    Cerrar-ProxyPropio
+    if (-not $podmanNuestro) { return }
+    $producto = [string](Valor-Instalado $instalado 'podman')
+    if ($producto -notmatch '^\{[0-9A-Fa-f-]{36}\}$') { Write-Host (Texto 'podman_quitar_manual'); return }
+    $registro = Join-Path $script:Privado 'podman-desinstalacion.log'
+    Write-Host (Texto 'podman_quitando')
+    $codigo = Ejecutar-Programa (Ruta-Sistema 'msiexec.exe') ('/x ' + $producto + ' /quiet /norestart /l*v "' + $registro + '"') 900
+    if ($codigo -notin @(0, 1605, 3010)) { Write-Host ((Texto 'podman_quitar_fallo') -f $codigo, $registro); return }
+    Remove-Item -LiteralPath $registro -Force -ErrorAction SilentlyContinue
 }
 
 function Buscar-ProxyPodman {
@@ -193,6 +605,12 @@ function Asegurar-TuberiaPodman($Conexion) {
         $tuberia = '\\.\pipe\' + $nombre
     }
     if ($tuberia -notmatch '^\\\\\.\\pipe\\[A-Za-z0-9._-]+$') { throw (Texto 'tuberia') }
+    if (Esperar-Tuberia $tuberia 0) { return }
+    # Podman puede abrir la tubería unos segundos después de encender la
+    # máquina; antes de reiniciarla se espera y se comprueba que no se esté
+    # encendiendo desde otro programa.
+    if (Esperar-Tuberia $tuberia 15) { return }
+    [void](Esperar-Arranque)
     if (Esperar-Tuberia $tuberia 0) { return }
     Write-Host (Texto 'tuberia_reintento')
     try { [void](Ejecutar-Motor -Argumentos @('machine', 'stop', $script:Maquina)) } catch { }

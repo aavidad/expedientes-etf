@@ -153,7 +153,7 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | Huecos sin resolver | 627-634 |
 | 12. Cómo mantener este documento | 635-643 |
 
-## ESQUEMA_BACKEND.md (2570 líneas)
+## ESQUEMA_BACKEND.md (2572 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -164,32 +164,32 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | 1.3 `paquete`: idiomas, temas y referencias activas | 304-371 |
 | 1.4 `expediente`: la familia de la derivación al seguimiento | 372-981 |
 | 1.5 `evaluacion`: escalas por momento (Anexos 7, 8, 11 y 12) | 982-1035 |
-| 1.6 `documento`: plantillas, emisiones y registro de salida | 1036-1158 |
-| 1.7 `actividad`, `estadistica` y `auditoria` | 1159-1357 |
-| 1.8 Índices previstos para la rapidez | 1358-1379 |
-| 1.9 Entradas de ficheros y persistencia | 1380-1420 |
-| 1.10 Contrato estadístico por apartado | 1421-1498 |
-| 2. Diagrama por módulo principal | 1499-1503 |
-| 2.1 `identidad` | 1504-1547 |
-| 2.2 `catalogo` | 1548-1637 |
-| 2.3 `expediente` | 1638-1757 |
-| 2.4 `evaluacion` | 1758-1796 |
-| 2.5 `documento` | 1797-1835 |
-| 2.6 `auditoria` | 1836-1863 |
-| 3. Roles y permisos de la base de datos | 1864-1887 |
-| 3.1 Seguridad por filas por equipo y perfil | 1888-1931 |
-| 3.2 Integridad de expediente, equipo y sujeto | 1932-1953 |
-| 4. Historia, versiones e idempotencia | 1954-2031 |
-| 5. Auditoría en datos | 2032-2125 |
-| 6. Migraciones | 2126-2193 |
-| 7. API | 2194-2265 |
-| 7.1 Rutas principales por módulo | 2266-2350 |
-| 7.1b Lectura de actas para alta histórica (RESP2) | 2351-2385 |
-| 7.2 Compatibilidad de carga por hoja: formato v1 (F2.08b) | 2386-2494 |
-| 8. Contradicciones encontradas | 2495-2559 |
-| 9. Cómo mantener este documento | 2560-2570 |
+| 1.6 `documento`: plantillas, emisiones y registro de salida | 1036-1160 |
+| 1.7 `actividad`, `estadistica` y `auditoria` | 1161-1359 |
+| 1.8 Índices previstos para la rapidez | 1360-1381 |
+| 1.9 Entradas de ficheros y persistencia | 1382-1422 |
+| 1.10 Contrato estadístico por apartado | 1423-1500 |
+| 2. Diagrama por módulo principal | 1501-1505 |
+| 2.1 `identidad` | 1506-1549 |
+| 2.2 `catalogo` | 1550-1639 |
+| 2.3 `expediente` | 1640-1759 |
+| 2.4 `evaluacion` | 1760-1798 |
+| 2.5 `documento` | 1799-1837 |
+| 2.6 `auditoria` | 1838-1865 |
+| 3. Roles y permisos de la base de datos | 1866-1889 |
+| 3.1 Seguridad por filas por equipo y perfil | 1890-1933 |
+| 3.2 Integridad de expediente, equipo y sujeto | 1934-1955 |
+| 4. Historia, versiones e idempotencia | 1956-2033 |
+| 5. Auditoría en datos | 2034-2127 |
+| 6. Migraciones | 2128-2195 |
+| 7. API | 2196-2267 |
+| 7.1 Rutas principales por módulo | 2268-2352 |
+| 7.1b Lectura de actas para alta histórica (RESP2) | 2353-2387 |
+| 7.2 Compatibilidad de carga por hoja: formato v1 (F2.08b) | 2388-2496 |
+| 8. Contradicciones encontradas | 2497-2561 |
+| 9. Cómo mantener este documento | 2562-2572 |
 
-## PLAN_IMPLEMENTACION.md (379 líneas)
+## PLAN_IMPLEMENTACION.md (380 líneas)
 
 | Apartado | Líneas |
 | --- | --- |
@@ -204,15 +204,15 @@ para leer sólo el trozo necesario (`sed -n 'INICIO,FINp' fichero`).
 | Fase 2: ficha, carga de 2026 y puesta en producción | 151-176 |
 | Fase 3: salidas, cierre y Tabla SPAF | 177-193 |
 | Fase 4: completar Memoria | 194-225 |
-| Fase 5: acabado, documentación y formación | 226-258 |
-| 4. Cómo se trabaja | 259-260 |
-| 4.1 Reparto de papeles | 261-264 |
-| 4.2 Qué lleva cada encargo | 265-275 |
-| 4.3 Puertas para fusionar: CI progresiva | 276-300 |
-| 4.4 Formato de entrega | 301-304 |
-| 4.5 Despliegues | 305-308 |
-| 4.6 Trabajo en paralelo sin pisarse | 309-320 |
-| 5. Riesgos y bloqueos | 321-337 |
-| 6. Hitos | 338-350 |
-| 7. Contradicciones encontradas | 351-372 |
-| 8. Cómo mantener este documento | 373-379 |
+| Fase 5: acabado, documentación y formación | 226-259 |
+| 4. Cómo se trabaja | 260-261 |
+| 4.1 Reparto de papeles | 262-265 |
+| 4.2 Qué lleva cada encargo | 266-276 |
+| 4.3 Puertas para fusionar: CI progresiva | 277-301 |
+| 4.4 Formato de entrega | 302-305 |
+| 4.5 Despliegues | 306-309 |
+| 4.6 Trabajo en paralelo sin pisarse | 310-321 |
+| 5. Riesgos y bloqueos | 322-338 |
+| 6. Hitos | 339-351 |
+| 7. Contradicciones encontradas | 352-373 |
+| 8. Cómo mantener este documento | 374-380 |

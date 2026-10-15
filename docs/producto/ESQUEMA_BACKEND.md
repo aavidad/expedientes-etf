@@ -27,7 +27,7 @@ Términos que salen a menudo:
   datos filtra las filas que ve cada persona aunque el programa se equivoque.
 - **ENS**: Esquema Nacional de Seguridad. **EIPD**: Evaluación de Impacto en la
   Protección de Datos. **DPD**: Delegado de Protección de Datos de la
-  Diputación.
+  entidad.
 - **i18n** (internacionalización): preparar la app para varios idiomas sin
   tocar el código.
 - **MOAD**: la plataforma de registro electrónico que usa la entidad.
@@ -1046,6 +1046,7 @@ una tabla por sujeto. Decidel responsable del producto, consultando al Programa 
   la app compara la huella del fichero con la registrada; si no coincide, no
   genera y avisa a Administración. Nunca se borra una versión usada.
 - PLV añade `documento/0013`: registra las 28 plantillas corregidas de F3.03 (`1.0.1`/`1.1.1`) con su huella, sin modificar originales ni emisiones. En instalación limpia activa 26 referencias; el Acta de Aceptación usa `1.1.1`. La actualización incrementa la revisión sólo si sigue la referencia inicial y no hay publicaciones o activaciones administrativas. Una versión administrativa con el mismo número se conserva, aunque tenga otros bytes; no se sobrescribe ni se sustituye su referencia por el fichero del paquete. Es una carga de distribución sin autor administrativo ni declaración de antivirus; las cargas posteriores siguen exigiendo ClamAV y auditoría transaccional.
+- PLEN añade `documento/0017`: registra doce versiones inglesas con su huella y activa únicamente las referencias de distribución intactas que preceden a la traducción. Sigue las protecciones de `documento/0016`: revisión previa exacta, ruta y huella de distribución y ausencia de publicaciones, activaciones o restauraciones administrativas. Conserva versiones y emisiones anteriores, incluidas las publicaciones administrativas con el mismo número. Los textos traducidos permanecen en `idiomas/en/plantillas/`; la base sólo registra sus referencias.
 - F1.11 añade `archivo_plantilla(anterior_id, nueva_id, archivada_por, archivada_en)` mediante `documento/0004`, reservada para `f1.11-plantillas`. Es un historial inmutable de las sustituciones: conserva los metadatos y ficheros anteriores sin alterar su estado `verificada`, su versión ni su huella. Tiene RLS forzada, lectura de Administración y ningún permiso de escritura directa para `etf_app`.
 - `documento.publicar_plantilla` sólo permite Administración funcional. Bloquea la referencia por tipo e idioma, exige su versión previa y confirma en la misma transacción la inserción, el registro de activación, la referencia nueva y `auditoria.registrar`. Una versión de contenido ya registrada nunca se reutiliza. La referencia permite una sola ganadora entre publicaciones concurrentes; la perdedora recibe la versión actual. Las rutas publicadas son `plantillas/<tipo>/.versiones/<UUID>/v<versión>.docx`, relativas al idioma de distribución, y no dependen de cambios posteriores del paquete de idioma. La limpieza consulta la existencia de la publicación bajo el mismo bloqueo antes de eliminar una ruta exclusiva.
 - PL1 añade `documento/0012`: `plantilla.antivirus` conserva `limpio` para subidas nuevas y `no_consta` para versiones anteriores. `activacion_plantilla(tipo_documento, idioma, revision, plantilla_id, activada_por, activada_en)` es de sólo adición, con RLS forzada y lectura exclusiva de Administración. Su clave es tipo, idioma y revisión; permite activar otra vez una versión histórica sin alterar su contenido. `archivo_plantilla` conserva la historia anterior. Las funciones `guardar_version_plantilla` y `activar_version_plantilla` comprueban Administración, bloquean la referencia y auditan en la misma transacción; `etf_app` no escribe directamente. Subir no cambia la activa. Activar exige revisión previa y comprobación de la huella y el contrato en el caso de uso. La consulta del historial se audita antes de entregar datos; la pantalla obtiene nombres del puerto HTTP autorizado de Usuarios, sin leer sus tablas desde Documentos.
@@ -1107,8 +1108,9 @@ significativas; los apartados 5 a 8 quedan vacíos para cumplimentarlos después
 Los datos disponibles proceden del puerto de expediente; los que todavía no
 existen en la ficha quedan vacíos. Los contactos del profesional ETF pendientes
 del puerto de identidad quedan vacíos; no se atribuye al ETF el contacto del
-servicio que derivó la familia. Se conserva el formato oficial castellano
-en ambos paquetes es/en, igual que los documentos de entrada.
+servicio que derivó la familia. Las versiones iniciales de ambos paquetes conservaban el texto oficial
+castellano. PLEN traduce el paquete inglés mediante `documento/0017`,
+conservando el formato y los campos.
 La fecha propuesta es el día civil de Madrid; una repetición idempotente
 reutiliza la fecha de la primera emisión, también después de medianoche.
 Generar el Word no crea una salida, no confirma fechas y no cambia estado.

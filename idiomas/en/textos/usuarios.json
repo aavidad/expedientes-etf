@@ -28,7 +28,7 @@
   "usuarios.puesto_ps": "Psychology",
   "usuarios.equipo_obligatorio": "Choose the professional’s team.",
   "usuarios.baja": "Deactivate access",
-  "usuarios.baja_consecuencia": "Saving will remove all profiles and the team. This person will lose access to the application. Their {entidad.nombre} account will remain unchanged.",
+  "usuarios.baja_consecuencia": "Saving will remove all profiles and the team. This person will lose access to the application. Their account with {entidad.nombre} will remain unchanged.",
   "usuarios.guardar": "Save permissions",
   "usuarios.guardado": "Permissions saved. They apply from the person’s next request.",
   "usuarios.vacio": "There are no registered accounts.",

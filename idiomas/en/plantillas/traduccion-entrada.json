@@ -1,0 +1,121 @@
+{
+  "entrada/aceptacion": {
+    "previa": "1.1.2",
+    "nueva": "1.1.3",
+    "sustituciones": {
+      "MUNICIPIO:  {{municipio}}": "MUNICIPALITY:  {{municipio}}",
+      "SERVICIO DERIVANTE: ": "REFERRING SERVICE: ",
+      "Caso procedente de:{{servicio_derivante}}": "Case referred by:{{servicio_derivante}}",
+      "{{origen_anexo3}} Servicios Sociales Comunitarios de ": "{{origen_anexo3}} Community Social Services in ",
+      "{{origen_anexo4}} Servicio de Protección de Menores.": "{{origen_anexo4}} Child Protection Service.",
+      "NOMBRE DE LA FAMILIA: {{familia}}": "FAMILY NAME: {{familia}}",
+      "Madre. {{madre}}": "Mother: {{madre}}",
+      "Fecha de Nacimiento:  {{madre_nacimiento}}": "Date of birth:  {{madre_nacimiento}}",
+      "Padre. {{padre}}": "Father: {{padre}}",
+      "Fecha de Nacimiento:  {{padre_nacimiento}}": "Date of birth:  {{padre_nacimiento}}",
+      "{{#adultos}}Otros {{orden}}: {{nombre}}": "{{#adultos}}Other {{orden}}: {{nombre}}",
+      "Parentesco: {{parentesco}}": "Relationship: {{parentesco}}",
+      "Fecha de Nacimiento:  {{nacimiento}}{{/adultos}}": "Date of birth:  {{nacimiento}}{{/adultos}}",
+      "NOMBRE DEL MENOR Y FECHA DE NACIMIENTO: ": "CHILD NAME AND DATE OF BIRTH: ",
+      "Sexo:          {{marca_h}}Varón       {{marca_m}}Femenino      ": "Sex:          {{marca_h}}Male       {{marca_m}}Female      ",
+      "Fecha de Nacimiento:  {{nacimiento}}{{/menores}}": "Date of birth:  {{nacimiento}}{{/menores}}",
+      "En Granada a la fecha de la firma electrónica": "In Granada, on the date of electronic signature",
+      "Fdo. {{firmante}}": "Signed: {{firmante}}",
+      "Programa de Tratamiento a Familias con Menores": "Programme for Treatment of Families with Children",
+      "ACTA DE ACEPTACIÓN DE LA INTERVENCIÓN DE LOS EQUIPOS DE": "ACCEPTANCE RECORD FOR INTERVENTION BY",
+      "TRATAMIENTO FAMILIAR ": "FAMILY TREATMENT TEAMS ",
+      "Nº. Expt. E.T.F.:                               {{numero}}": "E.T.F. case no.:                               {{numero}}",
+      "Equipo / Expediente / Año": "Team / Case / Year",
+      "DATOS DEL ETF Y CENTRO:": "ETF AND CENTRE DETAILS:",
+      "CENTRO DE SS.SS.CC: {{centro}}": "COMMUNITY SOCIAL SERVICES CENTRE: {{centro}}",
+      "{{origen_etf}} ETF de  ": "{{origen_etf}} ETF in  ",
+      "DESCRIPCIÓN DE LA SITUACIÓN FAMILIAR.": "DESCRIPTION OF THE FAMILY SITUATION.",
+      "Descripción de la situación familiar:{{descripcion}}": "Description of the family situation:{{descripcion}}",
+      "{{#menores}}Nombre: {{nombre}}": "{{#menores}}Name: {{nombre}}",
+      "PROFESIONAL REFERENTE DE DICHO EQUIPO PARA LA FAMILIA: {{profesional}}": "THE TEAM’S REFERENCE PROFESSIONAL FOR THE FAMILY: {{profesional}}",
+      "{{profesional_ts}} Trabajador Social": "{{profesional_ts}} Social worker",
+      "{{profesional_es}} Educador Social": "{{profesional_es}} Social educator",
+      "{{profesional_ps}} Psicólogo": "{{profesional_ps}} Psychologist"
+    }
+  },
+  "entrada/aceptacion/oficio_spm": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "En Granada a la fecha de la firma electrónica": "In Granada, on the date of electronic signature",
+      "Fdo. {{firmante}}": "Signed: {{firmante}}",
+      "Programa de Tratamiento a Familias con Menores": "Programme for Treatment of Families with Children",
+      "Por la presente comunico que con fecha {{fecha_acta}}, ha sido realizada el Acta de Aceptación de la derivación relativa a:": "The Acceptance Record for the referral concerning the following family was issued on {{fecha_acta}}:",
+      "DATOS DE CONTACTO DE LA FAMILIA: {{familia}}, con domicilio en: {{direccion}}.": "FAMILY CONTACT DETAILS: {{familia}}, living at: {{direccion}}.",
+      "Lo que comunico a efectos de que se pongan en contacto con ellas/os para establecer la fecha de presentación del caso.": "Please get in touch to arrange a date for the case presentation.",
+      "Delegación Territorial en Granada ": "Territorial Delegation in Granada ",
+      "Servicio de Protección de Menores ": "Child Protection Service ",
+      "A/A:  {{jefe_spm}} (Jefe de Servicio)  ": "For the attention of:  {{jefe_spm}} (Head of Service)  ",
+      "ASUNTO: Comunicación de Aceptación de expediente derivado desde el SPM.": "SUBJECT: Acceptance of a case referred by the SPM."
+    }
+  },
+  "entrada/aceptacion/oficio_sscc": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "En Granada a la fecha de la firma electrónica": "In Granada, on the date of electronic signature",
+      "Fdo. {{firmante}}": "Signed: {{firmante}}",
+      "Programa de Tratamiento a Familias con Menores": "Programme for Treatment of Families with Children",
+      "Por la presente comunico que con fecha {{fecha_acta}}, ha sido realizada el Acta de Aceptación de la derivación relativa a:": "The Acceptance Record for the referral concerning the following family was issued on {{fecha_acta}}:",
+      "DATOS DE CONTACTO DE LA FAMILIA: {{familia}}, con domicilio en: {{direccion}}.": "FAMILY CONTACT DETAILS: {{familia}}, living at: {{direccion}}.",
+      "Lo que comunico a efectos de que se pongan en contacto con ellas/os para establecer la fecha de presentación del caso.": "Please get in touch to arrange a date for the case presentation.",
+      "Centro de Servicios Sociales Comunitarios: ": "Community Social Services Centre: ",
+      "ASUNTO: Comunicación de Aceptación de expediente derivado desde Servicios Sociales Comunitarios.": "SUBJECT: Acceptance of a case referred by Community Social Services.",
+      "El ETF que trabajará en este Expediente es: {{equipo}}": "The ETF that will work on this case is: {{equipo}}"
+    }
+  },
+  "entrada/no_aceptacion": {
+    "previa": "1.0.2",
+    "nueva": "1.0.3",
+    "sustituciones": {
+      "MUNICIPIO:  {{municipio}}": "MUNICIPALITY:  {{municipio}}",
+      "SERVICIO DERIVANTE: ": "REFERRING SERVICE: ",
+      "Caso procedente de:{{servicio_derivante}}": "Case referred by:{{servicio_derivante}}",
+      "{{origen_anexo3}} Servicios Sociales Comunitarios de ": "{{origen_anexo3}} Community Social Services in ",
+      "{{origen_anexo4}} Servicio de Protección de Menores.": "{{origen_anexo4}} Child Protection Service.",
+      "NOMBRE DE LA FAMILIA: {{familia}}": "FAMILY NAME: {{familia}}",
+      "Madre. {{madre}}": "Mother: {{madre}}",
+      "Fecha de Nacimiento:  {{madre_nacimiento}}": "Date of birth:  {{madre_nacimiento}}",
+      "Padre. {{padre}}": "Father: {{padre}}",
+      "Fecha de Nacimiento:  {{padre_nacimiento}}": "Date of birth:  {{padre_nacimiento}}",
+      "{{#adultos}}Otros {{orden}}: {{nombre}}": "{{#adultos}}Other {{orden}}: {{nombre}}",
+      "Parentesco: {{parentesco}}": "Relationship: {{parentesco}}",
+      "Fecha de Nacimiento:  {{nacimiento}}{{/adultos}}": "Date of birth:  {{nacimiento}}{{/adultos}}",
+      "NOMBRE DEL MENOR Y FECHA DE NACIMIENTO: ": "CHILD NAME AND DATE OF BIRTH: ",
+      "Sexo:          {{marca_h}}Varón       {{marca_m}}Femenino      ": "Sex:          {{marca_h}}Male       {{marca_m}}Female      ",
+      "Fecha de Nacimiento:  {{nacimiento}}{{/menores}}": "Date of birth:  {{nacimiento}}{{/menores}}",
+      "En Granada a la fecha de la firma electrónica": "In Granada, on the date of electronic signature",
+      "Fdo. {{firmante}}": "Signed: {{firmante}}",
+      "Programa de Tratamiento a Familias con Menores": "Programme for Treatment of Families with Children",
+      "ACTA DE NO ACEPTACIÓN": "NON-ACCEPTANCE RECORD",
+      " DE LA INTERVENCIÓN DE LOS EQUIPOS DE": " FOR INTERVENTION BY",
+      " TRATAMIENTO FAMILIAR ": " FAMILY TREATMENT TEAMS ",
+      "{{origen_etf}} ETF de   ": "{{origen_etf}} ETF in   ",
+      "{{#menores}}Nombre:   {{nombre}}": "{{#menores}}Name:   {{nombre}}",
+      "MOTIVO DE LA NO ACEPTACIÓN.": "REASON FOR NON-ACCEPTANCE.",
+      "Motivo de la NO aceptación:{{motivo}}": "Reason for non-acceptance:{{motivo}}"
+    }
+  },
+  "entrada/no_aceptacion/lista_espera": {
+    "previa": "1.0.2",
+    "nueva": "1.0.3",
+    "sustituciones": {
+      "Fdo. {{firmante}}": "Signed: {{firmante}}",
+      "Programa de Tratamiento a Familias con Menores": "Programme for Treatment of Families with Children",
+      "CENTRO DE SERVICIOS SOCIALES COMUNITARIOS{{destinatario_sscc}}": "COMMUNITY SOCIAL SERVICES CENTRE{{destinatario_sscc}}",
+      "ASUNTO: Comunicación de no aceptación temporal y permanencia en lista de espera de expediente derivado al Equipo de Tratamiento Familiar (ETF).": "SUBJECT: Temporary non-acceptance and continued waiting list status of a case referred to the Family Treatment Team (ETF).",
+      "De conformidad con lo establecido en el apartado 6.3 del Manual del Programa de Tratamiento a Familias con Menores en Situación de Riesgo y Desprotección (Manual ETF), y atendiendo a las circunstancias organizativas y a la disponibilidad actual de recursos del Equipo, no resulta viable proceder a la aceptación e incorporación inmediata del referido expediente al Programa de Tratamiento Familiar (PTF).": "Under section 6.3 of the Manual for the Family Treatment Programme for Children at Risk or in Need of Protection (ETF Manual), the Team’s current organisational circumstances and available resources mean that it cannot immediately accept this case into the Family Treatment Programme (PTF).",
+      "En consecuencia, el expediente permanecerá en lista de espera, pendiente de su incorporación efectiva al Equipo de Tratamiento Familiar, una vez que las condiciones de disponibilidad y capacidad asistencial del Equipo permitan su adecuada atención.": "The case will therefore remain on the waiting list until the Family Treatment Team has the resources and capacity to provide appropriate support.",
+      "Asimismo, teniendo en consideración que la prolongación de los tiempos de espera puede incidir negativamente en la evolución de las situaciones familiares, se hace constar que, en situaciones de elevada demanda asistencial y/o existencia de lista de espera, la determinación del orden de acceso al Subprograma de Riesgo y/o al Subprograma de Reintegración Familiar se  ajustará a los criterios de priorización establecidos en el Manual ETF (páginas 66 y 77, respectivamente), atendiendo a las circunstancias y necesidades específicas de cada expediente.": "Longer waiting times can have an adverse effect on family situations. When demand for support is high and/or there is a waiting list, the order of access to the Risk Subprogramme and/or the Family Reunification Subprogramme will follow the priority criteria in the ETF Manual (pages 66 and 77, respectively), taking account of the circumstances and needs of each case.",
+      "Por último, se considera necesario garantizar la continuidad de la intervención profesional con la unidad familiar durante el periodo de espera. Por tanto, hasta que se formalice el Acta de Aceptación por parte del ETF y se produzca la efectiva incorporación al Programa, la atención y el seguimiento de la familia continuarán siendo responsabilidad de los Servicios Sociales Comunitarios, a través de la correspondiente Unidad de Trabajo Social (UTS), en el marco de sus competencias y conforme a las actuaciones que se estimen técnicamente procedentes.": "Professional intervention with the family must continue during the waiting period. Until the ETF formalises the Acceptance Record and the family enters the Programme, Community Social Services, through the relevant Social Work Unit (UTS), will remain responsible for the family’s support and follow-up, within their remit and in line with professional judgement.",
+      "Todo ello, sin perjuicio de la revisión de la situación del expediente que se pudiera producir y de su incorporación al ETF a la mayor brevedad posible, de acuerdo con los criterios de priorización establecidos y la disponibilidad efectiva del recurso especializado.": "The case may be reviewed and accepted by the ETF as soon as possible, in line with the established priority criteria and the specialist service’s available capacity.",
+      "Ruego, le hagan llegar esta información al Equipo de Tratamiento Familiar y a la UTS derivante del Expediente: {{numero}}.": "Please pass this information to the Family Treatment Team and the UTS that referred case {{numero}}.",
+      " En Granada a la fecha de la firma electrónica": " In Granada, on the date of electronic signature"
+    }
+  }
+}

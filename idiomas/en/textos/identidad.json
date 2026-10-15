@@ -1,6 +1,6 @@
 {
   "identidad.entrar_titulo": "Sign in",
-  "identidad.entrar_descripcion": "Use your {entidad.nombre} username and password.",
+  "identidad.entrar_descripcion": "Use your username and password from {entidad.nombre}.",
   "identidad.cuenta": "Corporate username",
   "identidad.contrasena": "Password",
   "identidad.entrar": "Sign in",
@@ -12,7 +12,7 @@
   "identidad.validando": "Checking access…",
   "identidad.campos_obligatorios": "Enter your username and password to sign in.",
   "identidad.credenciales_invalidas": "We could not sign you in with that username and password. Check them and try again.",
-  "identidad.directorio_no_disponible": "The {entidad.nombre} sign-in service is not responding. You cannot sign in right now. Try again later.",
+  "identidad.directorio_no_disponible": "The sign-in service of {entidad.nombre} is not responding. You cannot sign in right now. Try again later.",
   "identidad.intentos_limitados": "Too many sign-in attempts have been received. Wait a few minutes and try again.",
   "identidad.sesion_no_valida": "Your session has expired. Sign in again.",
   "identidad.usuario_no_disponible": "Your access is disabled. Contact Functional Administration.",

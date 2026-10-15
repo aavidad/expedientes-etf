@@ -249,6 +249,66 @@ RESET SESSION AUTHORIZATION;
     print('RESP1-UPGRADE-OK: espera previa reconstruida, SMI editado y plantilla administrativa conservados', flush=True)
 
 
+def ensayar_plantillas_en(sql):
+    # La base ya contiene Documento/0016. Se revierten todas las decisiones
+    # administrativas antes de comprobar la instalación ordinaria de 0017.
+    preparacion = """BEGIN;
+INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
+VALUES('99999999-9999-4999-8999-999999999970','99999999-9999-4999-8999-999999999971','marta.salas','Marta Salas Molina','activo',clock_timestamp(),clock_timestamp());
+SELECT set_config('app.usuario_id','99999999-9999-4999-8999-999999999970',true);
+SELECT set_config('app.perfiles','administracion',true);
+SELECT documento.guardar_version_plantilla('99999999-9999-4999-8999-999999999972',
+ 'entrada/aceptacion','en','1.1.3','plantillas/entrada/aceptacion/.versiones/99999999-9999-4999-8999-999999999972/v1.1.3.docx',
+ repeat('b',64),(SELECT version FROM documento.referencia_activa WHERE tipo_documento='entrada/aceptacion' AND idioma='en'));
+SELECT documento.guardar_version_plantilla('99999999-9999-4999-8999-999999999973',
+ 'entrada/no_aceptacion','en','9.8.7','plantillas/entrada/no_aceptacion/.versiones/99999999-9999-4999-8999-999999999973/v9.8.7.docx',
+ repeat('c',64),(SELECT version FROM documento.referencia_activa WHERE tipo_documento='entrada/no_aceptacion' AND idioma='en'));
+SELECT documento.activar_version_plantilla('99999999-9999-4999-8999-999999999973',
+ (SELECT version FROM documento.referencia_activa WHERE tipo_documento='entrada/no_aceptacion' AND idioma='en'));
+SELECT documento.activar_version_plantilla(p.id,r.version)
+ FROM documento.referencia_activa r JOIN documento.plantilla p
+ ON p.tipo_documento=r.tipo_documento AND p.idioma=r.idioma AND p.version='1.0.0'
+ WHERE r.tipo_documento='entrada/aceptacion/oficio_sscc' AND r.idioma='en';
+SELECT documento.activar_version_plantilla(p.id,r.version)
+ FROM documento.referencia_activa r JOIN documento.plantilla p
+ ON p.tipo_documento=r.tipo_documento AND p.idioma=r.idioma AND p.version='1.0.1'
+ WHERE r.tipo_documento='entrada/aceptacion/oficio_sscc' AND r.idioma='en';
+SET LOCAL ROLE etf_propietario;
+CREATE TEMP TABLE en_plantillas_anteriores ON COMMIT DROP AS
+ SELECT id,to_jsonb(p) AS contenido FROM documento.plantilla p;
+CREATE TEMP TABLE en_referencias_administrativas ON COMMIT DROP AS
+ SELECT * FROM documento.referencia_activa
+ WHERE idioma='en' AND tipo_documento IN ('entrada/aceptacion','entrada/no_aceptacion','entrada/aceptacion/oficio_sscc');
+CREATE TEMP TABLE en_historial_administrativo ON COMMIT DROP AS
+ SELECT * FROM documento.activacion_plantilla;
+SET SESSION AUTHORIZATION etf_migrador;
+SET LOCAL ROLE etf_propietario;
+"""
+    comprobacion = """
+DO $$ BEGIN
+ IF EXISTS(SELECT 1 FROM en_plantillas_anteriores a LEFT JOIN documento.plantilla p ON p.id=a.id
+           WHERE p.id IS NULL OR to_jsonb(p)<>a.contenido)
+ OR EXISTS(SELECT * FROM en_referencias_administrativas EXCEPT SELECT * FROM documento.referencia_activa)
+ OR EXISTS(SELECT * FROM en_historial_administrativo EXCEPT SELECT * FROM documento.activacion_plantilla)
+ OR (SELECT count(*) FROM documento.activacion_plantilla)<>(SELECT count(*) FROM en_historial_administrativo)
+ OR (SELECT encode(huella_sha256,'hex') FROM documento.plantilla
+     WHERE id='99999999-9999-4999-8999-999999999972')<>repeat('b',64)
+ OR EXISTS(SELECT 1 FROM traducciones_plantillas c
+           LEFT JOIN documento.referencia_activa r ON r.tipo_documento=c.tipo AND r.idioma=c.idioma
+           LEFT JOIN documento.plantilla p ON p.id=r.plantilla_id
+           WHERE c.tipo NOT IN ('entrada/aceptacion','entrada/no_aceptacion','entrada/aceptacion/oficio_sscc')
+           AND (p.id IS NULL OR p.version<>c.version OR p.huella_sha256<>decode(c.huella,'hex'))) THEN
+  RAISE EXCEPTION 'prueba.plantillas_en_actualizacion';
+ END IF;
+END $$;
+ROLLBACK;
+RESET SESSION AUTHORIZATION;
+"""
+    migracion = (RAIZ / 'migraciones/documento/0017_plantillas_en.sql').read_text()
+    print(orden(sql, preparacion + migracion + comprobacion), flush=True)
+    print('PLEN-UPGRADE-OK: desde 0016, nuevas referencias y versiones previas intactas; colisión, activación y restauración conservadas', flush=True)
+
+
 def main():
     with tempfile.TemporaryDirectory(prefix='etf-f106-') as carpeta:
         tmp = pathlib.Path(carpeta)
@@ -311,6 +371,16 @@ def main():
             if entrada['numero'] >= '0015':
                 (previo_resp3 / 'documento' / entrada['archivo']).unlink()
         manifest_resp3.write_text(json.dumps([e for e in entradas_resp3 if e['numero'] < '0015']))
+        previo_en = tmp / 'previo-en'
+        shutil.copytree(RAIZ / 'migraciones', previo_en,
+                        ignore=shutil.ignore_patterns('__pycache__'))
+        manifest_en = previo_en / 'documento' / 'manifiesto.json'
+        entradas_en = json.loads(manifest_en.read_text())
+        for entrada in entradas_en:
+            if entrada['numero'] >= '0017':
+                (previo_en / 'documento' / entrada['archivo']).unlink()
+        manifest_en.write_text(json.dumps([e for e in entradas_en if e['numero'] < '0017']))
+        recortar_dependientes(previo_en)
         montar = ['--mount' , f'type=bind,source={tmp},target=/pruebas,readonly',
                   '--mount', f'type=bind,source={RAIZ},target=/repo,readonly']
         try:
@@ -332,8 +402,17 @@ def main():
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/pruebas/previo-plv', '/pruebas/migrar']), flush=True)
             ensayar_actualizacion_plv(sql)
             ensayar_respuestas_programa(sql)
+            print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/pruebas/previo-en', '/pruebas/migrar']), flush=True)
+            ensayar_plantillas_en(sql)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
+            huella_plantillas = """SELECT encode(sha256(convert_to(string_agg(contenido,'' ORDER BY contenido),'UTF8')),'hex')
+FROM (SELECT to_jsonb(p)::text AS contenido FROM documento.plantilla p
+      UNION ALL SELECT to_jsonb(r)::text FROM documento.referencia_activa r
+      UNION ALL SELECT to_jsonb(a)::text FROM documento.activacion_plantilla a) datos;"""
+            antes_repeticion = orden(sql, huella_plantillas)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
+            if orden(sql, huella_plantillas) != antes_repeticion:
+                raise RuntimeError('documento.repeticion_altera_plantillas')
             print('ENSAYO-OK versión anterior, migración nueva y repetición', flush=True)
             orden(sql, """
 INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
@@ -398,7 +477,8 @@ DO $$ BEGIN
  IF (SELECT count(*) FROM documento.plantilla WHERE tipo_documento IN
  ('finalizacion/anexo11','finalizacion/anexo12') AND idioma IN ('es','en') AND version='1.0.2') <> 4
  OR (SELECT count(*) FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
- WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12') AND p.version='1.0.2') <> 3
+ WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12')
+ AND ((p.idioma='es' AND p.version='1.0.2') OR (p.idioma='en' AND p.version='1.0.3'))) <> 3
  OR (SELECT p.version FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
  WHERE r.tipo_documento='finalizacion/anexo12' AND r.idioma='es') <> '1.0.1'
  THEN RAISE EXCEPTION 'documento.ensayo_escalas_opcionales'; END IF;
@@ -434,7 +514,8 @@ DO $$ BEGIN
  IF (SELECT count(*) FROM documento.plantilla WHERE id='55555555-5555-4555-8555-555555555555'
  AND subida_por='11111111-1111-4111-8111-111111111111' AND version='1.0.1') <> 1
  OR (SELECT count(*) FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
- WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12') AND p.version='1.0.2') <> 4
+ WHERE r.tipo_documento IN ('finalizacion/anexo11','finalizacion/anexo12')
+ AND ((p.idioma='es' AND p.version='1.0.2') OR (p.idioma='en' AND p.version='1.0.3'))) <> 4
  THEN RAISE EXCEPTION 'documento.ensayo_publicacion_conservada'; END IF;
 END $$;
 """)

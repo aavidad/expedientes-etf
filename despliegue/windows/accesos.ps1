@@ -122,9 +122,14 @@ function Eliminar-ArchivosInstalados {
             }
         } while (Test-Path $perfil)
     }
-    foreach ($nombre in @('inicio.json', 'entorno.env', 'usuarios.json', 'USUARIOS.txt')) {
+    foreach ($nombre in @('inicio.json', 'entorno.env', 'usuarios.json', 'USUARIOS.txt', 'proxy.json', 'registro-abrir.log',
+            'registro-abrir.log.anterior', 'instalado.json', 'wsl-pendiente.txt', 'podman-instalacion.log', 'herramientas\docker-compose.exe')) {
         $ruta = Join-Path $script:Privado $nombre
         if (Test-Path -LiteralPath $ruta -PathType Leaf) { Remove-Item -LiteralPath $ruta -Force }
+    }
+    $herramientas = Join-Path $script:Privado 'herramientas'
+    if ((Test-Path -LiteralPath $herramientas -PathType Container) -and -not @(Get-ChildItem -LiteralPath $herramientas -Force).Count) {
+        Remove-Item -LiteralPath $herramientas -Force
     }
     # Si quedan notas añadidas, la marca permite reinstalar en esta misma carpeta.
     $restantes = @(Get-ChildItem -LiteralPath $script:Privado -Force | Where-Object { $_.Name -ne 'instalacion.json' })

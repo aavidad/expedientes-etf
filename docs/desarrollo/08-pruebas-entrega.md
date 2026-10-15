@@ -120,7 +120,7 @@ Revisa cada imagen y su texto alternativo. Abre el PDF, comprueba diagramas, có
 make paquete-windows
 ```
 
-El [paquete Windows](../../despliegue/windows/LEEME.md) incluye imágenes, demo y lanzadores para Windows 10/11 con WSL2 y Podman Desktop. Genera ZIP versionado y SHA-256 en `bin/paquete-windows/`. Crea accesos que abren Edge o Chrome en ventana propia. Actualizar conserva datos y credenciales y ejecuta la preparación de roles antes de migrar; reiniciar exige confirmación y borra sólo la demo. El estado y límites del ensayo están en [WIN1](../sistemas/WIN1.md). Este paquete es de pruebas, con datos inventados.
+El [paquete Windows](../../despliegue/windows/LEEME.md) incluye imágenes, demo y lanzadores para Windows 10/11 con WSL2 y Podman; instalar.cmd instala WSL2, Podman, su máquina y Compose si faltan. Genera ZIP versionado y SHA-256 en `bin/paquete-windows/`. Crea accesos que abren Edge o Chrome en ventana propia. Actualizar conserva datos y credenciales y ejecuta la preparación de roles antes de migrar; reiniciar exige confirmación y borra sólo la demo. El estado y límites del ensayo están en [WIN1](../sistemas/WIN1.md). Este paquete es de pruebas, con datos inventados.
 
 La rama consultada no contiene un generador ni una guía de copia pública. No hay un comando de publicación que pueda documentarse como disponible. El ZIP de pruebas Windows tampoco equivale a una autorización para publicar el repositorio. Si se encarga una copia pública, habrá que fijar su alcance y revisar archivos, licencias, historial, capturas y ausencia de secretos o datos personales antes de prepararla. Este manual no publica contenido ni habilita acceso externo a la aplicación.
 

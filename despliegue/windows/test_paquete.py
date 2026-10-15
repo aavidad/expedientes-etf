@@ -318,5 +318,48 @@ class PublicacionArchivos(unittest.TestCase):
                 b"v1", b"v2", b"rama", b"principal", b"resuelto", b"segunda", b"final")})
 
 
+class RequisitosFijados(unittest.TestCase):
+    def test_versiones_y_sumas_fijadas(self):
+        nombres = {nombre for nombre, _, _ in paquete.REQUISITOS}
+        self.assertEqual(nombres, {"requisitos/podman-installer-windows-amd64.msi", "requisitos/docker-compose.exe"})
+        for nombre, url, suma in paquete.REQUISITOS:
+            self.assertRegex(url, r"^https://github\.com/(containers/podman|docker/compose)/releases/download/v\d+\.\d+\.\d+/")
+            self.assertRegex(suma, r"^[0-9a-f]{64}$")
+        # Los scripts de Windows usan exactamente estas rutas del paquete.
+        comun = Path(__file__).with_name("comun.ps1").read_text(encoding="utf-8-sig")
+        for nombre in nombres:
+            self.assertIn("'" + nombre + "'", comun)
+
+    def respuesta(self, contenido):
+        return lambda url, timeout: io.BytesIO(contenido)
+
+    def test_descarga_verificada_y_cache(self):
+        import hashlib
+        contenido = b"instalador oficial"
+        suma = hashlib.sha256(contenido).hexdigest()
+        url = "https://github.com/containers/podman/releases/download/v1.0.0/x.msi"
+        with tempfile.TemporaryDirectory() as temporal:
+            cache = Path(temporal)
+            ruta = paquete.descargar_requisito(url, suma, cache, self.respuesta(contenido))
+            self.assertEqual(ruta.read_bytes(), contenido)
+            # Con la copia buena en caché no vuelve a descargar.
+            def sin_red(url, timeout):
+                raise AssertionError("descarga repetida")
+            self.assertEqual(paquete.descargar_requisito(url, suma, cache, sin_red), ruta)
+            # Una copia alterada en caché se descarta y se vuelve a bajar.
+            ruta.write_bytes(b"alterado")
+            self.assertEqual(paquete.descargar_requisito(url, suma, cache, self.respuesta(contenido)).read_bytes(), contenido)
+
+    def test_suma_distinta_para_y_no_deja_restos(self):
+        url = "https://github.com/docker/compose/releases/download/v1.0.0/c.exe"
+        with tempfile.TemporaryDirectory() as temporal:
+            cache = Path(temporal)
+            with self.assertRaisesRegex(SystemExit, "SHA-256 inesperado"):
+                paquete.descargar_requisito(url, "a" * 64, cache, self.respuesta(b"otro contenido"))
+            self.assertEqual(list(cache.iterdir()), [])
+            with self.assertRaises(SystemExit):
+                paquete.descargar_requisito("http://ejemplo.invalid/x.exe", "a" * 64, cache, self.respuesta(b""))
+
+
 if __name__ == "__main__":
     unittest.main()

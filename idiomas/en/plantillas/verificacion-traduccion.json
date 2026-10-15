@@ -1,0 +1,33 @@
+{
+  "prohibidas": [
+    "expediente",
+    "menores",
+    "Servicios Sociales",
+    "Haga clic",
+    "Seleccione fecha",
+    "Elija un elemento",
+    "Apellidos",
+    "fecha de nacimiento",
+    "Indicar cualquier situación",
+    "Capacitar a las familias",
+    "Adquirir y fortalecer",
+    "acta de aceptación",
+    "no aceptación",
+    "lista de espera",
+    "datos del",
+    "familia firmantes",
+    "Elija.",
+    "No abordado",
+    "No alcanzado",
+    "Insuficientemente alcanzado",
+    "Suficientemente alcanzado",
+    "Totalmente alcanzado",
+    "Desp. grave",
+    "Desp. moderada",
+    "No riesgo",
+    "Sospecha"
+  ],
+  "permitidas": [
+    "Expedientes ETF"
+  ]
+}

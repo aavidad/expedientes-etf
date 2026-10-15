@@ -230,5 +230,15 @@
         "numero": "0015"
       }
     ]
+  },
+  {
+    "numero": "0017",
+    "archivo": "0017_plantillas_en.sql",
+    "depende_de": [
+      {
+        "modulo": "documento",
+        "numero": "0016"
+      }
+    ]
   }
 ]

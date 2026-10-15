@@ -24,7 +24,9 @@ Las reglas de despliegue y conservación están en [TRD §§10–14](../producto
 
 Para pruebas en un PC Windows 10/11, utiliza [la guía del paquete](../../despliegue/windows/LEEME.md).
 `make paquete-windows` prepara imágenes, ZIP versionado y suma SHA-256. El motor
-principal es Podman Desktop con WSL2; Rancher Desktop con Moby es la alternativa.
+principal es Podman con WSL2: instalar.cmd instala WSL2 (con permiso de
+administrador), Podman, su máquina y Compose si faltan. Rancher Desktop con Moby
+es la alternativa.
 Crea accesos de escritorio e Inicio con una copia privada del paquete; parar
 conserva los datos y permite reabrir, desinstalar retira sus accesos y volúmenes.
 Sólo admite datos inventados. La operación y el alcance comprobado se recogen en
@@ -144,8 +146,8 @@ vez: cambiar la variable o reiniciar no recupera un perfil retirado.
 La [configuración de producción](CONFIGURACION.md) incluye los montajes de host,
 la comprobación LDAPS, el contrato del proxy y la puesta en servicio. El paquete
 Windows tiene [sus propios pasos](../../despliegue/windows/LEEME.md): comprobar la
-suma del ZIP, instalar el motor y WSL2, instalar, parar y actualizar con sus
-lanzadores. «Reiniciar» borra la demo tras confirmación; «Parar» conserva los datos.
+suma del ZIP, instalar (que prepara WSL2 y Podman si faltan), parar y actualizar
+con sus lanzadores. «Reiniciar» borra la demo tras confirmación; «Parar» conserva los datos.
 Informática no debe cargar expedientes reales en ese paquete.
 
 ## 3. Variables de configuración

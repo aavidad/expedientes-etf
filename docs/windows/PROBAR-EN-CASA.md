@@ -4,57 +4,65 @@ Esta guía te ayuda a instalar una demostración en tu PC. Usa sólo datos inven
 Nunca introduzcas datos reales de personas o expedientes, aunque trabajes desde casa.
 No necesitas Docker ni herramientas de programación.
 
-## Novedades de la versión 1.0.2
+## Novedades de la versión 1.0.3
 
-- Ayuda: el menú tiene un apartado nuevo con el manual de tu perfil, su índice,
-  las capturas y un PDF para imprimir.
-- Escuchar: puedes oír en castellano la ayuda de cada pantalla y los manuales.
-  Las grabaciones vienen dentro del paquete y la aplicación no se conecta a
-  ningún servicio para leerlas.
-- Arranque con Podman: a veces, después de reiniciar Windows, Podman enciende su
-  máquina pero no abre la conexión. El acceso, instalar.cmd y actualizar.cmd lo
-  detectan y lo arreglan solos.
-- Antivirus: la ventana espera a que el antivirus esté listo antes de abrir la
-  aplicación. Así el primer anexo que subas ya se revisa.
+- Instalación: ya no tienes que preparar Windows antes. instalar.cmd activa
+  WSL2 si falta, instala Podman para tu usuario, crea su máquina y usa el
+  Compose que viene en el paquete. Si Windows tiene que reiniciarse, la
+  instalación sigue sola cuando vuelves a entrar.
+- Arranque tras reiniciar: si Podman todavía se está encendiendo, la ventana
+  espera en lugar de fallar. Si algo sale mal, el aviso aparece delante de las
+  demás ventanas y queda un registro sin contraseñas.
+- Parar: parar.cmd apaga también la máquina de Podman, para que Windows pueda
+  apagarse o reiniciarse sin quedarse esperando.
+- Desinstalar: quita sólo lo que puso el paquete y pregunta antes de quitar
+  Podman. WSL2 se queda en el PC.
+- Plantillas: los documentos Word del paquete inglés están traducidos por
+  completo.
 
-La versión 1.0.2 incluye también lo que trajo la 1.0.1:
+La versión 1.0.3 conserva lo que trajeron las anteriores:
 
+- Ayuda: el menú tiene un apartado con el manual de tu perfil, su índice, las
+  capturas y un PDF para imprimir. Puedes escuchar en castellano la ayuda de
+  cada pantalla y los manuales; las grabaciones vienen dentro del paquete.
+- Antivirus: la ventana espera a que esté listo antes de abrir la aplicación,
+  así el primer anexo que subas ya se revisa.
 - Anexo 6: desde la ficha o desde Salidas y cierre puedes preparar la derivación
   a otro servicio, descargar el Word y anotar después la fecha real de envío.
 - Memoria: al pulsar una cifra ves qué expedientes la forman, con su número,
-  equipo y aportación, sin nombres. Lo usan Coordinación y cada equipo con lo suyo.
+  equipo y aportación, sin nombres.
 - Consulta: las cifras por debajo de 3 casos aparecen como «Oculto», en pantalla
   y en Word, para que nadie pueda reconocer a una familia.
-- Sesión: se cierra tras 30 minutos sin actividad. Dos minutos antes aparece un
-  aviso para seguir trabajando. Lo que ya guardaste se conserva.
+- Sesión: se cierra tras 30 minutos sin actividad, con un aviso dos minutos
+  antes. Lo que ya guardaste se conserva.
 - Carga histórica: Administración fija hasta qué día se pueden añadir expedientes
   antiguos. La aplicación avisa de posibles duplicados y Coordinación puede anular
   un lote completo dentro del plazo.
-- Restaurar una copia: después de recuperar una copia, Administración revisa
-  cuentas y permisos antes de que nadie vuelva a entrar.
+- Restaurar una copia: después de recuperarla, Administración revisa cuentas y
+  permisos antes de que nadie vuelva a entrar.
 - Actualizar: actualizar.cmd cambia los textos, plantillas y temas que trae el
   paquete y conserva los que hayas publicado o cambiado tú.
 
 ## 1. Comprueba tu PC
 
-Necesitas Windows 10 **22H2** o Windows 11 de **64 bits**, una cuenta con permiso
-para instalar programas y **8 GB de RAM instalada** como mínimo. Con 16 GB tendrás
-más margen para usar otros programas. Para comprobar tu versión, abre Inicio,
-escribe `winver` y pulsa Intro. Puedes ver la RAM en Configuración → Sistema → Acerca de.
+Necesitas Windows 10 de **64 bits** (versión 2004 o posterior) o Windows 11 y
+**8 GB de RAM instalada** como mínimo. Con 16 GB tendrás más margen para usar
+otros programas. Para comprobar tu versión, abre Inicio, escribe `winver` y pulsa
+Intro. Puedes ver la RAM en Configuración → Sistema → Acerca de.
 
-El instalador exige **15 GiB libres en la unidad de tu perfil**, normalmente C:.
-El ZIP ocupa unos **426 MiB** y la carpeta extraída, **741 MiB**, medidos en esta
-entrega. Reserva **17 GiB libres antes de descargar** para mantener los 15 GiB
-que comprueba el instalador después de extraer. La copia privada del paquete
-ocupa otros 741 MiB dentro de esa reserva, además de las imágenes y los datos.
-Las medidas exactas se anotan en la [evidencia de la entrega](../sistemas/WIN1.md#paquete-público).
+El instalador exige **15 GB libres en la unidad de tu perfil**, normalmente C:.
+El ZIP ocupa unos **466 MiB** y la carpeta extraída, **801 MiB**, medidos en
+esta entrega. Reserva **17 GiB libres antes de descargar** para mantener
+los 15 GB que comprueba el instalador después de extraer. La copia privada del
+paquete ocupa otros 801 MiB dentro de esa reserva, además de las imágenes y los
+datos. Las medidas exactas se anotan en la [evidencia de la entrega](../sistemas/WIN1.md#paquete-público-103).
 Comprueba el espacio desde Explorador → Este equipo → Disco local (C:).
 
-Necesitas Internet para descargar el paquete y preparar WSL y Podman Desktop,
-incluida su máquina Linux y Compose. Después puedes usar esta demostración sin
-conexión: las imágenes de la aplicación vienen en el ZIP. La preparación inicial
-puede ocupar entre 20 y 60 minutos, según tu conexión y tu PC; reserva otros
-5 a 15 minutos para instalar la aplicación. Son orientaciones, no tiempos garantizados.
+La primera instalación necesita Internet: WSL2 se descarga de Microsoft y Podman
+descarga el sistema de su máquina (unos 250 MB). El resto viene en el ZIP.
+Después puedes usar la demostración sin conexión. Reserva entre 15 y 45 minutos
+para la primera instalación, según tu conexión y tu PC, y algo más si Windows
+tiene que reiniciarse. Son orientaciones, no tiempos garantizados.
 
 Antes de instalar:
 
@@ -70,87 +78,17 @@ Antes de instalar:
    clave que desconoces, pide ayuda a quien mantenga tu PC. Reinicia y vuelve a
    comprobar el Administrador de tareas.
 
-## 2. Instala WSL2
-
-WSL permite que Windows ejecute los componentes Linux de la demostración.
-Sólo tienes que prepararlo una vez.
-
-1. Guarda tu trabajo. Abre Inicio, escribe **PowerShell**, pulsa con el botón
-   derecho y elige **Ejecutar como administrador**. Acepta el aviso de Windows.
-2. Copia esta orden y pulsa Intro:
-
-   ```powershell
-   wsl --install
-   ```
-
-3. Espera y **reinicia Windows**. Si se abre el asistente de Ubuntu, completa la
-   creación de su usuario local; esa cuenta es distinta de las de Expedientes ETF.
-   No necesitas abrir Ubuntu para usar esta aplicación.
-4. Abre PowerShell y comprueba:
-
-   ```powershell
-   wsl --status
-   ```
-
-   Debe indicar que la versión predeterminada es **2**. Si indica 1, ejecuta
-   `wsl --set-default-version 2`. Si pide actualizar el núcleo, abre PowerShell
-   como administrador, ejecuta `wsl --update` y reinicia.
-
-En el ensayo previo se instaló WSL sin Ubuntu con
-`wsl --install --no-distribution`; también sirve. La versión comprobada es
-**WSL 3.0.3**, con núcleo **6.18.54.1**. Puedes verla con `wsl --version`.
-Si aparece un error, consulta la [instalación oficial de WSL](https://learn.microsoft.com/es-es/windows/wsl/install).
-
-## 3. Instala y prepara Podman Desktop
-
-Podman abre los componentes de la aplicación. Mantén su máquina encendida
-mientras uses Expedientes ETF.
-
-1. Abre [podman-desktop.io](https://podman-desktop.io/downloads), descarga el
-   instalador para **Windows x64** y ejecútalo. La versión ensayada es
-   **Podman Desktop 1.29.3**, con **Podman 6.1.4** y **Compose 5.1.4**.
-   Para repetir el entorno, busca esa versión en las descargas oficiales.
-2. Abre Podman Desktop. En **Get started / Start Onboarding**, acepta instalar
-   Podman y elige **WSL / WSLv2** como proveedor.
-3. Cuando ofrezca crear una máquina, pulsa **Create**. Conserva el nombre
-   propuesto. En la prueba se usaron **2 procesadores y 4 GiB** para la máquina.
-   Espera a que figure como **Running**. El PC necesita los 8 GB indicados antes.
-4. En los ajustes de esa máquina activa **Rootful**. Este paquete necesita ese
-   modo. Si no aparece la opción, cierra otras aplicaciones que usen Podman,
-   abre PowerShell normal y ejecuta estas órdenes, una cada vez:
-
-   ```powershell
-   podman machine stop
-   podman machine set --rootful
-   podman machine start
-   ```
-
-5. Instala **Compose** desde el asistente o desde **Settings → Resources →
-   Compose**. Comprueba en PowerShell:
-
-   ```powershell
-   podman machine list
-   podman compose version
-   ```
-
-   La máquina debe estar encendida y Compose debe mostrar su versión. Cierra
-   PowerShell. Si falla la conexión después de instalar Podman, cierra y vuelve
-   a abrir Podman Desktop para que recoja los programas recién instalados.
-
-Puedes consultar los [pasos oficiales para Windows](https://podman-desktop.io/docs/installation/windows-install)
-y la [preparación de Compose](https://podman-desktop.io/docs/compose/setting-up-compose).
-
-## 4. Descarga y comprueba el paquete
+## 2. Descarga y comprueba el paquete
 
 1. Abre las [Releases de Expedientes ETF](https://github.com/aavidad/expedientes-etf/releases).
-   En la entrega 1.0.2 descarga **expedientes-etf-windows-1.0.2.zip** y
-   **expedientes-etf-windows-1.0.2.zip.sha256**. Guarda ambos en la misma carpeta.
+   En la entrega 1.0.3 descarga **expedientes-etf-windows-1.0.3.zip** y
+   **expedientes-etf-windows-1.0.3.zip.sha256**. Guarda ambos en la misma carpeta.
 2. En el Explorador, abre esa carpeta. Pulsa la barra de dirección, escribe
    `powershell` y pulsa Intro. Copia:
 
    ```powershell
-   Get-FileHash .\expedientes-etf-windows-1.0.2.zip -Algorithm SHA256
-   Get-Content .\expedientes-etf-windows-1.0.2.zip.sha256
+   Get-FileHash .\expedientes-etf-windows-1.0.3.zip -Algorithm SHA256
+   Get-Content .\expedientes-etf-windows-1.0.3.zip.sha256
    ```
 
 3. Compara los 64 caracteres de **Hash** con los del archivo `.sha256`.
@@ -167,7 +105,7 @@ y la [preparación de Compose](https://podman-desktop.io/docs/compose/setting-up
 
 [Asistente real «Extraer todo» de Windows](capturas/extraer-todo.png).
 
-## 5. Instala la demostración
+## 3. Instala la demostración
 
 1. Abre la carpeta extraída **Expedientes-ETF** y haz doble clic en
    **instalar.cmd** desde el Explorador. No lo abras dentro del ZIP ni como administrador.
@@ -178,14 +116,32 @@ y la [preparación de Compose](https://podman-desktop.io/docs/compose/setting-up
    También puede salir «Editor desconocido» con un botón **Ejecutar**, como en
    [el aviso real del ensayo](capturas/aviso-seguridad.png). Comprueba antes
    procedencia y suma, y pulsa ese botón para continuar.
-3. Deja abierta la consola. Primero comprueba requisitos y sumas; después verás
-   «Cargando las imágenes incluidas» y «Preparando la base de datos y arrancando
-   la aplicación». La primera carga tarda varios minutos. El antivirus incluido
-   también necesita arrancar; no cierres la ventana mientras trabaja.
-4. Al terminar aparecen el acceso **Expedientes ETF** en el escritorio y en
+3. Deja abierta la consola y lee lo que indica. Si falta algo, lo instala en
+   este orden:
+   - **WSL2**, el componente de Windows que ejecuta los programas Linux de la
+     demostración. Windows pide permiso de administrador: pulsa **Sí**. Si
+     después pide reiniciar, guarda tu trabajo y reinicia. Al volver a entrar
+     con tu usuario, la instalación sigue sola en una ventana nueva.
+   - **Podman**, el programa que abre los componentes de la aplicación. Se
+     instala sólo para tu usuario, sin permiso de administrador. Es gratuito.
+   - **La máquina de Podman**, con 4 GB de memoria y 2 procesadores. Se
+     enciende sola.
+   - **Compose**, que arranca juntos todos los componentes. Va dentro del paquete.
+4. Después comprueba las sumas de los archivos y verás «Cargando las imágenes
+   incluidas» y «Preparando la base de datos y arrancando la aplicación». La
+   primera carga tarda varios minutos. El antivirus incluido también necesita
+   arrancar; no cierres la ventana mientras trabaja. Si se corta, vuelve a
+   ejecutar instalar.cmd: sigue donde lo dejó.
+
+Si Windows indica que la virtualización está deshabilitada, sigue los pasos del
+apartado 1 para activarla y vuelve a ejecutar instalar.cmd. Si tu cuenta no
+puede dar permiso de administrador, quien mantenga tu PC puede prepararlo con el
+plan B del LEEME.md que viene en la carpeta.
+
+5. Al terminar aparecen el acceso **Expedientes ETF** en el escritorio y en
    Inicio, la aplicación en una ventana propia de **Microsoft Edge** y un Bloc
    de notas con las cuentas y sus contraseñas. Si no tienes Edge, usa Chrome.
-5. Conserva ese archivo de contraseñas en privado. Cada instalación genera
+6. Conserva ese archivo de contraseñas en privado. Cada instalación genera
    contraseñas distintas. Puedes volver a abrir **USUARIOS.txt** desde
    `%LOCALAPPDATA%\Expedientes-ETF\pruebas`: pega esa ruta en el Explorador.
    No envíes su contenido ni el archivo `entorno.env` al pedir ayuda.
@@ -208,7 +164,7 @@ Estas siete cuentas son inventadas:
 | `elena.salas` | Administración funcional: usuarios, catálogos, plantillas, idiomas y temas; no ve expedientes. |
 | `sergio.campos` | Sin perfil asignado: sirve para comprobar el aviso de acceso pendiente. |
 
-## 6. Tu primer recorrido: del Anexo al Acta
+## 4. Tu primer recorrido: del Anexo al Acta
 
 1. Entra como **ines.moreno** con su contraseña del Bloc de notas. En el menú
    **Derivaciones**, pulsa **Subir Anexo 3 o 4**.
@@ -228,44 +184,47 @@ Añadir un expediente histórico**, en el apartado **Leer las actas (opcional)**
 los campos que falten antes de confirmar. Usa otro caso o cambia su número de
 prueba si ya existe. La carga histórica conserva los números que confirmas.
 
-## 7. Parar, volver y borrar las pruebas
+## 5. Parar, volver y borrar las pruebas
 
-- Para terminar por hoy, abre **parar.cmd**. Conserva tus datos y contraseñas.
-  Después puedes cerrar Podman Desktop.
-- Para volver, abre Podman Desktop y pulsa **Expedientes ETF** en el escritorio.
-  El acceso comprueba requisitos, arranca la demostración si está parada y abre
-  su ventana de Edge. La preparación puede tardar unos minutos.
+- Para terminar por hoy, abre **parar.cmd**. Conserva tus datos y contraseñas y
+  apaga la máquina de Podman si no la usa otra aplicación.
+- **Antes de apagar o reiniciar Windows, cierra la aplicación con parar.cmd.**
+  Con la máquina de Podman encendida, Windows puede tardar mucho en reiniciarse.
+- Para volver, pulsa **Expedientes ETF** en el escritorio o en Inicio. El acceso
+  enciende la máquina de Podman si hace falta, arranca la demostración si está
+  parada y abre su ventana de Edge. Si Podman ya se estaba encendiendo, espera a
+  que termine. La preparación puede tardar unos minutos.
 - Para empezar de cero, abre **reiniciar-datos.cmd**. Escribe **BORRAR** y pulsa
   Intro sólo si quieres eliminar todos tus cambios. Se recrean las cuentas con
   contraseñas nuevas. Pulsa Intro sin escribir nada para cancelar.
 - Para quitar la aplicación, abre **desinstalar.cmd** y escribe **DESINSTALAR**.
   Elimina sus datos, contraseñas y accesos; conserva archivos que hayas añadido.
-  Para reinstalarla tendrás que ejecutar instalar.cmd otra vez.
-- Si también quieres quitar Podman Desktop, desinstálalo desde Configuración →
-  Aplicaciones. Antes, elimina su máquina desde Podman Desktop sólo si no la
-  usa ninguna otra aplicación: perderás todo lo que contenga.
-- Quitar WSL es opcional. Si lo usas para otros programas, consérvalo. Para quitar
-  una distribución usa Configuración → Aplicaciones. `wsl --unregister NOMBRE`
-  borra definitivamente todos los datos de esa distribución; comprueba antes
-  los nombres con `wsl --list --verbose`. Sólo cuando ya no lo uses, desactiva
-  «Subsistema de Windows para Linux» en «Activar o desactivar las características
-  de Windows» y reinicia. No desactives «Plataforma de máquina virtual» si la
+  Si la instalación puso Podman o su máquina, te pregunta si también quieres
+  quitarlos: escribe **QUITAR** para hacerlo. Si la máquina tiene contenedores
+  de otras aplicaciones, no la toca.
+- WSL2 se queda en el PC, porque otros programas pueden usarlo. Si nadie más lo
+  usa, puedes quitarlo desde Configuración → Aplicaciones (Subsistema de Windows
+  para Linux) y desactivar «Subsistema de Windows para Linux» y «Plataforma de
+  máquina virtual» en «Activar o desactivar las características de Windows».
+  Después reinicia. No desactives «Plataforma de máquina virtual» si la
   necesita otro programa.
 
 ## Si algo falla
 
 | Lo que ves | Qué puedes hacer |
 | --- | --- |
-| Virtualización deshabilitada o error al crear la máquina | Revisa Administrador de tareas → Rendimiento → CPU y el paso 1. Actívala siguiendo el soporte del fabricante. |
-| «WSL2 no está listo» | Ejecuta `wsl --update` como administrador, reinicia y comprueba `wsl --status`. Crea después la máquina Podman. |
-| «El PC necesita al menos 8 GB» | Comprueba la RAM instalada. Cerrar programas libera memoria para trabajar, pero no cambia ese mínimo: si tienes menos de 8 GB, usa otro PC. |
+| Virtualización deshabilitada | Revisa Administrador de tareas → Rendimiento → CPU y el apartado 1. Actívala siguiendo el soporte del fabricante. |
+| Rechazaste el permiso de administrador para WSL2 | Vuelve a ejecutar instalar.cmd y pulsa **Sí**. Si tu cuenta no puede darlo, usa el plan B del LEEME.md. |
+| Windows pide reiniciar | Guarda tu trabajo y reinicia. Al entrar de nuevo, la instalación sigue sola. |
+| «El PC necesita al menos 8 GB» | Comprueba la RAM instalada. Cerrar programas no cambia ese mínimo: si tienes menos de 8 GB, usa otro PC. |
 | «Necesitas al menos 15 GB» | Libera espacio en C: y vuelve a intentarlo. Vaciar sólo la carpeta de descarga no libera el disco Linux de Podman. |
-| «No hay una máquina WSL de Podman encendida» | Abre Podman Desktop → Resources y pulsa Start en su máquina. Espera a Running y repite instalar.cmd. |
-| Mensaje sobre rootful | Sigue el paso 3: para la máquina, activa rootful y vuelve a arrancarla. |
+| «No hay una máquina WSL de Podman encendida» | Ejecuta instalar.cmd otra vez: la crea o la enciende. |
+| Mensaje sobre rootful | La máquina de Podman que ya tenías no usa ese modo. Sigue el plan B del LEEME.md para activarlo. |
 | Error al arrancar y puerto 18083 ocupado | Cierra otra copia de esta demostración si sabes que la tienes abierta. No detengas procesos desconocidos. En la primera instalación puedes abrir PowerShell en la carpeta extraída y ejecutar `.\instalar.cmd -Puerto 18381`; se guardará ese puerto. |
-| «La aplicación no ha arrancado en cinco minutos» o ClamAV iniciándose | Revisa en Podman Desktop el grupo etf-windows. Deja que el antivirus termine de arrancar, cierra programas que consuman RAM y repite instalar.cmd. No desactives el antivirus. |
+| «La aplicación no ha arrancado en cinco minutos» o ClamAV iniciándose | Deja que el antivirus termine de arrancar, cierra programas que consuman RAM y repite instalar.cmd. No desactives el antivirus. |
 | «Un archivo del paquete falta o ha cambiado» | Descarga y extrae otra vez el ZIP completo y comprueba su SHA-256. Conserva la carpeta privada. |
-| «La operación ha tardado más de 20 minutos» | Comprueba que la máquina sigue encendida. Revisa los contenedores de etf-windows antes de repetir. Si actualizabas, conserva ambas carpetas y pide ayuda. |
+| La ventana de arranque avisa de un error | Lee el aviso. Lo que hizo el acceso queda en `%LOCALAPPDATA%\Expedientes-ETF\pruebas\registro-abrir.log`, sin contraseñas; es el único archivo que puedes enviar al pedir ayuda. |
+| «La operación ha tardado más de 20 minutos» | Comprueba que la máquina sigue encendida antes de repetir. Si actualizabas, conserva ambas carpetas y pide ayuda. |
 
 Si necesitas ayuda, indica la versión de **VERSION.txt** y el mensaje que aparece.
 No compartas contraseñas, capturas del Bloc de notas ni datos de tu PC.

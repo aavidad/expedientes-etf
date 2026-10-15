@@ -125,6 +125,7 @@ $script:mensajes = [Collections.Generic.List[string]]::new()
 function Ejecutar-Motor {
     param([string[]]$Argumentos, [string]$Entrada = '')
     $script:ordenes.Add($Argumentos -join ' ')
+    if (($Argumentos -join ' ') -eq 'machine list --format json') { return '[{"Name":"podman-machine-default","VMType":"wsl","Running":true,"Starting":false}]' }
     if ($Argumentos[1] -eq 'inspect') { return '[{"Name":"podman-machine-default","ConnectionInfo":{"PodmanPipe":{"Path":"\\\\\\\\.\\\\pipe\\\\podman-machine-default"}}}]' }
     return ''
 }
@@ -144,7 +145,7 @@ if (($script:ordenes -join ';') -ne 'machine inspect podman-machine-default' -or
         self.ejecutar(self.PODMAN_SIMULADO + """
 function Probar-Tuberia([string]$Ruta) { return [bool]$script:proxy }
 Asegurar-TuberiaPodman $conexion
-$esperadas = 'machine inspect podman-machine-default;machine stop podman-machine-default;machine start podman-machine-default'
+$esperadas = 'machine inspect podman-machine-default;machine list --format json;machine stop podman-machine-default;machine start podman-machine-default'
 if (($script:ordenes -join ';') -ne $esperadas) { throw ('Orden de reintento inesperado: ' + ($script:ordenes -join ';')) }
 if (-not $script:proxy) { throw 'No lanza win-sshproxy' }
 if ((Split-Path -Leaf $script:proxy[0]) -ne 'win-sshproxy.exe') { throw 'Ejecutable de proxy inesperado' }

@@ -6,7 +6,7 @@ Cada administración designa a su responsable del producto y valida la puesta en
 
 ## Descargas
 
-- Instalable de Windows 1.0.2, con usuarios y datos inventados: [versión 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.2). La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
+- Instalable de Windows 1.0.3, con usuarios y datos inventados: [versión 1.0.3](https://github.com/aavidad/expedientes-etf/releases/tag/v1.0.3). La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica cómo instalarlo desde un Windows sin preparar.
 - Curso de la aplicación en web, SCORM y eXeLearning, y los 12 vídeos de recorridos: [curso 1.0.2](https://github.com/aavidad/expedientes-etf/releases/tag/curso-1.0.2).
 
 ## Documentación
@@ -48,7 +48,7 @@ El personal de Informática mantiene el servidor y no tiene perfil en la aplicac
 
 ## Adaptar a una administración
 
-La entidad configura el acceso corporativo, el dominio, los perfiles, los firmantes, los idiomas y las plantillas. `etf.example.org` es un dominio de ejemplo. El nombre visible se define con `entidad.nombre` en `idiomas/<idioma>/textos/comun.json`; los textos que lo necesitan usan `{entidad.nombre}`. Cambia los datos iniciales antes de instalar o publica una versión nueva del paquete de idioma desde Administración. Las plantillas Word se editan y publican desde la misma sección; se distribuyen sin logotipos ni contactos institucionales.
+La entidad configura el acceso corporativo, el dominio, los perfiles, los firmantes, los idiomas y las plantillas. `etf.example.org` es un dominio de ejemplo. El nombre visible se define con `entidad.nombre` en `idiomas/<idioma>/textos/comun.json`, con su artículo, como se leería dentro de una frase («la entidad» en la copia pública); los textos que lo necesitan usan `{entidad.nombre}`. Cambia los datos iniciales antes de instalar o publica una versión nueva del paquete de idioma desde Administración. Las plantillas Word se editan y publican desde la misma sección; se distribuyen sin logotipos ni contactos institucionales.
 
 Los catálogos incluidos conservan los municipios y equipos de partida. Su sustitución queda pendiente; cada administración debe revisar esas asignaciones y las referencias normativas de los formularios antes de poner el servicio en uso. El campo `ambito_diputacion` describe el ámbito de atención y conserva su contrato.
 
@@ -59,7 +59,7 @@ Los catálogos incluidos conservan los municipios y equipos de partida. Su susti
 - **Ficha del expediente.** Reúne familia y adultos, menores, intervención, consentimiento, evaluación, documentos, salidas, cierre, seguimiento e historial. Es la única fuente de las cifras.
 - **Salidas.** Desde la ficha se prepara la derivación al SPM (Anexo 5) o a otro servicio (Anexo 6), con su fecha real de envío y la respuesta del SPM confirmadas por separado.
 - **Cierre, traslado y seguimiento.** El equipo propone el cierre y otra persona de Coordinación lo confirma; se puede reabrir con motivo. El traslado cierra el expediente en el equipo de origen y abre uno nuevo, con número propio, en el de destino. El seguimiento tras el cese dura 12 meses y avisa 30 días antes del fin.
-- **Documentos Word.** Actas, oficios y anexos se rellenan desde plantillas. Se descargan en el momento; la aplicación no guarda los documentos generados.
+- **Documentos Word.** Actas, oficios y anexos se rellenan desde plantillas en castellano o en inglés. Se descargan en el momento; la aplicación no guarda los documentos generados.
 - **Tabla Mensual del SPAF.** Cada equipo la obtiene por mes para el Servicio de Prevención y Apoyo a la Familia (SPAF) de la administración competente.
 - **Memoria Técnica Anual.** Se calcula por equipo y para toda la provincia, con las reglas vigentes el 31 de diciembre del año, y se puede cerrar para fijar las cifras. Consulta ve sólo las cifras, y las pequeñas se ocultan.
 - **Carga histórica de 2026.** Alta asistida de casos, importación desde una hoja de cálculo y lectura de Actas de Aceptación y de Cierre, siempre con revisión de una persona antes de guardar.
@@ -77,20 +77,26 @@ cuentas, el recorrido del Anexo 3 al Acta y los comandos de parada en
 
 Descarga el ZIP y su suma SHA-256 desde las
 [Releases públicas](https://github.com/aavidad/expedientes-etf/releases).
-La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) te acompaña desde
-un Windows sin preparar: virtualización, WSL2, Podman Desktop, instalación y
-primer Acta. Usa sólo datos inventados. La [comprobación en Windows](docs/sistemas/WIN1.md)
-recoge versiones y resultados de las pruebas.
+La [guía para probar en casa](docs/windows/PROBAR-EN-CASA.md) explica la
+instalación paso a paso. Usa sólo datos inventados. La
+[comprobación en Windows](docs/sistemas/WIN1.md) recoge versiones y resultados
+de las pruebas.
 
-La versión actual es la 1.0.2 (`expedientes-etf-windows-1.0.2.zip`, unos 426 MiB,
-SHA-256 `f4b29737477ba8b7b322ef3afc9f702bf38313e84852616b5e69c1756da5d641`). Añade la pantalla Ayuda con los manuales
-por perfil y la lectura en voz alta de ayudas y manuales. Al arrancar, recupera
-sola la conexión con Podman si se ha perdido y espera a que el antivirus esté
-listo antes de abrir la aplicación. Incluye lo de la 1.0.1: la derivación a otros
-servicios (Anexo 6), el desglose de la Memoria, la ocultación de cifras
-pequeñas en Consulta, el cierre de sesión por inactividad, el control de la
-carga histórica, la revisión tras restaurar una copia y la actualización de
-textos, plantillas y temas.
+La versión actual es la 1.0.3 (`expedientes-etf-windows-1.0.3.zip`, unos 466 MiB,
+SHA-256 `7404c5d4c5d06b890556a8d1f44f721adb2e8683b15736a49748325b463d43c5`). Ya no hay que preparar Windows antes: `instalar.cmd` activa
+WSL2 si falta (pide permiso de administrador una vez y, si Windows tiene que
+reiniciarse, continúa solo después), instala Podman para tu usuario, crea su
+máquina y usa el Compose incluido. Tras reiniciar Windows, la aplicación espera
+a que Podman termine de encenderse en lugar de fallar. `parar.cmd` apaga también
+la máquina de Podman, y desinstalar quita sólo lo que puso el paquete, después
+de preguntar. Las plantillas Word inglesas están traducidas por completo.
+
+Incluye también lo de versiones anteriores: la pantalla Ayuda con los manuales
+de cada perfil y su lectura en voz alta, la derivación a otros servicios
+(Anexo 6), el desglose de la Memoria, la ocultación de cifras pequeñas en
+Consulta, el cierre de sesión por inactividad, el control de la carga histórica,
+la revisión tras restaurar una copia y la actualización de textos, plantillas y
+temas.
 
 ## Arquitectura en breve
 

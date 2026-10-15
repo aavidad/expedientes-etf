@@ -21,6 +21,7 @@ func TestRESP1ReferenciasNuevasYOriginalesInmutables(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer b.Cerrar()
+	traducciones := traduccionesEN(t)
 	err = b.Ejecutar(t.Context(), plataforma.Identidad{UsuarioID: usuario, Perfiles: []string{"coordinacion"}}, func(ctx context.Context) error {
 		tx, _ := postgres.DesdeContexto(ctx)
 		for _, idioma := range []string{"es", "en"} {
@@ -52,7 +53,11 @@ func TestRESP1ReferenciasNuevasYOriginalesInmutables(t *testing.T) {
 				if err = tx.QueryRow(ctx, `SELECT p.version,p.subida_por IS NOT NULL FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id WHERE r.tipo_documento=$1 AND r.idioma=$2`, tipo, idioma).Scan(&activa, &administrativa); err != nil {
 					return err
 				}
-				if !administrativa && activa != c.Nueva {
+				esperada := c.Nueva
+				if traduccion, ok := traducciones[tipo]; idioma == "en" && ok {
+					esperada = traduccion.Nueva
+				}
+				if !administrativa && activa != esperada {
 					t.Fatalf("referencia inicial %s/%s: %s", tipo, idioma, activa)
 				}
 			}

@@ -46,7 +46,8 @@ func TestPlantillasPublicacionPostgres(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	b, err := os.ReadFile("../../../../idiomas/en/plantillas/entrada/aceptacion/oficio_sscc/v1.0.1.docx")
+	version := traduccionesEN(t)[d.OficioSSCC].Nueva
+	b, err := os.ReadFile("../../../../idiomas/en/plantillas/entrada/aceptacion/oficio_sscc/v" + version + ".docx")
 	if err != nil {
 		t.Fatal(err)
 	}
