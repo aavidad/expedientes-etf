@@ -20,6 +20,7 @@ POSTGRES_PASSWORD=$secreto
 ETF_MIGRADOR_CONTRASENA=$secreto
 ETF_APP_CONTRASENA=$secreto
 ETF_COPIA_CONTRASENA=$secreto
+ETF_CALCULO_MEMORIA_CONTRASENA=$secreto
 ENV
 cat > "$ruta/migrador.env" <<ENV
 ETF_BD_HOST=$nombre
@@ -52,19 +53,26 @@ if [[ ! -f "$ruta/conjunto/auditoria/manifiesto.json" ]]; then
 fi
 chmod -R a+rX "$ruta/conjunto"
 cp -R "$ruta/conjunto/." "$ruta/anterior/"
-rm -f "$ruta/anterior/identidad/0002_perfiles.sql"
 python3 - "$ruta/anterior/identidad/manifiesto.json" <<'PY'
 import json,sys
 p=sys.argv[1]
-v=json.load(open(p));open(p,'w').write(json.dumps([m for m in v if m['numero']!='0002']))
+v=json.load(open(p))
+for m in v:
+    if m['numero']>='0002':
+        from pathlib import Path
+        (Path(p).parent/m['archivo']).unlink(missing_ok=True)
+open(p,'w').write(json.dumps([m for m in v if m['numero']<'0002']))
 PY
 chmod 755 "$ruta"
 chmod -R a+rX "$ruta/anterior"
-# El migrador del proyecto necesita psql; la imagen local de F0.03 lo incluye.
+# Se ensaya el ejecutor actual, con psql de PostgreSQL 18; no una imagen local antigua.
+CGO_ENABLED=0 GOOS=linux go build -mod=readonly -trimpath -o "$ruta/migrar" ./cmd/migrar
+chmod 755 "$ruta/migrar"
 migrar() {
     docker run --rm --network "$red" --read-only --cap-drop=ALL --security-opt=no-new-privileges \
-        --tmpfs /tmp:rw --env-file "$ruta/migrador.env" \
-        --mount "type=bind,src=$1,dst=/migraciones,readonly" etf-f003-migrar
+        --tmpfs /tmp:rw,exec --env-file "$ruta/migrador.env" \
+        --mount "type=bind,src=$1,dst=/migraciones,readonly" \
+        --mount "type=bind,src=$ruta/migrar,dst=/migrar,readonly" --entrypoint /bin/sh postgres:18 -c 'set -eu; cp /migrar /tmp/etf-migrar; chmod 700 /tmp/etf-migrar; exec /tmp/etf-migrar'
 }
 migrar "$ruta/anterior"
 migrar "$ruta/conjunto"
@@ -72,7 +80,7 @@ migrar "$ruta/conjunto"
 # También se ensaya desde cero, no sólo desde la versión anterior.
 reiniciar_base() {
     docker exec "$nombre" psql -X -U etf_instalador -d etf -v ON_ERROR_STOP=1 \
-        -c 'DROP SCHEMA documento CASCADE; DROP SCHEMA expediente CASCADE; DROP SCHEMA paquete CASCADE; DROP SCHEMA identidad CASCADE; DROP SCHEMA catalogo CASCADE; DROP SCHEMA auditoria CASCADE; DROP SCHEMA plataforma CASCADE;' >/dev/null 2>&1
+        -c 'DROP SCHEMA actividad CASCADE; DROP SCHEMA evaluacion CASCADE; DROP SCHEMA estadistica CASCADE; DROP SCHEMA documento CASCADE; DROP SCHEMA expediente CASCADE; DROP SCHEMA paquete CASCADE; DROP SCHEMA identidad CASCADE; DROP SCHEMA catalogo CASCADE; DROP SCHEMA auditoria CASCADE; DROP SCHEMA plataforma CASCADE;' >/dev/null 2>&1
     migrar "$ruta/conjunto"
 }
 reiniciar_base
@@ -80,11 +88,11 @@ direccion=$(docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAdd
 export ETF_POSTGRES_INTEGRACION=1 ETF_BD_HOST="$direccion" ETF_BD_PUERTO=5432 ETF_BD_NOMBRE=etf
 export ETF_POSTGRES_CONTENEDOR="$nombre"
 export ETF_AUDITORIA_REF="${auditoria_ref:-${ETF_AUDITORIA_REF:-main}}"
-export ETF_BD_CONTRASENA="$secreto" ETF_MIGRADOR_CONTRASENA="$secreto" ETF_BD_SSLMODE=disable
+export ETF_BD_CONTRASENA="$secreto" ETF_MIGRADOR_CONTRASENA="$secreto" ETF_CALCULO_MEMORIA_CONTRASENA="$secreto" ETF_BD_SSLMODE=disable
 unset PGOPTIONS PGSERVICE PGSERVICEFILE PGPASSWORD PGUSER
 # Las pruebas de base fuerzan una conexión; la de bloqueo usa otro pool.
 # Los paquetes comparten esta base desechable; no se ejecutan sus preparaciones a la vez.
-go test -p 1 -count=1 -v ./internal/adaptadores/postgres ./internal/adaptadores/postgres/catalogo ./internal/adaptadores/postgres/expediente
+go test -p 1 -count=1 -v -run "${ETF_FILTRO_IDENTIDAD:-.}" ./internal/adaptadores/postgres ./internal/adaptadores/postgres/catalogo ./internal/adaptadores/postgres/expediente
 if [[ "${ETF_NAVEGADOR_INTEGRACION:-}" == 1 ]]; then
     # Las pruebas de paquetes publican referencias a ficheros temporales que ya han limpiado.
     # El navegador arranca con las referencias iniciales y los ficheros reales del worktree.

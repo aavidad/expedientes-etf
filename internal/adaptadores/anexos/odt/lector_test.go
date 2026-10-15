@@ -113,6 +113,10 @@ func TestContenedorHostil(t *testing.T) {
 			if err == nil || err.Error() != caso.clave || len(e.Campos) != 0 {
 				t.Fatal(err, e)
 			}
+			acta, err := LeerActa(b)
+			if err == nil || err.Error() != caso.clave || len(acta.Campos) != 0 {
+				t.Fatal("acta sin protección del contenedor", err, acta)
+			}
 		})
 	}
 }

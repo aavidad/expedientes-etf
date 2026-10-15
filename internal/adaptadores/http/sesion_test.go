@@ -199,11 +199,11 @@ func TestSesionProyectaNombreYPantallasAutorizadas(t *testing.T) {
 		pantallas int
 	}{
 		{"pendiente", dominio.PendienteAlta, nil, 0},
-		{"administracion", dominio.Activo, []dominio.Perfil{dominio.Administracion}, 9},
-		{"combinados", dominio.Activo, []dominio.Perfil{dominio.Administracion, dominio.Coordinacion}, 20},
+		{"administracion", dominio.Activo, []dominio.Perfil{dominio.Administracion}, 13},
+		{"combinados", dominio.Activo, []dominio.Perfil{dominio.Administracion, dominio.Coordinacion}, 25},
 		{"profesional", dominio.Activo, []dominio.Perfil{dominio.ProfesionalETF}, 0},
-		{"consulta", dominio.Activo, []dominio.Perfil{dominio.Consulta}, 1},
-		{"coordinacion", dominio.Activo, []dominio.Perfil{dominio.Coordinacion}, 11},
+		{"consulta", dominio.Activo, []dominio.Perfil{dominio.Consulta}, 2},
+		{"coordinacion", dominio.Activo, []dominio.Perfil{dominio.Coordinacion}, 13},
 	} {
 		t.Run(caso.nombre, func(t *testing.T) {
 			w := httptest.NewRecorder()

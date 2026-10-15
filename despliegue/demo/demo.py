@@ -206,6 +206,7 @@ def preparar_entrada():
 
 
 def compilar():
+    ejecutar(["python3", "-B", "scripts/voz/construir.py"])
     ejecutar(["npm", "ci", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=RAIZ / "web")
     ejecutar(["npm", "run", "build"], cwd=RAIZ / "web")
     binarios = LOCAL / "bin"
@@ -219,11 +220,60 @@ def compilar():
         (binarios / nombre).chmod(0o755)
     shutil.copytree(RAIZ / "migraciones", LOCAL / "migraciones", dirs_exist_ok=True)
     shutil.copytree(RAIZ / "datos" / "catalogos", LOCAL / "datos" / "catalogos", dirs_exist_ok=True)
+    recursos = LOCAL / "recursos-voz"
+    if recursos.exists():
+        shutil.rmtree(recursos)
+    (recursos / "bin/voz").mkdir(parents=True)
+    audios = RAIZ / "bin/voz"
+    if not (audios / "ayuda/manifiesto.json").is_file():
+        audios = RAIZ / "bin/voz-simulada"
+    if audios.exists():
+        shutil.copytree(audios, recursos / "bin/voz", dirs_exist_ok=True)
+    for carpeta in ("manuales", "capturas"):
+        shutil.copytree(RAIZ / "docs" / carpeta, recursos / "docs" / carpeta)
+    preparar_reserva()
+
+
+def inventario_distribucion():
+    """Huellas de todas las versiones históricas de idiomas y temas (FX8)."""
+    sys.path.insert(0, str(RAIZ / "despliegue/windows"))
+    try:
+        from archivos import generar_inventario
+    finally:
+        sys.path.pop(0)
+    # Una copia sin Git (como la del ensayo FX7) indica su repositorio de origen.
+    repositorio = os.environ.get("ETF_REPOSITORIO_GIT") or RAIZ
+    try:
+        return generar_inventario(repositorio)
+    except (OSError, subprocess.CalledProcessError):
+        print("aviso: sin historial de Git; el inventario sólo reconoce la entrega actual", file=sys.stderr)
+        return {"entrega": "", "huellas": []}
+
+
+def preparar_reserva():
+    shutil.copyfile(RAIZ / "despliegue/windows/archivos.py", LOCAL / "archivos.py")
     for nombre in ("idiomas", "temas"):
         destino = LOCAL / nombre
         if destino.exists():
             shutil.rmtree(destino)
         shutil.copytree(RAIZ / nombre, destino)
+    (LOCAL / "inventario.json").write_text(json.dumps(inventario_distribucion()) + "\n", encoding="utf-8")
+
+
+def incorporar_recursos(reanudar=True):
+    preparar_reserva()
+    # La aplicación no lee recursos a medio actualizar: se para antes y, si la
+    # incorporación o la validación de textos falla, no se vuelve a arrancar.
+    activos = set(compose("ps", "--status", "running", "--services",
+                          capture_output=True, text=True).stdout.split())
+    compose("stop", "entrada-demo", "app")
+    # run fuerza una preparación nueva incluso si la demo ya está creada.
+    compose("build", "incorporar")
+    compose("run", "--rm", "--no-deps", "incorporar")
+    if reanudar and "app" in activos:
+        # Un preparador sobre una demo ya arrancada (PWA1) la deja como estaba.
+        compose("up", "--detach", "--no-deps", "--wait", "--wait-timeout", "180", "app", "entrada-demo")
+        compose("restart", "entrada-demo")
 
 
 class Sesion:
@@ -306,6 +356,9 @@ def sembrar():
                         "perfiles": [{"perfil": perfil, "desde": desde, "hasta": None}],
                     })
             persona.pedir("DELETE", "/api/sesion")
+        plazo = admin.pedir("GET", "/api/carga-2026/plazo")
+        if not plazo["fecha_cierre"]:
+            admin.pedir("PUT", "/api/carga-2026/plazo", {"fecha_cierre": "2026-12-31", "version": plazo["version"]})
         firmantes = admin.pedir("GET", "/api/admin/firmantes")
         if not any(f["rol"] == "aceptacion" for f in firmantes["firmantes"]):
             if "firmante" in intentadas:
@@ -375,10 +428,13 @@ def iniciar():
     preparar_entrada()
     compilar()
     compose("config", "--quiet")
+    incorporar_recursos(reanudar=False)
     compose("up", "--detach", "--build", "--wait", "--wait-timeout", "180")
     # El proxy vuelve a resolver la dirección del contenedor recompilado.
     compose("restart", "entrada-demo")
     sembrar()
+    from smi import sembrar_smi
+    sembrar_smi(sys.modules[__name__])
     from bandeja import sembrar_bandeja
     sembrar_bandeja(RAIZ, LOCAL, URL, Sesion, ejecutar)
     from equipo import sembrar_equipo

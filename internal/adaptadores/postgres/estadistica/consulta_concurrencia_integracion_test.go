@@ -87,7 +87,7 @@ func TestConsultaPostgresLectoresYCierreSinBloqueo(t *testing.T) {
 		}
 	}()
 	motor := app.EjecutorConsulta{Transacciones: tecnico, Fuente: fuenteTecnica}
-	deps := app.DependenciasConsulta{Cerradas: persistencia, Calculo: calculoEnEspera{motor, iniciados, continuar}, Transacciones: b, Auditoria: postgres.NuevoRegistroAuditoria(b), Reloj: reloj{}}
+	deps := app.DependenciasConsulta{Reglas: &catalogo.Repositorio{}, Cerradas: persistencia, Calculo: calculoEnEspera{motor, iniciados, continuar}, Transacciones: b, Auditoria: postgres.NuevoRegistroAuditoria(b), Reloj: reloj{}}
 	servicio := app.NuevoConsulta(deps)
 	type resultado struct {
 		cifras d.CifrasConsulta
@@ -124,8 +124,8 @@ func TestConsultaPostgresLectoresYCierreSinBloqueo(t *testing.T) {
 			comisiones = apartado.Total.Comisiones
 		}
 	}
-	if comisiones != 1 {
-		t.Fatalf("comisiones: recibido %d, esperado 1", comisiones)
+	if comisiones != d.CifraSuprimida {
+		t.Fatalf("comisiones: recibido %d, esperado oculto", comisiones)
 	}
 	close(continuar)
 	continuar = nil

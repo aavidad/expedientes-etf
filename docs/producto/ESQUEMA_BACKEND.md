@@ -119,6 +119,10 @@ vigente.
 
 ### 1.1 `identidad`: usuarios, perfiles y equipo (corrige al análisis)
 
+SEG4 añade `revision_restauracion(id, copia_en, iniciada_en, referencia, anulada_en, confirmada_en, confirmada_por, version)` y `cambio_restauracion(id, revision_id, guid, anterior, propuesto, decision, decidido_por, decidido_en)`. La referencia completa procede del procedimiento de sistemas y queda protegida por RLS; no contiene contraseñas. Las diferencias se comparan por GUID, incluyendo personas que sólo están en una lista y perfiles o equipos futuros. Sólo hay una revisión abierta. Aplicar reutiliza el cambio de perfiles, conserva historia y revoca sesiones del destinatario; descartar deja los permisos de la copia. No se permite confirmar con pendientes ni decidir dos veces con una versión antigua. La nueva revisión anula cualquier revisión abierta anterior.
+
+Migración `identidad/0004`, dependiente de `0003` (sin edición de permisos propios), reservada en `ETF_RESERVAS_MIGRACIONES.md`. Funciones de exportación/inicio sólo para el procedimiento de sistemas; `etf_app` no puede ejecutarlas ni escribir directamente las tablas. La aplicación usa funciones de resolución/confirmación con comprobación administrativa y auditoría transaccional. API: `GET /api/admin/restauracion`, `POST /api/admin/restauracion/{id}/cambios/{cambio}` y `POST /api/admin/restauracion/{id}/confirmar`; escrituras con CSRF y versión.
+
 El análisis sacaba el perfil y el equipo de grupos de AD. **La entrevista lo
 cambia** (3.5a): AD sólo comprueba usuario y contraseña; los permisos se dan
 dentro de la app.
@@ -148,7 +152,7 @@ dentro de la app.
   caducidad están en TRD.md). La base de datos guarda **la huella SHA-256 del
   identificador, nunca el identificador**: quien lea la tabla no puede
   suplantar a nadie. Si AD no responde, nadie nuevo entra; las sesiones ya
-  abiertas siguen hasta caducar. F0.09b crea usuario y sesión, con funciones del módulo, RLS forzada y auditoría F0.08b en la misma transacción. F0.10 añade perfiles con vigencia, adscripción única y FK al catálogo de equipos de F0.12, administración de usuarios y alta inicial única con marca persistente. El testigo CSRF se deriva mediante HMAC en el servidor, sin columna adicional en esta entrega.
+  abiertas siguen hasta caducar. F0.09b crea usuario y sesión, con funciones del módulo, RLS forzada y auditoría F0.08b en la misma transacción. F0.10 añade perfiles con vigencia, adscripción única y FK al catálogo de equipos de F0.12, administración de usuarios y alta inicial única con marca persistente. El testigo CSRF se deriva mediante HMAC en el servidor, sin columna adicional en esta entrega. SEG1 conserva ese esquema: el límite de inactividad es 30 minutos y el absoluto 8 horas por defecto, configurables. La lectura pasiva de sesión no cambia `ultima_actividad_en`; la continuación sí, tras validar vigencia. Las cabeceras entregan caducidad, máximo y hora del servidor sin identidad adicional.
 - **Primer administrador**: `ETF_PRIMER_ADMINISTRADOR` identifica la cuenta
   configurada para el alta inicial. Se valida su identidad estable en AD y la
   concesión se ejecuta **una sola vez**, con bloqueo y registro único en
@@ -193,6 +197,12 @@ con su necesidad de registro de salida, firmantes y destinatarios, y el SMI
   mitad de año y es decisión firme del responsable del producto. La Memoria cerrada guarda qué
   versión de cada ámbito usó.
 
+**Editor de ubicaciones (UBI1).** `catalogo/0015` añade instantáneas inmutables `ubicacion_vigencia(version_id,tipo,id,activo_desde,activo_hasta)` y `municipio_ambito(version_id,municipio_id,ambito_diputacion)`. Las identidades originales permanecen inmutables. `editar_ubicacion` copia la versión anterior, modifica una entrada y publica bajo el bloqueo del ámbito; sólo Administración puede escribir. La fecha de alta de una identidad nueva no precede a su publicación, para no incorporarla a versiones antiguas. RLS limita la lectura a versiones visibles y los perfiles operativos autorizados; la app no recibe permisos de escritura directa.
+
+`GET/PUT /api/admin/ubicaciones` exige Administración. La aplicación prepara denominaciones y variantes es/en en los directorios de idioma por huella; activa ambas referencias, guarda referencias históricas en `version_textos` y confirma la auditoría en la transacción de publicación. El lector de anexos y la bandeja consumen los nombres activados. Una baja usa intervalos abiertos por la derecha. El editor no escribe en expedientes ni en estadísticas: conserva números, equipos confirmados e instantáneas de Memorias cerradas.
+
+La lectura conserva el contrato anterior cuando se ensaya una base sin `catalogo/0015`; no consulta las tablas nuevas hasta que existen. La publicación del editor requiere la migración completa.
+
 **Textos de las listas.** El análisis guardaba el texto de cada opción por
 idioma en una tabla `catalogo_texto`. **La entrevista lo cambia** (1.5): los
 textos de listas y opciones viven en `idiomas/<código>/catalogos/`, fuera del código y
@@ -218,9 +228,7 @@ Tablas:
 - `municipio_asignacion(version_id, municipio_id, centro_ss_id null, equipo_id
   null, zts null)`. Dos asignaciones independientes por municipio, porque el
   centro no basta para saber el equipo (Íllora: centro Pinos Puente-Moclín,
-  equipo 6) [D9]. Versionada, porque el reparto puede cambiar. `zts` (Zona de
-  Trabajo Social, columna 5 de la Tabla SPAF) queda vacía hasta que se responda
-  [D19].
+  equipo 6) [D9]. Versionada, porque el reparto puede cambiar. `zts` se conserva en el esquema histórico, pero no se usa en la Tabla SPAF: D19 confirma el 14/10/2026 que su columna 5 contiene sólo el municipio.
 - `lista_opcion(version_id, lista, codigo, orden, admite_texto, activa)`. Una
   fila por opción de cada lista del análisis, apartado 3.3: nivel de
   escolarización, composición familiar, vivienda, situación laboral y
@@ -568,7 +576,7 @@ otras formas de convivencia, familia numerosa, vivienda, situación económica,
 ingresos netos anuales en céntimos o tramo directo. Cantidad y tramo directo son
 excluyentes. Las opciones se leen de `idiomas/<código>/catalogos/listas.json` y
 `familia.json`, con códigos estables en castellano e inglés. Los límites
-provisionales D8 están en `datos/catalogos/familia.json`, versión `2026.1`, incluida
+confirmados en D8 el 14/10/2026 están en `datos/catalogos/familia.json`, versión `2026.1`, incluida
 en la imagen del servidor. Vivienda es una lista inicial ampliable; no se trata
 como una respuesta confirmada del Programa.
 
@@ -833,7 +841,7 @@ La lectura del profesional usa las políticas de catálogo corregidas por `catal
   falla, el contador vuelve atrás con ella y no quedan huecos. La no aceptación
   y la lista de espera no consumen número. Dos cifras dan 99 por equipo y año
   (hoy unos 40). La carga inicial conserva los números existentes y
-  sube el contador al mayor cargado con bloqueo transaccional del equipo/año;
+  mantiene el contador ordinario y salta las reservas históricas ocupadas, con bloqueo transaccional del equipo/año;
   valida números originales contra los ya existentes y las altas concurrentes.
   Un conflicto aborta el lote para revisión, sin renumerar el histórico ni
   reutilizar números. Una no aceptación no recibe número artificial.
@@ -955,6 +963,22 @@ propuesta de cierre. Añade como única transición administrativa de la firma
 misma transacción. Firmar permite después guardar la finalización, proponer y
 retirar el cierre con sus versiones, historia e idempotencia propias.
 
+RESP1 añade `expediente.espera_memoria` mediante `expediente/0027`. Conserva sólo identificador, tipo de anexo, equipo confirmado y fechas de recepción, entrada, salida y conocimiento; no copia nombres, contacto ni el anexo. Un trigger toma tipo y equipo desde los datos confirmados. Otro registra la entrada y salida de la espera en la misma transacción de decisión. Las fechas quedan disponibles tras aceptar o no aceptar para consultar un corte anterior. En un traslado, la espera corresponde al equipo de destino. El equipo definitivo del expediente sigue sin asignarse hasta aceptar.
+
+La RLS sólo permite a profesionales las esperas de su equipo; las filas preparadas sin fecha de espera quedan ocultas. Coordinación consulta toda la provincia. `estadistica/0007` proporciona a la credencial de cálculo una vista sin nombres, restringida al contexto de Consulta y al equipo solicitado. El lector reconstruye la espera al corte y conocimiento pedidos, evita duplicarla con una aceptación posterior y la cuenta en el apartado 6, población `PE`. El apartado 1 no la cuenta como atendida. Los datos de menores aún sin confirmar quedan desconocidos. El aviso de discrepancia incluye entrar en espera y revisa ambos equipos si la aceptación cambia el equipo confirmado.
+
+`catalogo/0014` completa el SMI de 2026 con 122.100 céntimos mensuales y 1.709.400 anuales, salvo edición previa de Coordinación. Publica una versión nueva de las equivalencias D5 de partida: Declaración de Riesgo se traduce a Declaración de Riesgo en SPAF, y Otros a Otros. Se conservan las versiones y cierres anteriores. `documento/0016` registra las diez nuevas versiones de D18/D19 y sustituye sólo referencias iniciales intactas, sin modificar publicaciones, activaciones o restauraciones administrativas.
+
+#### Control de lotes históricos (SEG3)
+
+`expediente/0028` añade `plazo_carga` (fecha de cierre, versión y días de coincidencia, inicialmente 30) y `plazo_carga_historia` (cada versión, fecha, ventana, actor e instante). La fecha inicialmente nula impide cargar hasta que Administración la fije. Administración puede leer y actualizar sólo esta configuración; no obtiene acceso a expedientes ni lotes. Las lecturas de plazo están disponibles para Coordinación y profesionales; la seguridad por filas de lotes mantiene su ámbito previo.
+
+`carga_inicial` identifica cada lote con una referencia numérica estable, que aparece en el resultado de carga, la lista y el diálogo de anulación. Conserva estado cargado/anulado, marcador monotónico de actividad, fecha/actor de anulación y un recibo con UUID/número de las fichas retiradas. Las cargas anteriores quedan marcadas conservadoramente como protegidas. La transacción original distingue la carga de los cambios posteriores. El marcador usa una credencial privada temporal por transacción y recurso; el rol técnico de Memoria sólo puede ejecutar sus comprobadores booleanos para mantener las proyecciones estadísticas, sin acceder a fichas ni activar una anulación. El rol de aplicación no puede resetear el marcador ni borrar lotes o fichas. `anular_lote_carga` exige Coordinación, plazo abierto y ausencia de actividad, bloquea los padres, conserva la auditoría y retira sólo tablas de expediente creadas por la carga, incluida `espera_memoria`. Las FK de documentos y evaluaciones bloquean todo el lote. Los recibos de idempotencia que ya no representan fichas vigentes se retiran; reconfirmar el lote anulado no lo recrea.
+
+Las altas históricas y la numeración ordinaria toman un bloqueo común por equipo/año. El lote debe dejar al menos un correlativo ordinario disponible por encima del contador actual. Anular libera reservas históricas; nunca rebaja el contador ni reutiliza números ordinarios. Los posibles duplicados se recalculan en confirmación dentro de ese bloqueo, también entre filas del mismo lote; la confirmación expresa forma parte de la entrada y su huella idempotente. La unicidad de números se conserva.
+
+API: `GET /api/carga-2026/plazo` entrega fecha, versión y ventana; `PUT` requiere Administración y versión vigente. `GET /api/carga-2026/lotes` entrega lotes del ámbito autorizado en páginas de 100, con `desplazamiento` entre 0 y 100.000; `POST /api/carga-2026/lotes/{lote}/anular` requiere Coordinación y confirmación expresa, es repetible sin efectos adicionales. La carga JSON incluye `confirmar_duplicados`; la hoja usa `X-Confirmar-Duplicados: true`. La vista previa entrega avisos con fila y clave, sin datos personales. Todas las lecturas y escrituras confirman auditoría antes de responder.
+
 ### 1.5 `evaluacion`: escalas por momento (Anexos 7, 8, 11 y 12)
 
 D17, decidido por responsable del producto el 14/10/2026: las escalas son **opcionales**. Se
@@ -1065,6 +1089,11 @@ Antes de aceptar, F1.05b no asigna equipo ni municipio; esos campos y el número
 quedan vacíos en el Word. La propuesta de municipio no se trata como confirmada.
 No se inventa el sexo de los menores. La emisión no modifica datos ni hitos.
 F3.01b activa `salida/anexo6` (1.0.0, es/en) con `documento/0007`. `POST /api/expedientes/{id}/documentos/anexo6` recibe `salida_id` e `idioma`. El módulo expediente entrega los datos por su puerto de entrada dentro de la transacción de emisión. La propuesta de fecha usa el día de Madrid. Los apartados 5 a 8 permanecen vacíos; los datos no recogidos de los apartados 1 a 4 también quedan vacíos. La descarga se audita antes de entregar bytes y no confirma el hito. Una repetición devuelve el mismo Word si se mantienen datos, catálogo, idioma, motor y plantilla; si cambian, requiere una nueva emisión. Los permisos nuevos de documento se limitan al Anexo 6 del equipo de la sesión. No se amplía el acceso profesional a los documentos de entrada.
+
+AN6 consume `expediente/0006`, `documento/0007` y sus políticas RLS; `expediente/0029` añade el destino escrito cuando no hay opciones activas. Añade `GET /api/anexo6/opciones?idioma=…` para equipo y Coordinación, con destinos activos y etiquetas históricas del catálogo publicado; cuando no hay opciones activas, el destino escrito se conserva como dato del expediente, sin código ni versión de catálogo; confirma su auditoría antes de responder. El registro de pantallas INT5 incorpora `/equipo/anexo6`. La ficha auditada existente aporta lista de salidas y versiones para confirmar el hito. La confirmación rechaza fechas futuras según el día civil de Madrid.
+
+`DatosSalida` proyecta Familia, adultos y menores vigentes bajo el mismo bloqueo y la misma transacción de emisión. `DatosParaDocumento.Anexo6` distingue la ficha aún no recogida de una colección vacía o un campo borrado: sólo el primer caso admite datos originales. Se traducen las opciones de la ficha con el catálogo de idioma. La versión del expediente participa en la huella; una nueva emisión usa los cambios guardados, mientras una repetición conserva sus garantías de idempotencia.
+
 La emisión profesional de F3.01a usa la lectura de catálogos y firmantes
 corregida en `catalogo/0007`, ya integrada con F3.02a. La descarga por
 Coordinación y Profesional de ETF se ha probado sobre PostgreSQL real;
@@ -1111,8 +1140,7 @@ emisión con `documento.regenerado`. No escribe estados, hitos ni registros de s
 
 Plantilla oficial SPAF 1.0.0 en `idiomas/es/plantillas/spaf/` y su copia en `en`:
 conserva textos fijos, referencias antiguas, instrucciones y estilos del cliente.
-Las etiquetas de datos se resuelven por idioma. La ZTS desconocida se muestra
-como «Sin dato», sin deducirla de otro campo. Se admiten hasta 1.000 casos;
+Las etiquetas de datos se resuelven por idioma. Las versiones nuevas aplican D19 (14/10/2026): sólo municipio, sin ZTS ni aviso pendiente. Se admiten hasta 1.000 casos;
 el límite de quince menores de las plantillas de entrada se conserva.
 `catalogo/0008` corrige las políticas de lectura de estructura y edición:
 el perfil válido es `profesional_etf`, sustituyendo `equipo`; no modifica el SMI.
@@ -1129,6 +1157,9 @@ desconocidas. Hay pruebas con productor sintético y con persistencia real,
 RLS y auditoría.
 
 ### 1.7 `actividad`, `estadistica` y `auditoria`
+
+SEG1 protege la proyección de Consulta antes de API y Word. El umbral se obtiene del parámetro versionado `umbral_privacidad_consulta`, unidad `casos`, mínimo e inicial 3; usa la vigencia actual, también al leer una Memoria cerrada. `catalogo/0016` conserva reglas y referencias publicadas y crea una versión nueva; si la anterior empieza hoy o después, la nueva empieza al día siguiente de aquella. Hasta su vigencia se aplica el valor seguro 3. La RLS sólo abre a Consulta ese parámetro de versiones publicadas; las demás reglas siguen protegidas. Los valores suprimidos se entregan como `null`; el marcador interno no se guarda en fotos ni modifica cifras de equipos o Coordinación. La supresión secundaria se aplica por las dimensiones de cada tabla; los márgenes y porcentajes de la respuesta se retiran cuando permiten reconstrucción.
+
 
 - `actividad.comision_tecnica(id, equipo_id, fecha, observaciones, version)` y
   `actividad.informe_tecnico(id, equipo_id, fecha, organismo, organismo_otros,
@@ -1163,8 +1194,7 @@ RLS y auditoría.
   los casos sin relación de menores y avisos por clave. No calcula porcentajes.
   Una relación desconocida no se convierte en cero conocido. El último anexo
   de derivación es el más reciente entre 3, 4, 5 y 6 hasta el fin del mes;
-  fechas empatadas de anexos distintos se declaran ambiguas. ZTS permanece
-  sin dato mientras D19 esté pendiente; no se deduce del centro de SS.SS.CC.
+  fechas empatadas de anexos distintos se declaran ambiguas. La columna 5 contiene sólo el municipio de la familia, sin dato ni aviso de ZTS (D19, respuesta del 14/10/2026). Se toma el municipio confirmado al aceptar; el puerto de Catálogo resuelve su código en una lectura conjunta, sin deducirlo del centro.
   El puerto `expediente.LecturaSPAF` está conectado a la proyección persistente
   de `expediente/0010`, que lee episodios e hitos confirmados y vigencias con
   el instante de conocimiento. Las vistas usan `security_invoker` y la RLS
@@ -1216,7 +1246,7 @@ RLS y auditoría.
   numéricos iniciales, como los de familia, están en el catálogo de datos
   `datos/catalogos/memoria/`, con versión, vigencia e instante de publicación;
   otra versión añade otro fichero al índice. La inicial 2026.1 incorpora los
-  tramos provisionales de la administración competente (D20) y el contrato de códigos de factores,
+  tramos de la administración competente confirmados el 14/10/2026 (D20) y el contrato de códigos de factores,
   recursos y responsables. Intervención debe producir esos mismos códigos.
   Un SMI, dato o denominador desconocido se mantiene separado; un catálogo
   ausente no se presenta como un cero. Cierre y fotos inmutables implementados en F4.06.
@@ -1371,6 +1401,23 @@ importan hasta revisarlos. La política concreta del proxy y del proceso del
 antivirus se valida antes de datos reales, especialmente para impedir que el
 anexo acabe en disco. Los Word generados tampoco persisten.
 
+MEMDES añade `GET /api/memoria/{anio}/desglose/{apartado}` con `etf` opcional,
+`celda` (índice o −1 para total), `medida`, `clave` (grupo y unidad estables)
+y `revision` opcional. La pantalla envía la clave de la celda; un grupo nuevo
+no desplaza la selección a otra categoría con el mismo valor. Sólo admite
+Coordinación o Profesional de ETF dentro de su ámbito; Consulta recibe 403.
+El motor calcula aportes por expediente con los mismos cortes y reglas y comprueba
+su suma. Para la base entrega el criterio `poblacion_base` de su contrato, no el
+grupo del numerador. Cada fila contiene número, equipo, cantidad y acceso actual a la ficha,
+sin nombres. La lectura de números para comprobar acceso usa la RLS del llamador
+una sola vez; las fuentes conservan el número en la foto. La auditoría
+`estadistica.memoria_desglose` se confirma antes de responder; un fallo revierte
+la lectura y no entrega filas. Las revisiones JSON guardan `VersionDesglose` y
+`Desglose`; no requieren migración. Las bases de equipo excluyen estos aportes.
+Una foto anterior sin esa versión avisa de la ausencia; nunca se recalcula con
+fuentes actuales. Las comisiones e informes (15 y 16), sin relación con
+expedientes, devuelven la explicación de ese límite.
+
 ### 1.10 Contrato estadístico por apartado
 
 El motor recibe los datos con vigencia del año A y las reglas del 31/12/A;
@@ -1408,7 +1455,7 @@ no se copia la de otro apartado.
 | 3 | AT con antecedente de otro expediente cerrado antes de A | Recuento; base de porcentaje pendiente de validación; antecedente desconocido separado de no |
 | 4 | AT por servicio derivante | Recuento; base de porcentaje pendiente de validación; servicio desconocido separado |
 | 5 | No aceptados con fecha de no aceptación en A, familias y menores | Recuento; base de porcentaje pendiente de validación; causa, servicio o subprograma desconocidos separados |
-| 6 | Aceptados que superan el plazo sin consentimiento en la fecha de corte | Recuento de familias y menores; falta de fecha impide clasificar y genera sin dato y aviso |
+| 6 | Casos en lista de espera y aceptados que superan 30 días naturales sin consentimiento en la fecha de corte [D2c/D3, 14/10/2026] | Recuento de familias y menores; falta de fecha impide clasificar y genera sin dato y aviso |
 | 7 | CI, familias y menores, por aceptación anterior/nueva | Recuento; base de porcentaje pendiente de validación; fecha de aceptación desconocida separada |
 | 8 | CO: objetivos satisfechos total o parcialmente | Recuento; base de porcentaje pendiente de validación; motivo desconocido no se asigna a CO |
 | 9 | NC: resto de motivos conocidos de finalización | Recuento; base de porcentaje pendiente de validación; motivo sin dato visible fuera del reparto y de la igualdad de control hasta corregirlo |
@@ -1441,10 +1488,7 @@ la regla versionada y los resultados esperados por apartado los valida el
 Programa antes del cierre de fase 4.
 
 Las pruebas usan datos inventados con valores calculados y validados **por
-apartado**, no una reproducción ciega de totales de 2025. [D22] mantiene la
-incoherencia de la Memoria oficial: apartado 2, 294 niños/284 niñas; apartado
-25, 290/288. Ambos suman 578, pero el Programa debe decidir qué distribución
-es correcta y por qué. No se altera un sexo para hacer coincidir el PDF.
+apartado**, no una reproducción ciega de totales de 2025. [D22], resuelta el 14/10/2026, confirma la nota 43 y descarta como referencia las cifras citadas en la pregunta. Quien cumple 18 durante el año evaluado cuenta en el tramo de 12 a 17 del apartado 25. Se conserva el sexo registrado de cada menor.
 El diseño del modelo, estos cálculos y sus pruebas empiezan en fase 0 y se
 integran en fase 4 según PLAN.
 
@@ -1843,6 +1887,8 @@ Reglas:
 
 ### 3.1 Seguridad por filas por equipo y perfil
 
+SEG2 añade `identidad/0003_impedir_cambios_propios.sql`. `identidad.cambiar_perfiles(uuid,bigint,text,jsonb,jsonb)` mantiene la revalidación de Administración bajo bloqueo y devuelve ahora booleano. Si actor y destinatario coinciden, sólo inserta `identidad.perfiles_cambiar` con resultado `denegado` y devuelve `false`; no cambia estado, versión, perfiles ni equipos. El llamante SQL debe confirmar ese rechazo para conservar el apunte. El caso de uso rechaza antes de llamar al repositorio y confirma la auditoría del intento por separado; la API devuelve 403 con `identidad.cambio_propio_denegado`. RLS permanece forzada y `etf_app` carece de DML directo en las tablas de permisos. El listado incluye `propio`, calculado con la identidad de sesión para mostrar los controles en consulta. El alta inicial conserva la función separada, la marca única y su auditoría atómica.
+
 La app toma la identidad y los permisos vigentes sólo de la sesión del servidor, nunca de lo que mande
 el navegador. Al empezar **cada transacción** fija el contexto con variables
 locales a esa transacción:
@@ -2056,6 +2102,12 @@ con registro técnico y copias quedan pendientes de integración. El adaptador
 `RegistrarEnTransaccion` comparte la transacción de escritura. Aún no se añade
 `detalle`: requiere una nueva versión canónica que también lo firme.
 
+**AUD1: exportación en flujo.** `auditoria/0004` añade un índice por `ocurrido_en,id` y las funciones `delimitar_exportacion(desde,hasta)` y `pagina_exportacion(despues,final)`. Ambas exigen identidad y Administración, fijan `search_path`, revocan ejecución pública y conservan la RLS forzada y la ausencia de permisos directos sobre eventos. El tramo se fija por ID y fecha del acto (no por orden de fechas); las páginas tienen como máximo 256 eventos. Las filas intermedias se conservan para la prueba contigua. Sin coincidencias de fecha, los dos puntos son iguales. No añade tablas ni amplía acceso a fichas.
+
+`POST /api/admin/auditoria/exportaciones`, sesión y CSRF, recibe `desde` y `hasta` como días ISO incluidos (UTC), `tipo_evento` por ámbito de entidad, `usuario_id`, `expediente_id`, `formato` (`csv`/`json`) e `idioma` para instrucciones. Admite además `accion` exacta. Preparación: 30 segundos, 100.000 eventos del tramo y 64 MiB de registro más prueba sin comprimir; ZIP máximo 64 MiB. Dos plazas limitan preparación y descarga, con 30 segundos de escritura. Archivo temporal privado (directorio 0700, archivos 0600), borrado al cerrar o fallar. No reúne arrays de todo el registro. El primer byte se entrega sólo tras comprobar el tramo y confirmar un evento `auditoria.exportar_<formato>.filas_<N>` en otra transacción. El evento de exportación queda después del tramo elegido. Los errores se registran en otra transacción tras revertir la lectura. Compose dispone de tmpfs privado de 320 MiB y memoria de 512 MiB para las dos plazas.
+
+El ZIP contiene `registro.csv` o `registro.json`, `cadena.json` (formato v1), `manifiesto.json` (filtros, recuentos, SHA-256 y extremos) y `LEEME.txt` traducido. `cmd/verificar-exportacion` comprueba archivos, cadena y selección completa dentro del tramo; puede contrastar ambos puntos externos. Sin referencias externas acredita coherencia interna, no origen ni eventos fuera del tramo. El CSV conserva perfiles como array JSON y fechas UTC con microsegundos. La forma canónica existente no cambia.
+
 **Exportación para el DPD.** `auditoria.exportar(desde, hasta)` devuelve los
 eventos con sus huellas, en JSON o CSV (valores separados por comas), para
 comprobarlos en el entorno autorizado de la entidad. **Administración
@@ -2152,6 +2204,10 @@ red corporativa, la red provincial o la VPN (entrevista 3.3).
 | Inicio de sesión | `/api/sesion` | Usuario y contraseña de AD contra LDAPS | Igual; un fallo nunca dice si el usuario existe |
 | Salud para Informática | `/salud` | Sin sesión; sólo desde la red de Informática (configurable) | `{"estado":"ok"}` o qué pieza falla (base de datos, ClamAV, AD), sin datos personales |
 
+VOZ añade una capacidad editorial sin tablas ni migraciones: `GET /api/ayuda/manuales` devuelve los manuales construidos de los perfiles de la sesión activa; Consulta recibe una lista vacía. `GET`/`HEAD /voz/{grupo}/{recurso}` admite únicamente grupos `ayuda` y `manuales`, manifiestos y nombres MP3 de huella SHA-256. Un manifiesto omite ficheros ausentes. `GET`/`HEAD /manuales/recursos/{recurso}` sólo lee imágenes y PDF de una lista construida. Las tres rutas exigen sesión. La SPA `/ayuda` aparece en el registro y el menú de los cuatro perfiles. No se consulta PostgreSQL ni se sintetiza voz en estas lecturas.
+
+Las grabaciones de manual se filtran por los perfiles de la sesión, tanto en el manifiesto como al pedir el MP3. Las imágenes y PDF sólo se sirven cuando los referencia uno de sus manuales. Los enlaces a otro manual de personas usuarias conservan su referencia mediante el PDF editorial; esa referencia concede su lectura desde el manual que lo enlaza. Consulta no recibe recursos de manuales. Este contenido contiene datos inventados y no amplía el acceso a expedientes.
+
 El registro INT5 reúne handler, patrón, métodos, regla de permiso y SPA asociada
 por capacidad. Cada módulo aporta `Rutas() []Ruta`; `cmd/etf/modulos.go` fija la
 composición y el orden. El arranque devuelve error si hay rutas duplicadas por
@@ -2222,7 +2278,7 @@ llevar la protección anti-falsificación.
 | expediente | `GET/HEAD /api/coordinacion/bandeja` · `POST /api/coordinacion/bandeja/buscar` | Coordinación | F1.10: filas paginadas y enmascaradas, totales por estado, filtros por equipo, municipio y fechas de recepción. POST lleva la búsqueda en el cuerpo y exige CSRF; GET no admite términos de búsqueda. Auditoría confirmada antes de responder; RLS existente, sin migración nueva |
 | identidad | `POST /api/sesion` · `DELETE /api/sesion` · `GET /api/sesion/yo` | Todos | Entrar, salir, quién soy con mis perfiles, equipo, idioma y tema |
 | identidad | `GET /api/admin/usuarios?estado=pendiente_alta` | Administración | Personas pendientes de alta y resto |
-| identidad | `PUT /api/admin/usuarios/{id}/perfiles` · `PUT /api/admin/usuarios/{id}/equipo` · `POST /api/admin/usuarios/{id}/baja` | Administración | Dar o quitar perfiles, asignar equipo y puesto, dar de baja |
+| identidad | `PUT /api/admin/usuarios/{id}/perfiles` | Administración | Dar o quitar perfiles, asignar equipo y puesto, dar de baja a otra persona; el cambio propio devuelve 403 auditado |
 | identidad | `PUT /api/sesion/yo/preferencias` | Todos | Idioma y tema propios |
 | catalogo | `GET /api/catalogos?fecha=` | Todos | Códigos vigentes en una fecha (el texto lo pone el idioma) |
 | catalogo | `GET /api/admin/catalogos/{ambito}/versiones` · `POST …/versiones` · `PUT …/versiones/{id}` · `POST …/versiones/{id}/publicar` | Administración | Ver, crear borrador, cambiar, publicar con vigencia |
@@ -2298,7 +2354,7 @@ La escritura requiere Coordinación o pertenencia al equipo del lote.
 `cierre`, recibe una única parte multipart `anexo` y `X-Equipo-Carga` con el UUID
 del equipo elegido. Sesión y perfiles salen del servidor; exige CSRF.
 Coordinación puede elegir cualquier equipo y el profesional sólo el suyo.
-El servidor admite hasta 10 MB por PDF o DOCX, valida contenido real, ZIP/XML,
+El servidor admite hasta 10 MB por PDF, DOCX u ODT, valida contenido real, ZIP/XML,
 macros y expansión, pasa ClamAV y ejecuta PDF en el trabajador efímero acotado.
 El modo actas está separado del lector de derivaciones. No admite formatos Word
 con macros ni Word binario antiguo.
@@ -2483,15 +2539,11 @@ Resueltas por las decisiones del responsable del producto del 13/10/2026:
     auditan tras revertir la operación.
 13. **Una política de fichero para todo.** Límites, tipos, antivirus y
     persistencia separados (§1.9); nunca anexo en disco y nunca SVG en temas.
-14. **D22: dos repartos incompatibles en Memoria 2025.** Se registra como
-    pendiente del Programa, no se reproduce como resultado esperado. La fase 4
-    se acepta con resultados validados por apartado.
+14. **D22, respuesta del 14/10/2026:** las cifras citadas no coinciden con la Memoria del Programa. Se confirma la nota 43 para el apartado 25. Las pruebas usan datos inventados y resultados calculados aparte.
 
 Pendientes del Programa o del DPD, a través del responsable del producto:
 
-- Formato de número [D1], lista de espera [D2], equivalencias de motivos [D5],
-  papeles parentales [D7], SMI [D8], ZTS [D19], tramos [D20], disponibilidad de
-  hoja [D21] y distribución correcta y causa de la discrepancia [D22].
+- D1–D15, D18–D20 y D22 tienen respuesta del Programa del 14/10/2026. Siguen abiertas las preguntas de uso de dos motivos de D5 y de la referencia numérica de las actas de D18. D17 espera decisión del responsable del producto; D21 se aplica en otra rama. D23 y D24 siguen pendientes.
 - Quién revisa la anonimización y alcance final [D14]; conservación/exportación
   de vínculos de auditoría e historias estadísticas en la EIPD.
 - Frecuencia de actualización de cifras de Consulta, presentación de varios

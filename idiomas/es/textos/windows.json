@@ -35,5 +35,10 @@
   "windows.desinstalar_palabra": "DESINSTALAR",
   "windows.desinstalado": "Demostración desinstalada. Sus datos y accesos directos se han eliminado. Los archivos ajenos se conservan y el programa de contenedores sigue instalado.",
   "windows.directorio_ajeno": "Elige una carpeta nueva para esta demostración. La carpeta indicada contiene archivos de otra aplicación o es un enlace a otra ubicación.",
-  "windows.borrar_palabra": "BORRAR"
+  "windows.borrar_palabra": "BORRAR",
+  "windows.tuberia_reintento": "Podman tiene la máquina encendida, pero no ha abierto la conexión que usa Compose. Se va a reiniciar la máquina de Podman; espera sin cerrar esta ventana.",
+  "windows.tuberia_proxy": "La conexión sigue cerrada. Se está abriendo con el programa win-sshproxy de Podman.",
+  "windows.tuberia": "Podman no ha abierto la conexión que usa Compose. Cierra Podman Desktop, apaga la máquina con «podman machine stop», enciéndela con «podman machine start» y vuelve a abrir la aplicación. Si sigue igual, reinicia Windows o pide ayuda a Informática con este mensaje.",
+  "windows.antivirus_espera": "Esperando a que el antivirus termine de cargar sus firmas. Puede tardar unos minutos la primera vez.",
+  "windows.antivirus": "El antivirus no ha respondido en cinco minutos. Abre Podman Desktop, revisa el contenedor clamav de etf-windows y vuelve a abrir la aplicación."
 }

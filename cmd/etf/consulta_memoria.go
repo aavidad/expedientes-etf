@@ -16,9 +16,9 @@ import (
 )
 
 func moduloConsultaMemoria(d dependenciasModulos) http.ModuloConsultaMemoria {
-	f := plantillas.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion}
+	f := plantillas.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion, Registro: d.registro}
 	motor := app.EjecutorConsulta{Transacciones: d.calculoMemoria, Fuente: app.FuenteMemoria{Expedientes: &expediente.LecturaEstadistica{CalculoInterno: true}, Reglas: reglas.Reglas{Raiz: "datos/catalogos/memoria", SMI: &catalogo.Repositorio{}}, Equipos: &catalogo.Repositorio{}, Actividad: &actividad.Repositorio{CalculoInterno: true}}}
-	return http.ModuloConsultaMemoria{Servicio: app.NuevoConsulta(app.DependenciasConsulta{Cerradas: &estadistica.Repositorio{}, Calculo: motor, Word: docApp.WordCifras{Repositorio: documento.Repositorio{}, Idiomas: f, Ficheros: f, Textos: f, Motor: word.Motor{}, Metadatos: reglas.TextosCifras{Raiz: d.cfg.IdiomasRuta}}, Transacciones: d.base, Auditoria: postgres.NuevoRegistroAuditoria(d.base), Reloj: relojIdentidad{}})}
+	return http.ModuloConsultaMemoria{Servicio: app.NuevoConsulta(app.DependenciasConsulta{Reglas: &catalogo.Repositorio{}, Cerradas: &estadistica.Repositorio{}, Calculo: motor, Word: docApp.WordCifras{Repositorio: documento.Repositorio{}, Idiomas: f, Ficheros: f, Textos: f, Motor: word.Motor{}, Metadatos: reglas.TextosCifras{Raiz: d.cfg.IdiomasRuta}}, Transacciones: d.base, Auditoria: postgres.NuevoRegistroAuditoria(d.base), Reloj: relojIdentidad{}})}
 }
 func moduloNavegacionMemoria(d dependenciasModulos) http.ModuloNavegacionMemoria {
 	return http.ModuloNavegacionMemoria{Servicio: app.ServicioNavegacion{Cierres: &estadistica.Repositorio{}, Fuente: app.FuenteConCierre{Repositorio: &estadistica.Repositorio{}, Fuente: fuenteCierreMemoria()}, Numeros: &expediente.LecturaEstadistica{}, Transacciones: d.base, Auditoria: postgres.NuevoRegistroAuditoria(d.base), Reloj: relojIdentidad{}}}

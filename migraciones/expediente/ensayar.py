@@ -21,7 +21,7 @@ CLAMAV = 'clamav/clamav:1.4.3@sha256:75fb5fd95fcbe1d7e6d240c369c1572b686ee2c9594
 
 
 sys.path.insert(0, str(RAIZ / 'scripts' / 'ci'))
-from ensayos import orden as ejecutar_orden, esperar_postgres, esperar_orden
+from ensayos import orden as ejecutar_orden, esperar_postgres, esperar_orden, recortar_dependientes
 
 orden = partial(ejecutar_orden, modulo='expediente')
 
@@ -81,6 +81,7 @@ def main():
             if entrada['numero'] >= '0026':
                 (anterior_odt / 'expediente' / entrada['archivo']).unlink()
         manifiesto_odt.write_text(json.dumps([e for e in entradas_odt if e['numero'] < '0026']))
+        recortar_dependientes(anterior_odt)
         montar = ['--mount', f'type=bind,source={tmp},target=/pruebas,readonly',
                   '--mount', f'type=bind,source={RAIZ},target=/repo,readonly']
         try:

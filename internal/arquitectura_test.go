@@ -87,6 +87,9 @@ func importacionPermitida(origen, destino string) bool {
 	if bajo(origen, "cmd/migrar") {
 		return !interno || bajo(destino, "internal/plataforma") || bajo(destino, "internal/adaptadores/postgres")
 	}
+	if bajo(origen, "cmd/verificar-exportacion") {
+		return (!interno && destino != "C" && !strings.Contains(strings.Split(destino, "/")[0], ".") && !bajo(destino, "net") && !bajo(destino, "database")) || (interno && (bajo(destino, "internal/dominio/auditoria") || bajo(destino, "internal/adaptadores/ficheros")))
+	}
 	if bajo(origen, "cmd/comprobar-auditoria") {
 		return (!interno && destino != "C" && !strings.Contains(strings.Split(destino, "/")[0], ".")) ||
 			(interno && bajo(destino, "internal/dominio/auditoria"))
@@ -150,6 +153,9 @@ func TestReglasRechazanDependenciasProhibidas(t *testing.T) {
 		{"cmd/comprobar-auditoria", modulo + "internal/dominio/identidad"},
 		{"cmd/comprobar-auditoria", "github.com/jackc/pgx/v5"},
 		{"cmd/comprobar-auditoria", "C"},
+		{"cmd/verificar-exportacion", modulo + "internal/adaptadores/postgres"},
+		{"cmd/verificar-exportacion", modulo + "internal/aplicacion/auditoria"},
+		{"cmd/verificar-exportacion", "net/http"},
 	}
 	for _, caso := range casos {
 		if importacionPermitida(caso[0], caso[1]) {

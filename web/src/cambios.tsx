@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useButton } from 'react-aria';
 
-type Guardia = { sucio: boolean; ponerSucio: (valor: boolean) => void; solicitarSalida: (accion: () => void) => void };
+type Guardia = { olvidarCambios: () => void; sucio: boolean; ponerSucio: (valor: boolean) => void; solicitarSalida: (accion: () => void) => void };
 const ContextoCambios = createContext<Guardia | null>(null);
 export function useCambios(): Guardia {
   const guardia = useContext(ContextoCambios);
@@ -29,6 +29,9 @@ export function GuardiaCambios({ t, children }: { t: (clave: string) => string; 
     window.addEventListener('beforeunload', avisar);
     return () => window.removeEventListener('beforeunload', avisar);
   }, [sucio]);
+  const olvidarCambios = useCallback(() => {
+    ponerPendiente(undefined); ponerSucio(false); focoAnterior.current = null;
+  }, []);
   function continuar() {
     ponerPendiente(undefined);
     let ancestro = focoAnterior.current?.parentElement;
@@ -36,7 +39,7 @@ export function GuardiaCambios({ t, children }: { t: (clave: string) => string; 
     focoAnterior.current?.focus();
   }
   function descartar() { const accion = pendiente; ponerPendiente(undefined); ponerSucio(false); accion?.(); }
-  return <ContextoCambios.Provider value={{ sucio, ponerSucio, solicitarSalida }}>
+  return <ContextoCambios.Provider value={{ sucio, ponerSucio, solicitarSalida, olvidarCambios }}>
     {pendiente && <section className="pendiente" aria-labelledby="aviso-cambios">
       <p id="aviso-cambios" ref={aviso} tabIndex={-1} role="alert">{t('usuarios.sin_guardar')}</p>
       <Boton accion={continuar}>{t('usuarios.seguir_editando')}</Boton>

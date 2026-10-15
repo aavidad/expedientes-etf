@@ -1,0 +1,18 @@
+{
+  "voz.titulo": "Help",
+  "voz.indice": "Manual contents",
+  "voz.escuchar": "Listen",
+  "voz.escuchar_seccion": "Listen to this section",
+  "voz.escuchar_pagina": "Listen to the page",
+  "voz.escuchar_aria": "Listen to the text",
+  "voz.reproductor": "Audio player",
+  "voz.cargando": "Loading your manual…",
+  "voz.error": "We could not open your manual. Select Retry.",
+  "voz.reintentar": "Retry",
+  "voz.vacio": "There is no manual for your role. Contact Coordination if you need help.",
+  "voz.manuales_no_disponibles": "We could not open the manuals. Please try again.",
+  "voz.no_disponible": "This audio or image is unavailable.",
+  "voz.escuchar_seccion_aria": "Listen to the section: {titulo}",
+  "voz.pausar": "Pause reading",
+  "voz.presentacion": "Before you start"
+}

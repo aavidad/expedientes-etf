@@ -1,0 +1,94 @@
+titulo: Autoevaluación del glosario
+preguntas:
+- tipo: test
+  enunciado: ¿Qué indica el perfil de una persona en la aplicación?
+  opciones:
+  - Las tareas que puede realizar.
+  - El último documento que ha descargado.
+  - La fecha de cierre de un expediente.
+  correcta: 0
+  explicacion: El perfil determina las tareas permitidas; para profesionales también cuenta el equipo
+    asignado.
+- tipo: vf
+  enunciado: Un hito confirmado indica una actuación registrada como realizada, con su fecha.
+  correcta: true
+  explicacion: El hito confirmado registra que la actuación ha ocurrido.
+- tipo: test
+  enunciado: ¿Qué es la emisión de un documento?
+  opciones:
+  - La generación de un Word a partir de los datos y la plantilla.
+  - La firma automática del Word.
+  - El envío de un correo.
+  correcta: 0
+  explicacion: La emisión genera el documento. Su firma y registro se realizan por los cauces de la organización.
+- tipo: vf
+  enunciado: La Memoria Técnica Anual obtiene sus cifras de los datos registrados en los expedientes.
+  correcta: true
+  explicacion: Revisa la información de los expedientes antes de comprobar la Memoria.
+- tipo: huecos
+  enunciado: Completa la sigla que aparece en la aplicación.
+  texto: ETF significa {Equipo de Tratamiento Familiar}.
+  explicacion: El equipo trabaja con las familias que tiene asignadas.
+- tipo: test
+  enunciado: ¿Qué significa supresión secundaria?
+  opciones:
+  - Ocultar otras cifras para impedir deducir una cifra protegida.
+  - Borrar expedientes menores de tres años.
+  - Sustituir cifras pequeñas por cero.
+  correcta: 0
+  explicacion: Se aplica junto al umbral, en pantalla y Word de Consulta, también para revisiones cerradas.
+- tipo: vf
+  enunciado: Leer un PDF firmado acredita que la firma es válida.
+  correcta: false
+  explicacion: La aplicación lee su contenido; debes revisar el original y tramitar la firma por los cauces
+    previstos.
+- tipo: test
+  enunciado: ¿Qué conserva una carga histórica desde actas?
+  opciones:
+  - Sólo el nombre actual.
+  - Número y fechas originales, con revisión antes de confirmar.
+  - Un número nuevo asignado hoy.
+  correcta: 1
+  explicacion: Las actas de aceptación y cierre admiten PDF, DOCX y ODT. La lectura no guarda el expediente.
+- tipo: vf
+  enunciado: Sin fecha de cierre configurada, la carga histórica está abierta.
+  correcta: false
+  explicacion: Sin fecha, la carga permanece cerrada. Administración fija o amplía el plazo.
+- tipo: test
+  enunciado: ¿Qué indica «Oculto» en Consulta?
+  opciones:
+  - Un cero confirmado.
+  - Una cifra protegida que no debes reconstruir.
+  - Un dato desconocido que debes completar.
+  correcta: 1
+  explicacion: El umbral inicial es 3 casos, configurable al alza. Consulta no tiene desglose por expedientes.
+- tipo: test
+  enunciado: ¿Qué ubicación utiliza la Tabla SPAF?
+  opciones:
+  - La Zona de Trabajo Social.
+  - El municipio del expediente, sin ZTS.
+  - El nombre del equipo como municipio.
+  correcta: 1
+  explicacion: Municipio, centro y equipo son datos distintos. SPAF usa sólo el municipio para esa ubicación.
+- tipo: test
+  enunciado: ¿Qué anexo vigente sustituye al antiguo informe de finalización 2P?
+  opciones:
+  - El Anexo 3.
+  - El Anexo 6.
+  - El Anexo 11 o 12 según el subprograma.
+  correcta: 2
+  explicacion: La numeración actual sustituye referencias antiguas; las versiones anteriores se conservan.
+- tipo: vf
+  enunciado: Descargar el Anexo 6 cierra el expediente.
+  correcta: false
+  explicacion: Es una salida a otro servicio. Debes confirmar el envío por separado; no cambia el estado
+    ni bloquea el cierre.
+- tipo: test
+  enunciado: ¿Qué puedes hacer en «Auditoría» como Administración?
+  opciones:
+  - Editar o borrar eventos.
+  - Exportar el registro y su comprobación, sin acceso a fichas por ese permiso.
+  - Concederte perfiles para leer expedientes.
+  correcta: 1
+  explicacion: 'Custodia la exportación en una ubicación autorizada: identificadores y vínculos siguen
+    siendo datos personales.'

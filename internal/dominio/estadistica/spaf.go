@@ -66,12 +66,10 @@ type AnexoSPAF struct {
 
 // DatosSPAF contiene los valores históricos de las columnas de la plantilla.
 // Los campos categóricos son códigos, nunca etiquetas de catálogo.
-// ZTS se aporta sólo cuando el Programa resuelva D19; no se deduce del centro.
 type DatosSPAF struct {
 	Menores                Dato[[]MenorSPAF]     `json:"menores"`
 	Guardadores            Dato[[]GuardadorSPAF] `json:"guardadores"`
 	Municipio              Dato[string]          `json:"municipio"`
-	ZTS                    Dato[string]          `json:"zts"`
 	CaracteristicasFamilia Dato[[]string]        `json:"caracteristicas_familia"`
 	Derivaciones           []AnexoSPAF           `json:"-"`
 	ServicioDerivante      Dato[string]          `json:"servicio_derivante"`
@@ -259,7 +257,6 @@ func prepararDatosSPAF(f *FilaSPAF, fin time.Time, avisos map[string]int) error 
 	f.Menores = limpiarDatoSPAF(f.Menores)
 	f.Guardadores = limpiarDatoSPAF(f.Guardadores)
 	f.Municipio = limpiarDatoSPAF(f.Municipio)
-	f.ZTS = limpiarDatoSPAF(f.ZTS)
 	f.CaracteristicasFamilia = limpiarDatoSPAF(f.CaracteristicasFamilia)
 	f.ServicioDerivante = limpiarDatoSPAF(f.ServicioDerivante)
 	f.CoordinadorCaso = limpiarDatoSPAF(f.CoordinadorCaso)
@@ -284,9 +281,6 @@ func prepararDatosSPAF(f *FilaSPAF, fin time.Time, avisos map[string]int) error 
 		vistos[m.ID] = true
 	}
 	f.NumeroMenores = Dato[int]{Valor: len(f.Menores.Valor), Conocido: f.Menores.Conocido}
-	if !f.ZTS.Conocido {
-		avisos["estadistica.spaf_zts_pendiente"]++
-	}
 	var ultima AnexoSPAF
 	ambigua := false
 	for _, a := range f.Derivaciones {

@@ -38,6 +38,7 @@ type ResumenFilaHoja struct {
 }
 
 type InformeHoja struct {
+	Avisos      []AvisoCarga      `json:"avisos,omitempty"`
 	Filas       []ResumenFilaHoja `json:"filas"`
 	Valida      bool              `json:"valida"`
 	LoteID      string            `json:"lote_id,omitempty"`

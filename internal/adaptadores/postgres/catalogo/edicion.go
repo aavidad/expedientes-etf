@@ -58,6 +58,8 @@ func (r *Repositorio) Publicar(ctx context.Context, ambito string, c dominio.Cam
 	}
 	var regla any
 	switch ambito {
+	case "asignacion_municipios":
+		regla = c.Ubicacion
 	case "listas":
 		regla = c.Opcion
 	case "plazos":
@@ -75,9 +77,15 @@ func (r *Repositorio) Publicar(ctx context.Context, ambito string, c dominio.Cam
 		return dominio.Version{}, dominio.ErrEdicion
 	}
 	var id string
-	err = tx.QueryRow(ctx, `
+	if ambito == "asignacion_municipios" {
+		err = tx.QueryRow(ctx, `
+SELECT catalogo.editar_ubicacion($1,$2,$3)::text
+`, c.VersionEsperada, c.VigenteDesde, b).Scan(&id)
+	} else {
+		err = tx.QueryRow(ctx, `
 SELECT catalogo.editar($1,$2,$3,$4)::text
 `, ambito, c.VersionEsperada, c.VigenteDesde, b).Scan(&id)
+	}
 	if err != nil {
 		return dominio.Version{}, errorEdicion(err, ambito)
 	}

@@ -139,6 +139,7 @@ type Factor struct {
 // vacía significa cero menores, una historia ausente significa sin dato.
 type Expediente struct {
 	ID, EquipoID           string
+	Numero                 string
 	Episodios              []Episodio
 	Estados                Historia[string]
 	SeguimientosTrasCese   []Vigencia // seguimiento confirmado de Reunificación

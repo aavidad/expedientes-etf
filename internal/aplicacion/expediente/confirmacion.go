@@ -38,11 +38,17 @@ func (s *Servicio) Etiquetas(ctx context.Context, a dominio.Actor, idioma string
 	if s.d.Etiquetas == nil {
 		return nil, dominio.ErrNoDisponible
 	}
-	nombres, err := s.d.Etiquetas.NombresEn(ctx, idioma)
+	var nombres map[string]string
+	err := s.d.Transacciones.Ejecutar(ctx, identidad(a), func(ctx context.Context) error {
+		var err error
+		nombres, err = s.d.Etiquetas.NombresEn(ctx, idioma)
+		if err != nil {
+			return err
+		}
+		_, err = s.d.RegistroTransaccional.RegistrarEnTransaccion(ctx, s.evento(a, "expediente.leer_etiquetas", "", "ok"))
+		return err
+	})
 	if err != nil {
-		return nil, err
-	}
-	if _, err := s.d.Registro.Confirmar(ctx, s.evento(a, "expediente.leer_etiquetas", "", "ok")); err != nil {
 		return nil, dominio.ErrNoDisponible
 	}
 	return nombres, nil

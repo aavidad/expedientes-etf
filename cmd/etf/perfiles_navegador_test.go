@@ -93,7 +93,35 @@ func TestNavegadorPerfiles(t *testing.T) {
 			versionAdmin = u.Version
 		}
 	}
-	_, err = administracion.Cambiar(ctx, actorPerfiles(admin), admin.ID, dominio.CambioPerfiles{Version: versionAdmin, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.Coordinacion, Desde: time.Now().UTC()}, {Perfil: dominio.Administracion, Desde: time.Now().UTC()}}})
+	// El segundo administrador concede la combinación; nunca el destinatario.
+	var guidRespaldo dominio.GUID
+	_, _ = rand.Read(guidRespaldo[:])
+	respaldo, fallo := usuarios.RegistrarAcceso(ctx, dominio.IdentidadDirectorio{GUID: guidRespaldo, CuentaAD: "sergio.campos", NombreMostrado: "Sergio Campos Martín"}, time.Now().UTC())
+	if fallo != nil {
+		t.Fatal(fallo)
+	}
+	pendientes, fallo := administracion.Listar(ctx, actorPerfiles(admin))
+	if fallo != nil {
+		t.Fatal(fallo)
+	}
+	var versionRespaldo int64
+	for _, u := range pendientes {
+		if u.ID == respaldo.ID {
+			versionRespaldo = u.Version
+		}
+	}
+	if _, fallo = administracion.Cambiar(ctx, actorPerfiles(admin), respaldo.ID, dominio.CambioPerfiles{Version: versionRespaldo, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.Administracion, Desde: time.Now().UTC()}}}); fallo != nil {
+		t.Fatal(fallo)
+	}
+	err = b.Ejecutar(ctx, plataforma.Identidad{UsuarioID: respaldo.ID}, func(ctx context.Context) error {
+		var e error
+		respaldo, e = usuarios.Obtener(ctx, respaldo.ID)
+		return e
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = administracion.Cambiar(ctx, actorPerfiles(respaldo), admin.ID, dominio.CambioPerfiles{Version: versionAdmin, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.Coordinacion, Desde: time.Now().UTC()}, {Perfil: dominio.Administracion, Desde: time.Now().UTC()}}})
 	if err != nil {
 		t.Fatal(err)
 	}

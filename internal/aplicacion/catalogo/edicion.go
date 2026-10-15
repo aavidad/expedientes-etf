@@ -69,7 +69,7 @@ func (e *Edicion) Consultar(ctx context.Context, actor entrada.Actor, ambito str
 	if err := dominio.Autorizar(actor); err != nil {
 		return entrada.Administracion{}, err
 	}
-	if ambito != "listas" && ambito != "plazos" && ambito != "tramos" && ambito != "firmantes" {
+	if ambito != "listas" && ambito != "plazos" && ambito != "tramos" && ambito != "firmantes" && ambito != "asignacion_municipios" {
 		return entrada.Administracion{}, dominio.ErrAmbito
 	}
 	var a entrada.Administracion
@@ -111,7 +111,15 @@ func (e *Edicion) Guardar(ctx context.Context, actor entrada.Actor, ambito strin
 	if c.ClaveTexto() != "" {
 		err := e.ejecutar(ctx, actor, func(ctx context.Context) error {
 			var err error
-			preparada, err = e.paquetes.Preparar(ctx, c.ClaveTexto(), c.Textos, c.ReferenciasEsperadas)
+			if c.Ubicacion != nil {
+				publicador, ok := e.paquetes.(paquetes.PublicacionUbicaciones)
+				if !ok {
+					return dominio.ErrNoDisponible
+				}
+				preparada, err = publicador.PrepararUbicacion(ctx, c.ClaveTexto(), c.Textos, c.Ubicacion.Variantes, c.ReferenciasEsperadas)
+			} else {
+				preparada, err = e.paquetes.Preparar(ctx, c.ClaveTexto(), c.Textos, c.ReferenciasEsperadas)
+			}
 			return err
 		})
 		if err != nil {

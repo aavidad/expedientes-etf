@@ -21,7 +21,7 @@ func moduloNarrativas(d dependenciasModulos) adaptadorHTTP.ModuloNarrativas {
 }
 
 func moduloMemoriaWord(d dependenciasModulos) adaptadorHTTP.ModuloMemoriaWord {
-	f := plantillas.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion}
+	f := plantillas.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion, Registro: d.registro}
 	fuente := fuenteConCierreMemoria()
 	svc := documentoApp.NuevoMemoria(documentoApp.DependenciasMemoria{Repositorio: documento.Repositorio{}, Fuente: fuente, Idiomas: f, Ficheros: f, Textos: f, Motor: word.Motor{}, Transacciones: d.base, Registro: postgres.NuevoRegistroAuditoria(d.base), Reloj: relojIdentidad{}, Identificadores: identificadoresDerivacion{}})
 	return adaptadorHTTP.ModuloMemoriaWord{Configuracion: adaptadorHTTP.ConfiguracionMemoriaWord{Servicio: svc}}

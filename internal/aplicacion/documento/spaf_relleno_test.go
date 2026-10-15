@@ -10,7 +10,7 @@ import (
 
 func TestRellenoSPAF14ColumnasTotalesYDesconocidos(t *testing.T) {
 	fecha := time.Date(2026, 1, 7, 0, 0, 0, 0, time.UTC)
-	tabla := est.TablaSPAF{FiltroSPAF: est.FiltroSPAF{Anio: 2026, Mes: 1}, Resumen: est.ResumenSPAF{Altas: 2, Bajas: 1, Casos: 3, Menores: 6}, Filas: []est.FilaSPAF{{Numero: "06-01-26", NumeroMenores: est.Dato[int]{Conocido: true, Valor: 1}, Aceptacion: est.Dato[time.Time]{Conocido: true, Valor: fecha}, DatosSPAF: est.DatosSPAF{Menores: est.Dato[[]est.MenorSPAF]{Conocido: true, Valor: []est.MenorSPAF{{Nombre: "Lucía", Apellidos: "Serrano Ruiz", Nacimiento: est.Dato[time.Time]{Conocido: true, Valor: fecha}}}}, Municipio: est.Dato[string]{Conocido: true, Valor: "18013"}, ZTS: est.Dato[string]{Valor: "dato residual"}, Instrumentos: est.Dato[[]string]{Conocido: true, Valor: []string{"ENTREVISTA"}}}}}}
+	tabla := est.TablaSPAF{FiltroSPAF: est.FiltroSPAF{Anio: 2026, Mes: 1}, Resumen: est.ResumenSPAF{Altas: 2, Bajas: 1, Casos: 3, Menores: 6}, Filas: []est.FilaSPAF{{Numero: "06-01-26", NumeroMenores: est.Dato[int]{Conocido: true, Valor: 1}, Aceptacion: est.Dato[time.Time]{Conocido: true, Valor: fecha}, DatosSPAF: est.DatosSPAF{Menores: est.Dato[[]est.MenorSPAF]{Conocido: true, Valor: []est.MenorSPAF{{Nombre: "Lucía", Apellidos: "Serrano Ruiz", Nacimiento: est.Dato[time.Time]{Conocido: true, Valor: fecha}}}}, Municipio: est.Dato[string]{Conocido: true, Valor: "18013"}, Instrumentos: est.Dato[[]string]{Conocido: true, Valor: []string{"ENTREVISTA"}}}}}}
 	textos := map[string]string{"documento.spaf.sin_dato": "Sin dato", "documento.spaf.anexo": "Anexo %d", "documento.spaf.acta": "Acta", "documento.spaf.fecha_formato": "02/01/2006"}
 	nombres := map[string]string{"municipio.18013": "Alhama de Granada", "instrumento.ENTREVISTA": "Entrevista"}
 	r, err := rellenarSPAF(tabla, "06", textos, nombres)
@@ -18,7 +18,7 @@ func TestRellenoSPAF14ColumnasTotalesYDesconocidos(t *testing.T) {
 		t.Fatal(err)
 	}
 	fila := r.Filas["casos_spaf"][0]
-	if len(fila) != 14 || fila["menores"] != "Serrano Ruiz, Lucía / 07/01/2026" || fila["municipio_zts"] != "Alhama de Granada / Sin dato" || fila["instrumentos"] != "Entrevista" || r.Campos["menores"] != "6" || r.Campos["casos"] != "3" {
+	if len(fila) != 14 || fila["menores"] != "Serrano Ruiz, Lucía / 07/01/2026" || fila["municipio_zts"] != "Alhama de Granada" || fila["instrumentos"] != "Entrevista" || r.Campos["menores"] != "6" || r.Campos["casos"] != "3" {
 		t.Fatal(r)
 	}
 	for _, v := range fila {

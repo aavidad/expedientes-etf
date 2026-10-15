@@ -18,7 +18,7 @@ import (
 )
 
 func moduloDocumentos(d dependenciasModulos) adaptadorHTTP.ModuloDocumentos {
-	plantillas := plantillasDocumento.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion}
+	plantillas := plantillasDocumento.Plantillas{Raiz: d.cfg.IdiomasRuta, Paquetes: d.publicacion, Registro: d.registro}
 	registroDocumento := postgres.NuevoRegistroAuditoria(d.base)
 	zona, err := time.LoadLocation("Europe/Madrid")
 	if err != nil {

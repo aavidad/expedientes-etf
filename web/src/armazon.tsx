@@ -1,3 +1,4 @@
+import { AyudasVoz } from './voz/ayuda-contextual';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useButton } from 'react-aria';
 import { pantallas } from './pantallas';
@@ -55,6 +56,7 @@ export function Armazon({ t, acceso, preferencias, salir, ocupado, ruta, navegar
   function cerrarPersona() { if (persona.current) persona.current.open = false; resumenPersona.current?.focus(); }
 
   return <div className="armazon">
+    {acceso?.estado === 'activo' && <AyudasVoz idioma={document.documentElement.lang} t={t} />}
     <a className="saltar-contenido" href="#contenido" onClick={() => document.getElementById('contenido')?.focus()}>{t('comun.saltar_contenido')}</a>
     <header className="cabecera-app" data-compacto={compacto}>
       <div className="marca-app"><span className="marca" aria-hidden="true">{t('comun.marca')}</span><span>{t('comun.titulo') || document.title}</span></div>

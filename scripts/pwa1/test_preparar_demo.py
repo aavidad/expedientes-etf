@@ -20,7 +20,7 @@ class PreparacionPWA(unittest.TestCase):
         self.raiz = Path(self.temporal.name)
         self.llamadas = []
         self.demo = types.SimpleNamespace(URL='http://127.0.0.1:18541',
-                                          compose=lambda *args, **kwargs: self.llamadas.append(args))
+                                          incorporar_recursos=lambda: self.llamadas.append("incorporar"))
         spec = types.SimpleNamespace(loader=types.SimpleNamespace(exec_module=lambda modulo: None))
         for parche in [patch.object(PREPARAR, 'RAIZ', self.raiz),
                        patch.object(PREPARAR.importlib.util, 'spec_from_file_location', return_value=spec),
@@ -35,20 +35,11 @@ class PreparacionPWA(unittest.TestCase):
                 PREPARAR.preparar(base)
         self.assertEqual(self.llamadas, [])
 
-    def test_copia_solo_reserva_pwa_sin_versiones_publicadas(self):
-        recursos = ['idiomas/es/textos/pwa1.json', 'temas/alto-contraste/iconos/etf-192-any.png']
-        ajenos = ['idiomas/es/textos/comun.json', 'temas/alto-contraste/tokens.json',
-                  'idiomas/.versiones/1/es/textos/pwa1.json']
-        for nombre in recursos + ajenos:
-            destino = self.raiz / nombre
-            destino.parent.mkdir(parents=True, exist_ok=True)
-            destino.write_text('{}')
+    def test_utiliza_preparacion_comun_sin_copias_directas(self):
         with contextlib.redirect_stdout(io.StringIO()):
             PREPARAR.preparar(self.demo.URL)
-        copias = [args for args in self.llamadas if args[0] == 'cp']
-        self.assertEqual({args[2] for args in copias}, {'app:/datos/' + nombre for nombre in recursos})
-        self.assertEqual(len(copias), len(recursos))
-        self.assertTrue(all(args[0] in ('cp', 'exec') for args in self.llamadas))
+        self.assertEqual(self.llamadas, ["incorporar"])
+
 
 
 if __name__ == '__main__':

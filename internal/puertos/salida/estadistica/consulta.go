@@ -21,3 +21,8 @@ type WordConsulta interface {
 type TextosConsulta interface {
 	LeerTextosCifras(context.Context, string) (map[string]string, error)
 }
+
+// ReglasConsulta aplica la protección vigente hoy, también a fotos históricas.
+type ReglasConsulta interface {
+	UmbralConsulta(context.Context, time.Time) (int, error)
+}

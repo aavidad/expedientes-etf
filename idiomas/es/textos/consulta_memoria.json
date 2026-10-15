@@ -7,5 +7,9 @@
   "memoria.consulta_provisional": "Cifras provisionales",
   "memoria.consulta_definitiva": "Cifras definitivas de la Memoria cerrada",
   "memoria.consulta_vacia": "No hay cifras disponibles para este año y ámbito.",
-  "memoria.consulta_ayuda": "Elige el año y el equipo, o la provincia. Las cifras provisionales se calculan al consultar. Las definitivas corresponden a una Memoria cerrada."
+  "memoria.consulta_ayuda": "Elige el año y el equipo, o la provincia. Las cifras provisionales se calculan al consultar. Las definitivas corresponden a una Memoria cerrada.",
+  "estadistica.consulta_oculto": "Oculto",
+  "estadistica.consulta_privacidad": "Para proteger a las familias, se ocultan las cifras pequeñas y otras cifras, totales y porcentajes que permitirían deducirlas.",
+  "memoria.cifra_oculta": "Oculto",
+  "memoria.privacidad_consulta": "Para proteger a las familias, ocultamos las cifras menores que {umbral} y otras cifras, totales, bases y porcentajes que permitirían deducirlas."
 }

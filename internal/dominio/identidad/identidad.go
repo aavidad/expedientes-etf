@@ -57,9 +57,10 @@ const (
 type Usuario struct {
 	ID string
 	IdentidadDirectorio
-	Estado   Estado
-	Perfiles []Perfil
-	EquipoID string
+	Estado               Estado
+	Perfiles             []Perfil
+	EquipoID             string
+	RevisionRestauracion bool
 }
 
 // EstadoAcceso deniega bajas, estados desconocidos y perfiles sin contrato.

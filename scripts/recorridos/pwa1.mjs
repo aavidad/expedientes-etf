@@ -6,6 +6,16 @@ import { chromium, baseLocal, restringir } from './comun.mjs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 const base = baseLocal(process.argv[2]);
+// Cambiar idioma o tema no debe instalar otro worker: con la dirección fija no hay relevo
+// y una navegación de otra ventana nunca llega al worker saliente. Se comprueba sin
+// waitForFunction, que no espera promesas y daría por buena una función async.
+async function workerUnico(pestana) {
+ const estado = await pestana.evaluate(async () => {
+  const r = await navigator.serviceWorker.getRegistration();
+  return { controlador: navigator.serviceWorker.controller?.scriptURL, activo: r?.active?.scriptURL, pendiente: Boolean(r?.installing || r?.waiting) };
+ });
+ assert.deepEqual(estado, { controlador: base + '/service-worker.js', activo: base + '/service-worker.js', pendiente: false });
+}
 // Los volúmenes de una demo anterior no se renuevan al reconstruir su imagen.
 process.stdout.write(execFileSync('python3', ['-B', 'scripts/pwa1/preparar_demo.py', base], { cwd: new URL('../../', import.meta.url), encoding: 'utf8' }));
 const claves = JSON.parse(await readFile(new URL('../../despliegue/demo/.local/usuarios.json', import.meta.url)));
@@ -19,6 +29,8 @@ try {
  await restringir(context, base);
  const page = await context.newPage();
  page.setDefaultTimeout(15000);
+ // Con la CI de varias ramas a la vez, la primera carga bajo el service worker supera 30 s.
+ context.setDefaultNavigationTimeout(90000);
  await page.addInitScript(() => {
   window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); window.pwaInstalable = true; });
  });
@@ -84,13 +96,11 @@ try {
  assert.equal(alto.theme_color, tokens['color.acento']); assert.equal(alto.background_color, tokens['color.fondo']);
  await page.locator('#idioma').selectOption('en');
  await page.waitForFunction(() => document.documentElement.lang === 'en');
- await page.waitForFunction(async () => {
-  const r = await navigator.serviceWorker.getRegistration();
-  return r?.active?.scriptURL.includes('idioma=en') && navigator.serviceWorker.controller?.scriptURL.includes('idioma=en');
- });
+ await workerUnico(page);
  const otra = await context.newPage();
- await otra.goto(base, { waitUntil: 'domcontentloaded' });
+ await otra.goto(base, { waitUntil: 'commit' });
  await otra.waitForFunction(() => document.documentElement.lang === 'es' && navigator.serviceWorker.controller);
+ await workerUnico(otra);
  await page.waitForTimeout(300);
  await context.setOffline(true);
  await otra.goto(base + '/coordinacion', { waitUntil: 'domcontentloaded' });

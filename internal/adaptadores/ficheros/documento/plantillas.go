@@ -2,10 +2,12 @@ package documento
 
 import (
 	"context"
+	"errors"
 	d "github.com/aavidad/expedientes-etf/internal/dominio/documento"
 	p "github.com/aavidad/expedientes-etf/internal/dominio/paquete"
 	"io"
 	"io/fs"
+	"log/slog"
 	"os"
 	"path"
 	"regexp"
@@ -18,6 +20,8 @@ type ReferenciasIdioma interface {
 type Plantillas struct {
 	Raiz     string
 	Paquetes ReferenciasIdioma
+	// Registro recibe avisos técnicos sin datos personales; nil usa el predeterminado.
+	Registro *slog.Logger
 }
 
 var codigoIdioma = regexp.MustCompile(`^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$`)
@@ -55,11 +59,31 @@ func (f Plantillas) Leer(ctx context.Context, idioma d.IdiomaPlantilla, p d.Plan
 		return nil, d.ErrPlantilla
 	}
 	defer raiz.Close()
-	base := idioma.Ruta
 	if publicada {
-		base = p.Idioma
+		return leerPlantilla(raiz, path.Join(p.Idioma, p.Ruta), p.Huella)
 	}
-	archivo, err := raiz.Open(path.Join(base, p.Ruta))
+	// Una versión de idioma publicada antes de una actualización no trae las
+	// versiones nuevas de plantillas de la distribución: se buscan después en
+	// la base del mismo idioma, siempre con la huella que espera la base de datos.
+	b, err := leerPlantilla(raiz, path.Join(idioma.Ruta, p.Ruta), p.Huella)
+	if err != nil && idioma.Ruta != p.Idioma {
+		if reserva, e := leerPlantilla(raiz, path.Join(p.Idioma, p.Ruta), p.Huella); e == nil {
+			if errors.Is(err, d.ErrHuella) {
+				// Una copia alterada en el paquete activo debe investigarse aunque se sirva la verificada.
+				registro := f.Registro
+				if registro == nil {
+					registro = slog.Default()
+				}
+				registro.WarnContext(ctx, "plantilla.huella_paquete_activo", "idioma", p.Idioma, "tipo", p.Tipo, "version", p.Version, "paquete", idioma.Version)
+			}
+			return reserva, nil
+		}
+	}
+	return b, err
+}
+
+func leerPlantilla(raiz *os.Root, ruta, huella string) ([]byte, error) {
+	archivo, err := raiz.Open(ruta)
 	if err != nil {
 		return nil, d.ErrPlantilla
 	}
@@ -73,7 +97,7 @@ func (f Plantillas) Leer(ctx context.Context, idioma d.IdiomaPlantilla, p d.Plan
 		clear(b)
 		return nil, d.ErrPlantilla
 	}
-	if d.Huella(b) != p.Huella {
+	if d.Huella(b) != huella {
 		clear(b)
 		return nil, d.ErrHuella
 	}

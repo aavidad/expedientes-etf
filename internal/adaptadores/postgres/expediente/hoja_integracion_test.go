@@ -96,6 +96,7 @@ func TestHojaHTTPPostgresClamAVVistaPreviaLoteIdempotente(t *testing.T) {
 			r.Header.Set("Idempotency-Key", clave)
 		}
 		r.Header.Set("X-Equipo-Carga", equipo)
+		r.Header.Set("X-Confirmar-Duplicados", "true")
 		r.Header.Set("Accept-Language", idioma)
 		if huella != "" {
 			r.Header.Set("X-Huella-Hoja", huella)
@@ -224,7 +225,7 @@ func TestHojaPostgresAuditoriaFallidaRevierteTodosLosCasos(t *testing.T) {
 	av := antivirusHojaLimpio{}
 	sheet := &app.ServicioHoja{Historicos: s, Lector: hoja.Lector{}, Antivirus: av, Reloj: deps.Reloj}
 	csv := csvHistorico(t, casoHistorico(p, ""), casoHistorico(p, ""))
-	u := entrada.SubidaHoja{EquipoID: p.EquipoID, Formato: "csv", Contenido: csv}
+	u := entrada.SubidaHoja{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Formato: "csv", Contenido: csv}
 	v, err := sheet.ValidarHoja(ctx, coord, u)
 	if err != nil || !v.Valida {
 		t.Fatal(err)

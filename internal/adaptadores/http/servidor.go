@@ -23,6 +23,7 @@ import (
 // Opciones agrupa la configuración de cada módulo que publica rutas HTTP.
 // Un módulo nuevo añade aquí su campo en lugar de alargar la firma de Nuevo.
 type Opciones struct {
+	Auditoria    ConfiguracionAuditoria
 	Bandeja      entradaExpediente.Bandeja
 	Catalogos    ConfiguracionCatalogos
 	Sesion       ConfiguracionSesion
@@ -40,7 +41,7 @@ type Opciones struct {
 
 func rutasPlataforma(paquetes entrada.Paquetes, web fs.FS, idioma, tema string, avisos []string, comprobarBase func(context.Context) error, sesion *sesionHTTP) []Ruta {
 	mux := &muxHTTP{soloRutas: true}
-	mux.declarar(http.HandlerFunc(sesion.servir), reglaRuta{Patron: "/api/sesion", Metodos: []string{http.MethodGet}, Publica: true, Sesion: true}, reglaRuta{Patron: "/api/sesion", Metodos: []string{http.MethodPost, http.MethodDelete}, Publica: true, CSRF: true, Sesion: true})
+	mux.declarar(http.HandlerFunc(sesion.servir), reglaRuta{Patron: "/api/sesion", Metodos: []string{http.MethodGet}, Publica: true, Sesion: true}, reglaRuta{Patron: "/api/sesion", Metodos: []string{http.MethodPost, http.MethodDelete, http.MethodPut}, Publica: true, CSRF: true, Sesion: true})
 	// El tema mínimo aún no incorpora un icono de aplicación.
 	mux.declarar(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNoContent)
@@ -258,7 +259,7 @@ func responderError(w http.ResponseWriter, estado int, clave string) {
 	responderJSON(w, estado, map[string]any{"error": map[string]string{"clave": clave}})
 }
 
-const politicaContenido = "default-src 'none'; script-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; worker-src 'self'"
+const politicaContenido = "default-src 'none'; script-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; worker-src 'self'; media-src 'self'"
 
 func claveNonce() []byte {
 	b := make([]byte, 32)

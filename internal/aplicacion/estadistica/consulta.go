@@ -14,6 +14,7 @@ import (
 )
 
 type DependenciasConsulta struct {
+	Reglas        salida.ReglasConsulta
 	Cerradas      salida.CerradasConsulta
 	Calculo       salida.CalculoConsulta
 	Word          salida.WordConsulta
@@ -76,6 +77,14 @@ func (s *ServicioConsulta) consultar(ctx context.Context, a d.ActorMemoria, f d.
 		// El carácter provisional corresponde al estado observado al empezar.
 		// Un cierre concurrente no transforma ese cálculo en una foto cerrada.
 		err = s.d.Transacciones.Ejecutar(ctx, identidad, func(ctx context.Context) error {
+			if s.d.Reglas == nil {
+				return d.ErrDisponibleMemoria
+			}
+			umbral, err := s.d.Reglas.UmbralConsulta(ctx, ahora)
+			if err != nil || umbral < 3 {
+				return d.ErrDisponibleMemoria
+			}
+			r = d.SuprimirCifras(r, umbral)
 			if word {
 				if s.d.Word == nil {
 					return d.ErrDisponibleMemoria
@@ -86,7 +95,7 @@ func (s *ServicioConsulta) consultar(ctx context.Context, a d.ActorMemoria, f d.
 					return err
 				}
 			}
-			_, err := s.d.Auditoria.RegistrarEnTransaccion(ctx, evento("ok"))
+			_, err = s.d.Auditoria.RegistrarEnTransaccion(ctx, evento("ok"))
 			return err
 		})
 	}

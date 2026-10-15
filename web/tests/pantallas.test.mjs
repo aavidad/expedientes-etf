@@ -52,8 +52,9 @@ test('cada pantalla y entrada del menú tiene SPA, perfiles y clave en el regist
 });
 
 test('menú exige sesión, perfil y pantalla publicada; conserva orden y alias', () => {
-  const admin = { estado: 'activo', csrf: '', perfiles: ['administracion'], pantallas: pantallas.filter((p) => p.clave && p.perfiles.includes('administracion')).map(({ ruta, clave, perfiles }) => ({ ruta, clave, perfiles })) };
-  assert.deepEqual(menuPermitido(pantallas, admin).map((p) => p.ruta), ['/admin/usuarios', '/admin/catalogos', '/admin/reglas', '/admin/firmantes', '/admin/paquetes', '/admin/idiomas', '/admin/temas', '/admin/plantillas', '/admin/conservacion']);
+  const admin = { estado: 'activo', csrf: '', perfiles: ['administracion'], pantallas: pantallas.filter((p) => p.clave && p.perfiles.includes('administracion') && p.ruta !== '/admin/restauracion').map(({ ruta, clave, perfiles }) => ({ ruta, clave, perfiles: perfiles.filter((perfil) => perfil === 'administracion') })) };
+  assert.deepEqual(menuPermitido(pantallas, admin).map((p) => p.ruta), ['/admin/usuarios', '/admin/catalogos', '/admin/reglas', '/admin/firmantes', '/admin/ubicaciones', '/admin/paquetes', '/admin/idiomas', '/admin/temas', '/admin/plantillas', '/admin/carga-historica', '/admin/conservacion', '/admin/auditoria', '/ayuda']);
+
   assert.equal(pantallaPermitida(pantallas, admin, '/admin/catalogos/listas')?.menuDe, '/admin/catalogos');
   assert.deepEqual(menuPermitido(pantallas, { ...admin, perfiles: ['consulta'] }), []);
   assert.deepEqual(menuPermitido(pantallas, { ...admin, estado: 'pendiente_alta' }), []);
@@ -67,4 +68,12 @@ test('detalle de decisión exige coordinación y un solo segmento de derivación
   assert.equal(pantallaPermitida(pantallas, acceso, '/coordinacion/derivaciones/22222222-2222-4222-8222-222222222222')?.menuDe, '/coordinacion/lista-espera');
   for (const ruta of ['/coordinacion/derivaciones/', '/coordinacion/derivaciones/id/otra', '/coordinacion/derivaciones/..', '/coordinacion/derivaciones/%2f']) assert.equal(pantallaPermitida(pantallas, acceso, ruta), undefined);
   assert.equal(pantallaPermitida(pantallas, { ...acceso, perfiles: ['consulta'] }, '/coordinacion/derivaciones/id'), undefined);
+});
+
+
+test('revisión tras restauración sólo ofrece la pantalla publicada por la sesión', () => {
+  const acceso = { estado: 'activo', perfiles: ['administracion', 'coordinacion'], pantallas: [{ ruta: '/admin/restauracion', perfiles: ['administracion'], clave: 'restauracion.titulo' }] };
+  assert.deepEqual(menuPermitido(pantallas, acceso).map((p) => p.ruta), ['/admin/restauracion']);
+  assert.equal(pantallaPermitida(pantallas, acceso, '/admin/usuarios'), undefined);
+  assert.equal(pantallaPermitida(pantallas, acceso, '/coordinacion'), undefined);
 });

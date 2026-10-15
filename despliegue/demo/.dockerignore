@@ -14,3 +14,9 @@
 !.local/datos/catalogos/familia.json
 !.local/datos/catalogos/memoria/
 !.local/datos/catalogos/memoria/**
+
+!.local/archivos.py
+!.local/inventario.json
+!incorporar.py
+!.local/recursos-voz/
+!.local/recursos-voz/**

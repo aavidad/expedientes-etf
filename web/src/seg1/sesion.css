@@ -1,0 +1,7 @@
+.seg1-aviso {
+  position: sticky;
+  inset-block-start: var(--espacio-3);
+  z-index: 1;
+  margin-block-end: var(--espacio-6);
+  box-shadow: var(--sombra-tarjeta);
+}

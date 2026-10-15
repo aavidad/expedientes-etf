@@ -18,10 +18,11 @@ func modulosNegocio(o Opciones) []Modulo {
 		return o.Modulos
 	}
 	return []Modulo{
-		ModuloBandeja{Servicio: o.Bandeja}, ModuloSalidas{}, ModuloSMI{o.SMI}, ModuloUsuarios{o.Usuarios}, ModuloCatalogos{o.Catalogos},
+		ModuloRestauracion{}, ModuloBandeja{Servicio: o.Bandeja}, ModuloSalidas{}, ModuloSMI{o.SMI}, ModuloUsuarios{o.Usuarios}, ModuloCatalogos{o.Catalogos}, ModuloUbicaciones{Editor: o.Catalogos.Edicion},
+
 		ModuloInstalacion{o.Instalacion}, ModuloDerivaciones{o.Derivaciones},
-		ModuloExpedientes{o.Expedientes}, ModuloLecturaMemoria{}, ModuloDocumentos{o.Documentos}, ModuloActividad{o.Actividad}, ModuloSPAF{o.SPAF}, ModuloAnexo{}, ModuloDecision{}, ModuloPlantillas{},
-		ModuloEquipo{o.Equipo}, ModuloFichaMenoresIntervencion{}, ModuloTraslado{}, ModuloCarga{}, ModuloConservacion{},
+		ModuloExpedientes{o.Expedientes}, ModuloLecturaMemoria{}, ModuloDesgloseMemoria{}, ModuloDocumentos{o.Documentos}, ModuloActividad{o.Actividad}, ModuloSPAF{o.SPAF}, ModuloAnexo{}, ModuloDecision{}, ModuloPlantillas{},
+		ModuloEquipo{o.Equipo}, ModuloFichaMenoresIntervencion{}, ModuloAnexo6{}, ModuloTraslado{}, ModuloControlCargas{}, ModuloCarga{}, ModuloConservacion{}, ModuloAuditoria{o.Auditoria}, ModuloVoz{},
 	}
 }
 

@@ -20,7 +20,7 @@ func TestConservacionHistoricoConEpisodios(t *testing.T) {
 	deps = dependenciasHistoricas(deps)
 	s := app.Nuevo(deps)
 	caso := casoHistorico(p, numeroHistoricoLibre(t, b, ctx, coord, p))
-	carga := d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{caso}}
+	carga := d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{caso}}
 	vista, err := s.ValidarCargaHistorica(ctx, coord, carga)
 	if err != nil {
 		t.Fatal(err)

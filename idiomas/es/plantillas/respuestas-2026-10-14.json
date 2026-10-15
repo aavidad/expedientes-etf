@@ -1,0 +1,41 @@
+{
+  "cierre/acta_cierre": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Anexo 2P": "Anexo 11 o 12, según el subprograma",
+      "Annex 2P": "Annex 11 or 12, according to the subprogramme"
+    }
+  },
+  "entrada/aceptacion": {
+    "previa": "1.1.1",
+    "nueva": "1.1.2",
+    "sustituciones": {
+      "Anexo  2L-A": "Acta de Aceptación",
+      "Anexo 2J": "Anexo 3"
+    }
+  },
+  "entrada/no_aceptacion": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Anexo  2L-NA": "Acta de No Aceptación"
+    }
+  },
+  "entrada/no_aceptacion/lista_espera": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Informe 2J": "Informe (Anexo 3)"
+    }
+  },
+  "spaf": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Fecha de los Anexos (2L, 2M, 2O)": "Fecha de los Anexos 1, 2, 7 y 8",
+      "(5). Municipio / ZTS: Municipio al que pertenece la familia del expediente y Zona de Trabajo Social (ZTS).": "(5). Municipio: municipio de la familia del expediente.",
+      "Municipio / ZTS": "Municipio"
+    }
+  }
+}

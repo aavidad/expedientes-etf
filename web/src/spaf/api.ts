@@ -3,7 +3,7 @@ export type Anexo = { anexo: number; fecha: string };
 export type Fila = {
   expediente_id: string; numero: string; version_ficha: string; alta: boolean; baja: boolean;
   numero_menores: Dato<number>; menores: Dato<{ nombre: string; apellidos: string; nacimiento: Dato<string>; centro_proteccion: Dato<string> }[]>;
-  guardadores: Dato<{ nombre: string; parentesco: string }[]>; municipio: Dato<string>; zts: Dato<string>;
+  guardadores: Dato<{ nombre: string; parentesco: string }[]>; municipio: Dato<string>;
   caracteristicas_familia: Dato<string[]>; derivacion: Dato<Anexo>; servicio_derivante: Dato<string>; coordinador_caso: Dato<string>;
   aceptacion: Dato<string>; fechas_anexos: Anexo[] | null; fase_intervencion: Dato<string>; temporalizacion_meses: Dato<number>;
   finalidad: Dato<string>; pronostico: Dato<string>; instrumentos: Dato<string[]>;
@@ -19,7 +19,7 @@ export type VistaEmision = Pick<Tabla, 'equipo_id' | 'anio' | 'mes' | 'version_r
 export class Fallo extends Error { constructor(public clave: string, public estado = 0) { super(clave); } }
 const uuid = (v: unknown): v is string => typeof v === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(v);
 const dato = (v: unknown): v is Dato<unknown> => !!v && typeof v === 'object' && typeof (v as Dato<unknown>).Conocido === 'boolean' && 'Valor' in v;
-const campos = ['numero_menores', 'menores', 'guardadores', 'municipio', 'zts', 'caracteristicas_familia', 'derivacion', 'servicio_derivante', 'coordinador_caso', 'aceptacion', 'fase_intervencion', 'temporalizacion_meses', 'finalidad', 'pronostico', 'instrumentos'] as const;
+const campos = ['numero_menores', 'menores', 'guardadores', 'municipio', 'caracteristicas_familia', 'derivacion', 'servicio_derivante', 'coordinador_caso', 'aceptacion', 'fase_intervencion', 'temporalizacion_meses', 'finalidad', 'pronostico', 'instrumentos'] as const;
 export function validarTabla(v: Tabla, equipo: string, mes: string): boolean {
   return !!v && v.equipo_id === equipo && `${v.anio}-${String(v.mes).padStart(2, '0')}` === mes && typeof v.version_regla === 'string' && !!v.version_regla &&
     !!v.resumen && (['altas', 'bajas', 'casos', 'menores', 'casos_sin_dato_menores'] as const).every(k => Number.isSafeInteger(v.resumen[k]) && v.resumen[k] >= 0) &&

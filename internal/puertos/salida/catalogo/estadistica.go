@@ -18,3 +18,8 @@ type EquiposEstadistica interface {
 type EquiposMemoria interface {
 	EquiposMemoria(context.Context) ([]string, error)
 }
+
+// MunicipiosEstadistica resuelve identificadores a códigos de catálogo.
+type MunicipiosEstadistica interface {
+	CodigosMunicipios(context.Context, []string) (map[string]string, error)
+}

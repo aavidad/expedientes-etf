@@ -113,7 +113,7 @@ func TestSPAFHistoriasReglasAnexosYDatosDesconocidos(t *testing.T) {
 	e.Expedientes = []d.ExpedienteSPAF{x}
 	antes := x.Ficha[0].Dato.Valor
 	got, err := d.CalcularSPAF(e)
-	if err != nil || got.Resumen.Menores != 2 || got.VersionRegla != "reglas-enero" || got.Filas[0].VersionFicha != "ficha-1" || got.Filas[0].Derivacion.Valor.Anexo != 5 || len(got.Filas[0].FechasAnexos) != 1 || got.Avisos["estadistica.spaf_zts_pendiente"] != 1 {
+	if err != nil || got.Resumen.Menores != 2 || got.VersionRegla != "reglas-enero" || got.Filas[0].VersionFicha != "ficha-1" || got.Filas[0].Derivacion.Valor.Anexo != 5 || len(got.Filas[0].FechasAnexos) != 1 || got.Avisos["estadistica.spaf_zts_pendiente"] != 0 {
 		t.Fatal(got, err)
 	}
 	if !reflect.DeepEqual(antes, x.Ficha[0].Dato.Valor) {

@@ -32,5 +32,15 @@
         "numero": "0002"
       }
     ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_exportacion_flujo.sql",
+    "depende_de": [
+      {
+        "modulo": "auditoria",
+        "numero": "0003"
+      }
+    ]
   }
 ]

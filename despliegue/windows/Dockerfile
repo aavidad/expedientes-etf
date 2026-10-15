@@ -8,6 +8,7 @@ COPY idiomas ./idiomas
 COPY temas ./temas
 COPY despliegue/windows/preparar.py /opt/etf/preparar.py
 COPY despliegue/windows/archivos.py /opt/etf/archivos.py
+COPY despliegue/windows/inventario.json /opt/etf/inventario.json
 ENV PYTHONDONTWRITEBYTECODE=1 TMPDIR=/tmp
 ENTRYPOINT ["python3", "-B", "/opt/etf/preparar.py"]
 

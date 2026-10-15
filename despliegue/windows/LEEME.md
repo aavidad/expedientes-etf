@@ -7,11 +7,42 @@ La guía completa está en
 https://github.com/aavidad/expedientes-etf/blob/main/docs/windows/PROBAR-EN-CASA.md
 La página de descargas es https://github.com/aavidad/expedientes-etf/releases.
 
+## Novedades de la versión 1.0.2
+
+- Ayuda: el menú tiene un apartado nuevo con el manual de tu perfil, su índice,
+  las capturas y un PDF para imprimir.
+- Escuchar: puedes oír en castellano la ayuda de cada pantalla y los manuales.
+  Las grabaciones vienen dentro del paquete y la aplicación no se conecta a
+  ningún servicio para leerlas.
+- Arranque con Podman: a veces, después de reiniciar Windows, Podman enciende su
+  máquina pero no abre la conexión. El acceso, instalar.cmd y actualizar.cmd lo
+  detectan y lo arreglan solos.
+- Antivirus: la ventana espera a que el antivirus esté listo antes de abrir la
+  aplicación. Así el primer anexo que subas ya se revisa.
+
+La versión 1.0.2 incluye también lo que trajo la 1.0.1:
+
+- Anexo 6: desde la ficha o desde Salidas y cierre puedes preparar la derivación
+  a otro servicio, descargar el Word y anotar después la fecha real de envío.
+- Memoria: al pulsar una cifra ves qué expedientes la forman, con su número,
+  equipo y aportación, sin nombres. Lo usan Coordinación y cada equipo con lo suyo.
+- Consulta: las cifras por debajo de 3 casos aparecen como «Oculto», en pantalla
+  y en Word, para que nadie pueda reconocer a una familia.
+- Sesión: se cierra tras 30 minutos sin actividad. Dos minutos antes aparece un
+  aviso para seguir trabajando. Lo que ya guardaste se conserva.
+- Carga histórica: Administración fija hasta qué día se pueden añadir expedientes
+  antiguos. La aplicación avisa de posibles duplicados y Coordinación puede anular
+  un lote completo dentro del plazo.
+- Restaurar una copia: después de recuperar una copia, Administración revisa
+  cuentas y permisos antes de que nadie vuelva a entrar.
+- Actualizar: actualizar.cmd cambia los textos, plantillas y temas que trae el
+  paquete y conserva los que hayas publicado o cambiado tú.
+
 ## 1. Preparar Windows una vez
 
 Necesitas Windows 10 22H2 o Windows 11 de 64 bits, 8 GB de RAM instalada
 (16 GB recomendados) y al menos 15 GiB libres en C: para el instalador, además
-del espacio para descargar y extraer el ZIP (unos 325 MiB y 627 MiB). Reserva
+del espacio para descargar y extraer el ZIP (unos 426 MiB y 741 MiB). Reserva
 17 GiB libres antes de descargar. Reserva entre 20 y 60 minutos para
 preparar tu PC y otros 5 a 15 para instalar la aplicación, según tu conexión y
 su rendimiento. Necesitas Internet para descargar WSL, Podman Desktop, Compose
@@ -44,13 +75,13 @@ y su máquina Linux; después puedes usar la demostración sin conexión.
 
 ## 2. Descargar, comprobar e instalar
 
-1. Descarga de la misma Release el ZIP v1.0.0 y su `.zip.sha256`.
+1. Descarga de la misma Release el ZIP 1.0.2 y su `.zip.sha256`.
 2. En el Explorador abre esa carpeta, escribe `powershell` en la barra de
    dirección y pulsa Intro. Ejecuta:
 
    ```powershell
-   Get-FileHash .\expedientes-etf-windows-v1.0.0.zip -Algorithm SHA256
-   Get-Content .\expedientes-etf-windows-v1.0.0.zip.sha256
+   Get-FileHash .\expedientes-etf-windows-1.0.2.zip -Algorithm SHA256
+   Get-Content .\expedientes-etf-windows-1.0.2.zip.sha256
    ```
 
    Compara los 64 caracteres del Hash y del archivo; deben coincidir, sin importar
@@ -124,7 +155,26 @@ confirmar. Si el número ya existe, utiliza otro número inventado.
 | Archivo cambiado | Descarga y extrae de nuevo el ZIP completo. Conserva la carpeta privada. |
 | Más de 20 minutos | Comprueba que la máquina esté encendida y revisa sus contenedores. |
 
+**Podman enciende la máquina pero Compose no conecta.** A veces, después de
+reiniciar Windows, Podman Desktop enciende su máquina sin abrir la conexión
+que usa Compose (la tubería `\\.\pipe\podman-machine-default`). Antes se veía
+«No se ha podido completar la operación compose (código 1)». Ahora el acceso,
+instalar.cmd y actualizar.cmd lo detectan solos: reinician una vez la máquina
+de Podman y, si no basta, abren la conexión con `win-sshproxy.exe`, el programa
+que Podman instala para eso. La ventana avisa mientras lo hace. Si aun así
+aparece el mensaje de que Podman no ha abierto la conexión, abre PowerShell y
+ejecuta `podman machine stop` y después `podman machine start`. Luego vuelve a
+abrir la aplicación. Si sigue igual, reinicia Windows o pide ayuda con ese
+mensaje.
+
+**El antivirus tarda en estar listo.** Al instalar, actualizar o volver a abrir,
+la ventana espera hasta cinco minutos a que el antivirus analice de verdad un
+texto de prueba. Así la primera subida ya se revisa. Si pasan los cinco minutos,
+revisa en Podman Desktop el contenedor `clamav` de **etf-windows** y vuelve a
+abrir la aplicación.
+
 Para actualizar, extrae el paquete nuevo en otra carpeta y ejecuta su actualizar.cmd.
-Conserva datos y contraseñas. Si falla, conserva ambas carpetas y pide ayuda;
+Conserva datos y contraseñas, y también los textos, plantillas y temas que hayas
+publicado o cambiado. Si falla, conserva ambas carpetas y pide ayuda;
 no uses reiniciar-datos para reparar una actualización. Indica VERSION.txt y el
 mensaje de error; nunca envíes credenciales ni capturas del Bloc de notas.

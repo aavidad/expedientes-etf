@@ -142,7 +142,7 @@ func (r *Repositorio) GuardarActo(ctx context.Context, e d.EstadoMemoria, p d.Ac
 				return resultado, err
 			}
 			// La proyección publicada al equipo nunca incluye narrativas.
-			_, err = tx.Exec(ctx, `INSERT INTO estadistica.memoria_base_equipo(memoria_id,revision,equipo_id,informe) VALUES($1,$2,$3,$4::jsonb-'Narrativas'-'Composicion'-'Fuentes')`, e.ID, numero, base.EquipoID, b)
+			_, err = tx.Exec(ctx, `INSERT INTO estadistica.memoria_base_equipo(memoria_id,revision,equipo_id,informe) VALUES($1,$2,$3,$4::jsonb-'Narrativas'-'Composicion'-'Fuentes'-'Desglose')`, e.ID, numero, base.EquipoID, b)
 			clear(b)
 			if err != nil {
 				return resultado, err

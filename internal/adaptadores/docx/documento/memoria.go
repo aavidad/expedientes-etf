@@ -10,7 +10,10 @@ import (
 	"strings"
 )
 
-func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.PresentacionMemoria) (map[string]string, error) {
+func (m Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.PresentacionMemoria) (map[string]string, error) {
+	return m.camposMemoria(ctx, informe, p, 0, false)
+}
+func (Motor) camposMemoria(ctx context.Context, informe e.InformeMemoria, p d.PresentacionMemoria, umbral int, ocultarMargenes bool) (map[string]string, error) {
 	if err := ctx.Err(); err != nil {
 		return nil, err
 	}
@@ -40,11 +43,16 @@ func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.Pr
 	for _, a := range informe.Apartados {
 		apartados[string(a.Codigo)] = a
 		sum := 0
+		oculto := false
 		for _, c := range a.Celdas {
 			sum += c.Celda.SinDato
+			oculto = oculto || c.Celda.SinDato < 0
 		}
-		campos["sin_dato_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = strconv.Itoa(sum)
-		campos["sin_relacion_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = strconv.Itoa(a.Total.FamiliasSinRelacionMenores)
+		campos["sin_dato_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = contarCifra(sum, campos)
+		if oculto || sum < umbral {
+			campos["sin_dato_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = campos["estadistica.consulta_oculto"]
+		}
+		campos["sin_relacion_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = contarCifra(a.Total.FamiliasSinRelacionMenores, campos)
 		if a.Avisos["estadistica.divisor_cero"] > 0 {
 			campos["aviso_"+strings.ReplaceAll(string(a.Codigo), ".", "_")] = campos["aviso_divisor_cero"]
 		} else if len(a.Avisos) > 0 {
@@ -60,6 +68,7 @@ func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.Pr
 		}
 		valor, sinDato := 0, a.Avisos["estadistica.catalogo_dimension_sin_dato"] > 0 || a.Avisos["estadistica.poblacion_parental_sin_dato"] > 0 || a.Avisos["estadistica.no_aceptados_sin_equipo"] > 0
 		seleccion := []e.Celda{}
+		oculta := false
 		for _, c := range a.Celdas {
 			if string(c.Unidad) != spec.Unidad {
 				continue
@@ -83,6 +92,7 @@ func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.Pr
 			}
 			if coincide {
 				valor += c.Celda.Numerador
+				oculta = oculta || c.Celda.Numerador < 0
 				seleccion = append(seleccion, c.Celda)
 			}
 		}
@@ -105,6 +115,7 @@ func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.Pr
 				return nil, d.ErrPlantilla
 			}
 		}
+		oculta = oculta || valor < 0 || (!spec.Porcentaje && valor < umbral) || (spec.Porcentaje && ocultarMargenes)
 		resultado := strconv.Itoa(valor)
 		if spec.Porcentaje {
 			resultado = campos["sin_dato"]
@@ -117,6 +128,12 @@ func (Motor) CamposMemoria(ctx context.Context, informe e.InformeMemoria, p d.Pr
 		}
 		if sinDato {
 			resultado = campos["sin_dato"]
+		}
+		if oculta {
+			if campos["estadistica.consulta_oculto"] == "" {
+				return nil, d.ErrPlantilla
+			}
+			resultado = campos["estadistica.consulta_oculto"]
 		}
 		campos[spec.Campo] = resultado
 	}
@@ -153,4 +170,11 @@ func contarManual(n *int, sinDato string) string {
 		return sinDato
 	}
 	return strconv.Itoa(*n)
+}
+
+func contarCifra(n int, campos map[string]string) string {
+	if n < 0 {
+		return campos["estadistica.consulta_oculto"]
+	}
+	return strconv.Itoa(n)
 }

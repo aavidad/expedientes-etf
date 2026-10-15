@@ -122,9 +122,26 @@ make demo-limpiar
 make demo
 ```
 
-Si actualizas la rama con nuevas plantillas o textos de distribución, usa también
-`make demo-limpiar` antes de arrancar. Los volúmenes conservados mantienen sus
-propias versiones y no se sustituyen al reconstruir la imagen.
+Si actualizas la rama, vuelve a ejecutar `make demo`. La preparación para
+la aplicación e instala en sus volúmenes la versión actual de `idiomas/` y
+`temas/`, incluidas las plantillas y los recursos de instalación en el
+escritorio. Conserva las versiones publicadas, los ficheros que hayas cambiado a
+mano (te avisa de cada uno), los datos y las credenciales. Si los textos
+resultantes tienen JSON dañado o claves repetidas, no arranca y dice qué fichero
+falla. No necesitas `make demo-limpiar`.
+
+La preparación comparte el incorporador del paquete Windows. Cada fichero se
+sustituye de una vez; si se interrumpe, repetir `make demo` completa lo
+pendiente sin dejar copias parciales. El preparador del recorrido PWA1 utiliza
+esta misma vía.
+
+`python3 -B despliegue/demo/ensayar_incorporacion.py` comprueba una actualización
+en una copia temporal con volúmenes propios. Reproduce el error 422 de una
+plantilla nueva y el 503 del Word de Consulta con textos anteriores a SEG1 y una
+versión de idioma activa antigua. Tras volver a arrancar comprueba la emisión
+Word con respuesta 201, el Word de Consulta con 200 y sus textos, y que no
+cambian las versiones publicadas, las notas propias ni las credenciales.
+El ensayo forma parte de `make ci` y elimina su demo al terminar.
 
 Si el arranque falla, puedes volver a ejecutar `make demo`. Si la preparación de
 usuarios quedó incompleta y cambiaste sus permisos, revisa los usuarios o empieza de nuevo con
@@ -178,3 +195,5 @@ Al recompilar, `make demo` reinicia sólo el proxy de esta demostración para qu
 La siembra histórica añade cuatro expedientes inventados. En septiembre de 2026, el ETF 02 tiene 2 altas, 2 bajas y 3 casos; el ETF 01 tiene 1 alta. Uno de los casos del ETF 02 se acepta y cierra durante ese mes. Entra con Inés Moreno para elegir equipo, o con Marta Cabrera para consultar sólo el ETF 02. La carga conserva números y fechas por la API de alta histórica, sin generar hitos ficticios. Los datos de ficha que el lector todavía no recoge se muestran como «Sin dato».
 
 La demo prepara primero los expedientes de la bandeja de equipo y después los históricos de SPAF. Así conserva la propuesta de cierre del recorrido de equipo y los movimientos de septiembre de 2026. Las dos siembras usan sus propias marcas para evitar repetir altas.
+
+RESP1 prepara el importe de SMI de 2026 desde `datos/catalogos/smi.json`: 1.221 €/mes y 17.094 €/año, en 14 pagas. La siembra usa la API de Coordinación y sólo completa un año sin importe y con versión cero; conserva cualquier modificación posterior. El recorrido `node scripts/recorridos/respuestas_programa.mjs URL` comprueba SMI, la restricción de espera del SPM, una aceptación fuera del ámbito y la columna de municipio del SPAF con Chrome del sistema.

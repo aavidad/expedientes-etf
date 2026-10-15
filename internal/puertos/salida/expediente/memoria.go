@@ -16,3 +16,9 @@ type LecturaMemoria interface {
 type EquipoMemoria interface {
 	EquipoMemoria(context.Context, string) (string, time.Time, error)
 }
+
+// EquiposMemoriaAfectados incluye el equipo confirmado durante la espera y
+// el definitivo, si la aceptación los separa.
+type EquiposMemoriaAfectados interface {
+	EquiposAfectadosMemoria(context.Context, string) ([]string, time.Time, error)
+}

@@ -8,13 +8,16 @@ import (
 
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/lectura"
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/clamav"
-	nombres "github.com/aavidad/expedientes-etf/internal/adaptadores/expediente/ficheros"
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/expediente/memoria"
 	adaptadorHTTP "github.com/aavidad/expedientes-etf/internal/adaptadores/http"
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/postgres"
 	catalogoPostgres "github.com/aavidad/expedientes-etf/internal/adaptadores/postgres/catalogo"
 	expedientePostgres "github.com/aavidad/expedientes-etf/internal/adaptadores/postgres/expediente"
+	paquetePostgres "github.com/aavidad/expedientes-etf/internal/adaptadores/postgres/paquete"
+	catalogoApp "github.com/aavidad/expedientes-etf/internal/aplicacion/catalogo"
 	"github.com/aavidad/expedientes-etf/internal/aplicacion/expediente"
+	paqueteApp "github.com/aavidad/expedientes-etf/internal/aplicacion/paquete"
+	paqueteEntrada "github.com/aavidad/expedientes-etf/internal/aplicacion/paquete/puertos/entrada"
 )
 
 type identificadoresDerivacion struct{}
@@ -29,26 +32,26 @@ func (identificadoresDerivacion) Nuevo() (string, error) {
 	return fmt.Sprintf("%x-%x-%x-%x-%x", b[0:4], b[4:6], b[6:8], b[8:10], b[10:16]), nil
 }
 
-func configurarDerivaciones(base *postgres.Base, idiomasRuta, idioma string, leer func(string) string) (adaptadorHTTP.ConfiguracionDerivaciones, error) {
+func configurarDerivaciones(base *postgres.Base, idiomasRuta, idioma string, leer func(string) string, publicador paqueteEntrada.PublicacionCatalogos) (adaptadorHTTP.ConfiguracionDerivaciones, error) {
 	direccion := leer("ETF_CLAMAV_DIRECCION")
 	if direccion == "" {
 		direccion = "clamav:3310"
 	}
-	antivirus, err := clamav.Nuevo(clamav.Configuracion{Direccion: direccion, TiempoLimite: 3 * time.Second, MaximoBytes: 10_000_000})
+	antivirus, err := clamav.Nuevo(clamav.Configuracion{Direccion: direccion, TiempoLimite: 45 * time.Second, MaximoBytes: 10_000_000})
 	if err != nil {
 		return adaptadorHTTP.ConfiguracionDerivaciones{}, err
 	}
 	registro := registroAvisosMemoria(postgres.NuevoRegistroAuditoria(base))
 	return adaptadorHTTP.ConfiguracionDerivaciones{Servicio: expediente.Nuevo(expediente.Dependencias{
-		Borradores: memoria.NuevosBorradores(30*time.Minute, 32), Confirmaciones: &expedientePostgres.Repositorio{}, Etiquetas: nombres.NuevosMunicipios(idiomasRuta, idioma),
+		Borradores: memoria.NuevosBorradores(30*time.Minute, 32), Confirmaciones: &expedientePostgres.Repositorio{}, Etiquetas: catalogoApp.NombresUbicaciones{Publicacion: publicador, Idioma: idioma},
 		Repositorio: &expedientePostgres.Repositorio{}, Transacciones: base, Registro: registro, RegistroTransaccional: registro,
 		Validador: lectura.Validador{}, Antivirus: antivirus, Lector: lectura.NuevoLector(), Catalogo: &catalogoPostgres.Repositorio{},
-		NombresMunicipios: nombres.NuevosMunicipios(idiomasRuta, idioma), Reloj: relojIdentidad{}, Identificadores: identificadoresDerivacion{},
+		NombresMunicipios: catalogoApp.NombresUbicaciones{Publicacion: publicador, Idioma: idioma}, Reloj: relojIdentidad{}, Identificadores: identificadoresDerivacion{},
 	})}, nil
 }
 
 func moduloDerivaciones(d dependenciasModulos) adaptadorHTTP.ModuloDerivaciones {
-	cfg, err := configurarDerivaciones(d.base, d.cfg.IdiomasRuta, d.cfg.Idioma, os.Getenv)
+	cfg, err := configurarDerivaciones(d.base, d.cfg.IdiomasRuta, d.cfg.Idioma, os.Getenv, paqueteApp.NuevaPublicacion(d.disco, &paquetePostgres.Referencias{}))
 	if err != nil {
 		d.registro.Warn("expediente.no_disponible")
 	}

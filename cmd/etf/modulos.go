@@ -25,9 +25,10 @@ type dependenciasModulos struct {
 
 func componerModulos(d dependenciasModulos) []adaptadorHTTP.Modulo {
 	return []adaptadorHTTP.Modulo{
-		moduloBandeja(d), moduloSalidas(d), moduloSMI(d), moduloUsuarios(d), moduloCatalogos(d), moduloInstalacion(d),
-		moduloDerivaciones(d), moduloExpedientes(d), moduloLecturaMemoria(d), moduloNarrativas(d), moduloConsultaMemoria(d), moduloNavegacionMemoria(d), moduloCierreMemoria(d), moduloMemoriaWord(d), moduloDocumentos(d), moduloActividad(d), moduloSPAF(d), moduloEvaluacion(d), moduloAnexo(d), moduloDecision(d), moduloPlantillas(d),
+		moduloRestauracion(d), moduloBandeja(d), moduloSalidas(d), moduloSMI(d), moduloUsuarios(d), moduloCatalogos(d), moduloUbicaciones(d), moduloInstalacion(d),
 
-		moduloEquipo(d), moduloFI1(), moduloTraslado(d), moduloCarga(d), moduloConservacion(d),
+		moduloDerivaciones(d), moduloExpedientes(d), moduloLecturaMemoria(d), moduloNarrativas(d), moduloConsultaMemoria(d), moduloNavegacionMemoria(d), moduloDesgloseMemoria(d), moduloCierreMemoria(d), moduloMemoriaWord(d), moduloDocumentos(d), moduloActividad(d), moduloSPAF(d), moduloEvaluacion(d), moduloAnexo(d), moduloDecision(d), moduloPlantillas(d),
+
+		moduloEquipo(d), moduloFI1(), moduloAnexo6(d), moduloTraslado(d), moduloControlCargas(d), moduloCarga(d), moduloConservacion(d), moduloAuditoria(d), moduloVoz(),
 	}
 }

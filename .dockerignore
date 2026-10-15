@@ -17,3 +17,7 @@
 !datos/catalogos/memoria/**
 !datos/catalogos/familia.json
 !datos/catalogos/conservacion.json
+
+!bin/voz/**
+!docs/manuales/**
+!docs/capturas/**

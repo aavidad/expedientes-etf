@@ -28,7 +28,7 @@ export function Actas({ equipo, opciones, csrf, t, disabled, aplicar, ocupado, h
     ponerLeyendo(true); ocupado(true); ponerError(''); ponerFechaFirma(false); ponerMensaje('carga.actas.antivirus');
     try {
       async function subir(file: File, tipo: string): Promise<LecturaActa> {
-        if (!/\.(pdf|docx)$/i.test(file.name) || file.size > 10000000 || !file.size) throw new Error('carga.actas.fichero_invalido');
+        if (!/\.(pdf|docx|odt)$/i.test(file.name) || file.size > 10000000 || !file.size) throw new Error('carga.actas.fichero_invalido');
         const datos = new FormData(); datos.append('anexo', file);
         const r = await fetch(`/api/carga-2026/actas/leer/${tipo}`, { method: 'POST', body: datos, headers: { 'X-CSRF-Token': csrf, 'X-Equipo-Carga': equipo }, signal: controller.signal });
         const resultado = await r.json();
@@ -53,8 +53,8 @@ export function Actas({ equipo, opciones, csrf, t, disabled, aplicar, ocupado, h
     <h2 id="carga-actas-titulo">{t('carga.actas.titulo')}</h2>
     <p>{t('carga.actas.contexto')}</p>
     <div className="carga-rejilla">
-      <div className="carga-campo"><label htmlFor="carga-acta-aceptacion">{t('carga.actas.aceptacion')}</label><input ref={entradaAceptacion} id="carga-acta-aceptacion" type="file" accept=".pdf,.docx" disabled={disabled || leyendo} aria-describedby="carga-actas-limite" onChange={e => { ponerAceptacion(e.target.files?.[0]); ponerError(''); ponerMensaje(''); }} /></div>
-      <div className="carga-campo"><label htmlFor="carga-acta-cierre">{t('carga.actas.cierre')}</label><input ref={entradaCierre} id="carga-acta-cierre" type="file" accept=".pdf,.docx" disabled={disabled || leyendo} aria-describedby="carga-actas-limite" onChange={e => { ponerCierre(e.target.files?.[0]); ponerError(''); ponerMensaje(''); }} /></div>
+      <div className="carga-campo"><label htmlFor="carga-acta-aceptacion">{t('carga.actas.aceptacion')}</label><input ref={entradaAceptacion} id="carga-acta-aceptacion" type="file" accept=".pdf,.docx,.odt,application/vnd.oasis.opendocument.text" disabled={disabled || leyendo} aria-describedby="carga-actas-limite" onChange={e => { ponerAceptacion(e.target.files?.[0]); ponerError(''); ponerMensaje(''); }} /></div>
+      <div className="carga-campo"><label htmlFor="carga-acta-cierre">{t('carga.actas.cierre')}</label><input ref={entradaCierre} id="carga-acta-cierre" type="file" accept=".pdf,.docx,.odt,application/vnd.oasis.opendocument.text" disabled={disabled || leyendo} aria-describedby="carga-actas-limite" onChange={e => { ponerCierre(e.target.files?.[0]); ponerError(''); ponerMensaje(''); }} /></div>
     </div>
     <p id="carga-actas-limite">{t('carga.actas.limite')}</p>
     {error && <div ref={resumen} tabIndex={-1} className="carga-aviso" role="alert"><p>{textoError}</p></div>}

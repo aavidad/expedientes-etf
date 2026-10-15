@@ -85,7 +85,7 @@ func Calcular(e Entrada) (Memoria, error) {
 	inicializarApartadosAdicionales(&m, version, corte, fin)
 	ids := make(map[string]bool)
 	for _, exp := range e.Expedientes {
-		if exp.ID == "" || exp.EquipoID == "" || ids[exp.ID] {
+		if exp.ID == "" || (exp.EquipoID == "" && len(exp.Episodios) > 0) || ids[exp.ID] {
 			return Memoria{}, ErrEntrada
 		}
 		ids[exp.ID] = true

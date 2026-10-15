@@ -43,5 +43,8 @@
   "usuarios.accion_editar": "Editar permisos",
   "usuarios.editar_persona": "Editar permisos de {nombre} ({cuenta})",
   "usuarios.sin_perfiles": "Sin perfiles",
-  "usuarios.sin_equipo": "Sin equipo"
+  "usuarios.sin_equipo": "Sin equipo",
+  "identidad.cambio_propio_denegado": "No puedes cambiar tus propios perfiles ni tu equipo ni dar de baja tu acceso. Pide el cambio a otra persona de Administración funcional.",
+  "usuarios.ver_propios": "Ver mis permisos",
+  "usuarios.permisos_propios": "Mis permisos"
 }

@@ -9,7 +9,7 @@ type descripcionApartado struct {
 
 var apartadosAdicionales = []descripcionApartado{
 	{Antecedentes, "AT", "corte"}, {ServicioDerivante, "AT", "corte"},
-	{NoAceptados, "NC", "fecha_no_aceptacion"}, {Pendientes, "AT", "corte"},
+	{NoAceptados, "NC", "fecha_no_aceptacion"}, {Pendientes, "PE", "corte"},
 	{DerivadosSSCC, "CI", "cierre_episodio"}, {PropuestasDSR, "AT", "corte"},
 	{PIFDerivadoDSR, "AT", "corte"}, {PropuestasMedida, "AT", "corte"},
 	{RespuestaSPM, "AT", "corte"}, {SeguimientoReunificacion, "AT", "cese_medida"},
@@ -27,7 +27,7 @@ func inicializarApartadosAdicionales(m *Memoria, version string, corte, fin time
 		m.Apartados[a].Contrato.Denominador = "atendidos_del_apartado_1"
 	}
 	m.Apartados[NoAceptados].Contrato.Denominador = "no_aceptados_con_fecha_en_el_anio"
-	m.Apartados[Pendientes].Contrato.Denominador = "aceptados_sin_consentimiento_mas_de_30_dias"
+	m.Apartados[Pendientes].Contrato.Denominador = "lista_espera_o_aceptados_sin_consentimiento_mas_de_30_dias"
 	m.Apartados[DerivadosSSCC].Contrato.Denominador = "cerrados_en_el_anio"
 	m.Apartados[PropuestasDSR].Contrato.Denominador = "atendidos_riesgo_del_apartado_1"
 	m.Apartados[PIFDerivadoDSR].Contrato.Denominador = "atendidos_riesgo_del_apartado_1"
@@ -169,6 +169,23 @@ func calcularNoAceptados(m *Memoria, exp Expediente, inicio, corte time.Time) er
 }
 
 func calcularPendientes(m *Memoria, exp Expediente, corte, conocido, fin time.Time) error {
+	// Un expediente ya aceptado al corte no puede seguir en lista de espera.
+	noAceptadoAlCorte := true
+	for _, ep := range exp.Episodios {
+		if !ep.Aceptacion.IsZero() && !fecha(ep.Aceptacion).After(corte) {
+			noAceptadoAlCorte = false
+			break
+		}
+	}
+	if noAceptadoAlCorte {
+		estado, _, err := exp.Estados.ValorEn(corte, conocido)
+		if err != nil {
+			return err
+		}
+		if estado.Conocido && estado.Valor == "lista_espera" {
+			return sumarPendiente(m, exp, corte, conocido, fin, false)
+		}
+	}
 	for _, ep := range exp.Episodios {
 		if ep.Aceptacion.IsZero() || fecha(ep.Aceptacion).After(corte) || fecha(corte).Sub(fecha(ep.Aceptacion)).Hours() <= 30*24 || (!ep.Cierre.IsZero() && !fecha(ep.Cierre).After(corte)) {
 			continue
@@ -180,24 +197,27 @@ func calcularPendientes(m *Memoria, exp Expediente, corte, conocido, fin time.Ti
 		if cons.Conocido && cons.Valor {
 			continue
 		}
-		s, menores, err := datosEn(exp, corte, conocido)
-		if err != nil {
-			return err
+		return sumarPendiente(m, exp, corte, conocido, fin, !cons.Conocido)
+	}
+	return nil
+}
+
+func sumarPendiente(m *Memoria, exp Expediente, corte, conocido, fin time.Time, sinConsentimiento bool) error {
+	s, menores, err := datosEn(exp, corte, conocido)
+	if err != nil {
+		return err
+	}
+	r := m.Apartados[Pendientes]
+	r.Total.Familias++
+	sumarCelda(r, Grupo{Subprograma: s}, Familias, s == "" || sinConsentimiento)
+	if !menores.Conocido {
+		r.Total.FamiliasSinRelacionMenores++
+	} else {
+		computables := menoresComputables(menores, fin)
+		r.Total.Menores += len(computables.Valor)
+		for _, men := range computables.Valor {
+			sumarCelda(r, Grupo{Subprograma: men.Subprograma}, Menores, men.Subprograma == "")
 		}
-		r := m.Apartados[Pendientes]
-		r.Total.Familias++
-		g := Grupo{Subprograma: s}
-		sumarCelda(r, g, Familias, s == "" || !cons.Conocido)
-		if !menores.Conocido {
-			r.Total.FamiliasSinRelacionMenores++
-		} else {
-			computables := menoresComputables(menores, fin)
-			r.Total.Menores += len(computables.Valor)
-			for _, men := range computables.Valor {
-				sumarCelda(r, Grupo{Subprograma: men.Subprograma}, Menores, men.Subprograma == "")
-			}
-		}
-		break
 	}
 	return nil
 }

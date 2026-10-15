@@ -1,0 +1,31 @@
+titulo: Autoevaluación
+preguntas:
+- tipo: test
+  enunciado: ¿Dónde debes practicar las tareas del curso?
+  explicacion: Usa la demostración y datos inventados.
+  opciones:
+  - En el entorno de demostración con datos inventados.
+  - En cualquier expediente real.
+  - En una carpeta con datos de familias reales.
+  correcta: 0
+- tipo: vf
+  enunciado: Puedes repetir las autoevaluaciones para repasar.
+  explicacion: Pulsa «Repetir» y vuelve a responder.
+  correcta: true
+- tipo: test
+  enunciado: ¿Qué acción te permite revisar la corrección de la autoevaluación?
+  explicacion: Pulsa «Comprobar» y revisa la explicación.
+  opciones:
+  - Cerrar la página.
+  - Pulsar «Comprobar».
+  - Abrir un enlace oficial.
+  correcta: 1
+- tipo: vf
+  enunciado: Descargar un Word acredita que ya está firmado.
+  explicacion: La firma se realiza por el cauce previsto y después se confirma el
+    hito.
+  correcta: false
+- tipo: huecos
+  enunciado: Completa la licencia del contenido.
+  explicacion: El contenido se comparte con reconocimiento de autoría y la misma licencia.
+  texto: El contenido del curso tiene licencia {CC BY-SA 4.0}.

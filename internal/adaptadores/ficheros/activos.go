@@ -2,6 +2,8 @@ package ficheros
 
 import (
 	"context"
+	"errors"
+	"io/fs"
 	"path"
 	"path/filepath"
 	"sort"
@@ -43,11 +45,36 @@ func (a *Activos) resolver(ctx context.Context, tipo, codigo string) (*Paquetes,
 }
 
 func (a *Activos) Textos(ctx context.Context, codigo string) (map[string]string, error) {
-	p, err := a.resolver(ctx, dominio.TipoIdioma, codigo)
+	activa := codigo
+	refs, err := a.referencias.Referencias(ctx, dominio.TipoIdioma)
 	if err != nil {
 		return nil, err
 	}
-	return p.Textos(ctx, codigo)
+	for _, r := range refs {
+		if r.Codigo == codigo {
+			if !rutaVersionValida(r.VersionInstalada) {
+				return nil, dominio.ErrNoDisponible
+			}
+			activa = r.Ruta
+		}
+	}
+	var textos map[string]string
+	for i, capa := range dominio.CapasTextos(activa) {
+		p := NuevosPaquetes(filepath.Join(a.inicial.idiomas, filepath.FromSlash(path.Dir(capa))), a.inicial.temas)
+		parte, err := p.Textos(ctx, path.Base(capa))
+		if i > 0 && errors.Is(err, fs.ErrNotExist) {
+			continue
+		}
+		if err != nil {
+			return nil, err
+		}
+		if textos == nil {
+			textos = parte
+		} else {
+			dominio.CompletarTextos(textos, parte)
+		}
+	}
+	return textos, nil
 }
 func (a *Activos) Tema(ctx context.Context, codigo string) (dominio.Tema, error) {
 	p, err := a.resolver(ctx, dominio.TipoTema, codigo)

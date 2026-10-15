@@ -4,11 +4,15 @@ Los manuales para las personas usuarias empiezan en [usuario.md](usuario.md). Es
 
 ## Fuentes y alcance
 
-La edición F5.06 describe las pantallas disponibles y las reglas de los documentos de producto. Incluye CA1 de alta histórica y carga por hoja y F4.02 de consulta, textos, Word, cierre y reapertura de Memoria, integradas antes de cerrar esta entrega. GAP1 completa la edición de Familia y la descarga separada de los Anexos 11/12 desde Cierre. El Anexo 6 aún no tiene formulario de generación en la ficha. La consulta de profesionales por nombre, el desglose de cifras de Memoria por expedientes y la ZTS también siguen pendientes.
+La edición F5.06 describe las pantallas disponibles y las reglas de los documentos de producto. Incluye CA1 de alta histórica y carga por hoja y F4.02 de consulta, textos, Word, cierre y reapertura de Memoria, integradas antes de cerrar esta entrega. GAP1 completa la edición de Familia y la descarga separada de los Anexos 11/12 desde Cierre. El Anexo 6 aún no tiene formulario de generación en la ficha. MEMDES incorpora el desglose de las cifras de Memoria por expedientes. La consulta de profesionales por nombre y la ZTS siguen pendientes.
 
-Las capturas reutilizadas de [docs/capturas](../capturas/) contienen datos inventados y tienen sus recorridos de origen junto a ellas. Algunas corresponden a una versión anterior del menú o del cálculo. Las capturas nuevas de [capturas/](capturas/) se toman en la demostración de este worktree, con Playwright y `/usr/bin/google-chrome`, sin modificar la página para representar funciones ausentes. Se usan Marta Cabrera e Inés Moreno; los nombres, fechas y datos de los casos son inventados. Las contraseñas quedan fuera de las imágenes y de Git.
+Las capturas reutilizadas de [docs/capturas](../capturas/) contienen datos inventados y tienen sus recorridos de origen junto a ellas. Algunas corresponden a una versión anterior del menú o del cálculo. Las capturas de [Administración funcional](administracion.md) están en [administracion/](administracion/) y muestran la demo local a 1440 px y el editor de permisos a 390 px, con Elena Salas y personal inventado. Las capturas nuevas de [capturas/](capturas/) se toman en la demostración de este worktree, con Playwright y `/usr/bin/google-chrome`, sin modificar la página para representar funciones ausentes. Se usan Marta Cabrera e Inés Moreno; los nombres, fechas y datos de los casos son inventados. Las contraseñas quedan fuera de las imágenes y de Git.
 
 Los vídeos disponibles son los seis que aparecen en [usuario.md](usuario.md#vídeos-de-demostración). Se enlazan sus guiones y se cita el título para localizar el MP4 fuera del repositorio. Esta entrega no crea ni copia vídeos.
+
+## Leer en la aplicación y escuchar
+
+El menú Ayuda muestra el manual de tus perfiles con índice y capturas. La conversión web usa `python3 -B scripts/voz/construir.py` y se ejecuta al construir la interfaz. Incluye sus datos generados de `docs/manuales/web/` cuando cambies las fuentes. No admite HTML crudo. `make voz` añade las grabaciones opcionales; si faltan, se conserva la lectura. [Procedimiento](../../scripts/voz/LEEME.md).
 
 ## Exportar a PDF
 
@@ -21,9 +25,9 @@ mkdir -p bin/temporales
 TMPDIR="$PWD/bin/temporales" python3 -B docs/manuales/exportar.py
 ```
 
-El script prepara documentos ODT temporales y ejecuta `env -u LD_LIBRARY_PATH soffice --headless --convert-to pdf:writer_pdf_Export` con un perfil aislado de LibreOffice. Copia los tres PDF a esta carpeta y elimina sus temporales. Puedes usar `--salida bin/temporales` para revisar una exportación antes de sustituir los PDF publicados.
+El script prepara documentos ODT temporales y ejecuta `env -u LD_LIBRARY_PATH soffice --headless --convert-to pdf:writer_pdf_Export` con un perfil aislado de LibreOffice. Copia los tres PDF a esta carpeta y elimina sus temporales. Puedes usar `--salida bin/temporales/f506-revision` para revisar una exportación antes de sustituir los PDF publicados. Para actualizar únicamente Administración, ejecuta `python3 -B docs/manuales/exportar.py --manual administracion`; la opción `--manual` se puede repetir.
 
-Cada PDF contiene las imágenes: no depende de su carga al abrirlo. Las capturas largas se dividen en tramos consecutivos, sin omitir contenido. Los dos manuales completos incluyen el glosario y las preguntas frecuentes comunes; la hoja de Administración conserva sus aclaraciones breves y el enlace a la guía común. Los enlaces internos de los manuales completos llevan al glosario y las preguntas del propio PDF. Los enlaces a otros archivos son relativos: conserva los PDF junto a sus manuales o consulta los enlaces en Markdown.
+Cada PDF contiene las imágenes: no depende de su carga al abrirlo. Las capturas largas se dividen en tramos consecutivos, sin omitir contenido. Los manuales de profesionales y Coordinación incluyen el glosario y las preguntas frecuentes comunes. El manual completo de Administración funcional contiene sus propios términos, incidencias y límites de gestión, sin añadir el glosario del Programa. Los enlaces internos llevan a los apartados del propio PDF. Los enlaces a otros archivos apuntan a este worktree; si compartes el PDF o cambias la carpeta del repositorio, consulta esos enlaces en Markdown o localiza el vídeo por su título.
 
 El exportador admite los encabezados, párrafos, listas numeradas, enlaces, imágenes y tabla de glosario que usan estos manuales. Si añades otro formato, revisa su representación en PDF antes de entregar.
 

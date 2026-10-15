@@ -2,6 +2,7 @@ package http
 
 import (
 	"bytes"
+	"crypto/sha256"
 	"encoding/base64"
 	"encoding/json"
 	"html/template"
@@ -74,8 +75,7 @@ func rutasPWA(paquetes entrada.Paquetes, web fs.FS, idioma, tema string) []Ruta 
 			responderError(w, http.StatusNotFound, "paquete.no_disponible")
 			return
 		}
-		nonce := base64.RawStdEncoding.EncodeToString(claveNonce())
-		avisos, err := avisosPWA(paquetes, r, nonce)
+		avisos, politicas, err := avisosPWA(paquetes, r)
 		if err != nil {
 			responderError(w, http.StatusServiceUnavailable, "paquete.no_disponible")
 			return
@@ -84,13 +84,13 @@ func rutasPWA(paquetes entrada.Paquetes, web fs.FS, idioma, tema string) []Ruta 
 			responderError(w, http.StatusNotFound, "paquete.no_disponible")
 			return
 		}
+		// El worker es idéntico byte a byte mientras no cambien catálogos ni temas:
+		// así una comprobación de actualización del navegador no instala otro worker.
 		contenido, err := json.Marshal(struct {
 			Avisos         map[string]string `json:"avisos"`
 			Predeterminado string            `json:"predeterminado"`
-			Politica       string            `json:"politica"`
-		}{
-			avisos, i + "/" + actual.Identificador, "default-src 'none'; script-src 'nonce-" + nonce + "'; style-src 'nonce-" + nonce + "'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
-		})
+			Politicas      map[string]string `json:"politicas"`
+		}{avisos, i + "/" + actual.Identificador, politicas})
 		if err != nil {
 			responderError(w, http.StatusServiceUnavailable, "web.no_disponible")
 			return
@@ -109,32 +109,33 @@ func rutasPWA(paquetes entrada.Paquetes, web fs.FS, idioma, tema string) []Ruta 
 }
 
 // Los avisos contienen sólo textos publicados y tokens validados, nunca datos de sesión.
-func avisosPWA(paquetes entrada.Paquetes, r *http.Request, nonce string) (map[string]string, error) {
+// Su CSP autoriza el estilo y el script de cada aviso por huella SHA-256, no por nonce.
+func avisosPWA(paquetes entrada.Paquetes, r *http.Request) (map[string]string, map[string]string, error) {
 	idiomas, err := paquetes.Idiomas(r.Context())
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	temas, err := paquetes.Temas(r.Context())
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	plantilla, err := template.New("sinConexion").Parse(`<!doctype html><html lang="{{.Idioma}}"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{.Titulo}}</title><style nonce="{{.Nonce}}">body{margin:0;padding:{{index .Tokens "espacio.8"}};background:{{index .Tokens "color.fondo"}};color:{{index .Tokens "color.texto"}};font-family:{{index .Tokens "fuente.texto"}};font-size:{{index .Tokens "texto.normal"}}}main{padding:{{index .Tokens "espacio.8"}};background:{{index .Tokens "color.superficie"}};border-radius:{{index .Tokens "radio.tarjeta"}}}h1{font-family:{{index .Tokens "fuente.titulo"}};font-size:{{index .Tokens "texto.titulo-pagina"}};overflow-wrap:anywhere}a{display:inline-flex;align-items:center;min-height:{{index .Tokens "alto.control"}};padding:0 {{index .Tokens "espacio.6"}};background:{{index .Tokens "color.acento"}};color:{{index .Tokens "color.sobre-acento"}};border-radius:{{index .Tokens "radio.control"}}}a:focus-visible{outline:{{index .Tokens "borde.marcado"}} solid {{index .Tokens "color.foco"}};outline-offset:{{index .Tokens "espacio.3"}}}</style><main><h1>{{.Titulo}}</h1><p>{{.Ayuda}}</p><a href="/">{{.Reintentar}}</a></main><script nonce="{{.Nonce}}">const datos={tipo:'preferencias',idioma:{{.Idioma}},tema:{{.Tema}}};navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.tipo==='solicitar-preferencias'){if(event.ports[0])event.ports[0].postMessage(datos);else navigator.serviceWorker.controller?.postMessage(datos)}});navigator.serviceWorker.controller?.postMessage(datos);</script></html>`)
+	plantilla, err := template.New("sinConexion").Parse(`<!doctype html><html lang="{{.Idioma}}"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{.Titulo}}</title><style>body{margin:0;padding:{{index .Tokens "espacio.8"}};background:{{index .Tokens "color.fondo"}};color:{{index .Tokens "color.texto"}};font-family:{{index .Tokens "fuente.texto"}};font-size:{{index .Tokens "texto.normal"}}}main{padding:{{index .Tokens "espacio.8"}};background:{{index .Tokens "color.superficie"}};border-radius:{{index .Tokens "radio.tarjeta"}}}h1{font-family:{{index .Tokens "fuente.titulo"}};font-size:{{index .Tokens "texto.titulo-pagina"}};overflow-wrap:anywhere}a{display:inline-flex;align-items:center;min-height:{{index .Tokens "alto.control"}};padding:0 {{index .Tokens "espacio.6"}};background:{{index .Tokens "color.acento"}};color:{{index .Tokens "color.sobre-acento"}};border-radius:{{index .Tokens "radio.control"}}}a:focus-visible{outline:{{index .Tokens "borde.marcado"}} solid {{index .Tokens "color.foco"}};outline-offset:{{index .Tokens "espacio.3"}}}</style><main><h1>{{.Titulo}}</h1><p>{{.Ayuda}}</p><a href="/">{{.Reintentar}}</a></main><script>const datos={tipo:'preferencias',idioma:{{.Idioma}},tema:{{.Tema}}};navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.tipo==='solicitar-preferencias'){if(event.ports[0])event.ports[0].postMessage(datos);else navigator.serviceWorker.controller?.postMessage(datos)}});navigator.serviceWorker.controller?.postMessage(datos);</script></html>`)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	avisos := map[string]string{}
+	avisos, politicas := map[string]string{}, map[string]string{}
 	for _, idioma := range idiomas {
 		textos, err := paquetes.Textos(r.Context(), idioma.Codigo)
 		if err != nil {
-			return nil, err
+			return nil, nil, err
 		}
 		if !textosPWACompletos(textos, "pwa1.sin_conexion", "pwa1.sin_conexion_ayuda", "comun.reintentar") {
-			return nil, fs.ErrNotExist
+			return nil, nil, fs.ErrNotExist
 		}
 		for _, tema := range temas {
 			tokens, err := paquetes.Tokens(r.Context(), tema.Identificador)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			// El puerto de paquetes entrega tokens previamente validados. CSS evita que
 			// html/template rechace las comillas permitidas en los nombres de fuente.
@@ -144,16 +145,44 @@ func avisosPWA(paquetes entrada.Paquetes, r *http.Request, nonce string) (map[st
 			}
 			var pagina bytes.Buffer
 			err = plantilla.Execute(&pagina, struct {
-				Idioma, Titulo, Ayuda, Reintentar, Nonce, Tema string
-				Tokens                                         map[string]template.CSS
-			}{idioma.Codigo, textos["pwa1.sin_conexion"], textos["pwa1.sin_conexion_ayuda"], textos["comun.reintentar"], nonce, tema.Identificador, estilos})
+				Idioma, Titulo, Ayuda, Reintentar, Tema string
+				Tokens                                  map[string]template.CSS
+			}{idioma.Codigo, textos["pwa1.sin_conexion"], textos["pwa1.sin_conexion_ayuda"], textos["comun.reintentar"], tema.Identificador, estilos})
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
-			avisos[idioma.Codigo+"/"+tema.Identificador] = pagina.String()
+			estilo, hayEstilo := contenidoEtiqueta(pagina.String(), "style")
+			script, hayScript := contenidoEtiqueta(pagina.String(), "script")
+			if !hayEstilo || !hayScript {
+				return nil, nil, fs.ErrInvalid
+			}
+			clave := idioma.Codigo + "/" + tema.Identificador
+			avisos[clave] = pagina.String()
+			politicas[clave] = "default-src 'none'; script-src " + huellaCSP(script) + "; style-src " + huellaCSP(estilo) + "; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
 		}
 	}
-	return avisos, nil
+	return avisos, politicas, nil
+}
+
+// contenidoEtiqueta devuelve el texto de la única etiqueta indicada. Una segunda
+// etiqueta, aunque llegara desde un catálogo, impide servir el aviso: la huella nunca
+// autoriza contenido ajeno a la plantilla.
+func contenidoEtiqueta(pagina, etiqueta string) (string, bool) {
+	inicio := strings.Index(pagina, "<"+etiqueta+">")
+	if inicio < 0 || strings.Count(strings.ToLower(pagina), "<"+etiqueta) != 1 {
+		return "", false
+	}
+	inicio += len(etiqueta) + 2
+	fin := strings.Index(pagina[inicio:], "</"+etiqueta+">")
+	if fin < 0 {
+		return "", false
+	}
+	return pagina[inicio : inicio+fin], true
+}
+
+func huellaCSP(contenido string) string {
+	suma := sha256.Sum256([]byte(contenido))
+	return "'sha256-" + base64.StdEncoding.EncodeToString(suma[:]) + "'"
 }
 
 func textosPWACompletos(textos map[string]string, claves ...string) bool {

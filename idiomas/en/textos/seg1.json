@@ -1,0 +1,13 @@
+{
+  "seg1.sesion_aviso": "Your session is about to end",
+  "seg1.sesion_inactividad": "Your session will end due to inactivity. Select “Continue session” to keep working.",
+  "seg1.sesion_maxima": "You are approaching the maximum session time. Sign in again to keep working.",
+  "seg1.datos_guardados": "Your saved data will be kept. Save any pending changes before leaving.",
+  "seg1.continuar": "Continue session",
+  "seg1.volver_entrar": "Sign in again",
+  "seg1.continuando": "Checking your session…",
+  "seg1.continuar_error": "We could not continue your session. Check your connection and try again.",
+  "seg1.sesion_caducada": "Your session has ended. Sign in again. Your saved data has been kept.",
+  "catalogo.plazo_umbral_privacidad_consulta": "Privacy threshold for the Enquiry profile",
+  "catalogo.unidad_casos": "cases"
+}

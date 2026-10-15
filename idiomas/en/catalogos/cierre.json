@@ -19,5 +19,7 @@
   "motivo_spaf.NO_COLABORACION": "Lack of family cooperation",
   "motivo_spaf.MEDIDA_PROTECTORA": "Child protection measure adopted",
   "motivo_spaf.TRASLADO": "Change of residence",
-  "motivo_spaf.MAYORIA_EDAD": "Reaching adulthood"
+  "motivo_spaf.MAYORIA_EDAD": "Reaching adulthood",
+  "motivo_spaf.DECLARACION_RIESGO": "Risk declaration",
+  "motivo_spaf.OTROS": "Other"
 }

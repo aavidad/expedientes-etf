@@ -78,7 +78,9 @@ func prepararEntrada(t *testing.T, tipo string, n int, idioma string) (*app.Serv
 	_, deps, m, f, a, p := preparar(t)
 	version := "1.0.0"
 	if tipo == d.ActaAceptacion {
-		version = "1.1.0"
+		version = "1.1.2"
+	} else if tipo == d.ActaNoAceptacion || tipo == d.OficioListaEspera {
+		version = "1.0.2"
 	}
 	ruta := "plantillas/" + tipo + "/v" + version + ".docx"
 	b, err := os.ReadFile("../../../idiomas/" + idioma + "/" + ruta)
@@ -145,7 +147,7 @@ func TestEntradaTresEmisionesUnoSeisQuinceMenores(t *testing.T) {
 								t.Fatal("adulto ausente")
 							}
 						}
-						if !strings.Contains(xml, "Anexo  2L-A") || !strings.Contains(xml, "Anexo 2J") {
+						if strings.Contains(xml, "2L-A") || strings.Contains(xml, "2J") || !(strings.Contains(xml, "Anexo 3") || strings.Contains(xml, "Annex 3")) {
 							t.Fatal("referencia alterada")
 						}
 					}

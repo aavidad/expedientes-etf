@@ -11,7 +11,20 @@ import (
 )
 
 func (*Repositorio) RepetirCargaHistorica(ctx context.Context, u, c, r, h string, t time.Time) (d.ResultadoCargaHistorica, bool, error) {
-	return repeticion[d.ResultadoCargaHistorica](ctx, u, c, r, h, t)
+	resultado, repetida, err := repeticion[d.ResultadoCargaHistorica](ctx, u, c, r, h, t)
+	if err != nil || !repetida {
+		return resultado, repetida, err
+	}
+	tx, err := postgres.DesdeContexto(ctx)
+	if err != nil {
+		return d.ResultadoCargaHistorica{}, false, err
+	}
+	var vigente bool
+	err = tx.QueryRow(ctx, `SELECT estado<>'anulado' FROM expediente.carga_inicial WHERE id=$1`, resultado.LoteID).Scan(&vigente) //etf:tecnico
+	if err != nil || !vigente {
+		return d.ResultadoCargaHistorica{}, false, d.ErrLoteConActividad
+	}
+	return resultado, true, nil
 }
 func (*Repositorio) RecordarCargaHistorica(ctx context.Context, u, c, r, h string, p d.ResultadoCargaHistorica, t time.Time) error {
 	return recordar(ctx, u, c, r, h, p, t)
@@ -26,7 +39,7 @@ func (*Repositorio) CrearLoteHistorico(ctx context.Context, id, equipo, u string
 	if errors.As(err, &pg) && pg.Code == "23505" {
 		return d.ErrIdempotencia
 	}
-	return err
+	return errorControlCarga(err)
 }
 func (*Repositorio) CrearCasoHistorico(ctx context.Context, id, lote, equipo string, c d.CasoHistorico, u string, t time.Time) error {
 	tx, err := postgres.DesdeContexto(ctx)
@@ -43,7 +56,7 @@ func (*Repositorio) CrearCasoHistorico(ctx context.Context, id, lote, equipo str
 		return err
 	}
 	_, err = tx.Exec(ctx, `INSERT INTO expediente.derivacion_datos(expediente_id,esquema_version,contenido) VALUES($1,'1',$2)`, id, b) //etf:tecnico
-	return err
+	return errorControlCarga(err)
 }
 func (*Repositorio) EstadoHistorico(ctx context.Context, id, estado, u string, t time.Time) error {
 	s, err := (&Repositorio{}).BloquearCierre(ctx, id)
@@ -64,5 +77,5 @@ func (*Repositorio) CrearLoteHojaHistorico(ctx context.Context, id, equipo, u st
 	if errors.As(err, &pg) && pg.Code == "23505" {
 		return d.ErrIdempotencia
 	}
-	return err
+	return errorControlCarga(err)
 }

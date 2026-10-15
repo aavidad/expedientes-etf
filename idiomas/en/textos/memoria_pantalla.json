@@ -359,5 +359,7 @@
   "memoria.valor.vivienda.otra": "Other housing situation",
   "memoria.valor.vivienda.propiedad": "Owned",
   "memoria.valor.vivienda.sin_vivienda": "No housing",
-  "memoria.poblacion.no_aceptados": "Cases not accepted"
+  "memoria.poblacion.no_aceptados": "Cases not accepted",
+  "memoria.denominador.lista_espera_o_aceptados_sin_consentimiento_mas_de_30_dias": "Waiting-list cases and accepted cases with more than 30 days without consent",
+  "memoria.poblacion.pe": "Cases awaiting assistance"
 }

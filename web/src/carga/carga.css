@@ -25,3 +25,6 @@
 .carga-marca { font-weight: var(--peso-seminegrita); color: var(--color-aviso-texto-cuerpo); }
 
 .carga-nombre-hoja, .carga dd { overflow-wrap: anywhere; }
+
+.carga-casilla { display: flex; align-items: center; gap: var(--espacio-3); min-height: var(--alto-control); }
+.carga-casilla input { width: var(--alto-control); min-height: var(--alto-control); flex-shrink: 0; }

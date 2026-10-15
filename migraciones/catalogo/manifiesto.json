@@ -116,5 +116,39 @@
         "numero": "0012"
       }
     ]
+  },
+  {
+    "numero": "0014",
+    "archivo": "0014_respuestas_programa.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0013"
+      }
+    ]
+  },
+  {
+    "numero": "0015",
+    "archivo": "0015_ubicaciones.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0014"
+      },
+      {
+        "modulo": "paquete",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0016",
+    "archivo": "0016_privacidad_consulta.sql",
+    "depende_de": [
+      {
+        "modulo": "catalogo",
+        "numero": "0015"
+      }
+    ]
   }
 ]

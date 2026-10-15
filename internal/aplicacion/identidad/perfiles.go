@@ -52,6 +52,9 @@ func (s *AdministracionUsuarios) Listar(ctx context.Context, a entrada.Acceso) (
 	if err != nil {
 		return nil, errorPerfiles(err)
 	}
+	for i := range usuarios {
+		usuarios[i].Propio = usuarios[i].ID == a.Usuario.ID
+	}
 	return usuarios, nil
 }
 func (s *AdministracionUsuarios) Cambiar(ctx context.Context, a entrada.Acceso, id string, c entrada.CambioPerfiles) (usuario entrada.UsuarioAdministrado, err error) {
@@ -63,6 +66,9 @@ func (s *AdministracionUsuarios) Cambiar(ctx context.Context, a entrada.Acceso, 
 	}()
 	if !a.Permite(string(dominio.Administracion)) {
 		return usuario, dominio.ErrAccesoDenegado
+	}
+	if id == a.Usuario.ID {
+		return usuario, dominio.ErrCambioPropioDenegado
 	}
 	if err = c.Validar(); err != nil {
 		return usuario, err
@@ -82,7 +88,7 @@ func (s *AdministracionUsuarios) registrarFallo(ctx context.Context, a entrada.A
 		return nil
 	}
 	resultado := "error"
-	if errors.Is(err, dominio.ErrAccesoDenegado) {
+	if errors.Is(err, dominio.ErrRevisionPropia) || errors.Is(err, dominio.ErrAccesoDenegado) || errors.Is(err, dominio.ErrCambioPropioDenegado) {
 		resultado = "denegado"
 	}
 	registro, cancelar := context.WithTimeout(context.WithoutCancel(ctx), 2*time.Second)
@@ -93,7 +99,7 @@ func (s *AdministracionUsuarios) registrarFallo(ctx context.Context, a entrada.A
 	return err
 }
 func errorPerfiles(err error) error {
-	for _, e := range []error{dominio.ErrAccesoDenegado, dominio.ErrPerfilesInvalidos, dominio.ErrConflicto, dominio.ErrUsuarioNoDisponible, context.Canceled, context.DeadlineExceeded} {
+	for _, e := range []error{dominio.ErrCambioPropioDenegado, dominio.ErrAccesoDenegado, dominio.ErrPerfilesInvalidos, dominio.ErrConflicto, dominio.ErrUsuarioNoDisponible, context.Canceled, context.DeadlineExceeded} {
 		if errors.Is(err, e) {
 			return e
 		}

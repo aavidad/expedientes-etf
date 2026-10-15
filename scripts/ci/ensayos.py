@@ -4,6 +4,7 @@ Sólo se usa con bases desechables y datos inventados. No publica argumentos,
 entrada SQL ni el entorno del operador.
 """
 import os
+import json
 from pathlib import Path
 import re
 import subprocess
@@ -111,3 +112,23 @@ def esperar_orden(args, *, modulo='ci', timeout=20, salida_esperada=None):
         if restante > 0:
             time.sleep(min(0.2, restante))
     raise RuntimeError(diagnostico(modulo, 'servicio_no_disponible', stdout, stderr, secretos))
+
+
+def recortar_dependientes(raiz):
+    """Retira de una copia histórica las migraciones cuyo requisito se retiró."""
+    manifiestos = {p.parent.name: p for p in Path(raiz).glob('*/manifiesto.json')}
+    entradas = {m: json.loads(p.read_text()) for m, p in manifiestos.items()}
+    while True:
+        disponibles = {(m, e['numero']) for m, valores in entradas.items() for e in valores}
+        retiradas = []
+        for modulo, valores in entradas.items():
+            for entrada in valores:
+                if any((d['modulo'], d['numero']) not in disponibles for d in entrada.get('depende_de', [])):
+                    retiradas.append((modulo, entrada))
+        if not retiradas:
+            return
+        for modulo, entrada in retiradas:
+            (manifiestos[modulo].parent / entrada['archivo']).unlink()
+            entradas[modulo].remove(entrada)
+        for modulo in {m for m, _ in retiradas}:
+            manifiestos[modulo].write_text(json.dumps(entradas[modulo]))

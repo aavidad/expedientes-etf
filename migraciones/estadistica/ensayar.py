@@ -111,10 +111,11 @@ def main():
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
             print('ENSAYO-OK base previa, actualización estadistica/0005 a 0006 y repetición', flush=True)
-            pruebas = ['docker','exec','--env-file',str(runner),'--workdir','/repo/internal/adaptadores/postgres/estadistica',nombre]
-            print(orden(pruebas + ['/pruebas/estadistica.test', '-test.v', '-test.timeout=60s']), flush=True)
             pruebas_expediente = ['docker','exec','--env-file',str(runner),'--workdir','/repo/internal/adaptadores/postgres/expediente',nombre]
-            print(orden(pruebas_expediente + ['/pruebas/expediente.test', '-test.v', '-test.run=^(TestMemoria(Cierre|Consulta)|TestLecturaEstadisticaColecciones|TestSPAFJulio)', '-test.timeout=60s']), flush=True)
+            pruebas = ['docker','exec','--env-file',str(runner),'--workdir','/repo/internal/adaptadores/postgres/estadistica',nombre]
+            print(orden(pruebas_expediente + ['/pruebas/expediente.test', '-test.v', '-test.run=^TestMemoriaConsultaSEG3', '-test.timeout=60s']), flush=True)
+            print(orden(pruebas + ['/pruebas/estadistica.test', '-test.v', '-test.timeout=60s']), flush=True)
+            print(orden(pruebas_expediente + ['/pruebas/expediente.test', '-test.v', '-test.run=^(TestMemoria(Cierre|Consulta|Desglose)|TestLecturaEstadisticaColecciones|TestSPAFJulio|TestRESP1)', '-test.timeout=60s']), flush=True)
             print(orden(sql + ['-Atc', "SELECT 'AUDITORIA-OK ' || count(*) FROM auditoria.evento WHERE accion LIKE 'estadistica.%'"]), flush=True)
             mantenimiento = list(sql)
             mantenimiento[mantenimiento.index("-d") + 1] = "postgres"

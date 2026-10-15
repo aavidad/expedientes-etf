@@ -106,7 +106,7 @@ func (*Repositorio) FichaEquipo(ctx context.Context, id string) (d.FichaEquipo, 
 	}
 	filas.Close()
 	f.SalidasServicio = []d.SalidaServicio{}
-	salidas, err := tx.Query(ctx, `SELECT id::text,servicio_destino,motivo,estado,version,fecha FROM expediente.salida_servicio WHERE expediente_id=$1 ORDER BY creada_en DESC,id LIMIT 100`, id) //etf:tecnico
+	salidas, err := tx.Query(ctx, `SELECT id::text,servicio_destino,motivo,estado,version,fecha,servicio_texto FROM expediente.salida_servicio WHERE expediente_id=$1 ORDER BY creada_en DESC,id LIMIT 100`, id) //etf:tecnico
 	if err != nil {
 		return d.FichaEquipo{}, err
 	}
@@ -114,7 +114,7 @@ func (*Repositorio) FichaEquipo(ctx context.Context, id string) (d.FichaEquipo, 
 	for salidas.Next() {
 		var s d.SalidaServicio
 		var dia *time.Time
-		if err := salidas.Scan(&s.ID, &s.Servicio, &s.Motivo, &s.Estado, &s.Version, &dia); err != nil {
+		if err := salidas.Scan(&s.ID, &s.Servicio, &s.Motivo, &s.Estado, &s.Version, &dia, &s.ServicioTexto); err != nil {
 			return d.FichaEquipo{}, err
 		}
 		if dia != nil {

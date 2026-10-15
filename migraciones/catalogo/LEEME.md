@@ -109,3 +109,5 @@ hoy o futura, la migración rechaza el estado previo antes de crear la tabla:
 no modifica reglas publicadas ni instala avisos sin reglas vigentes. Una
 versión que empieza hoy permite repetir la actualización al día siguiente;
 una versión futura requiere que el director revise la fecha de instalación.
+
+SEG1 añade `0016_privacidad_consulta.sql`: publica una versión de plazos que conserva parámetros, duraciones y referencias de idioma e incorpora `umbral_privacidad_consulta=3`, unidad `casos`. No admite menos de 3. Consulta sólo puede leer esa regla publicada por una política SELECT específica. Si ya hay una versión que comienza hoy o después, la nueva comienza el día siguiente de aquella; hasta su vigencia se aplica el umbral seguro 3. No modifica versiones históricas ni las fotos cerradas de Memoria.

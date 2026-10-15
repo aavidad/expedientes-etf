@@ -12,7 +12,7 @@ Familia permite editar los datos familiares y las personas adultas con fecha de 
 
 ## Instalar la aplicación desde Edge
 
-1. Abre Expedientes ETF en Edge, desde la red de la Diputación o con la VPN conectada.
+1. Abre Expedientes ETF en Edge, desde la red de tu entidad o con la VPN conectada.
 2. Abre el menú de Edge con los tres puntos. En **Aplicaciones**, elige **Instalar este sitio como una aplicación**. Si la barra de direcciones muestra el icono para instalar, también puedes pulsarlo.
 3. Comprueba que el nombre es **Expedientes ETF** y pulsa **Instalar**.
 4. Abre la aplicación desde el menú Inicio. Se abrirá en su propia ventana, sin pestañas. Puedes anclarla a la barra de tareas desde las opciones que ofrece Edge.

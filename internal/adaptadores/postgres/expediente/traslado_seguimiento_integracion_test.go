@@ -355,7 +355,7 @@ func TestTrasladoPostgresAceptacionDesdeEspera(t *testing.T) {
 	p = conMenores(p, destino)
 	p.Version = espera.Version
 	p.EquipoID = destinoEquipo
-	p.FechaActa = "2026-10-14"
+	p.FechaActa = d.FechaCivil(deps.Reloj.Ahora())
 	a, err := s.Aceptar(ctx, otra, destino.ID, "aceptar-traslado-espera", p)
 	if err != nil || a.Version != 3 {
 		t.Fatal(a, err)
@@ -444,8 +444,9 @@ func TestTrasladoPostgresCopiaMenoresVigentesConAltasYBajas(t *testing.T) {
 
 // PublicarPlazo usa el adaptador del catálogo: ninguna prueba del módulo
 // expediente escribe directamente en tablas de otro módulo.
-func publicarPlazo(t *testing.T, b *postgres.Base, ctx context.Context, a d.Actor, clave, unidad string, valor int) {
+func publicarPlazo(t *testing.T, b *postgres.Base, ctx context.Context, a d.Actor, clave, unidad string, valor int) time.Time {
 	t.Helper()
+	var publicada time.Time
 	a.Perfiles = []string{"administracion"}
 	err := b.Ejecutar(ctx, plataforma.Identidad{UsuarioID: a.UsuarioID, Perfiles: a.Perfiles}, func(ctx context.Context) error {
 		r := &catalogo.Repositorio{}
@@ -453,12 +454,14 @@ func publicarPlazo(t *testing.T, b *postgres.Base, ctx context.Context, a d.Acto
 		if err != nil {
 			return err
 		}
+		publicada = ultima.Version.VigenteDesde.AddDate(0, 0, 1)
 		_, err = r.Publicar(ctx, "plazos", c.Cambio{VersionEsperada: ultima.Version.Numero, VigenteDesde: ultima.Version.VigenteDesde.AddDate(0, 0, 1), Plazo: &c.Plazo{Clave: clave, Unidad: unidad, Valor: valor}})
 		return err
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
+	return publicada
 }
 
 func TestSeguimientoPostgresVigenciaFinAnticipadoReaperturaYAuditoria(t *testing.T) {
@@ -621,7 +624,7 @@ func TestSeguimientoPostgresVencimientoAutomaticoAtomico(t *testing.T) {
 	}
 	// Tras el vencimiento, la reapertura aplica el plazo vigente completo y
 	// conserva el tramo anterior para la estadística.
-	publicarPlazo(t, b, ctx, coord, "seguimiento_tras_cese", "meses", 2)
+	fechaNuevaRegla := publicarPlazo(t, b, ctx, coord, "seguimiento_tras_cese", "meses", 2)
 	reapertura := d.PeticionSeguimiento{Version: 2, Motivo: "La familia necesita retomar el seguimiento tras el cese."}
 	fallo = deps
 	fallo.RegistroTransaccional = registroFallido{}
@@ -639,6 +642,9 @@ func TestSeguimientoPostgresVencimientoAutomaticoAtomico(t *testing.T) {
 	// El servidor inyecta la fecha civil de Madrid: a las 23:30 UTC ya es
 	// el día siguiente. SQL y Go deben calcular el mismo fin de plazo.
 	fechaPublicacion := deps.Reloj.Ahora()
+	if fechaNuevaRegla.After(fechaPublicacion) {
+		fechaPublicacion = fechaNuevaRegla
+	}
 	deps.Reloj = relojTraslado{time.Date(fechaPublicacion.Year(), fechaPublicacion.Month(), fechaPublicacion.Day(), 23, 30, 0, 0, time.UTC).In(zona)}
 	s = app.Nuevo(deps)
 	reabierto, err := s.Seguimiento(ctx, otra, ficha.ID, "reabrir-vencido", "reabrir", reapertura)

@@ -46,7 +46,7 @@ func TestCargaHistoricaHTTPPostgresSesionCSRFYRecuperacion(t *testing.T) {
 		t.Fatal(respuesta.Code)
 	}
 	caso := casoHistorico(p, "")
-	carga := d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{caso}}
+	carga := d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{caso}}
 	cuerpo, _ := json.Marshal(carga)
 	antes := contarCargas(t, b, ctx, coord)
 	respuesta = pedir("POST", "/api/carga-2026", acceso.CSRF, "", cuerpo)

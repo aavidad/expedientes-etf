@@ -103,3 +103,38 @@ CI mínima completada.
 Comprobación final de enlaces: `Markdown: 97 documentos, 356 enlaces locales,
 7 enlaces externos sin consulta de red, 0 errores.`
 `main` integrado en la rama antes de entregar, sin conflictos.
+
+
+## SEG4: revisión obligatoria tras restauración
+
+Fecha: 14 de octubre de 2026. Rama: `seg-restauracion`. Sólo datos inventados del worktree, demo en `127.0.0.1:18124`.
+
+```sh
+ETF_DEMO_PUERTO=18124 make demo
+python3 -B scripts/ensayar-restauracion.py
+```
+
+El ensayo conserva una sesión de Coordinación en la copia. Después de copiar registra una baja, un traslado de equipo, un cambio de perfil y un alta pendiente; exporta la identidad vigente fuera de la base antes de borrarla. Tras restaurar compara datos, secuencias y paquetes y activa la revisión antes de arrancar. Comprueba revocación de sesiones, RLS sin contexto, ausencia de permisos de escritura directa o inicio de revisión para `etf_app`, rechazo de confirmación con pendientes y anulación de una revisión anterior. Tras integrar SEG2, verifica que aplicar un cambio propio se rechaza, no decide la fila ni registra un falso cambio aplicado. La migración 0004 depende de 0003 y comprueba el resultado booleano del cambio de perfiles. La prueba Go ejecuta el adaptador real y su lectura auditada.
+
+Chrome comprueba rechazo de Coordinación y de la cookie copiada, cierre de otras API para Administración, aplicar y descartar, conflicto al repetir una decisión, CSRF y confirmación final. Prueba teclado con devolución de foco, castellano e inglés, alto contraste y ausencia de desbordamiento a 360, 390 y 1024 px. Capturas: [escritorio 1440](../capturas/restauracion-escritorio.png) y [móvil 390](../capturas/restauracion-movil.png). La revisión independiente examinó SQL, fronteras de sesión/HTTP y la segunda pasada de usabilidad.
+
+Una segunda restauración real de la misma copia vuelve a cerrar sesiones y requiere confirmación aunque no haya diferencias. Después confirma los siete accesos originales y el recorrido de Anexo 3, aceptación y Acta Word. El fichero temporal de identidad y los volcados se retiran al terminar.
+
+Salida final del ensayo:
+
+```text
+--- PASS: TestIntegracionRevisionRestauracionLecturaAuditada (0.02s)
+SEG4-SQL-OK: sesiones revocadas, bloqueo no administrador, RLS, permisos, pendientes y revisión repetida
+SEG4-CHROME-OK: bloqueo, revisión, aplicar/descartar, conflicto, confirmación, CSRF, teclado, axe WCAG, es/en y capturas 1440/390; sin desbordamiento 360/1024 y alto contraste.
+SEG4-AUDITORIA-OK: decisiones y confirmación registradas
+SEG4-VACIO-OK: revisión sin diferencias exige confirmación visible antes de abrir.
+F5.05-OK: copia, borrado, restauración, siete accesos y recorrido Chrome
+```
+
+La referencia fiable sigue siendo responsabilidad de Informática: sin lista vigente completa o sin una persona administradora activa en ambas listas, se mantiene la aplicación parada. Un equipo posterior a la copia debe recuperarse antes de aplicar su traslado, o el cambio debe descartarse conscientemente. El sello externo de auditoría corresponde al riesgo R-05.
+
+
+El ensayo focal de identidad usa `ETF_FILTRO_IDENTIDAD='^TestIntegracion(Identidad|Sesiones|Entrada|AuditoriaFallida|Perfiles)' internal/adaptadores/postgres/testdata/ensayar-identidad.sh`: seis pruebas pasan y termina en `ENSAYO-OK`. Catálogos y Expediente quedan fuera de ese filtro. Una ejecución adicional sin filtro encontró `TestSeguimientoPostgresVencimientoAutomaticoAtomico` fallido, en el módulo de Expediente, fuera de SEG4; no se presenta esa suite general como aprobada. La revisión independiente no encontró un vínculo directo con el cambio de restauración.
+
+
+La CI completa sobre la rama integrada terminó con `CI mínima completada.` Incluyó `go vet ./...`, `go test ./...`, frontend, textos, temas, ensayos PostgreSQL/RLS, matriz de permisos, PWA, carga, restauración y ubicaciones. Semgrep local sobre el cambio: `Ran 3 rules on 9 files: 0 findings.` Las capturas ajenas a SEG4 generadas por la CI se retiraron del cambio. No se hizo push ni despliegue.

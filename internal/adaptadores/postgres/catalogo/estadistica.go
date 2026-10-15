@@ -79,3 +79,25 @@ func (*Repositorio) EquiposMemoria(ctx context.Context) ([]string, error) {
 	}
 	return ids, rows.Err()
 }
+
+//etf:tecnico
+func (*Repositorio) CodigosMunicipios(ctx context.Context, ids []string) (map[string]string, error) {
+	tx, err := postgres.DesdeContexto(ctx)
+	if err != nil {
+		return nil, err
+	}
+	filas, err := tx.Query(ctx, `SELECT id::text,ine FROM catalogo.municipio WHERE id=ANY($1::uuid[])`, ids)
+	if err != nil {
+		return nil, err
+	}
+	defer filas.Close()
+	codigos := map[string]string{}
+	for filas.Next() {
+		var id, codigo string
+		if err = filas.Scan(&id, &codigo); err != nil {
+			return nil, err
+		}
+		codigos[id] = codigo
+	}
+	return codigos, filas.Err()
+}

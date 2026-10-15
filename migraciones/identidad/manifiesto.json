@@ -26,5 +26,25 @@
         "numero": "0002"
       }
     ]
+  },
+  {
+    "numero": "0003",
+    "archivo": "0003_impedir_cambios_propios.sql",
+    "depende_de": [
+      {
+        "modulo": "identidad",
+        "numero": "0002"
+      }
+    ]
+  },
+  {
+    "numero": "0004",
+    "archivo": "0004_revision_restauracion.sql",
+    "depende_de": [
+      {
+        "modulo": "identidad",
+        "numero": "0003"
+      }
+    ]
   }
 ]

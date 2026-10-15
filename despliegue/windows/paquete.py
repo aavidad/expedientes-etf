@@ -21,6 +21,8 @@ def ejecutar(*args, **kwargs):
 def configurar(config, version):
     config["name"] = "etf-windows"
     servicios = config["services"]
+    # Windows incorpora los recursos mediante su servicio herramientas.
+    servicios.pop("incorporar", None)
     for nombre, servicio in servicios.items():
         if isinstance(servicio.get("environment"), list):
             servicio["environment"] = dict(linea.split("=", 1) for linea in servicio["environment"])
@@ -96,6 +98,9 @@ def main():
                              "internal/adaptadores/ldap/testdata", "internal/adaptadores/anexos/docx/testdata", "idiomas", "temas"):
                     shutil.copytree(RAIZ / ruta, contexto / ruta,
                                     ignore=shutil.ignore_patterns(".local", "*.local*", "__pycache__"))
+                # Inventario de versiones históricas para sustituir sólo lo de la distribución.
+                (contexto / "despliegue/windows/inventario.json").write_text(
+                    json.dumps(demo.inventario_distribucion()) + "\n", encoding="utf-8")
                 destino = "entrada" if nombre == "entrada-demo" else nombre
                 ejecutar(*orden, "--target", destino, "--file", str(contexto / "despliegue/windows/Dockerfile"), str(contexto))
                 imagenes.append(imagen)

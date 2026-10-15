@@ -3,9 +3,10 @@ package identidad
 import "time"
 
 const (
-	ErrAccesoDenegado    Error = "identidad.acceso_denegado"
-	ErrPerfilesInvalidos Error = "identidad.perfiles_invalidos"
-	ErrConflicto         Error = "identidad.conflicto"
+	ErrCambioPropioDenegado Error = "identidad.cambio_propio_denegado"
+	ErrAccesoDenegado       Error = "identidad.acceso_denegado"
+	ErrPerfilesInvalidos    Error = "identidad.perfiles_invalidos"
+	ErrConflicto            Error = "identidad.conflicto"
 )
 
 type Concesion struct {
@@ -83,6 +84,7 @@ func intervaloValido(desde time.Time, hasta *time.Time) bool {
 
 type UsuarioAdministrado struct {
 	ID        string       `json:"id"`
+	Propio    bool         `json:"propio"`
 	Cuenta    string       `json:"cuenta"`
 	Nombre    string       `json:"nombre"`
 	Iniciales string       `json:"iniciales"`

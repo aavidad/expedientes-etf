@@ -26,7 +26,7 @@ func (*LecturaEstadistica) EquipoMemoria(ctx context.Context, id string) (string
 	}
 	var equipo string
 	var modificado time.Time
-	err = tx.QueryRow(ctx, `SELECT coalesce(equipo_id::text,''),coalesce(modificado_en,fecha_recepcion) FROM expediente.expediente WHERE id=$1`, id).Scan(&equipo, &modificado)
+	err = tx.QueryRow(ctx, `SELECT coalesce(e.equipo_id::text,m.equipo_id::text,''),coalesce(e.modificado_en,e.fecha_recepcion) FROM expediente.expediente e LEFT JOIN expediente.espera_memoria m ON m.expediente_id=e.id AND m.desde IS NOT NULL WHERE e.id=$1`, id).Scan(&equipo, &modificado)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return "", time.Time{}, nil
 	}
@@ -37,11 +37,12 @@ var _ salida.LecturaMemoria = (*LecturaEstadistica)(nil)
 var _ salida.LecturaSPAF = (*LecturaEstadistica)(nil)
 
 type datosLectura struct {
-	Expediente d.Expediente
-	Numero     string
-	Recepcion  time.Time
-	Servicio   string
-	Fases      d.Historia[string]
+	Expediente  d.Expediente
+	Numero      string
+	Recepcion   time.Time
+	Servicio    string
+	MunicipioID string
+	Fases       d.Historia[string]
 }
 type fechaLectura struct{ time.Time }
 
@@ -92,7 +93,7 @@ func (l *LecturaEstadistica) leer(ctx context.Context, equipo string, corte, con
 		return nil, err
 	}
 	// Una sola instantánea SQL reúne todas las partes, sin consultas por familia.
-	consulta := `SELECT e.id::text,e.equipo_id::text,coalesce(e.numero,''),e.fecha_recepcion,e.servicio,
+	consulta := `SELECT e.id::text,e.equipo_id::text,coalesce(e.numero,''),e.fecha_recepcion,e.servicio,coalesce(e.municipio_id::text,''),
  coalesce((SELECT jsonb_agg(to_jsonb(p) ORDER BY p.apertura_fecha,p.id) FROM expediente.api_estadistica_episodios p WHERE p.expediente_id=e.id AND p.creado_en<=$2),'[]'),
  coalesce((SELECT jsonb_agg(to_jsonb(h) ORDER BY h.fecha,h.id) FROM expediente.api_estadistica_hitos h WHERE h.expediente_id=e.id AND h.confirmado_en<=$2),'[]'),
  coalesce((SELECT jsonb_agg(to_jsonb(v) ORDER BY v.vigente_desde,v.registrado_en,v.id) FROM expediente.api_estadistica_vigencias v WHERE v.expediente_id=e.id AND v.registrado_en<=$2),'[]'),
@@ -115,7 +116,7 @@ func (l *LecturaEstadistica) leer(ctx context.Context, equipo string, corte, con
 	for filas.Next() {
 		var v datosLectura
 		var episodios, hitos, vigencias, familias, adultos, estados, menores, intervenciones []byte
-		if err = filas.Scan(&v.Expediente.ID, &v.Expediente.EquipoID, &v.Numero, &v.Recepcion, &v.Servicio, &episodios, &hitos, &vigencias, &familias, &adultos, &estados, &menores, &intervenciones); err != nil {
+		if err = filas.Scan(&v.Expediente.ID, &v.Expediente.EquipoID, &v.Numero, &v.Recepcion, &v.Servicio, &v.MunicipioID, &episodios, &hitos, &vigencias, &familias, &adultos, &estados, &menores, &intervenciones); err != nil {
 			return nil, err
 		}
 		var eps []episodioLectura
@@ -227,9 +228,10 @@ func (l *LecturaEstadistica) ConsultarMemoria(ctx context.Context, equipo string
 	}
 	r := make([]d.Expediente, 0, len(datos))
 	for _, v := range datos {
+		v.Expediente.Numero = v.Numero
 		r = append(r, v.Expediente)
 	}
-	return r, nil
+	return l.incorporarEsperasMemoria(ctx, r, equipo, corte, conocido)
 }
 func (l *LecturaEstadistica) ConsultarSPAF(ctx context.Context, f d.FiltroSPAF, corte, conocido time.Time) ([]d.ExpedienteSPAF, d.Historia[d.ReglasSPAF], error) {
 	if l.Reglas == nil {
@@ -243,10 +245,25 @@ func (l *LecturaEstadistica) ConsultarSPAF(ctx context.Context, f d.FiltroSPAF, 
 	if err != nil {
 		return nil, nil, err
 	}
+	codigos := map[string]string{}
+	if geografia, ok := l.Reglas.(catalogo.MunicipiosEstadistica); ok {
+		ids := []string{}
+		vistos := map[string]bool{}
+		for _, v := range datos {
+			if v.MunicipioID != "" && !vistos[v.MunicipioID] {
+				ids = append(ids, v.MunicipioID)
+				vistos[v.MunicipioID] = true
+			}
+		}
+		codigos, err = geografia.CodigosMunicipios(ctx, ids)
+		if err != nil {
+			return nil, nil, err
+		}
+	}
 	r := make([]d.ExpedienteSPAF, 0, len(datos))
 	for _, v := range datos {
 		exp := d.ExpedienteSPAF{ID: v.Expediente.ID, EquipoID: v.Expediente.EquipoID, Numero: v.Numero, Episodios: v.Expediente.Episodios}
-		ficha := d.DatosSPAF{ServicioDerivante: d.Dato[string]{Valor: v.Servicio, Conocido: v.Servicio != ""}}
+		ficha := d.DatosSPAF{Municipio: d.Dato[string]{Valor: codigos[v.MunicipioID], Conocido: codigos[v.MunicipioID] != ""}, ServicioDerivante: d.Dato[string]{Valor: v.Servicio, Conocido: v.Servicio != ""}}
 		menores, versionMenores, err := v.Expediente.Menores.ValorEn(corte, conocido)
 		if err != nil {
 			return nil, nil, err

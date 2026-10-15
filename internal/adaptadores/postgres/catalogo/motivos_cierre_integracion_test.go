@@ -35,6 +35,9 @@ func TestIntegracionCierreD5VigenciaPermisosEInmutabilidad(t *testing.T) {
 					t.Fatalf("motivos iniciales: %+v", catalogo)
 				}
 				for _, motivo := range catalogo.Motivos {
+					if (motivo.Codigo == "DECLARACION_RIESGO" && motivo.SPAF != "DECLARACION_RIESGO") || (motivo.Codigo == "OTROS" && motivo.SPAF != "OTROS") {
+						t.Fatalf("D5 equivalencia confirmada: %+v", motivo)
+					}
 					if motivo.AdmiteTexto != (motivo.Codigo == "OTROS") || motivo.SinConsentimiento != (motivo.Codigo == "SIN_CONSENTIMIENTO") {
 						t.Fatalf("propiedades del motivo: %+v", motivo)
 					}

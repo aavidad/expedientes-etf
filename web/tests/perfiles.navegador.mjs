@@ -62,11 +62,8 @@ try {
   const permisoTemporal = await admin.request.put(`${base}/api/admin/usuarios/${administradora.id}/perfiles`, {
     headers: cabeceras, data: { version: administradora.version, estado: 'activo', perfiles: administradora.perfiles.filter((p) => p.perfil === 'administracion'), equipo: null },
   });
-  assert.equal(permisoTemporal.status(), 200);
-  assert.equal((await admin.request.get(`${base}/api/coordinacion/derivaciones/00000000-0000-4000-8000-000000000011`)).status(), 403);
-  const restauracion = await admin.request.put(`${base}/api/admin/usuarios/${administradora.id}/perfiles`, {
-    headers: cabeceras, data: { version: (await permisoTemporal.json()).version, estado: 'activo', perfiles: administradora.perfiles, equipo: null },
-  }); assert.equal(restauracion.status(), 200);
+  assert.equal(permisoTemporal.status(), 403);
+  assert.equal((await permisoTemporal.json()).error.clave, 'identidad.cambio_propio_denegado');
   for (const ruta of ['/api/admin/usuarios', '/api/admin/catalogos/listas', '/api/admin/firmantes', '/api/admin/paquetes/idioma/es', '/api/coordinacion/derivaciones/00000000-0000-4000-8000-000000000011']) assert.equal((await usuario.request.get(base + ruta)).status(), 403);
   for (const ruta of ['/api/expedientes', '/api/memoria', '/api/spaf', '/api/comisiones']) assert.equal((await admin.request.get(base + ruta)).status(), 403);
   const denegada = await usuario.goto(`${base}/admin/catalogos`); assert.equal(denegada.status(), 403);
@@ -107,10 +104,23 @@ try {
   assert.equal((await usuario.request.get(`${base}/api/sesion`)).status(), 403); assert.equal((await usuario.request.get(`${base}/api/admin/usuarios`)).status(), 401);
   await usuario.reload(); await usuario.getByRole('button', { name: 'Entrar', exact: true }).waitFor();
   await admin.setViewportSize({ width: 1280, height: 900 });
-  await admin.getByRole('button', { name: 'Edit permissions for Marta López Rivas (marta.lopez)' }).click();
-  await admin.getByRole('checkbox', { name: 'Functional administration', exact: true }).uncheck();
-  const retirada = admin.waitForResponse((r) => r.request().method() === 'PUT' && r.url().endsWith('/perfiles'));
-  await admin.getByRole('button', { name: 'Save permissions' }).click(); assert.equal((await retirada).status(), 200);
+  await admin.getByRole('button', { name: 'View my permissions' }).click();
+  assert.equal(await admin.getByRole('checkbox', { name: 'Functional administration', exact: true }).isDisabled(), true);
+  assert.equal(await admin.getByRole('button', { name: 'Save permissions' }).isDisabled(), true);
+  // La segunda persona concede o retira los perfiles del primer administrador.
+  const actuales = await (await admin.request.get(`${base}/api/admin/usuarios`)).json();
+  const segunda = actuales.find((u) => u.cuenta === 'ines.moreno');
+  assert.equal((await admin.request.put(`${base}/api/admin/usuarios/${segunda.id}/perfiles`, {
+    headers: cabeceras, data: { version: segunda.version, estado: 'activo', perfiles: [{ perfil: 'administracion', desde: new Date().toISOString(), hasta: null }], equipo: null },
+  })).status(), 200);
+  await entrar(usuario, 'ines.moreno'); await usuario.getByRole('heading', { name: 'Usuarios y permisos' }).waitFor();
+  const sesionSegunda = await (await usuario.request.get(`${base}/api/sesion`)).json();
+  const primera = actuales.find((u) => u.id === administradora.id);
+  assert.equal((await usuario.request.put(`${base}/api/admin/usuarios/${primera.id}/perfiles`, {
+    headers: { Origin: base, 'X-CSRF-Token': sesionSegunda.csrf },
+    data: { version: primera.version, estado: 'activo', perfiles: primera.perfiles.filter((p) => p.perfil !== 'administracion'), equipo: null },
+  })).status(), 200);
+  await admin.reload();
   await admin.getByRole('heading', { name: 'National minimum wage' }).waitFor();
   assert.equal(await admin.getByRole('link', { name: 'Users and permissions' }).count(), 0);
   assert.equal(await admin.getByRole('table', { name: 'Users and permissions' }).count(), 0);

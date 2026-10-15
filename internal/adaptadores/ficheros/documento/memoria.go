@@ -3,6 +3,7 @@ package documento
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	d "github.com/aavidad/expedientes-etf/internal/dominio/documento"
 	"io"
 	"io/fs"
@@ -23,7 +24,12 @@ func (f Plantillas) LeerMemoria(ctx context.Context, idioma d.IdiomaPlantilla, p
 		return d.PresentacionMemoria{}, d.ErrPlantilla
 	}
 	defer raiz.Close()
-	file, err := raiz.Open(path.Join(idioma.Ruta, "plantillas", "memoria", "v"+p.Version+".json"))
+	nombre := path.Join("plantillas", "memoria", "v"+p.Version+".json")
+	file, err := raiz.Open(path.Join(idioma.Ruta, nombre))
+	if errors.Is(err, fs.ErrNotExist) && idioma.Ruta != p.Idioma {
+		// Versión de idioma anterior a esta plantilla: se usa la de la distribución.
+		file, err = raiz.Open(path.Join(p.Idioma, nombre))
+	}
 	if err != nil {
 		return d.PresentacionMemoria{}, d.ErrPlantilla
 	}

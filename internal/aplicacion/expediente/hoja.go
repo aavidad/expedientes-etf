@@ -95,6 +95,7 @@ func (s *ServicioHoja) leer(ctx context.Context, a d.Actor, u entrada.SubidaHoja
 		informe.Filas = append(informe.Filas, resumen)
 	}
 	p.EquipoID = u.EquipoID
+	p.ConfirmarDuplicados = u.ConfirmarDuplicados
 	p.FuenteHoja = &d.FuenteHoja{Formato: u.Formato, Huella: informe.Huella, Bytes: len(u.Contenido)}
 	if len(filas) < 1 || len(filas) > 100 {
 		return p, filas, informe, d.ErrHojaLimites
@@ -160,7 +161,8 @@ func (s *ServicioHoja) ValidarHoja(ctx context.Context, a d.Actor, u entrada.Sub
 		informe.LoteID = ""
 		return informe, nil
 	}
-	_, err = s.Historicos.ValidarCargaHistorica(ctx, a, p)
+	vista, err := s.Historicos.ValidarCargaHistorica(ctx, a, p)
+	informe.Avisos = vista.Avisos
 	if err != nil {
 		if errors.Is(err, d.ErrNoDisponible) || errors.Is(err, d.ErrAcceso) || ctx.Err() != nil {
 			return d.InformeHoja{}, err

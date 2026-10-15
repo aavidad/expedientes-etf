@@ -28,7 +28,7 @@ func (m Motor) CamposCifras(ctx context.Context, r e.CifrasConsulta, p d.Present
 		}
 		informe.Apartados = append(informe.Apartados, ap)
 	}
-	campos, err := m.CamposMemoria(ctx, informe, p)
+	campos, err := m.camposMemoria(ctx, informe, p, r.Umbral, r.MargenesOcultos)
 	if err != nil {
 		return nil, err
 	}
@@ -41,6 +41,9 @@ func (m Motor) CamposCifras(ctx context.Context, r e.CifrasConsulta, p d.Present
 		estado = "estadistica.consulta_definitiva"
 	}
 	campos["texto_1"] += "\n" + p.Campos[estado]
+	if r.Umbral > 0 {
+		campos["texto_1"] += "\n" + p.Campos["estadistica.consulta_privacidad"]
+	}
 	for _, clave := range []string{"cabecera_a", "datos_a", "personal_a", "observaciones_a", "cabecera_d", "cabecera_e", "cabecera_f", "cabecera_g"} {
 		campos[clave] = ""
 	}

@@ -15,7 +15,7 @@ IMAGEN = 'postgres:18.4-alpine@sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d29
 
 
 sys.path.insert(0, str(RAIZ / 'scripts' / 'ci'))
-from ensayos import orden as ejecutar_orden, esperar_postgres
+from ensayos import orden as ejecutar_orden, esperar_postgres, recortar_dependientes
 
 orden = partial(ejecutar_orden, modulo='actividad')
 
@@ -58,6 +58,7 @@ def main():
             if entrada['numero'] >= '0023':
                 (previo / 'expediente' / entrada['archivo']).unlink()
         manifiesto_exp.write_text(json.dumps([e for e in entradas_exp if e['numero'] < '0023']))
+        recortar_dependientes(previo)
         montar = ['--mount', f'type=bind,source={tmp},target=/pruebas,readonly',
                   '--mount', f'type=bind,source={RAIZ},target=/repo,readonly']
         try:

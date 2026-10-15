@@ -31,6 +31,7 @@ esperar = partial(esperar_orden, modulo='expediente')
 
 
 def retirar_migraciones(raiz, identificadores):
+    from ensayos import recortar_dependientes
     for modulo, numero in identificadores:
         carpeta = raiz / modulo
         manifiesto = carpeta / 'manifiesto.json'
@@ -38,9 +39,11 @@ def retirar_migraciones(raiz, identificadores):
         retirada = next(e for e in entradas if e['numero'] == numero)
         (carpeta / retirada['archivo']).unlink()
         manifiesto.write_text(json.dumps([e for e in entradas if e['numero'] != numero]))
+    recortar_dependientes(raiz)
 
 
 def retirar_desde(raiz, cortes):
+    from ensayos import recortar_dependientes
     for modulo, numero in cortes:
         carpeta = raiz / modulo
         manifiesto = carpeta / 'manifiesto.json'
@@ -49,6 +52,7 @@ def retirar_desde(raiz, cortes):
             if retirada['numero'] >= numero:
                 (carpeta / retirada['archivo']).unlink()
         manifiesto.write_text(json.dumps([e for e in entradas if e['numero'] < numero]))
+    recortar_dependientes(raiz)
 
 
 def comprobar_guardia_seguimiento(bd, ejecutar, tmp):

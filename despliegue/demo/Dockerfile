@@ -9,6 +9,7 @@ ENTRYPOINT ["/usr/local/bin/migrar"]
 FROM alpine:3.22@sha256:5291449c3df73caf6ed85e649dec1b9e818b39a5d8c871e97afc13e9cd5e8fa8 AS app
 WORKDIR /opt/etf
 COPY .local/bin/etf /usr/local/bin/etf
+COPY --chown=10001:10001 .local/recursos-voz /opt/etf
 COPY --chown=10001:10001 .local/datos/catalogos /opt/etf/datos/catalogos
 COPY --chown=10001:10001 .local/idiomas /datos/idiomas
 COPY --chown=10001:10001 .local/temas /datos/temas
@@ -16,3 +17,14 @@ USER 10001:10001
 HEALTHCHECK --interval=2s --timeout=3s --start-period=5s --retries=30 \
  CMD wget -q -O /dev/null http://127.0.0.1:8080/salud || exit 1
 ENTRYPOINT ["/usr/local/bin/etf"]
+
+# La misma publicación exclusiva que utiliza el paquete Windows.
+FROM alpine:3.22@sha256:5291449c3df73caf6ed85e649dec1b9e818b39a5d8c871e97afc13e9cd5e8fa8 AS incorporar
+RUN apk add --no-cache python3=3.12.15-r0
+COPY .local/idiomas /reserva/idiomas
+COPY .local/temas /reserva/temas
+COPY .local/archivos.py /opt/etf/archivos.py
+COPY .local/inventario.json /opt/etf/inventario.json
+COPY incorporar.py /opt/etf/incorporar.py
+ENV PYTHONDONTWRITEBYTECODE=1 TMPDIR=/tmp
+ENTRYPOINT ["python3", "-B", "/opt/etf/incorporar.py"]

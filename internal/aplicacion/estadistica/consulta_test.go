@@ -84,7 +84,7 @@ func TestConsultaFotoYCalculoNoElevanPerfilNiEntreganSinAuditoria(t *testing.T) 
 	fecha := time.Date(2026, 10, 14, 10, 0, 0, 0, time.UTC)
 	foto := &cerradasConsulta{r: d.CifrasConsulta{Anio: 2026, Fecha: fecha.Add(-time.Hour), Definitivas: true}, cerrada: true}
 	motor := &calculoConsulta{r: d.CifrasConsulta{Anio: 2026, Fecha: fecha}}
-	deps := app.DependenciasConsulta{Cerradas: foto, Calculo: motor, Transacciones: txConsulta{}, Auditoria: &auditCierre{}, Reloj: &relojBloqueo{ahora: fecha}}
+	deps := app.DependenciasConsulta{Reglas: reglasConsulta{}, Cerradas: foto, Calculo: motor, Transacciones: txConsulta{}, Auditoria: &auditCierre{}, Reloj: &relojBloqueo{ahora: fecha}}
 	r, err := app.NuevoConsulta(deps).ConsultarCifras(context.Background(), actor, d.FiltroMemoria{Anio: 2026})
 	if err != nil || !r.Definitivas || !r.Fecha.Equal(foto.r.Fecha) || motor.llamadas != 0 {
 		t.Fatal("no respeta foto", r, err)
@@ -151,9 +151,13 @@ func TestConsultaNoEntregaCalculoSiFallaCommitAuditoria(t *testing.T) {
 	fecha := time.Date(2026, 10, 14, 10, 0, 0, 0, time.UTC)
 	tx := &txConsultaFallaConfirmacion{}
 	motor := &calculoConsulta{r: d.CifrasConsulta{Anio: 2026, Fecha: fecha}}
-	svc := app.NuevoConsulta(app.DependenciasConsulta{Cerradas: &cerradasConsulta{}, Calculo: motor, Transacciones: tx, Auditoria: &auditCierre{}, Reloj: &relojBloqueo{ahora: fecha}})
+	svc := app.NuevoConsulta(app.DependenciasConsulta{Reglas: reglasConsulta{}, Cerradas: &cerradasConsulta{}, Calculo: motor, Transacciones: tx, Auditoria: &auditCierre{}, Reloj: &relojBloqueo{ahora: fecha}})
 	cifras, err := svc.ConsultarCifras(context.Background(), actor, d.FiltroMemoria{Anio: 2026})
 	if !errors.Is(err, d.ErrDisponibleMemoria) || cifras.Anio != 0 || motor.llamadas != 1 || tx.llamadas != 2 {
 		t.Fatal("entrega sin commit de auditoría", cifras, err, tx.llamadas)
 	}
 }
+
+type reglasConsulta struct{}
+
+func (reglasConsulta) UmbralConsulta(context.Context, time.Time) (int, error) { return 3, nil }

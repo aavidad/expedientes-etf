@@ -50,18 +50,22 @@ type CasoHistorico struct {
 	Menores         []CambioMenores     `json:"menores"`
 }
 type CargaHistorica struct {
-	FuenteHoja *FuenteHoja     `json:"-"`
-	EquipoID   string          `json:"equipo_id"`
-	Casos      []CasoHistorico `json:"casos"`
+	ConfirmarDuplicados bool            `json:"confirmar_duplicados"`
+	FuenteHoja          *FuenteHoja     `json:"-"`
+	EquipoID            string          `json:"equipo_id"`
+	Casos               []CasoHistorico `json:"casos"`
 }
 type ResultadoCargaHistorica struct {
-	LoteID      string   `json:"lote_id"`
-	Expedientes []string `json:"expedientes"`
-	Marca       string   `json:"marca"`
+	Referencia  int64        `json:"referencia,omitempty"`
+	Avisos      []AvisoCarga `json:"avisos,omitempty"`
+	LoteID      string       `json:"lote_id"`
+	Expedientes []string     `json:"expedientes"`
+	Marca       string       `json:"marca"`
 }
 type ValidacionCargaHistorica struct {
-	LoteID string `json:"lote_id"`
-	Casos  int    `json:"casos"`
+	Avisos []AvisoCarga `json:"avisos,omitempty"`
+	LoteID string       `json:"lote_id"`
+	Casos  int          `json:"casos"`
 }
 
 func (p CargaHistorica) Validar(ahora time.Time) error {

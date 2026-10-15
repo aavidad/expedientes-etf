@@ -164,7 +164,7 @@ func (s *sesionHTTP) servir(w http.ResponseWriter, r *http.Request) {
 				s.rechazar(w, r, 503, "identidad.configuracion_invalida")
 				return
 			}
-			acceso, err := s.servicio.Consultar(r.Context(), identificador)
+			acceso, err := s.servicio.Consultar(identidad.ConConsultaPasiva(r.Context()), identificador)
 			if err != nil {
 				if err.Error() == "identidad.sesion_no_valida" || err.Error() == "identidad.usuario_no_disponible" {
 					ponerCookie(w, cookieSesion, "", true)
@@ -186,6 +186,15 @@ func (s *sesionHTTP) servir(w http.ResponseWriter, r *http.Request) {
 	}
 	if s.servicio == nil {
 		s.rechazar(w, r, 503, "identidad.configuracion_invalida")
+		return
+	}
+	if r.Method == http.MethodPut {
+		acceso, err := s.servicio.Consultar(r.Context(), identificador)
+		if err != nil {
+			errorSesion(w, err)
+			return
+		}
+		s.responderAcceso(w, acceso, identificador)
 		return
 	}
 	if r.Method == http.MethodDelete {
@@ -246,6 +255,7 @@ func (s *sesionHTTP) servir(w http.ResponseWriter, r *http.Request) {
 	s.responderAcceso(w, abierta.Acceso, abierta.Identificador)
 }
 func (s *sesionHTTP) responderAcceso(w http.ResponseWriter, a identidad.Acceso, identificador string) {
+	cabecerasCaducidad(w, a)
 	// La pantalla pendiente recibe sólo estado, sin nombre ni cuenta.
 	datos := map[string]any{"estado": a.Estado, "csrf": s.testigo(identificador)}
 	if string(a.Estado) == "activo" {
@@ -254,7 +264,7 @@ func (s *sesionHTTP) responderAcceso(w http.ResponseWriter, a identidad.Acceso, 
 		datos["equipo_id"] = a.Usuario.EquipoID
 		pantallas := []map[string]any{}
 		for _, regla := range s.reglasRutas() {
-			if !regla.Pantalla || regla.ClaveTitulo == "" {
+			if !regla.Pantalla || regla.ClaveTitulo == "" || (!a.Usuario.RevisionRestauracion && regla.Patron == "/admin/restauracion") || (a.Usuario.RevisionRestauracion && regla.Patron != "/admin/restauracion") {
 				continue
 			}
 			permitidos := []string{}
@@ -278,6 +288,8 @@ func errorSesion(w http.ResponseWriter, err error) {
 		estado, clave = 401, err.Error()
 	case "identidad.sesion_no_valida":
 		estado, clave = 401, err.Error()
+	case "restauracion.acceso_bloqueado":
+		estado, clave = 403, err.Error()
 	case "identidad.usuario_no_disponible":
 		estado, clave = 403, err.Error()
 	case "identidad.intentos_limitados":
@@ -307,4 +319,13 @@ func (s *sesionHTTP) rechazar(w http.ResponseWriter, r *http.Request, estado int
 		}
 	}
 	responderError(w, estado, clave)
+}
+
+func cabecerasCaducidad(w http.ResponseWriter, a identidad.Acceso) {
+	if a.CaducaEn.IsZero() || a.MaximaEn.IsZero() {
+		return
+	}
+	w.Header().Set("X-ETF-Sesion-Caduca", a.CaducaEn.UTC().Format(time.RFC3339Nano))
+	w.Header().Set("X-ETF-Sesion-Maxima", a.MaximaEn.UTC().Format(time.RFC3339Nano))
+	w.Header().Set("X-ETF-Sesion-Ahora", time.Now().UTC().Format(time.RFC3339Nano))
 }

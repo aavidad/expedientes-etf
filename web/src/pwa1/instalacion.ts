@@ -16,7 +16,9 @@ export function actualizarInstalacion(idioma: string, tema: string): (() => void
   navigator.serviceWorker.addEventListener('controllerchange', enviar);
   let vigente = true;
   enviar();
-  void navigator.serviceWorker.register(`/service-worker.js?${preferencias}`, { scope: '/', updateViaCache: 'none' })
+  // La dirección del worker no depende de las preferencias: cambiarlas no instala otro worker,
+  // que tardaría en relevar al activo mientras atiende navegaciones de otras ventanas.
+  void navigator.serviceWorker.register('/service-worker.js', { scope: '/', updateViaCache: 'none' })
     .then(() => navigator.serviceWorker.ready).then(() => { if (vigente) enviar(); })
     .catch(() => { /* La aplicación sigue disponible si el navegador impide instalar el worker. */ });
   return () => {

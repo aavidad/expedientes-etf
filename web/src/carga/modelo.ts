@@ -15,8 +15,8 @@ export type Formulario = {
   menores: Menor[]; episodios: Episodio[];
 };
 export type Resumen = { fila: number; numero: string; estado: string; iniciales: string };
-export type Informe = { valida: boolean; casos: number; lote_id?: string; huella?: string; filas?: Resumen[]; incidencias: { fila: number; columna: string; clave: string; mensaje: string }[] };
-export type Recibo = { lote_id: string; expedientes: string[]; marca: string };
+export type Informe = { avisos?: { fila: number; clave: string }[]; valida: boolean; casos: number; lote_id?: string; huella?: string; filas?: Resumen[]; incidencias: { fila: number; columna: string; clave: string; mensaje: string }[] };
+export type Recibo = { referencia?: number; lote_id: string; expedientes: string[]; marca: string };
 export const estados = ['aceptada', 'en_intervencion', 'cerrada', 'no_aceptada'];
 export const columnas = ['numero', 'fecha_derivacion', 'estado', 'tipo_anexo', 'fecha_aceptacion', 'municipio_id', 'centro_ss_id', 'subprograma', 'profesional_referencia_puesto', 'profesional_referencia_id', 'descripcion_situacion', 'sexos_menores', 'fecha_no_aceptacion', 'causa_no_aceptacion', 'campos_derivacion', 'episodios', 'familia', 'menores'];
 export function episodio(): Episodio { return { apertura_fecha: '', cierre_fecha: '', motivo_cierre: '', motivo_acta_texto: '', motivo_reapertura: '' }; }

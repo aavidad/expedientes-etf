@@ -7,5 +7,9 @@
   "memoria.consulta_provisional": "Provisional figures",
   "memoria.consulta_definitiva": "Final figures from the closed annual report",
   "memoria.consulta_vacia": "No figures are available for this year and scope.",
-  "memoria.consulta_ayuda": "Choose the year and team, or the province. Provisional figures are calculated when you view them. Final figures come from a closed annual report."
+  "memoria.consulta_ayuda": "Choose the year and team, or the province. Provisional figures are calculated when you view them. Final figures come from a closed annual report.",
+  "estadistica.consulta_oculto": "Hidden",
+  "estadistica.consulta_privacidad": "To protect families, small counts and other figures, totals and percentages that could reveal them are hidden.",
+  "memoria.cifra_oculta": "Hidden",
+  "memoria.privacidad_consulta": "To protect families, counts below {umbral} and other figures, totals, bases and percentages that could reveal them are hidden."
 }

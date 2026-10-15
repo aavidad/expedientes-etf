@@ -45,7 +45,7 @@
   "decision.puesto.ps": "Psicólogo/a",
   "decision.fecha_acta": "Fecha real del Acta de Aceptación",
   "decision.origen_municipio": "Municipio encontrado en el anexo:",
-  "decision.fuera_ambito": "El municipio está fuera del ámbito de {entidad.nombre}. Revisa el equipo y el centro antes de decidir.",
+  "decision.fuera_ambito": "Esta derivación sigue el mismo trámite. Elige el equipo que la atenderá y confirma el centro.",
   "decision.numero_asignado": "Número de expediente asignado:",
   "decision.numero_al_aceptar": "El número de expediente se asignará al aceptar: equipo, correlativo y año del Acta.",
   "decision.menores": "Menores por los que se deriva",

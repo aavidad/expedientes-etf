@@ -17,6 +17,11 @@ const t = clave => { assert(textos[clave], clave); return textos[clave]; };
 
 // Esta política expresa las fronteras del producto; nunca lee regla.Perfiles.
 function perfilesEsperados(p, metodo) {
+  if (['/ayuda', '/api/ayuda/manuales', '/manuales/recursos/{recurso}', '/voz/{grupo}/{recurso}'].includes(p)) return ['administracion', 'coordinacion', 'profesional_etf', 'consulta'];
+  if (p === '/api/carga-2026/plazo') return ['GET','HEAD'].includes(metodo) ? ['administracion','coordinacion','profesional_etf'] : ['administracion'];
+  if (p === '/api/carga-2026/lotes') return ['coordinacion','profesional_etf'];
+  if (p === '/api/carga-2026/lotes/{lote}/anular') return ['coordinacion'];
+  if (['/equipo/anexo6', '/api/anexo6/opciones'].includes(p)) return ['coordinacion', 'profesional_etf'];
   if (['/coordinacion/carga-2026', '/equipo/expedientes/alta-historica'].includes(p)) return ['coordinacion', 'profesional_etf'];
   if (p.startsWith('/admin/') || p.startsWith('/api/admin/')) return ['administracion'];
   if (['/api/conservacion/pendientes', '/api/conservacion/{id}/proponer', '/api/conservacion/{id}/anonimizar'].includes(p)) return ['administracion'];
@@ -39,7 +44,7 @@ function perfilesEsperados(p, metodo) {
   if (p === '/api/equipos/{equipo}/avisos/recuento') return ['coordinacion', 'profesional_etf'];
   if (p.startsWith('/api/expedientes/')) return ['GET', 'HEAD'].includes(metodo) ? ['coordinacion', 'profesional_etf'] : ['profesional_etf'];
   if (['/api/consulta/memoria/{anio}', '/api/consulta/memoria/{anio}/word'].includes(p)) return ['consulta'];
-  if (['/api/memoria/{anio}', '/api/memoria/{anio}/cifras/{apartado}'].includes(p)) return ['coordinacion', 'profesional_etf'];
+  if (['/memoria/desglose', '/api/memoria/{anio}/desglose/{apartado}', '/api/memoria/{anio}', '/api/memoria/{anio}/cifras/{apartado}'].includes(p)) return ['coordinacion', 'profesional_etf'];
   if (['/memoria', '/api/estadistica/memoria', '/api/estadistica/memoria/equipos'].includes(p)) return ['coordinacion', 'profesional_etf', 'consulta'];
   if (['/api/estadistica/memoria/reabrir', '/api/estadistica/memoria/discrepancias'].includes(p)) return ['coordinacion'];
   if (['/api/estadistica/memoria/estado', '/api/estadistica/memoria/cerrar', '/api/estadistica/memoria/instantanea'].includes(p)) return ['coordinacion', 'profesional_etf'];
@@ -57,11 +62,12 @@ function camino(p) {
   if (p.startsWith('/api/documentos/')) id = f.emision;
   if (p.startsWith('/api/comisiones/')) id = f.comision;
   if (p.startsWith('/api/informes/')) id = f.informe;
-  const valores = { id, lote: randomUUID(), etf: f.equipo, equipo: f.equipo, anio: '2026', apartado: '1', mes: '10.docx', ambito: 'asignacion_municipios', codigo: 'es', idioma: 'es', nombre: 'expedientes-etf', tipo: 'idioma', ticket: randomUUID(), 'recurso...': 'no-existe.css', '$': '' };
+  const valores = { grupo: 'ayuda', recurso: 'manifiesto.json', id, cambio: randomUUID(), lote: randomUUID(), etf: f.equipo, equipo: f.equipo, anio: '2026', apartado: '1', mes: '10.docx', ambito: 'asignacion_municipios', codigo: 'es', idioma: 'es', nombre: 'expedientes-etf', tipo: 'idioma', ticket: randomUUID(), 'recurso...': 'no-existe.css', '$': '' };
   let ruta = p.replace(/\{([^}]+)\}/g, (_, k) => { assert(k in valores, k); return valores[k]; });
   if (p.startsWith('/api/expedientes/') && p.endsWith('/historia')) ruta += '?corte=2026-10-14' + (p.includes('/familia/') ? '&anio=2026' : '');
   if (p.startsWith('/api/consulta/memoria/')) ruta += `?equipo=${f.equipo}`;
   if (p.startsWith('/api/memoria/')) ruta += `?etf=${f.equipo}`;
+  if (p === '/api/memoria/{anio}/desglose/{apartado}') ruta += '&celda=-1&medida=familias';
   if (p === '/api/carga-2026/opciones') ruta += '?idioma=es';
   if (p === '/api/seguimiento/opciones') ruta += '?idioma=es';
   if (p === '/api/coordinacion/anexos/etiquetas') ruta += '?idioma=es';
@@ -82,7 +88,18 @@ async function pagina(cuenta, width = 1024) {
   await contexto.route('**/*', ruta => new URL(ruta.request().url()).origin === base ? ruta.continue() : ruta.abort());
   const page = await contexto.newPage(); page.setDefaultTimeout(15000);
   page.on('pageerror', e => errores.push(e.message));
+  let peticionesLimitadas = false;
+  page.on('response', respuesta => { if (respuesta.status() === 429) peticionesLimitadas = true; });
   await page.goto(base + '/entrar');
+  try {
+    await page.locator('#cuenta-ad').waitFor();
+  } catch (error) {
+    if (!peticionesLimitadas) throw error;
+    console.log('Matriz INT5: espera antes de cargar el acceso por límite de peticiones.');
+    await new Promise(resolve => setTimeout(resolve, 60000));
+    await page.goto(base + '/entrar');
+    await page.locator('#cuenta-ad').waitFor();
+  }
   if (cuenta) {
     await page.locator('#cuenta-ad').fill(cuenta);
     await page.locator('#contrasena-ad').fill(claves[cuenta]);
@@ -234,13 +251,23 @@ try {
         assert.equal(respuesta.estado, 200, `${etiqueta}: ${respuesta.contenido}`);
         if (metodo === 'GET' && p.includes('/{id}')) assert.equal(respuesta.json.id, f.expediente);
       }
-      if (p === '/api/sesion' && metodo === 'POST') {
+      if (p === '/api/sesion' && metodo === 'PUT') {
+        assert.equal(respuesta.estado, cuenta ? 200 : 401, etiqueta);
+        if (!cuenta) assert.equal(respuesta.json.error.clave, 'identidad.sesion_no_valida', etiqueta);
+        else assert(['activo', 'pendiente_alta'].includes(respuesta.json.estado), etiqueta);
+      } else if (p === '/api/sesion' && metodo === 'POST') {
         assert.equal(respuesta.estado, 401, etiqueta);
         assert.equal(respuesta.json.error.clave, 'identidad.credenciales_invalidas', etiqueta);
       } else if (!permitido) {
         assert.equal(respuesta.estado, cuenta ? 403 : 401, `${etiqueta}: ${respuesta.contenido}`);
         if (metodo !== 'HEAD') assert.equal(respuesta.json.error.clave, cuenta ? 'identidad.acceso_denegado' : 'identidad.sesion_no_valida', etiqueta);
 
+      } else if (p === '/api/ayuda/manuales') {
+        assert.equal(respuesta.estado, 200, etiqueta);
+        if (metodo === 'GET') {
+          const esperado = { administracion: ['administracion'], coordinacion: ['coordinacion'], profesional_etf: ['profesionales'], consulta: [] };
+          assert.deepEqual(respuesta.json.map(manual => manual.nombre), esperado[perfil], etiqueta);
+        }
       } else if (perfil === 'consulta' && p.startsWith('/api/consulta/memoria/')) {
         assert.equal(respuesta.estado, 200, `${etiqueta}: ${respuesta.contenido}`);
         if (p === '/api/consulta/memoria/{anio}' && metodo === 'GET') {
@@ -294,6 +321,12 @@ try {
       } else if (perfil === 'profesional_etf' && (p === '/api/estadistica/memoria' || p.startsWith('/api/estadistica/memoria/'))) {
         assert.equal(respuesta.estado, 403, `${etiqueta}: ${respuesta.contenido}`);
         if (metodo !== 'HEAD') assert.equal(respuesta.json.error.clave, 'estadistica.memoria_acceso_denegado', etiqueta);
+      } else if (p === '/api/carga-2026/plazo' && ['GET','HEAD'].includes(metodo)) {
+        assert.equal(respuesta.estado,200,etiqueta);
+        if(metodo==='GET') assert.deepEqual(Object.keys(respuesta.json).sort(),['abierta','dias_duplicados','fecha_cierre','version']);
+      } else if (p === '/api/carga-2026/lotes' && ['GET','HEAD'].includes(metodo)) {
+        assert.equal(respuesta.estado,200,etiqueta);
+        if(metodo==='GET') { assert(Array.isArray(respuesta.json)); if(perfil==='profesional_etf') assert(respuesta.json.every(lote=>lote.equipo_id!==f.equipo),etiqueta); }
       } else if (perfil === 'profesional_etf' && (p.startsWith('/api/expedientes/') && p !== '/api/expedientes/historicos' || p.startsWith('/api/equipos/') || p === '/api/documentos/emisiones' || p.startsWith('/api/carga-2026'))) {
         // Hoja y actas validan el cuerpo: sin equipo ni fichero no leen datos.
         const validos = p.startsWith('/api/carga-2026/hoja') || p.startsWith('/api/carga-2026/actas/leer/') ? [400, 403, 404] : [403, 404];

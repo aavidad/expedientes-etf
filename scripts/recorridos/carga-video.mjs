@@ -48,6 +48,8 @@ export async function grabarCarga(opciones) {
   const confirmar = async manual => {
     const ruta = `/api/carga-2026/${manual ? '' : 'hoja/'}${informe.lote_id}/confirmar`;
     const respuesta = s.respuesta(ruta); const registro = { ruta, confirmado: false }; estado.escrituras.push(registro);
+    const casilla = page.locator('#carga-confirmar-duplicados');
+    if (await casilla.count() && !await casilla.isChecked()) { await apuntar(casilla); await casilla.check(); }
     await pulsar(boton(manual ? 'carga.confirmar_expediente' : 'carga.confirmar_lote'));
     const r = await respuesta; assert.equal(r.status(), 200); registro.confirmado = true; registro.clave_idempotencia = r.request().headers()['idempotency-key']; assert(registro.clave_idempotencia);
     const datos = manual ? await r.json() : await reciboHoja(r); assert.equal(datos.expedientes.length, manual ? 1 : 3); assert.equal(datos.marca, 'expediente.cargado_para_revision');
@@ -119,8 +121,9 @@ export async function grabarCarga(opciones) {
         if (i < 2) assert.equal(ficha.numero, numeros[i + 1]);
       }
     }, async () => {
-      const respuesta = s.respuesta(`/api/expedientes/${recibo.expedientes[0]}`, 'GET');
-      await pulsar(page.getByRole('button', { name: t('carga.revisar_guardado').replace('{cantidad}', '1'), exact: true })); assert.equal((await respuesta).status(), 200);
+      const sinNumero = estado.filas.findIndex(f => !f.numero); assert(sinNumero >= 0);
+      const respuesta = s.respuesta(`/api/expedientes/${recibo.expedientes[sinNumero]}`, 'GET');
+      await pulsar(page.getByRole('button', { name: t('carga.revisar_guardado').replace('{cantidad}', String(sinNumero + 1)), exact: true })); assert.equal((await respuesta).status(), 200);
       await page.locator('#carga-consulta').waitFor(); await apuntar(page.locator('section[aria-labelledby="carga-consulta"]'));
     }]);
     estado.pasos = referencias.length; await s.terminar();

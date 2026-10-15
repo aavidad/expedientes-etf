@@ -1,0 +1,48 @@
+instrucciones: Responde a todas las preguntas y pulsa «Comprobar». Puedes repetir
+  la actividad y revisar las soluciones.
+msgCheck: Comprobar
+msgReset: Repetir
+msgShowAnswers: Mostrar respuestas
+msgScore: Puntuación
+msgResult: Resultado
+msgTestResultPass: Has superado la autoevaluación.
+msgTestResultNotPass: Revisa las explicaciones y vuelve a intentarlo.
+msgTrue: Verdadero
+msgFalse: Falso
+msgOk: Correcto
+msgKO: Incorrecto
+msgHide: Ocultar
+msgSuggestion: Orientación
+msgSingleSelectionHelp: Elige una respuesta.
+msgMultipleSelectionHelp: Elige las respuestas correctas.
+msgTrueFalseHelp: Indica si la afirmación es verdadera o falsa.
+msgFillHelp: Completa los huecos.
+msgDropdownHelp: Elige la respuesta de la lista.
+msgSaveScore: Guardar puntuación
+msgTime: Tiempo por pregunta
+msgPlayStart: Empezar
+msgSuccessfulActivity: 'Actividad superada. Puntuación: %s'
+msgUnsuccessfulActivity: 'Actividad pendiente de repaso. Puntuación: %s'
+msgUncompletedActivity: Actividad incompleta
+msgActityComply: Ya has realizado esta actividad.
+msgPlaySeveralTimes: Puedes repetir esta actividad.
+msgScoreScorm: La puntuación se guarda cuando haces esta actividad en una plataforma
+  de formación.
+msgYouScore: Tu puntuación es
+msgWeight: Peso
+msgYouLastScore: Última puntuación guardada
+msgOnlySaveScore: Sólo puedes guardar la puntuación una vez.
+msgOnlySave: Sólo puedes guardar una vez.
+msgOnlySaveAuto: La puntuación se guarda al comprobar las respuestas.
+msgSaveAuto: La puntuación se guarda al comprobar las respuestas.
+msgSeveralScore: Puedes guardar la puntuación de cada intento.
+msgTypeGame: Autoevaluación
+msgStartGame: Empezar
+objetivos: Qué vas a aprender
+entrada_modulo: Selecciona una página de este módulo en el índice del curso.
+modulo_pendiente: 'Pendiente: se incorporan las fuentes de {ruta}.'
+video_scorm: Este vídeo está disponible en la edición web del curso.
+enunciado_huecos: Completa los huecos.
+pie: © 2026 {autor} · Contenido con licencia <a href="{licencia_url}">CC BY-SA 4.0</a>
+  · La aplicación <a href="{aplicacion_url}">Expedientes ETF</a> es software libre
+  (<a href="{aplicacion_licencia_url}">EUPL-1.2</a>)

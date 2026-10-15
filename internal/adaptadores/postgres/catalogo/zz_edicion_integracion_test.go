@@ -337,6 +337,7 @@ func TestIntegracionEdicionAtomicaHistoriaYCarrera(t *testing.T) {
 	if roto, err := a.Verificar(ctx, plataforma.Identidad{UsuarioID: actorID, Perfiles: actor.Perfiles}, 1, math.MaxInt64); err != nil || roto != nil {
 		t.Fatal("cadena inválida")
 	}
+	probarUbicaciones(t, b, ctx, editor, publicacion)
 	t.Log("EDICION-OK opciones, plazos, tramos, firmantes y destinatarios; historia y textos inmutables; auditoría fallida revierte datos y referencias")
 	t.Log("CARRERA-OK PostgreSQL: catálogo y referencias, un éxito y un conflicto con versión actual")
 }

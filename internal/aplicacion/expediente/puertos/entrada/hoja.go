@@ -6,9 +6,10 @@ import (
 )
 
 type SubidaHoja struct {
-	EquipoID  string
-	Formato   string
-	Contenido []byte
+	ConfirmarDuplicados bool
+	EquipoID            string
+	Formato             string
+	Contenido           []byte
 }
 
 type InformeHoja = d.InformeHoja

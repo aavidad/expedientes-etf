@@ -17,7 +17,7 @@ test('todas las variables CSS usadas existen en el tema', () => {
 });
 
 test('los textos propios de pantalla salen del idioma', () => {
-  for (const fichero of ['main.tsx', 'sesion.tsx', 'usuarios.tsx', 'armazon.tsx', 'cambios.tsx', 'administracion.tsx', 'catalogo/administracion.tsx', 'AdministracionPaquetes.tsx', 'smi.tsx', 'actividad/Actividad.tsx']) {
+  for (const fichero of ['main.tsx', 'sesion.tsx', 'usuarios.tsx', 'usuarios/pantalla.tsx', 'armazon.tsx', 'cambios.tsx', 'administracion.tsx', 'catalogo/administracion.tsx', 'AdministracionPaquetes.tsx', 'smi.tsx', 'actividad/Actividad.tsx']) {
     const fuente = leer(`../src/${fichero}`);
     const archivo = ts.createSourceFile('main.tsx', fuente, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
     const revisar = (nodo) => {

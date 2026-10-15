@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useButton } from 'react-aria';
+import { AvisoSesion } from './seg1/sesion';
 import { Armazon, type Acceso } from './armazon';
 import { useCambios } from './cambios';
 import { menuPermitido, pantallaPermitida, type Pantalla } from './registro-pantallas';
@@ -23,7 +24,7 @@ function ajustarRuta(acceso: Acceso, pantallas: readonly Pantalla[]) {
 export function PantallaSesion({ t, idioma, preferencias, avisos, alActivar, pantallas }: {
   t: Textos; idioma: string; preferencias: ReactNode; avisos: ReactNode; alActivar: () => void; pantallas: readonly Pantalla[];
 }) {
-  const { solicitarSalida, sucio } = useCambios();
+  const { solicitarSalida, sucio, olvidarCambios } = useCambios();
   const [acceso, ponerAcceso] = useState<Acceso>();
   const [rutaActual, ponerRuta] = useState(location.pathname + location.search);
   const [cuenta, ponerCuenta] = useState('');
@@ -42,7 +43,7 @@ export function PantallaSesion({ t, idioma, preferencias, avisos, alActivar, pan
 
   useEffect(() => {
     const abort = new AbortController(); controlador.current = abort;
-    ponerOcupado(true); ponerError('');
+    ponerOcupado(true); ponerError(new URLSearchParams(location.search).has('caducada') ? 'seg1.sesion_caducada' : '');
     void consultar(abort.signal).catch(async (fallo: unknown) => {
       if (fallo instanceof FalloSesion && ['identidad.sesion_no_valida', 'identidad.usuario_no_disponible'].includes(fallo.message)) {
         ponerError(fallo.message); return consultar(abort.signal);
@@ -120,6 +121,11 @@ export function PantallaSesion({ t, idioma, preferencias, avisos, alActivar, pan
   const Componente = pantalla?.componente;
   return <Armazon t={t} acceso={acceso} preferencias={preferencias} salir={() => solicitarSalida(() => { void cambiar('DELETE'); })} ocupado={ocupado} ruta={pathname} navegar={navegar}>
     {avisos}
+    <AvisoSesion t={t} csrf={acceso?.csrf ?? ''} activa={!!acceso && acceso.estado !== 'sin_sesion'} alCaducar={() => {
+      olvidarCambios(); ponerAcceso(undefined);
+      history.replaceState(history.state, '', '/entrar?caducada=1'); ponerRuta('/entrar?caducada=1');
+      reintentar((valor) => valor + 1);
+    }} />
     {error && <p id="error-sesion" role="alert">{t(error) || t('identidad.persistencia_no_disponible')}</p>}
     {pantalla && acceso && Componente ? <Componente key={pantalla.conservarAlNavegar ? undefined : rutaActual} t={t} idioma={idioma} csrf={acceso.csrf} actualizar={() => { void actualizar(); }} alActivar={alActivar} navegarRuta={navegar} />
       : <section className="sesion" aria-labelledby="titulo-sesion" aria-busy={ocupado}>

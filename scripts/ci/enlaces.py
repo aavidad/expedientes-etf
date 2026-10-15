@@ -92,6 +92,12 @@ def comprobar(raiz, documentos):
             locales += 1
             ruta = unquote(url.path)
             ruta = re.sub(r"\\([() ])", r"\1", ruta)
+            # El constructor incorpora estos vídeos desde ETF_CURSO_VIDEOS.
+            # No viven en Git; make curso comprueba su existencia al exportar.
+            if (documento.is_relative_to(raiz / 'curso/contenido')
+                    and re.fullmatch(r'videos/\d{2}-[\w.-]+\.mp4', ruta)
+                    and not url.query and not url.fragment):
+                continue
             archivo = ((raiz / ruta.lstrip("/")) if ruta.startswith("/")
                        else (documento.parent / ruta if ruta else documento)).resolve()
             if not archivo.is_relative_to(raiz):

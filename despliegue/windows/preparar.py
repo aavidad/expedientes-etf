@@ -34,10 +34,13 @@ if accion == "preparar":
         "http://127.0.0.1:18083", "http://127.0.0.1:" + demo.PUERTO).replace(
         "http://localhost:18083", "http://localhost:" + demo.PUERTO), 0o644)
     Path("/datos/nginx").chmod(0o755)
-    # Se añaden nuevas versiones sin reemplazar archivos publicados.
-    from archivos import incorporar
+    # La base de la distribución se sustituye; lo publicado y lo cambiado a
+    # mano se conservan. Si los textos no cargan, actualizar no arranca la app.
+    from archivos import incorporar, validar_textos
+    inventario = json.loads(Path("/opt/etf/inventario.json").read_text(encoding="utf-8"))
     for nombre in ("idiomas", "temas"):
-        incorporar(demo.RAIZ / nombre, Path("/datos") / nombre, 10001, 10001)
+        incorporar(demo.RAIZ / nombre, Path("/datos") / nombre, 10001, 10001, inventario)
+    validar_textos(Path("/datos/idiomas"))
     print((demo.LOCAL / "usuarios.json").read_text())
 elif accion == "sembrar":
     ejecutar_original = demo.ejecutar

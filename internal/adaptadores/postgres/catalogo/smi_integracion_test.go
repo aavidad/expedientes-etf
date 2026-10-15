@@ -22,6 +22,9 @@ func TestIntegracionSMIPermisosVersionYAuditoria(t *testing.T) {
 	if err != nil || len(filas) != 15 || filas[0].Anio != 2026 || filas[14].Anio != 2040 {
 		t.Fatalf("filas iniciales: cantidad=%d error=%v", len(filas), err)
 	}
+	if filas[0].ImporteMensual != "1221.00" || filas[0].ImporteAnual != "17094.00" {
+		t.Fatalf("D8 SMI inicial 2026: %+v", filas[0])
+	}
 	cambio := dominio.CambioSMI{Anio: 2028, ImporteMensualCentimos: 123456, VersionEsperada: 0}
 	guardada, err := servicio.Guardar(ctx, coordinacion, cambio)
 	if err != nil || guardada.Version != 1 || guardada.ImporteMensual != "1234.56" || guardada.ImporteAnual != "17283.84" {

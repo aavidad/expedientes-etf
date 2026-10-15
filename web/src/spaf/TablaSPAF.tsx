@@ -12,7 +12,7 @@ function Boton({ children, accion, ocupado = false, principal = false }: { child
   return <button {...buttonProps} ref={ref} className={principal ? undefined : 'boton-secundario'}>{children}</button>;
 }
 const columnas = ['numero', 'menores', 'numero_menores', 'guardadores', 'municipio_zts', 'caracteristicas', 'derivacion', 'servicio', 'fechas', 'fase', 'temporalizacion', 'finalidad_pronostico', 'instrumentos', 'cierres'] as const;
-const avisosPermitidos = ['estadistica.spaf_ficha_sin_dato', 'estadistica.spaf_menores_sin_dato', 'estadistica.aceptacion_sin_dato', 'estadistica.spaf_zts_pendiente', 'estadistica.spaf_motivo_sin_equivalencia', 'estadistica.spaf_derivacion_ambigua'];
+const avisosPermitidos = ['estadistica.spaf_ficha_sin_dato', 'estadistica.spaf_menores_sin_dato', 'estadistica.aceptacion_sin_dato', 'estadistica.spaf_motivo_sin_equivalencia', 'estadistica.spaf_derivacion_ambigua'];
 
 export function TablaSPAF({ t, idioma, csrf }: PropsPantalla) {
   const [mes, ponerMes] = useState(() => new URLSearchParams(location.search).get('mes') || mesAnterior());
@@ -123,7 +123,7 @@ export function TablaSPAF({ t, idioma, csrf }: PropsPantalla) {
       presentar(f.menores, v => v?.length ? v.map(m => `${iniciales(`${m.nombre} ${m.apellidos}`)} · ${m.nacimiento.Conocido ? fecha(m.nacimiento.Valor) : t('spaf.sin_dato')}`).join('; ') : t('spaf.ninguno')),
       presentar(f.numero_menores, numero),
       guardadores(f),
-      <>{presentar(f.municipio, v => etiqueta('municipio', v))}<br />{presentar(f.zts, v => v || t('spaf.sin_dato'))}</>,
+      presentar(f.municipio, v => etiqueta('municipio', v)),
       lista(f.caracteristicas_familia, 'caracteristica_familia'),
       presentar(f.derivacion, v => `${formato('spaf.anexo', { n: v.anexo })} · ${fecha(v.fecha)}`),
       <>{presentar(f.servicio_derivante, v => etiqueta('servicio_derivante', v))}<br />{presentar(f.coordinador_caso, iniciales)}</>,

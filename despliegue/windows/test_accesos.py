@@ -109,5 +109,95 @@ if (-not (Test-Path (Join-Path $cache 'abrir.ps1')) -or (Test-Path (Join-Path $c
 """)
 
 
+    PODMAN_SIMULADO = """
+$script:Maquina = 'podman-machine-default'
+$motor = Join-Path $Raiz 'podman'
+New-Item -ItemType Directory $motor | Out-Null
+$script:Ejecutable = Join-Path $motor 'podman.exe'
+[IO.File]::WriteAllText((Join-Path $motor 'win-sshproxy.exe'), 'simulado')
+$identidad = Join-Path $Raiz 'machine'
+[IO.File]::WriteAllText($identidad, 'clave simulada')
+$env:XDG_DATA_HOME = Join-Path $Raiz 'datos'
+$conexion = [pscustomobject]@{Name='podman-machine-default-root'; URI='ssh://root@127.0.0.1:49708/run/podman/podman.sock'; Identity=$identidad; Default=$true}
+$script:ordenes = [Collections.Generic.List[string]]::new()
+$script:proxy = $null
+$script:mensajes = [Collections.Generic.List[string]]::new()
+function Ejecutar-Motor {
+    param([string[]]$Argumentos, [string]$Entrada = '')
+    $script:ordenes.Add($Argumentos -join ' ')
+    if ($Argumentos[1] -eq 'inspect') { return '[{"Name":"podman-machine-default","ConnectionInfo":{"PodmanPipe":{"Path":"\\\\\\\\.\\\\pipe\\\\podman-machine-default"}}}]' }
+    return ''
+}
+function Lanzar-Proxy([string]$Ejecutable, [string[]]$Argumentos) { $script:proxy = @($Ejecutable) + $Argumentos }
+function Start-Sleep { [CmdletBinding()] param([int]$Seconds) }
+function Write-Host { param($Object) $script:mensajes.Add([string]$Object) }
+"""
+
+    def test_tuberia_presente_no_reinicia(self):
+        self.ejecutar(self.PODMAN_SIMULADO + """
+function Probar-Tuberia([string]$Ruta) { if ($Ruta -ne '\\\\.\\pipe\\podman-machine-default') { throw ('Tubería inesperada ' + $Ruta) }; return $true }
+Asegurar-TuberiaPodman $conexion
+if (($script:ordenes -join ';') -ne 'machine inspect podman-machine-default' -or $script:proxy) { throw ('Reinicia sin necesidad: ' + ($script:ordenes -join ';')) }
+""")
+
+    def test_tuberia_ausente_reintenta_y_lanza_proxy(self):
+        self.ejecutar(self.PODMAN_SIMULADO + """
+function Probar-Tuberia([string]$Ruta) { return [bool]$script:proxy }
+Asegurar-TuberiaPodman $conexion
+$esperadas = 'machine inspect podman-machine-default;machine stop podman-machine-default;machine start podman-machine-default'
+if (($script:ordenes -join ';') -ne $esperadas) { throw ('Orden de reintento inesperado: ' + ($script:ordenes -join ';')) }
+if (-not $script:proxy) { throw 'No lanza win-sshproxy' }
+if ((Split-Path -Leaf $script:proxy[0]) -ne 'win-sshproxy.exe') { throw 'Ejecutable de proxy inesperado' }
+$argumentos = $script:proxy[1..5]
+if ($argumentos[0] -ne 'podman-machine-default' -or $argumentos[2] -ne 'npipe:////./pipe/podman-machine-default' -or
+    $argumentos[3] -ne $conexion.URI -or $argumentos[4] -ne $identidad) { throw ('Argumentos del proxy: ' + ($argumentos -join ' ')) }
+if (-not $argumentos[1].StartsWith($env:XDG_DATA_HOME)) { throw 'Directorio de estado fuera de los datos de Podman' }
+if ($script:mensajes -notcontains (Texto 'tuberia_reintento') -or $script:mensajes -notcontains (Texto 'tuberia_proxy')) { throw 'No avisa del reintento' }
+""")
+
+    def test_reintento_basta_sin_proxy(self):
+        self.ejecutar(self.PODMAN_SIMULADO + """
+function Probar-Tuberia([string]$Ruta) { return ($script:ordenes -contains 'machine start podman-machine-default') }
+Asegurar-TuberiaPodman $conexion
+if ($script:proxy) { throw 'Lanza el proxy aunque el reinicio bastaba' }
+""")
+
+    def test_tuberia_imposible_da_mensaje_claro(self):
+        self.ejecutar(self.PODMAN_SIMULADO + """
+function Probar-Tuberia([string]$Ruta) { return $false }
+$mensaje = $null
+try { Asegurar-TuberiaPodman $conexion } catch { $mensaje = $_.Exception.Message }
+if ($mensaje -ne (Texto 'tuberia') -or -not $mensaje) { throw ('Mensaje inesperado: ' + $mensaje) }
+if (-not $script:proxy) { throw 'No intenta el proxy antes de rendirse' }
+""")
+
+    def test_espera_a_que_el_antivirus_analice(self):
+        self.ejecutar("""
+$script:intentos = 0
+$script:mensajes = [Collections.Generic.List[string]]::new()
+function Componer {
+    param([string[]]$Argumentos, [string]$Entrada = '')
+    if (($Argumentos -join ' ') -ne 'exec -T clamav timeout 20 clamdscan --no-summary -') { throw 'Orden inesperada' }
+    $script:intentos++
+    if ($script:intentos -lt 3) { throw 'clamd todavía carga' }
+    return "stream: OK`n"
+}
+function Start-Sleep { [CmdletBinding()] param([int]$Seconds) }
+function Write-Host { param($Object) $script:mensajes.Add([string]$Object) }
+Esperar-Antivirus
+if ($script:intentos -ne 3) { throw ('Intentos: ' + $script:intentos) }
+if ($script:mensajes -notcontains (Texto 'antivirus_espera')) { throw 'No avisa de la espera' }
+function Componer { param([string[]]$Argumentos, [string]$Entrada = '') return 'stream: ERROR' }
+$mensaje = $null
+try { Esperar-Antivirus -Intentos 4 } catch { $mensaje = $_.Exception.Message }
+if (-not $mensaje -or $mensaje -ne (Texto 'antivirus')) { throw ('Mensaje inesperado: ' + $mensaje) }
+""")
+
+    def test_arrancar_espera_al_antivirus(self):
+        codigo = (RAIZ / "despliegue/windows/comun.ps1").read_text(encoding="utf-8-sig")
+        arranque = codigo[codigo.index("function Arrancar"):]
+        self.assertLess(arranque.index("'clamav', 'ldap', 'app', 'entrada-demo'"), arranque.index("Esperar-Antivirus"))
+        self.assertLess(arranque.index("Esperar-Antivirus"), arranque.index("'herramientas', 'sembrar'"))
+
 if __name__ == "__main__":
     unittest.main()

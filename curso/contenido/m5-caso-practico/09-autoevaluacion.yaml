@@ -1,0 +1,116 @@
+titulo: 'Autoevaluación: el caso práctico completo'
+preguntas:
+- tipo: test
+  enunciado: Después de aceptar el caso Ortega Salcedo, ¿qué número usas en los ejercicios?
+  opciones:
+  - El del vídeo.
+  - El de la pareja anterior.
+  - El que la aplicación acaba de asignar a tu aceptación.
+  - Un correlativo reservado a mano.
+  correcta: 2
+  explicacion: Cada pareja obtiene su propio correlativo y continúa con ese número. Los totales incluyen
+    más prácticas (ejercicios y soluciones, apartado 1).
+- tipo: vf
+  enunciado: Crear la derivación el 14 de octubre ya la deja aceptada.
+  correcta: false
+  explicacion: Crear la deja recibida sin número de aceptación. Debes revisar y confirmar la aceptación
+    con su fecha (soluciones, apartado 1).
+- tipo: huecos
+  enunciado: Completa los datos que debes conservar al revisar el caso.
+  texto: La familia tiene {seis} menores y sus datos comprobados tienen vigencia desde {15/10/2026}.
+  explicacion: La práctica conserva las seis personas de la tabla y la vigencia prevista para familia,
+    menores e intervención (ejercicios y soluciones, apartado 2).
+- tipo: test
+  enunciado: No conoces los ingresos de la familia. ¿Qué respuesta es correcta?
+  opciones:
+  - Introducir cero.
+  - Conservar el dato sin indicar y señalar dónde comprobarlo.
+  - Elegir un tramo al azar.
+  - Copiar los de otra familia.
+  correcta: 1
+  explicacion: Un desconocido no equivale a cero ni a una ausencia confirmada. Los avisos continúan hasta
+    comprobar el dato (soluciones, apartado 2).
+- tipo: test
+  enunciado: Dejas las escalas sin anotar en la práctica. ¿Qué puedes hacer?
+  opciones:
+  - Descargar el Anexo 11, cerrar y preparar la Memoria.
+  - Cerrar sólo si inventas puntuaciones.
+  - Únicamente descargar el consentimiento.
+  correcta: 0
+  explicacion: Las escalas son opcionales. El Word conserva las casillas sin resultados vacías y editables.
+- tipo: vf
+  enunciado: La comisión del 22 de octubre y el informe del 24 quedan vinculados individualmente a este
+    expediente.
+  correcta: false
+  explicacion: Son actividad del ETF 02 y no guardan un vínculo individual con la familia (soluciones,
+    apartado 4).
+- tipo: test
+  enunciado: El 24 de octubre simulado consultas SPAF de septiembre. ¿Debe aparecer tu caso?
+  opciones:
+  - No, porque su aceptación pertenece a octubre.
+  - Sí, por haber registrado una comisión.
+  - Sí, porque tiene seis menores.
+  - Sólo después de descargar el Word.
+  correcta: 0
+  explicacion: Septiembre es un mes terminado anterior a la aceptación. Octubre se revisa al avanzar a
+    noviembre (soluciones, apartado 4).
+- tipo: test
+  enunciado: El 1 de noviembre revisas octubre tras el cierre del día 31. ¿Qué aporta tu caso?
+  opciones:
+  - Dos casos, porque tiene alta y baja.
+  - Sólo una baja.
+  - Una alta, una baja y un caso.
+  - Ningún movimiento, porque ya está cerrado.
+  correcta: 2
+  explicacion: El mismo número tiene alta y baja dentro de octubre, pero representa un único caso (soluciones,
+    apartado 5).
+- tipo: vf
+  enunciado: Cerrar las Memorias del equipo y provincial prueba que el Programa ha validado todos los
+    cálculos y pendientes.
+  correcta: false
+  explicacion: El cierre conserva cifras y textos por año y ámbito. La práctica no acredita que estén
+    resueltos los pendientes ni validado el cálculo (soluciones, apartado 6).
+- tipo: test
+  enunciado: Al terminar el ejercicio de acceso de Sergio, ¿qué debes comprobar?
+  opciones:
+  - Que Administración abrió la ficha familiar.
+  - Que el acceso retirado ya no permite abrir la bandeja con una sesión nueva.
+  - Que Sergio mantiene el perfil para la siguiente pareja.
+  - Que se activó una plantilla nueva.
+  correcta: 1
+  explicacion: El ejercicio concede y retira perfil y equipo. Compruebas la retirada con una sesión nueva;
+    sólo consultas las plantillas (soluciones, apartado 7).
+- tipo: test
+  enunciado: Descargas el Anexo 6 del expediente de prácticas. ¿Qué queda pendiente?
+  opciones:
+  - Confirmar el cierre automáticamente.
+  - Completar fuera los apartados 5 a 8, tramitarlo y confirmar por separado el envío real.
+  - Borrar las otras salidas.
+  correcta: 1
+  explicacion: Descargar no envía. El Anexo 6 no cambia el estado ni bloquea el cierre y admite varias
+    salidas.
+- tipo: test
+  enunciado: Elena necesita cambiar sus propios perfiles. ¿Qué hace?
+  opciones:
+  - Se los concede desde Usuarios.
+  - Pide el cambio a otra persona de Administración.
+  - Usa la cuenta de Sergio.
+  correcta: 1
+  explicacion: La aplicación bloquea los cambios propios de perfiles, fechas, equipo y baja.
+- tipo: test
+  enunciado: Inés comprueba el SMI de 2026. ¿Qué importe anual debe encontrar?
+  opciones:
+  - 14.652 € (12 pagas).
+  - 17.094 € (1.221 € × 14).
+  - El ingreso de la familia del ejercicio.
+  correcta: 1
+  explicacion: El SMI anual se calcula con 14 pagas y se usa el del año de la Memoria.
+- tipo: test
+  enunciado: Aparece el aviso de cierre de sesión mientras editas. ¿Qué haces?
+  opciones:
+  - Guardas y continúas si necesitas seguir, sin ampliar el máximo de 8 horas.
+  - Esperas porque no puede caducar mientras editas.
+  - Cierras sin guardar para conservar el formulario.
+  correcta: 0
+  explicacion: El aviso aparece dos minutos antes. La sesión termina por 30 minutos sin actividad o 8
+    horas de duración máxima; lo guardado permanece.

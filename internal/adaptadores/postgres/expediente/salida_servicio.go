@@ -39,7 +39,29 @@ func (r *Repositorio) DatosSalida(ctx context.Context, id string) (d.DatosParaDo
 		return d.DatosParaDocumento{}, err
 	}
 	datos := d.DatosParaDocumento{Derivacion: e}
-	err = tx.QueryRow(ctx, `SELECT to_char(fecha_recepcion AT TIME ZONE 'Europe/Madrid','YYYY-MM-DD') FROM expediente.expediente WHERE id=$1`, id).Scan(&datos.FechaRecepcion) //etf:tecnico
+	var familiaRecogida, adultosRecogidos bool
+	err = tx.QueryRow(ctx, `SELECT to_char(fecha_recepcion AT TIME ZONE 'Europe/Madrid','YYYY-MM-DD'),familia<>'{}'::jsonb,
+ EXISTS(SELECT 1 FROM expediente.adultos_revision a WHERE a.expediente_id=e.id AND a.vigente_desde<=(CURRENT_TIMESTAMP AT TIME ZONE 'Europe/Madrid')::date)
+ FROM expediente.expediente e WHERE id=$1`, id).Scan(&datos.FechaRecepcion, &familiaRecogida, &adultosRecogidos) //etf:tecnico
+	if err != nil {
+		return datos, err
+	}
+	familia, err := r.ObtenerFamilia(ctx, id)
+	if err != nil {
+		return datos, err
+	}
+	menores, err := r.ObtenerMenores(ctx, id)
+	if err != nil {
+		return datos, err
+	}
+	datos.Anexo6 = &d.FichaParaAnexo6{Menores: menores.Menores}
+	if familiaRecogida {
+		datos.Anexo6.Familia = &familia.Familia
+	}
+	if adultosRecogidos {
+		datos.Anexo6.Adultos = &familia.Adultos
+	}
+
 	return datos, err
 }
 
@@ -111,7 +133,7 @@ func (*Repositorio) CrearSalida(ctx context.Context, r d.SalidaServicio, usuario
 	if err != nil {
 		return err
 	}
-	_, err = tx.Exec(ctx, `INSERT INTO expediente.salida_servicio(id,expediente_id,equipo_id,servicio_destino,catalogo_id,motivo,creada_por,creada_en) VALUES($1,$2,$3,$4,$5,$6,$7,$8)`, r.ID, r.ExpedienteID, r.EquipoID, r.Servicio, r.CatalogoID, r.Motivo, usuario, ahora)
+	_, err = tx.Exec(ctx, `INSERT INTO expediente.salida_servicio(id,expediente_id,equipo_id,servicio_destino,catalogo_id,motivo,creada_por,creada_en,servicio_texto) VALUES($1,$2,$3,$4,NULLIF($5,'')::uuid,$6,$7,$8,$9)`, r.ID, r.ExpedienteID, r.EquipoID, r.Servicio, r.CatalogoID, r.Motivo, usuario, ahora, r.ServicioTexto)
 	return err
 }
 
@@ -121,7 +143,7 @@ func (*Repositorio) LeerSalida(ctx context.Context, expedienteID, id string) (d.
 		return d.SalidaServicio{}, err
 	}
 	var r d.SalidaServicio
-	err = tx.QueryRow(ctx, `SELECT id::text,expediente_id::text,equipo_id::text,tipo,servicio_destino,catalogo_id::text,motivo,coalesce(to_char(fecha,'YYYY-MM-DD'),''),estado,version FROM expediente.salida_servicio WHERE id=$1 AND expediente_id=$2`, id, expedienteID).Scan(&r.ID, &r.ExpedienteID, &r.EquipoID, &r.Tipo, &r.Servicio, &r.CatalogoID, &r.Motivo, &r.Fecha, &r.Estado, &r.Version) //etf:tecnico
+	err = tx.QueryRow(ctx, `SELECT id::text,expediente_id::text,equipo_id::text,tipo,servicio_destino,coalesce(catalogo_id::text,''),motivo,coalesce(to_char(fecha,'YYYY-MM-DD'),''),estado,version,servicio_texto FROM expediente.salida_servicio WHERE id=$1 AND expediente_id=$2`, id, expedienteID).Scan(&r.ID, &r.ExpedienteID, &r.EquipoID, &r.Tipo, &r.Servicio, &r.CatalogoID, &r.Motivo, &r.Fecha, &r.Estado, &r.Version, &r.ServicioTexto) //etf:tecnico
 	if errors.Is(err, pgx.ErrNoRows) {
 		return r, d.ErrNoEncontrada
 	}

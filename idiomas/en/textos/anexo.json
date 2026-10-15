@@ -54,7 +54,7 @@
   "anexo.origen_municipio": "Found in the annex address or assessment. ",
   "anexo.origen_asignacion": "Suggested for the municipality. You can choose another.",
   "anexo.obligatorio": "Choose an option before saving.",
-  "anexo.fuera_ambito": "This municipality is outside the Provincial Council’s area. Confirm the centre and team that should handle the referral.",
+  "anexo.fuera_ambito": "This referral follows the same procedure. Choose the team that will handle it and confirm the centre.",
   "anexo.vacio": "Not provided in the annex.",
   "anexo.dudoso": "Review this detail: we could not read it reliably.",
   "anexo.revisado": "Extracted or corrected detail.",

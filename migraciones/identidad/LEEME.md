@@ -129,3 +129,20 @@ Los enganches comunes son `cmd/etf/main.go`,
 `Operaciones` añade la transacción del inicio de sesión. Se fijó
 `playwright-core` 1.58.2 en el manifiesto y el lock de npm. No se hizo push,
 fusión ni despliegue.
+
+
+## SEG4: revisión tras restauración
+
+`0004_revision_restauracion.sql` depende de `0002` y añade la marca persistente y las diferencias de identidad por GUID. El procedimiento de sistemas exporta la referencia vigente antes de borrar la base y activa la revisión tras restaurar, con app y entrada paradas. Las funciones de exportación e inicio no se conceden a `etf_app`; sus tablas tienen RLS forzada y el rol sólo puede leer como Administración vigente en ambas listas. Resolver y confirmar comprueban el perfil y la versión y registran auditoría en la misma transacción. Una revisión nueva anula la anterior y revoca sesiones.
+
+El ensayo real está en `scripts/ensayar-restauracion.py` y la evidencia en [SEG4](../../docs/sistemas/EVIDENCIA.md#seg4-revisión-obligatoria-tras-restauración). Incluye actualización del esquema mediante el migrador, comparación de la copia, RLS, lecturas Go auditadas y Chrome del sistema. La migración está reservada en `ETF_RESERVAS_MIGRACIONES.md` para `seg-restauracion`.
+
+
+Para ensayar sólo las seis pruebas de identidad, sesión, perfiles y auditoría de acceso, manteniendo la instalación limpia y la actualización de todas las migraciones:
+
+```sh
+ETF_FILTRO_IDENTIDAD='^TestIntegracion(Identidad|Sesiones|Entrada|AuditoriaFallida|Perfiles)' \
+  internal/adaptadores/postgres/testdata/ensayar-identidad.sh
+```
+
+El ensayo compila el ejecutor actual; no depende de una imagen antigua de F0.03. El filtro omite las pruebas de Catálogos y Expediente; sin filtro, el script conserva su suite general. La lectura de revisión con su auditoría se comprueba aparte dentro de `scripts/ensayar-restauracion.py`, con una revisión abierta y datos inventados.

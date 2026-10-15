@@ -2,6 +2,8 @@ package http
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/base64"
 	"encoding/json"
 	"io"
 	"log/slog"
@@ -115,5 +117,64 @@ func TestPWARechazaTextosIncompletos(t *testing.T) {
 				t.Fatalf("catálogo incompleto: %d %s", respuesta.Code, respuesta.Body.String())
 			}
 		})
+	}
+}
+
+// Un worker distinto en cada descarga obligaría al navegador a instalarlo de nuevo
+// en cada comprobación de actualización, con su relevo del worker activo.
+func TestPWAWorkerEstableConCSPPorHuella(t *testing.T) {
+	handler := Nuevo(paquetesPWAPrueba{}, os.DirFS("../../../web/public"), "es", "expedientes-etf", nil, slog.New(slog.NewTextHandler(io.Discard, nil)), nil, Opciones{})
+	descargar := func() string {
+		r := httptest.NewRecorder()
+		handler.ServeHTTP(r, httptest.NewRequest(http.MethodGet, "/service-worker.js", nil))
+		if r.Code != http.StatusOK {
+			t.Fatalf("worker: %d", r.Code)
+		}
+		return r.Body.String()
+	}
+	primero := descargar()
+	if descargar() != primero {
+		t.Fatal("el worker cambia entre descargas")
+	}
+	if strings.Contains(primero, "nonce") {
+		t.Fatal("el aviso no debe depender de un nonce")
+	}
+	inicio := strings.Index(primero, "const configuracion = ")
+	fin := strings.Index(primero[inicio:], ";\n")
+	if inicio < 0 || fin < 0 {
+		t.Fatal("configuración no encontrada")
+	}
+	var configuracion struct {
+		Avisos, Politicas map[string]string
+		Predeterminado    string
+	}
+	if err := json.Unmarshal([]byte(primero[inicio+len("const configuracion = "):inicio+fin]), &configuracion); err != nil {
+		t.Fatal(err)
+	}
+	if len(configuracion.Avisos) != 4 || len(configuracion.Politicas) != len(configuracion.Avisos) || configuracion.Predeterminado != "es/expedientes-etf" {
+		t.Fatalf("configuración: %d avisos, %d políticas, %s", len(configuracion.Avisos), len(configuracion.Politicas), configuracion.Predeterminado)
+	}
+	huella := func(texto string) string {
+		suma := sha256.Sum256([]byte(texto))
+		return "'sha256-" + base64.StdEncoding.EncodeToString(suma[:]) + "'"
+	}
+	for clave, aviso := range configuracion.Avisos {
+		estilo, _ := contenidoEtiqueta(aviso, "style")
+		script, _ := contenidoEtiqueta(aviso, "script")
+		politica := configuracion.Politicas[clave]
+		if estilo == "" || script == "" || !strings.Contains(politica, "style-src "+huella(estilo)+";") || !strings.Contains(politica, "script-src "+huella(script)+";") || !strings.HasPrefix(politica, "default-src 'none';") {
+			t.Fatalf("%s: %s", clave, politica)
+		}
+	}
+}
+
+func TestPWAContenidoEtiquetaUnica(t *testing.T) {
+	if contenido, ok := contenidoEtiqueta("<style>a{}</style><script>b()</script>", "script"); !ok || contenido != "b()" {
+		t.Fatal(contenido, ok)
+	}
+	for _, pagina := range []string{"<script>x()</script><SCRIPT>y()</SCRIPT>", "<script>x()", "sin etiquetas"} {
+		if _, ok := contenidoEtiqueta(pagina, "script"); ok {
+			t.Fatal(pagina)
+		}
 	}
 }

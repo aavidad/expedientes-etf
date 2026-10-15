@@ -1,0 +1,11 @@
+/* El texto accesible de los botones no debe ampliar la página en móvil. */
+.nav-button {
+    overflow: hidden;
+}
+
+.etf-voz-pagina, .etf-voz-seccion { margin-block: 1em; }
+.etf-voz-pagina audio, .etf-voz-seccion audio { max-width: 100%; width: 100%; }
+.etf-voz-pagina audio[hidden], .etf-voz-seccion audio[hidden] { display: none; }
+
+.etf-voz-pagina button, .etf-voz-seccion button { min-height: 44px; padding: 0.5em 1em; font: inherit; }
+.etf-voz-pagina button:focus-visible, .etf-voz-seccion button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

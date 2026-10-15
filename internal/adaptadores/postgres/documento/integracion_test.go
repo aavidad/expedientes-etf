@@ -251,8 +251,8 @@ func TestIntegracionEmisionConcurrenteRLSAuditoriaYRegeneracion(t *testing.T) {
 		if j == 1 {
 			esperado = 200
 		}
-		if w.Code != esperado || w.Header().Get("X-Documento-SHA256") != d.Huella(w.Body.Bytes()) || w.Header().Get("X-Emision-ID") == "" || w.Header().Get("X-Plantilla-Version") != "1.1.1" {
-			t.Fatal("POST", w.Code, w.Body.String())
+		if w.Code != esperado || w.Header().Get("X-Documento-SHA256") != d.Huella(w.Body.Bytes()) || w.Header().Get("X-Emision-ID") == "" || w.Header().Get("X-Plantilla-Version") != "1.1.2" {
+			t.Fatal("POST", w.Code, w.Header().Get("X-Plantilla-Version"))
 		}
 		if j == 0 {
 			descarga = append([]byte(nil), w.Body.Bytes()...)

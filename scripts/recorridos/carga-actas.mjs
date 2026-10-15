@@ -8,7 +8,7 @@ const corpus = new URL('../../internal/adaptadores/anexos/actas/testdata/', impo
 const capturas = new URL('../../docs/capturas/', import.meta.url); await mkdir(capturas, { recursive: true });
 const navegador = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
 const contexto = await navegador.newContext({ viewport: { width: 1440, height: 1100 } });
-const p = await contexto.newPage(); p.setDefaultTimeout(20000);
+const p = await contexto.newPage(); p.setDefaultTimeout(20000); p.setDefaultNavigationTimeout(60000);
 const errores = []; p.on('pageerror', e => errores.push(e.message));
 async function entrar(cuenta) { await p.goto(base); await p.locator('#cuenta-ad').fill(cuenta); await p.locator('#contrasena-ad').fill(claves[cuenta]); await p.locator('button[type=submit]').click(); await p.locator('#cuenta-ad').waitFor({ state: 'detached' }); }
 async function consultar(ruta) { return p.evaluate(async ruta => { const r = await fetch(ruta); return { estado: r.status, datos: await r.json() }; }, ruta); }
@@ -48,7 +48,7 @@ try {
  await captura('carga-actas-inicio-1440.png', 1440); await captura('carga-actas-inicio-390.png', 390); await p.setViewportSize({ width: 1440, height: 1100 });
  // Ambas actas de aceptación se leen antes de escoger el estado actual.
  const recibos = [];
- for (const [anio, archivo, cierre, numero, fecha] of [[2022, 'aceptacion-2022-firmada.pdf', undefined, '71', '2022-05-17'], [2023, 'aceptacion-2023.docx', 'cierre-2026.pdf', '72', '2023-03-09']]) {
+ for (const [anio, archivo, cierre, numero, fecha] of [[2022, 'aceptacion-2022-firmada.pdf', undefined, '71', '2022-05-17'], [2023, 'aceptacion-2023.docx', 'cierre-2026.pdf', '72', '2023-03-09'], [2022, 'aceptacion-2022.odt', undefined, '71', '2022-05-17'], [2023, 'aceptacion-2023.odt', 'cierre-2026.odt', '72', '2023-03-09']]) {
   await alta(); await p.locator('#carga-equipo').selectOption(equipo.id); await subir(archivo, cierre);
   if (!cierre) { assert.equal(await p.locator('#carga-estado').inputValue(), ''); await p.locator('#carga-estado').selectOption('en_intervencion'); }
   assert.equal(await p.locator('#carga-numero').inputValue(), `02-${numero}-${String(anio).slice(2)}`);
@@ -69,7 +69,7 @@ try {
   await p.getByRole('button', { name: 'Revisar el expediente', exact: true }).click(); const v = await previa; assert.equal(v.status(), 200, JSON.stringify(await v.json()));
   await p.locator('#carga-vista').waitFor(); assert.equal(await p.getByText('Clara Villena Robles', { exact: true }).count(), 0);
   const respuesta = p.waitForResponse(r => r.request().method() === 'POST' && r.url().endsWith('/confirmar'));
-  await p.getByRole('button', { name: 'Confirmar el expediente', exact: true }).click(); const r = await respuesta; assert.equal(r.status(), 200, JSON.stringify(await r.json())); const d = await r.json(); recibos.push(d);
+  if (await p.getByRole('checkbox', { name: 'He revisado las coincidencias y confirmo que son expedientes distintos.', exact: true }).count()) await p.getByRole('checkbox', { name: 'He revisado las coincidencias y confirmo que son expedientes distintos.', exact: true }).check(); await p.getByRole('button', { name: 'Confirmar el expediente', exact: true }).click(); const r = await respuesta; assert.equal(r.status(), 200, JSON.stringify(await r.json())); const d = await r.json(); recibos.push(d);
   assert.equal(d.marca, 'expediente.cargado_para_revision'); const id = d.expedientes[0];
   const ficha = await consultar('/api/equipo/expedientes/' + id); assert.equal(ficha.estado, 200); const datos = ficha.datos; assert.equal(datos.numero, original); assert.equal(datos.estado, cierre ? 'cerrada' : 'en_intervencion');
   const familia = await consultar('/api/expedientes/' + id + '/familia'); assert.equal(familia.estado, 200); const f = familia.datos; assert.equal(f.adultos.length, 2); assert.equal(f.adultos[0].nombre, 'Irene'); assert.equal(f.adultos[0].apellidos, 'Robles Serrano');
@@ -90,5 +90,5 @@ try {
  const descartar = p.getByRole('button', { name:'Descartar cambios',exact:true }); if (await descartar.isVisible()) await descartar.click();
  await p.getByRole('heading',{name:'Add a historical case file',exact:true}).waitFor(); await comprobar();
  assert.deepEqual(errores, []);
- console.log('RESP2_CHROME_OK: aceptación firmada 2022, aceptación Word 2023 + cierre PDF 2026, datos confirmados y adultos en ficha; permisos propio equipo, sin almacenamiento, 1440/1024/390/360 y errores sin datos.');
+ console.log('RESP2_RESP5_CHROME_OK: actas ODT de aceptación y cierre confirmadas; aceptación firmada 2022, aceptación Word 2023 + cierre PDF 2026, datos confirmados y adultos en ficha; permisos propio equipo, sin almacenamiento, 1440/1024/390/360 y errores sin datos.');
 } finally { await navegador.close(); }

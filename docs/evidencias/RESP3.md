@@ -1,6 +1,6 @@
 # RESP3 · Escalas opcionales
 
-Decisión D17 de Alberto, 14/10/2026. Las escalas son opcionales en sus tres momentos. El Programa puede anotarlas directamente en el Word de los Anexos 11 y 12.
+Decisión D17 del responsable del producto, 14/10/2026. Las escalas son opcionales en sus tres momentos. El Programa puede anotarlas directamente en el Word de los Anexos 11 y 12.
 
 ## Comportamiento
 
@@ -10,7 +10,7 @@ Los Anexos 11/12 es/en v1.0.2 conservan las tablas oficiales. Se elimina la prot
 
 La emisión lee las evaluaciones por el puerto del módulo dentro de su transacción. Copia los resultados y guarda las versiones de aplicaciones y definiciones. No suma respuestas ni aplica baremos. `campo_documento` en una definición inmutable asocia un resultado a una fila de la plantilla; el momento identifica su columna.
 
-Varios sujetos en una casilla: iniciales y resultado de cada sujeto, separados por «; », sin nombres completos ni mezcla de puntuaciones, como decidió Alberto. También se conservan las iniciales de sujetos que ya no figuren en la composición vigente. Un cero anotado se mantiene como cero; una casilla sin anotación sigue vacía.
+Varios sujetos en una casilla: iniciales y resultado de cada sujeto, separados por «; », sin nombres completos ni mezcla de puntuaciones, como decidió el responsable del producto. También se conservan las iniciales de sujetos que ya no figuren en la composición vigente. Un cero anotado se mantiene como cero; una casilla sin anotación sigue vacía.
 
 ## Pruebas
 
@@ -45,6 +45,6 @@ CI mínima completada.
 
 Semgrep se ejecutó localmente con tres ficheros de reglas del repositorio, métricas y comprobación de versión desactivadas, sin token y con comparación contra main. No hubo hallazgos nuevos. La referencia a `net/url` que una regla general señala en el fichero histórico del motor es análisis de direcciones, sin llamadas a la red, y ya existía en main.
 
-Los MCP de índice de código y PostgreSQL no estaban disponibles en esta sesión. Se usaron búsquedas concretas con `rg`, `gopls` en terminal y los ensayos locales de PostgreSQL 18 sobre esquemas clonados y bases limpias; no se accedió a cidonia. No se acredita una revisión completa con lector de pantalla ni conformidad WCAG de toda la aplicación.
+Los MCP de índice de código y PostgreSQL no estaban disponibles en esta sesión. Se usaron búsquedas concretas con `rg`, `gopls` en terminal y los ensayos locales de PostgreSQL 18 sobre esquemas clonados y bases limpias; no se accedió a servidores compartidos. No se acredita una revisión completa con lector de pantalla ni conformidad WCAG de toda la aplicación.
 
 No se añaden pantallas ni rutas: se reutiliza la pestaña Evaluación y el montaje de Documentos. Los cambios de composición se limitan a `cmd/etf/evaluacion.go` y `cmd/etf/documentos.go`. Los textos nuevos y revisados están en datos de idioma.

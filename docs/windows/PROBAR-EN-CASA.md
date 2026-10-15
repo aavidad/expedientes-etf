@@ -4,6 +4,37 @@ Esta guía te ayuda a instalar una demostración en tu PC. Usa sólo datos inven
 Nunca introduzcas datos reales de personas o expedientes, aunque trabajes desde casa.
 No necesitas Docker ni herramientas de programación.
 
+## Novedades de la versión 1.0.2
+
+- Ayuda: el menú tiene un apartado nuevo con el manual de tu perfil, su índice,
+  las capturas y un PDF para imprimir.
+- Escuchar: puedes oír en castellano la ayuda de cada pantalla y los manuales.
+  Las grabaciones vienen dentro del paquete y la aplicación no se conecta a
+  ningún servicio para leerlas.
+- Arranque con Podman: a veces, después de reiniciar Windows, Podman enciende su
+  máquina pero no abre la conexión. El acceso, instalar.cmd y actualizar.cmd lo
+  detectan y lo arreglan solos.
+- Antivirus: la ventana espera a que el antivirus esté listo antes de abrir la
+  aplicación. Así el primer anexo que subas ya se revisa.
+
+La versión 1.0.2 incluye también lo que trajo la 1.0.1:
+
+- Anexo 6: desde la ficha o desde Salidas y cierre puedes preparar la derivación
+  a otro servicio, descargar el Word y anotar después la fecha real de envío.
+- Memoria: al pulsar una cifra ves qué expedientes la forman, con su número,
+  equipo y aportación, sin nombres. Lo usan Coordinación y cada equipo con lo suyo.
+- Consulta: las cifras por debajo de 3 casos aparecen como «Oculto», en pantalla
+  y en Word, para que nadie pueda reconocer a una familia.
+- Sesión: se cierra tras 30 minutos sin actividad. Dos minutos antes aparece un
+  aviso para seguir trabajando. Lo que ya guardaste se conserva.
+- Carga histórica: Administración fija hasta qué día se pueden añadir expedientes
+  antiguos. La aplicación avisa de posibles duplicados y Coordinación puede anular
+  un lote completo dentro del plazo.
+- Restaurar una copia: después de recuperar una copia, Administración revisa
+  cuentas y permisos antes de que nadie vuelva a entrar.
+- Actualizar: actualizar.cmd cambia los textos, plantillas y temas que trae el
+  paquete y conserva los que hayas publicado o cambiado tú.
+
 ## 1. Comprueba tu PC
 
 Necesitas Windows 10 **22H2** o Windows 11 de **64 bits**, una cuenta con permiso
@@ -12,10 +43,10 @@ más margen para usar otros programas. Para comprobar tu versión, abre Inicio,
 escribe `winver` y pulsa Intro. Puedes ver la RAM en Configuración → Sistema → Acerca de.
 
 El instalador exige **15 GiB libres en la unidad de tu perfil**, normalmente C:.
-El ZIP ocupa unos **325 MiB** y la carpeta extraída, **627 MiB**, medidos en esta
+El ZIP ocupa unos **426 MiB** y la carpeta extraída, **741 MiB**, medidos en esta
 entrega. Reserva **17 GiB libres antes de descargar** para mantener los 15 GiB
 que comprueba el instalador después de extraer. La copia privada del paquete
-ocupa otros 627 MiB dentro de esa reserva, además de las imágenes y los datos.
+ocupa otros 741 MiB dentro de esa reserva, además de las imágenes y los datos.
 Las medidas exactas se anotan en la [evidencia de la entrega](../sistemas/WIN1.md#paquete-público).
 Comprueba el espacio desde Explorador → Este equipo → Disco local (C:).
 
@@ -112,14 +143,14 @@ y la [preparación de Compose](https://podman-desktop.io/docs/compose/setting-up
 ## 4. Descarga y comprueba el paquete
 
 1. Abre las [Releases de Expedientes ETF](https://github.com/aavidad/expedientes-etf/releases).
-   En la entrega v1.0.0 descarga **expedientes-etf-windows-v1.0.0.zip** y
-   **expedientes-etf-windows-v1.0.0.zip.sha256**. Guarda ambos en la misma carpeta.
+   En la entrega 1.0.2 descarga **expedientes-etf-windows-1.0.2.zip** y
+   **expedientes-etf-windows-1.0.2.zip.sha256**. Guarda ambos en la misma carpeta.
 2. En el Explorador, abre esa carpeta. Pulsa la barra de dirección, escribe
    `powershell` y pulsa Intro. Copia:
 
    ```powershell
-   Get-FileHash .\expedientes-etf-windows-v1.0.0.zip -Algorithm SHA256
-   Get-Content .\expedientes-etf-windows-v1.0.0.zip.sha256
+   Get-FileHash .\expedientes-etf-windows-1.0.2.zip -Algorithm SHA256
+   Get-Content .\expedientes-etf-windows-1.0.2.zip.sha256
    ```
 
 3. Compara los 64 caracteres de **Hash** con los del archivo `.sha256`.

@@ -100,12 +100,14 @@ func (*Perfiles) Cambiar(ctx context.Context, id string, c dominio.CambioPerfile
 	}
 	p, _ := json.Marshal(perfiles)
 	equipo, _ := json.Marshal(c.Equipo)
-	_, err = e.Exec(ctx, `SELECT identidad.cambiar_perfiles($1,$2,$3,$4,$5)`, id, c.Version, c.Estado, p, equipo)
+	var permitido bool
+	err = e.QueryRow(ctx, `SELECT identidad.cambiar_perfiles($1,$2,$3,$4,$5)`, id, c.Version, c.Estado, p, equipo).Scan(&permitido)
 	if err != nil {
 		return dominio.UsuarioAdministrado{}, errorSQLPerfiles(err)
 	}
-	// La retirada propia ya puede cerrar la política de administración. La fila
-	// propia sigue legible para confirmar el resultado de esa misma operación.
+	if !permitido {
+		return dominio.UsuarioAdministrado{}, dominio.ErrCambioPropioDenegado
+	}
 	usuarios, err := listarAdministrados(ctx, e, id)
 	if err != nil {
 		return dominio.UsuarioAdministrado{}, err

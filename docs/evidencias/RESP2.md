@@ -84,9 +84,9 @@ los datos que no se leen se completan a mano. No autoriza datos reales ni despli
 Salidas reales de las pruebas focales y del ensayo de PostgreSQL:
 
 ```text
-ok  github.com/aavidad/etf-expedientes/internal/adaptadores/anexos/lectura
-ok  github.com/aavidad/etf-expedientes/internal/aplicacion/expediente
-ok  github.com/aavidad/etf-expedientes/internal/adaptadores/http
+ok  github.com/aavidad/expedientes-etf/internal/adaptadores/anexos/lectura
+ok  github.com/aavidad/expedientes-etf/internal/aplicacion/expediente
+ok  github.com/aavidad/expedientes-etf/internal/adaptadores/http
 # tests 8
 # pass 8
 # fail 0

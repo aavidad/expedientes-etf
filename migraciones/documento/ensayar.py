@@ -18,7 +18,7 @@ IMAGEN = 'postgres:18.4-alpine@sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d29
 
 
 sys.path.insert(0, str(RAIZ / 'scripts' / 'ci'))
-from ensayos import orden as ejecutar_orden, esperar_postgres
+from ensayos import orden as ejecutar_orden, esperar_postgres, recortar_dependientes
 
 orden = partial(ejecutar_orden, modulo='documento')
 
@@ -26,7 +26,7 @@ orden = partial(ejecutar_orden, modulo='documento')
 def sembrar_entradas(sql):
     nombres = ['Nerea', 'Álvaro', 'Celia', 'Mateo', 'Irene', 'Hugo', 'Paula', 'Bruno',
                'Aitana', 'Leo', 'Claudia', 'Mario', 'Vera', 'Lucas', 'Eva']
-    sentencias = ["BEGIN;", """INSERT INTO catalogo.firmante(id,version,tipo,rol,nombre,cargo_codigo,organismo_codigo,direccion,vigente_desde,creada_por)
+    sentencias = ["BEGIN;", "SELECT set_config('app.usuario_id','11111111-1111-4111-8111-111111111111',true); SELECT set_config('app.perfiles','coordinacion',true);", """INSERT INTO catalogo.firmante(id,version,tipo,rol,nombre,cargo_codigo,organismo_codigo,direccion,vigente_desde,creada_por)
 VALUES('33333333-3333-4333-8333-333333333334',1,'destinatario','jefe_spm','Clara Serrano Rivas','JEFATURA','SPM','',DATE '2026-01-01','11111111-1111-4111-8111-111111111111');"""]
     for origen in ('anexo3', 'anexo4'):
         for total in (1, 6, 15):
@@ -167,7 +167,7 @@ SELECT documento.guardar_version_plantilla(
     comprobacion = """
 DO $$ BEGIN
  IF (SELECT p.version FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
-     WHERE r.tipo_documento='entrada/aceptacion' AND r.idioma='es') <> '1.1.1'
+     WHERE r.tipo_documento='entrada/aceptacion' AND r.idioma='es') <> '1.1.2'
  OR (SELECT p.version FROM documento.referencia_activa r JOIN documento.plantilla p ON p.id=r.plantilla_id
      WHERE r.tipo_documento='entrada/aceptacion' AND r.idioma='en') <> '1.0.0'
  OR (SELECT version FROM documento.referencia_activa WHERE tipo_documento='entrada/aceptacion' AND idioma='en') <> 3
@@ -179,8 +179,74 @@ DO $$ BEGIN
 END $$;
 ROLLBACK;
 RESET SESSION AUTHORIZATION;"""
-    orden(sql, preparacion + (RAIZ / 'migraciones/documento/0013_plantillas_corregidas.sql').read_text() + comprobacion)
-    print('PLV-UPGRADE-OK: restauración y versión administrativa conservadas', flush=True)
+    orden(sql, preparacion + (RAIZ / 'migraciones/documento/0013_plantillas_corregidas.sql').read_text() + (RAIZ / 'migraciones/documento/0016_respuestas_programa.sql').read_text() + comprobacion)
+    print('PLV-RESP1-UPGRADE-OK: nuevas referencias, restauración y versión administrativa conservadas', flush=True)
+
+
+def ensayar_respuestas_programa(sql):
+    # Datos anteriores a RESP1. El ensayo se revierte antes de continuar la
+    # instalación, por lo que no cambia los permisos ni los datos de otras pruebas.
+    preparacion = """BEGIN;
+INSERT INTO identidad.usuario(id,object_guid_ad,cuenta_ad,nombre_mostrado,estado,primer_acceso_en,ultimo_acceso_en)
+VALUES('99999999-9999-4999-8999-999999999980','99999999-9999-4999-8999-999999999981','andrea.molina','Andrea Molina Serrano','activo',clock_timestamp(),clock_timestamp());
+SELECT set_config('app.usuario_id','99999999-9999-4999-8999-999999999980',true);
+SELECT set_config('app.perfiles','coordinacion',true);
+SELECT catalogo.guardar_smi(2026::smallint,130000::bigint,0);
+SELECT set_config('app.perfiles','administracion',true);
+SELECT documento.guardar_version_plantilla('99999999-9999-4999-8999-999999999982',
+ 'spaf','es','1.0.2','plantillas/spaf/.versiones/99999999-9999-4999-8999-999999999982/v1.0.2.docx',
+ repeat('b',64),(SELECT version FROM documento.referencia_activa WHERE tipo_documento='spaf' AND idioma='es'));
+SELECT documento.activar_version_plantilla('99999999-9999-4999-8999-999999999982',
+ (SELECT version FROM documento.referencia_activa WHERE tipo_documento='spaf' AND idioma='es'));
+SELECT set_config('app.perfiles','coordinacion',true);
+INSERT INTO expediente.expediente(id,fecha_recepcion)
+VALUES('99999999-9999-4999-8999-999999999983',TIMESTAMPTZ '2026-10-01 10:00:00Z'),
+ ('99999999-9999-4999-8999-999999999984',TIMESTAMPTZ '2026-10-01 10:00:00Z');
+INSERT INTO expediente.derivacion_datos(expediente_id,esquema_version,contenido)
+SELECT e.id,'1',jsonb_build_object('contenido',jsonb_build_object('tipo','anexo3','campos','[]'::jsonb),
+ 'ubicacion_confirmada',jsonb_build_object('equipo_id',q.id))
+FROM expediente.expediente e CROSS JOIN catalogo.equipo q
+WHERE e.id IN ('99999999-9999-4999-8999-999999999983','99999999-9999-4999-8999-999999999984') AND q.codigo='01';
+UPDATE expediente.expediente SET estado='lista_espera',fecha_lista_espera=DATE '2026-10-05',version=2,
+ modificado_por='99999999-9999-4999-8999-999999999980',modificado_en=TIMESTAMPTZ '2026-10-05 10:00:00Z'
+WHERE id IN ('99999999-9999-4999-8999-999999999983','99999999-9999-4999-8999-999999999984');
+INSERT INTO expediente.estado_cambio(expediente_id,estado_anterior,estado_nuevo,cambiado_por,cambiado_en)
+SELECT id,'derivacion_recibida','lista_espera','99999999-9999-4999-8999-999999999980',TIMESTAMPTZ '2026-10-05 10:00:00Z'
+FROM expediente.expediente WHERE id IN ('99999999-9999-4999-8999-999999999983','99999999-9999-4999-8999-999999999984');
+UPDATE expediente.expediente SET estado='no_aceptada',fecha_no_aceptacion=DATE '2026-10-10',
+ causa_no_aceptacion='La familia recibe atención de otro recurso.',subprograma='RIESGO_SOCIAL',version=3,
+ modificado_por='99999999-9999-4999-8999-999999999980',modificado_en=TIMESTAMPTZ '2026-10-10 10:00:00Z'
+WHERE id='99999999-9999-4999-8999-999999999984';
+INSERT INTO expediente.estado_cambio(expediente_id,estado_anterior,estado_nuevo,cambiado_por,cambiado_en)
+VALUES('99999999-9999-4999-8999-999999999984','lista_espera','no_aceptada','99999999-9999-4999-8999-999999999980',TIMESTAMPTZ '2026-10-10 10:00:00Z');
+SET SESSION AUTHORIZATION etf_migrador;
+SET LOCAL ROLE etf_propietario;
+"""
+    comprobacion = """
+DO $$ BEGIN
+ IF (SELECT importe_mensual_centimos FROM catalogo.smi WHERE anio=2026)<>130000
+ OR (SELECT version FROM catalogo.smi WHERE anio=2026)<>1
+ OR (SELECT plantilla_id FROM documento.referencia_activa WHERE tipo_documento='spaf' AND idioma='es')<>'99999999-9999-4999-8999-999999999982'::uuid
+ OR (SELECT encode(huella_sha256,'hex') FROM documento.plantilla WHERE id='99999999-9999-4999-8999-999999999982')<>repeat('b',64)
+ OR (SELECT count(*) FROM expediente.espera_memoria WHERE expediente_id IN ('99999999-9999-4999-8999-999999999983','99999999-9999-4999-8999-999999999984') AND desde=DATE '2026-10-05')<>2
+ OR (SELECT hasta FROM expediente.espera_memoria WHERE expediente_id='99999999-9999-4999-8999-999999999984')<>DATE '2026-10-10'
+ OR NOT estadistica.codigo_cifras('poblacion','PE')
+ OR NOT estadistica.codigo_cifras('contrato.denominador','lista_espera_o_aceptados_sin_consentimiento_mas_de_30_dias')
+ OR EXISTS(SELECT 1 FROM pg_policies WHERE policyname='resp1_migrador') THEN
+  RAISE EXCEPTION 'prueba.resp1_actualizacion';
+ END IF;
+END $$;
+EXPLAIN (COSTS OFF) SELECT expediente_id FROM expediente.espera_memoria
+ WHERE equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo='01') AND desde<=DATE '2026-10-11';
+ROLLBACK;
+RESET SESSION AUTHORIZATION;
+"""
+    archivos = ['documento/0013_plantillas_corregidas.sql', 'catalogo/0014_respuestas_programa.sql',
+                'expediente/0027_espera_memoria.sql', 'estadistica/0007_pendientes_lista_espera.sql',
+                'documento/0016_respuestas_programa.sql']
+    cambios = ''.join((RAIZ / 'migraciones' / archivo).read_text() for archivo in archivos)
+    print(orden(sql, preparacion + cambios + comprobacion), flush=True)
+    print('RESP1-UPGRADE-OK: espera previa reconstruida, SMI editado y plantilla administrativa conservados', flush=True)
 
 
 def main():
@@ -221,6 +287,7 @@ def main():
             if entrada['numero'] >= '0023':
                 (previo_plv / 'expediente' / entrada['archivo']).unlink()
         manifest_exp.write_text(json.dumps([e for e in entradas_exp if e['numero'] < '0023']))
+        recortar_dependientes(previo_plv)
         shutil.copytree(RAIZ / 'migraciones', previo,
                         ignore=shutil.ignore_patterns('__pycache__'))
         # Se prueban todas las entregas sobre una base anterior común.
@@ -264,6 +331,7 @@ def main():
             sembrar_catalogo_anexo6(sql)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/pruebas/previo-plv', '/pruebas/migrar']), flush=True)
             ensayar_actualizacion_plv(sql)
+            ensayar_respuestas_programa(sql)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
             print(orden(ejecutar + ['env', 'ETF_MIGRACIONES_RUTA=/repo/migraciones', '/pruebas/migrar']), flush=True)
             print('ENSAYO-OK versión anterior, migración nueva y repetición', flush=True)
@@ -277,7 +345,7 @@ VALUES('33333333-3333-4333-8333-333333333333',1,'firmante','aceptacion','Inés M
             sembrar_entradas(sql)
             print(orden(['docker','exec','--env-file',str(runner),
                          '--user','70:70','--workdir','/repo/internal/adaptadores/postgres/documento',bd,
-                         '/pruebas/documento.test','-test.v','-test.run=TestPlantillasInicialesCorregidasPostgres','-test.timeout=30s']),flush=True)
+                         '/pruebas/documento.test','-test.v','-test.run=TestPlantillasInicialesCorregidasPostgres|TestRESP1ReferenciasNuevasYOriginalesInmutables','-test.timeout=30s']),flush=True)
             from sembrar_cierre import sembrar_cierre
             sembrar_cierre(sql, orden)
             sembrar_consentimientos(sql, orden)

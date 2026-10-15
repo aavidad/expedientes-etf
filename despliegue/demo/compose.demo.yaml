@@ -1,5 +1,24 @@
 # Se utiliza sólo mediante make demo, con secretos y proyecto propios.
 services:
+  incorporar:
+    profiles: [preparacion]
+    build:
+      context: ./despliegue/demo
+      dockerfile: Dockerfile
+      target: incorporar
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [CHOWN, FOWNER, DAC_OVERRIDE]
+    security_opt: [no-new-privileges:true]
+    volumes:
+      - demo_idiomas:/datos/idiomas
+      - demo_temas:/datos/temas
+    tmpfs: [/tmp:size=16m]
+    pids_limit: 32
+    mem_limit: 128m
+    cpus: 0.5
+
   postgres:
     restart: "no"
 

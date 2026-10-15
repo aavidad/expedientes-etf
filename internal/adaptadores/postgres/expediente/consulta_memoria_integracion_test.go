@@ -101,7 +101,7 @@ func TestMemoriaConsultaCalculoFotoRLSYWordSinTextos(t *testing.T) {
 	}
 	fuenteTecnica := app.FuenteMemoria{Expedientes: &exp.LecturaEstadistica{CalculoInterno: true}, Reglas: fuente.Reglas, Equipos: &catalogo.Repositorio{}, Actividad: &actividad.Repositorio{CalculoInterno: true}}
 	ficheros := plantillas.Plantillas{Raiz: "../../../../idiomas", Paquetes: postgres.NuevaPublicacionPaquetes(b)}
-	dep := app.DependenciasConsulta{Cerradas: persistencia, Calculo: app.EjecutorConsulta{Transacciones: tecnico, Fuente: fuenteTecnica}, Word: docApp.WordCifras{Repositorio: documento.Repositorio{}, Idiomas: ficheros, Ficheros: ficheros, Textos: ficheros, Motor: word.Motor{}, Metadatos: reglas.TextosCifras{Raiz: "../../../../idiomas"}}, Transacciones: b, Auditoria: postgres.NuevoRegistroAuditoria(b), Reloj: relojMemoria{}}
+	dep := app.DependenciasConsulta{Reglas: &catalogo.Repositorio{}, Cerradas: persistencia, Calculo: app.EjecutorConsulta{Transacciones: tecnico, Fuente: fuenteTecnica}, Word: docApp.WordCifras{Repositorio: documento.Repositorio{}, Idiomas: ficheros, Ficheros: ficheros, Textos: ficheros, Motor: word.Motor{}, Metadatos: reglas.TextosCifras{Raiz: "../../../../idiomas"}}, Transacciones: b, Auditoria: postgres.NuevoRegistroAuditoria(b), Reloj: relojMemoria{}}
 	svc := app.NuevoConsulta(dep)
 	abierta, err := svc.ConsultarCifras(ctx, consulta, f)
 	if err != nil {
@@ -124,9 +124,13 @@ func TestMemoriaConsultaCalculoFotoRLSYWordSinTextos(t *testing.T) {
 		porCodigo[a.Codigo] = a
 	}
 	for _, a := range abierta.Apartados {
-		esperado := porCodigo[a.Codigo].Total
-		if a.Total.Familias != esperado.Familias || a.Total.Menores != esperado.Menores || a.Total.Comisiones != esperado.Comisiones || a.Total.Informes != esperado.Informes {
-			t.Fatal("motor diferente", a.Codigo)
+		if a.Total.Familias != d.CifraSuprimida || a.Total.Menores != d.CifraSuprimida {
+			t.Fatal("margen de Consulta expuesto", a.Codigo)
+		}
+		for _, c := range a.Celdas {
+			if c.Numerador >= 0 && c.Numerador < abierta.Umbral {
+				t.Fatal("celda pequeña expuesta", a.Codigo)
+			}
 		}
 	}
 	if porCodigo[d.CasosAtendidos].Total.Menores < 2 {

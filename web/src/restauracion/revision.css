@@ -1,0 +1,13 @@
+.revision-cambio {
+  margin-block: var(--espacio-entre-tarjetas);
+  padding: var(--espacio-tarjeta);
+  border: var(--borde-normal) solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--color-superficie);
+  overflow-wrap: anywhere;
+}
+.revision-comparacion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-lateral)), 1fr));
+  gap: var(--espacio-entre-tarjetas);
+}

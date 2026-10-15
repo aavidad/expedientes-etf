@@ -16,6 +16,7 @@ type SalidaServicio struct {
 	EquipoID          string `json:"equipo_id"`
 	Tipo              string `json:"tipo"`
 	Servicio          string `json:"servicio_destino"`
+	ServicioTexto     string `json:"servicio_texto,omitempty"`
 	CatalogoID        string `json:"catalogo_id"`
 	Motivo            string `json:"motivo"`
 	Fecha             string `json:"fecha,omitempty"`
@@ -25,10 +26,11 @@ type SalidaServicio struct {
 }
 
 type NuevaSalidaServicio struct {
-	Tipo     string `json:"tipo"`
-	Version  int    `json:"version"`
-	Servicio string `json:"servicio_destino"`
-	Motivo   string `json:"motivo"`
+	Tipo          string `json:"tipo"`
+	Version       int    `json:"version"`
+	Servicio      string `json:"servicio_destino"`
+	ServicioTexto string `json:"servicio_texto,omitempty"`
+	Motivo        string `json:"motivo"`
 }
 
 type ConfirmarSalidaServicio struct {
@@ -53,7 +55,9 @@ func (a Actor) AutorizarSalida(equipo string) error {
 }
 
 func (p NuevaSalidaServicio) Validar() error {
-	if p.Tipo != "otro_servicio" || p.Version < 1 || !regexp.MustCompile(`^[A-Z][A-Z0-9_]{0,63}$`).MatchString(p.Servicio) || strings.TrimSpace(p.Motivo) == "" || !utf8.ValidString(p.Motivo) || len(p.Motivo) > 20000 {
+	catalogo := regexp.MustCompile(`^[A-Z][A-Z0-9_]{0,63}$`).MatchString(p.Servicio) && p.ServicioTexto == ""
+	escrito := p.Servicio == "" && strings.TrimSpace(p.ServicioTexto) != "" && utf8.ValidString(p.ServicioTexto) && utf8.RuneCountInString(p.ServicioTexto) <= 254 && !strings.ContainsRune(p.ServicioTexto, '\x00')
+	if p.Tipo != "otro_servicio" || p.Version < 1 || !(catalogo || escrito) || strings.TrimSpace(p.Motivo) == "" || !utf8.ValidString(p.Motivo) || len(p.Motivo) > 20000 {
 		return ErrPeticion
 	}
 	return nil

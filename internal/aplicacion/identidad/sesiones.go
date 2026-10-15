@@ -119,7 +119,7 @@ func (s *Servicio) abrir(ctx context.Context, identidad dominio.IdentidadDirecto
 	if err := s.sesiones.Crear(ctx, sesion); err != nil {
 		return entrada.SesionAbierta{}, errorRepositorio(ctx, err)
 	}
-	return entrada.SesionAbierta{Identificador: identificador, Acceso: entrada.Acceso{Usuario: usuario, Estado: estado}}, nil
+	return entrada.SesionAbierta{Identificador: identificador, Acceso: s.acceso(usuario, estado, sesion)}, nil
 }
 
 func (s *Servicio) Consultar(ctx context.Context, identificador string) (acceso entrada.Acceso, err error) {
@@ -145,8 +145,12 @@ func (s *Servicio) consultar(ctx context.Context, identificador string) (entrada
 		if sesion.Huella != huella {
 			return dominio.ErrSesionNoValida
 		}
+		ultima := sesion.UltimaActividadEn
 		if err := sesion.Tocar(s.reloj.Ahora(), s.politica); err != nil {
 			return err
+		}
+		if entrada.ConsultaPasiva(ctx) {
+			sesion.UltimaActividadEn = ultima
 		}
 		usuario, err := s.usuarios.Obtener(ctx, sesion.UsuarioID)
 		if err != nil {
@@ -159,7 +163,7 @@ func (s *Servicio) consultar(ctx context.Context, identificador string) (entrada
 		if err != nil {
 			return err
 		}
-		acceso = entrada.Acceso{Usuario: usuario, Estado: estado}
+		acceso = s.acceso(usuario, estado, *sesion)
 		return nil
 	})
 	if err != nil {
@@ -197,7 +201,7 @@ func errorRepositorio(ctx context.Context, err error) error {
 	if ctx.Err() != nil {
 		return ctx.Err()
 	}
-	for _, conocido := range []error{dominio.ErrSesionNoValida, dominio.ErrUsuarioNoDisponible} {
+	for _, conocido := range []error{dominio.ErrSesionNoValida, dominio.ErrUsuarioNoDisponible, dominio.ErrRevisionRestauracion} {
 		if errors.Is(err, conocido) {
 			return conocido
 		}
@@ -212,7 +216,7 @@ func (s *Servicio) registrarFallo(ctx context.Context, accion string, fallo erro
 		return fallo
 	}
 	resultado := "error"
-	for _, denegacion := range []error{dominio.ErrCredencialesInvalidas, dominio.ErrIntentosLimitados, dominio.ErrSesionNoValida, dominio.ErrUsuarioNoDisponible} {
+	for _, denegacion := range []error{dominio.ErrCredencialesInvalidas, dominio.ErrIntentosLimitados, dominio.ErrSesionNoValida, dominio.ErrUsuarioNoDisponible, dominio.ErrRevisionRestauracion} {
 		if errors.Is(fallo, denegacion) {
 			resultado = "denegado"
 		}
@@ -245,4 +249,16 @@ func (s *Servicio) RegistrarRechazo(ctx context.Context, accion, resultado strin
 
 func (s *Servicio) AdmitirPeticion(ctx context.Context) error {
 	return s.limitador.admitirPeticion(entrada.Origen(ctx), s.reloj.Ahora())
+}
+
+func (s *Servicio) acceso(u dominio.Usuario, estado dominio.Estado, sesion dominio.Sesion) entrada.Acceso {
+	maxima := sesion.CaducaEn
+	if tope := sesion.CreadaEn.Add(s.politica.Maxima); tope.Before(maxima) {
+		maxima = tope
+	}
+	caduca := sesion.UltimaActividadEn.Add(s.politica.Inactividad)
+	if maxima.Before(caduca) {
+		caduca = maxima
+	}
+	return entrada.Acceso{Usuario: u, Estado: estado, CaducaEn: caduca, MaximaEn: maxima}
 }

@@ -1,6 +1,6 @@
 # Paquete de pruebas para Windows
 
-`make paquete-windows VERSION=v1.0.0` construye el ZIP y su SHA-256 en
+`VERSION=1.0.1 make paquete-windows` construye el ZIP y su SHA-256 en
 `bin/paquete-windows/`. La publicación es manual. La rama `publico` mantiene
 la distribución genérica y nunca se integra en `main`.
 
@@ -229,3 +229,98 @@ DEMO-PARADA
 Comprobaciones finales: nueve pruebas del paquete Windows, `OK`; enlaces
 Markdown sin errores; análisis local de secretos del historial y los archivos,
 `no leaks found`. La publicación queda a cargo de la dirección del proyecto.
+
+## Paquete público 1.0.1
+
+La rama `publico` integra `main` en el commit `47ec548` y repite la limpieza
+pública sobre lo nuevo:
+
+- Las plantillas Word nuevas (Acta de aceptación 1.1.2, No aceptación,
+  Lista de espera, Acta de cierre y Tabla SPAF 1.0.2) se generan desde las
+  versiones neutras anteriores; sus huellas se actualizan en
+  `migraciones/documento/0016_respuestas_programa.sql`.
+- Las actas ODT de prueba se generan de nuevo desde los DOCX inventados, sin
+  logotipos ni metadatos.
+- Los textos de ubicaciones usan `{entidad.nombre}`. Las capturas de
+  ubicaciones y de sesión caducada se repiten con la demostración pública, y la
+  CI vuelve a generar el resto con los mismos textos.
+- Los manuales en PDF de profesionales, Coordinación, Administración, sistemas
+  y programadores se exportan de nuevo con autor «Expedientes ETF».
+
+La primera ejecución de `make ci` se detuvo porque quedaba el estado local de
+una demostración anterior; la segunda, por un fallo intermitente del recorrido
+del desglose de la Memoria, que después pasó tres veces seguidas sobre la misma
+demostración. La tercera, desde una demostración limpia, terminó bien:
+
+```text
+CI mínima completada.
+```
+
+Orden: `VERSION=1.0.1 make paquete-windows`, con el temporal del sistema.
+
+| Archivo | Medida |
+| --- | --- |
+| `expedientes-etf-windows-1.0.1.zip` | 341577925 bytes (325,75 MiB) |
+| Contenido extraído, 23 archivos | 659239532 bytes (628,70 MiB) |
+| `expedientes-etf-windows-1.0.1.zip.sha256` | Suma en formato SHA-256 estándar |
+
+```text
+PAQUETE-OK: expedientes-etf-windows-1.0.1.zip; SHA-256 9da39dc80f92562f8d0cb2155ed32bf5407c9e63c7e085b1ed4725dee25ff7d5
+```
+
+Comprobaciones del paquete: `sha256sum -c` correcto; análisis local de
+secretos sobre el contenido extraído, el tar de imágenes y sus 48 capas
+extraídas, `no leaks found`; la búsqueda de nombres reales, dominios privados,
+rutas personales y la entidad original no encuentra nada en los archivos, las
+capas ni los textos de idioma incluidos en las imágenes, ni en el texto y los
+metadatos de los DOCX, ODT, PDF y PNG del repositorio. Pruebas del paquete
+Windows: 20, `OK`.
+
+La versión 1.0.1 no se ha probado todavía en un Windows real. No se ha hecho
+push ni se ha creado una Release.
+
+## Paquete público 1.0.2
+
+La rama `publico` integra `main` en el commit `e12ce85`, con el curso, el lector
+de voz, la pantalla Ayuda, el arranque con Podman y la espera al antivirus. La
+limpieza pública se repite sobre lo nuevo:
+
+- Las rutas personales del curso pasan a la carpeta del usuario
+  (`~/Videos/Expedientes-ETF` y `~/.config/expedientes-etf/`). El curso
+  mantiene su autoría y la licencia CC BY-SA 4.0.
+- Los manuales web de la pantalla Ayuda se generan de nuevo desde los
+  manuales públicos, con autor «Expedientes ETF» y «cuenta de la entidad».
+- La captura de entrada del curso y una captura de Windows con una ruta de
+  usuario se retiran; las de Ayuda y voz se repiten con la demostración pública.
+- Los audios se generan con `make voz` (edge-tts 7.3.1) desde los textos de la
+  rama pública: 135 secciones del curso, 48 grabaciones de ayuda y 60 de
+  manuales. Se eliminan de `bin/voz` los MP3 que no cita ningún manifiesto.
+
+`make ci` falló primero por un enlace a la captura retirada y después por un
+choque de subred de Docker con otra prueba; la tercera ejecución terminó bien:
+
+```text
+CI mínima completada.
+```
+
+Orden: `VERSION=1.0.2 make paquete-windows`.
+
+| Archivo | Medida |
+| --- | --- |
+| `expedientes-etf-windows-1.0.2.zip` | 446957440 bytes (426,25 MiB) |
+| Contenido extraído, 23 archivos | 777320496 bytes (741,31 MiB) |
+| `expedientes-etf-windows-1.0.2.zip.sha256` | Suma en formato SHA-256 estándar |
+
+```text
+PAQUETE-OK: expedientes-etf-windows-1.0.2.zip; SHA-256 f4b29737477ba8b7b322ef3afc9f702bf38313e84852616b5e69c1756da5d641
+```
+
+Comprobaciones del paquete: `sha256sum -c` correcto; análisis local de
+secretos sobre el contenido extraído, el tar de imágenes y sus 49 capas
+extraídas, `no leaks found`; la búsqueda de nombres reales, dominios privados,
+rutas personales y la entidad original no encuentra nada en los archivos, las
+capas, los textos de idioma ni los 243 audios incluidos, ni en el texto y los
+metadatos de los DOCX, ODT y PDF del paquete y del repositorio.
+
+La versión 1.0.2 no se ha probado todavía en un Windows real. No se ha hecho
+push ni se ha creado una Release.

@@ -35,5 +35,10 @@
   "windows.desinstalar_palabra": "DESINSTALAR",
   "windows.desinstalado": "Demonstration uninstalled. Its data and shortcuts have been removed. Unrelated files are preserved and the container application is still installed.",
   "windows.directorio_ajeno": "Choose a new folder for this demonstration. The selected folder contains another application’s files or links to another location.",
-  "windows.borrar_palabra": "BORRAR"
+  "windows.borrar_palabra": "BORRAR",
+  "windows.tuberia_reintento": "Podman has started its machine but has not opened the connection used by Compose. The Podman machine will be restarted; please wait and keep this window open.",
+  "windows.tuberia_proxy": "The connection is still closed. Opening it with Podman’s win-sshproxy program.",
+  "windows.tuberia": "Podman has not opened the connection used by Compose. Close Podman Desktop, stop the machine with “podman machine stop”, start it with “podman machine start” and open the application again. If nothing changes, restart Windows or ask IT for help with this message.",
+  "windows.antivirus_espera": "Waiting for the antivirus to finish loading its signatures. The first time this can take a few minutes.",
+  "windows.antivirus": "The antivirus has not responded within five minutes. Open Podman Desktop, check the clamav container in etf-windows and open the application again."
 }

@@ -215,6 +215,9 @@ DO $$ DECLARE r record; cantidad bigint; BEGIN
   ELSIF r.esquema||'.'||r.tabla='expediente.expediente' THEN
    -- Un histórico sin número conserva su ámbito en el equipo de carga.
    EXECUTE format('SELECT count(*) FROM %I.%I WHERE equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''04'') OR (origen=''carga_inicial'' AND equipo_carga_id=(SELECT id FROM catalogo.equipo WHERE codigo=''04''))',r.esquema,r.tabla) INTO r.profesional_total;
+  ELSIF r.esquema||'.'||r.tabla='expediente.espera_memoria' THEN
+   -- Las filas preparadas aún sin espera no son visibles al equipo.
+   EXECUTE format('SELECT count(*) FROM %I.%I WHERE desde IS NOT NULL AND equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''04'')',r.esquema,r.tabla) INTO r.profesional_total;
   ELSIF r.tiene_equipo AND r.tabla<>'contador_expediente' THEN
    EXECUTE format('SELECT count(*) FROM %I.%I WHERE equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''04'')',r.esquema,r.tabla) INTO r.profesional_total;
   ELSIF r.tabla IN ('lectura_anexo','derivacion_datos') THEN
@@ -237,6 +240,9 @@ DO $$ DECLARE r record; cantidad bigint; BEGIN
   ELSIF r.esquema||'.'||r.tabla='expediente.expediente' THEN
    -- Un histórico sin número conserva su ámbito en el equipo de carga.
    EXECUTE format('SELECT count(*) FROM %I.%I WHERE equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''02'') OR (origen=''carga_inicial'' AND equipo_carga_id=(SELECT id FROM catalogo.equipo WHERE codigo=''02''))',r.esquema,r.tabla) INTO r.marta_total;
+  ELSIF r.esquema||'.'||r.tabla='expediente.espera_memoria' THEN
+   -- Las filas preparadas aún sin espera no son visibles al equipo.
+   EXECUTE format('SELECT count(*) FROM %I.%I WHERE desde IS NOT NULL AND equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''02'')',r.esquema,r.tabla) INTO r.marta_total;
   ELSIF r.tiene_equipo AND r.tabla<>'contador_expediente' THEN
    EXECUTE format('SELECT count(*) FROM %I.%I WHERE equipo_id=(SELECT id FROM catalogo.equipo WHERE codigo=''02'')',r.esquema,r.tabla) INTO r.marta_total;
   ELSIF r.tabla IN ('lectura_anexo','derivacion_datos') THEN
@@ -309,7 +315,7 @@ DO $$ BEGIN
   RAISE EXCEPTION 'El ensayo no ejecuta RLS como etf_app';
  END IF;
 END $$;
-DO $$ DECLARE a record; r record; cantidad bigint; afectadas bigint; columna text; denegadas integer; esperado bigint; fila_ajena jsonb; BEGIN
+DO $$ DECLARE a record; r record; cantidad bigint; afectadas bigint; columna text; columnas text; denegadas integer; esperado bigint; fila_ajena jsonb; BEGIN
  FOR a IN SELECT * FROM actores_f011 LOOP
   PERFORM set_config('app.usuario_id',a.usuario,true);
   PERFORM set_config('app.perfiles',a.perfil,true);
@@ -345,7 +351,9 @@ DO $$ DECLARE a record; r record; cantidad bigint; afectadas bigint; columna tex
     -- La fila procede del propietario, antes de aplicar RLS; no del SELECT filtrado.
     fila_ajena:=CASE WHEN a.cuenta='marta.cabrera' THEN r.fila_marta ELSE r.fila END;
     BEGIN
-     EXECUTE format('INSERT INTO %I.%I SELECT * FROM jsonb_populate_record(NULL::%I.%I,$1)',r.esquema,r.tabla,r.esquema,r.tabla) USING fila_ajena;
+     SELECT string_agg(quote_ident(attname),',' ORDER BY attnum) INTO columnas FROM pg_attribute
+      WHERE attrelid=r.oid AND attnum>0 AND NOT attisdropped AND attidentity='' AND attgenerated='';
+     EXECUTE format('INSERT INTO %I.%I (%s) SELECT %s FROM jsonb_populate_record(NULL::%I.%I,$1)',r.esquema,r.tabla,columnas,columnas,r.esquema,r.tabla) USING fila_ajena;
      RAISE EXCEPTION 'INSERT permitido: % %.%',a.cuenta,r.esquema,r.tabla;
     EXCEPTION WHEN insufficient_privilege THEN denegadas:=denegadas+1;
     END;

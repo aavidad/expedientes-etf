@@ -192,9 +192,12 @@ Pedido en la entrevista (10.2) y sin diseñar. Requisitos mínimos: texto a 7:1,
 
 Edge y Chrome pueden abrir Expedientes ETF en una ventana propia. Conserva las mismas pantallas, permisos y preferencias que en el navegador. La marca ETF de la cabecera sirve también como icono de la aplicación, con los colores del tema seleccionado. No se añade una pantalla ni un botón de instalación dentro de la aplicación; se utiliza la opción del navegador, descrita en el manual de usuario.
 
-Sin conexión, una navegación muestra «Sin conexión con el servidor», una indicación para comprobar la conexión a la red de la Diputación y «Volver a intentarlo». El aviso usa el idioma y los tokens del tema seleccionados, admite teclado y ancho móvil, y no muestra nombres ni datos de expedientes. La aplicación instalada necesita conexión con el servidor para consultar o guardar datos.
+Sin conexión, una navegación muestra «Sin conexión con el servidor», una indicación para comprobar la conexión a la red de la entidad y «Volver a intentarlo». El aviso usa el idioma y los tokens del tema seleccionados, admite teclado y ancho móvil, y no muestra nombres ni datos de expedientes. La aplicación instalada necesita conexión con el servidor para consultar o guardar datos.
 
 ## 4. Componentes
+
+VOZ sitúa Ayuda al final del menú y usa el armazón común: título, manuales por perfil, índice desplegable y secciones con capturas. Los controles Escuchar sólo aparecen en castellano con una grabación vigente. El contenido editorial del manual conserva su idioma castellano al cambiar el idioma de la interfaz. Se activan con teclado y permiten pausar con el reproductor nativo; no hay reproducción automática. Abrir un enlace del índice despliega su sección. La ayuda contextual conserva su control de cierre y detiene la escucha al ocultarse. Imágenes y audio se ajustan al ancho disponible. El estado de Consulta es un aviso de manual no disponible; carga y fallo ofrecen espera anunciada y Reintentar.
+
 
 Biblioteca de componentes accesibles sobre React Aria (ver TRD.md). Ruta prevista: `web/src/componentes/` (la fija TRD.md). Cada componente toma colores y medidas sólo de tokens y textos sólo de claves de idioma.
 
@@ -408,7 +411,7 @@ La pantalla cubre todos los expedientes necesarios para la Memoria de 2026: vivo
 
 El servidor de hoja de F2.08b devuelve incidencias por fila y columna con mensajes en castellano o inglés, sin valores personales, y conserva el número original de fila. El formato provisional D21 está en ESQUEMA_BACKEND §7.2. CA1 añade `/coordinacion/carga-2026` para hoja y `/equipo/expedientes/alta-historica` para tecleo, con ambos perfiles autorizados por el servidor y el profesional limitado a su equipo. El alta agrupa derivación, aceptación, familia y menores, y episodios; su revisión muestra iniciales y fechas históricas. La carga por hoja anuncia el antivirus, conserva las filas originales enmascaradas y traduce las columnas de las incidencias a etiquetas. La confirmación muestra el resultado y la marca «Cargado para revisión». Cada resultado permite consultar los datos guardados por la lectura auditada existente y ofrece un enlace recuperable, también para no aceptados y números desconocidos. El alta manual admite nombres conocidos de menores en no aceptados, sin exigir sexo ni datos de aceptación. Si se pierde la conexión, permite recuperar el mismo envío sin preparar otro. La ayuda se abre aparte; desde la pantalla se descarga una hoja CSV inventada con el formato provisional.
 
-La vista previa del lote muestra filas enmascaradas, estado, incidencias y campos pendientes, sin guardar parcialmente. Al confirmar se aplica todo el lote o ninguno. RESP2 añade al alta una sección inicial de equipo y lectura opcional de Acta de Aceptación y Acta de Cierre, PDF/DOCX hasta 10 MB. La lectura avisa que sustituye el formulario, anuncia antivirus y deja una propuesta editable. Los campos que no se leen quedan pendientes; el estado actual y el sexo desconocido de adultos se confirman a mano. El PDF sin texto permite seguir a mano. La fecha leída de firma se identifica como propuesta sin validar la firma. Los ficheros se descartan y sólo se guardan datos confirmados. La carga por hoja queda como compatibilidad. El alta manual ofrece los mismos estados y controles. Las fechas efectivas históricas se confirman sin generar documentos para simular hitos.
+La vista previa del lote muestra filas enmascaradas, estado, incidencias y campos pendientes, sin guardar parcialmente. Al confirmar se aplica todo el lote o ninguno. RESP2 añade al alta una sección inicial de equipo y lectura opcional de Acta de Aceptación y Acta de Cierre, PDF/DOCX/ODT hasta 10 MB. La lectura avisa que sustituye el formulario, anuncia antivirus y deja una propuesta editable. Los campos que no se leen quedan pendientes; el estado actual y el sexo desconocido de adultos se confirman a mano. El PDF sin texto permite seguir a mano. La fecha leída de firma se identifica como propuesta sin validar la firma. Los ficheros se descartan y sólo se guardan datos confirmados. La carga por hoja queda como compatibilidad. El alta manual ofrece los mismos estados y controles. Las fechas efectivas históricas se confirman sin generar documentos para simular hitos.
 
 La carga con datos reales sólo se hace en producción, con la aplicación desplegada al acabar la fase 2 y tras aprobar EIPD, seguridad, copias y restauración. Desarrollo y preproducción usan exclusivamente datos inventados. No se espera a recibir datos reales de 2025. Servidor, copias y EIPD avanzan desde ahora; manuales, vídeo y formación quedan para el final (PLAN_IMPLEMENTACION.md).
 
@@ -416,6 +419,12 @@ GAP1 completa la pestaña Familia con formularios de datos familiares y personas
 
 
 En la revisión de actas, los nombres completos leídos deben separarse a mano en nombre y apellidos antes de validar. La referencia leída permanece visible y no se envía al guardar. Si ya hay datos, leer otras actas exige confirmar la sustitución; cancelar conserva el formulario y devuelve el foco. La vista previa agrupa adultos y menores por iniciales y muestra ubicación, subprograma y motivos de cierre. La entrada de compatibilidad se llama «Cargar desde una hoja».
+
+### Editor de ubicaciones (UBI1)
+
+«Equipos, municipios y centros» usa el armazón, una lista de tarjetas con búsqueda por denominación y un editor por entrada. Los campos de centro y equipo son independientes; el ámbito se expresa con palabras. Los centros nuevos reciben un identificador interno sin pedirlo a la persona. Las fechas de alta, baja y publicación se distinguen; la ausencia de baja aparece como «Sin fecha de baja». Las variantes se escriben una por línea.
+
+El formulario conserva los cambios ante errores y conflictos. Después de consultar la versión actual muestra sus valores junto a los campos pendientes y exige confirmar que se han comparado antes de publicar. Los fallos de red tienen un mensaje traducido y una salida para consultar de nuevo. Guardar y cancelar devuelven el foco al título. Los estados de espera, confirmación, vacío y error usan regiones accesibles. La ayuda se abre bajo «?» y Escape la cierra.
 
 ## 6. Responsive
 
@@ -483,7 +492,7 @@ Los nombres de las listas del Programa (subprogramas, motivos de cierre, niveles
 | Consentimiento (Anexo 1 o 2) | Contrato | Corrección de la maqueta del 13/10; el Programa lo confirma en [D3] |
 | Pendiente de atender | Atrasado, retrasado | Término de la Memoria (apartado 6) |
 | Acta de Aceptación, Acta de No Aceptación, Acta de Cierre | Resolución, informe de aceptación | Nombres del Programa |
-| Anexo 3, Anexo 4, Anexo 5… | Formulario, documento de derivación | Nombres del Programa; los nombres antiguos (2L-A, 2J…) se quedan sólo dentro de las plantillas mientras no se resuelva [D18] |
+| Anexo 3, Anexo 4, Anexo 5… | Formulario, documento de derivación | Nombres del Programa; las nuevas versiones de las plantillas usan la numeración vigente, confirmada el 14/10/2026 [D18] |
 | Subprograma | Programa, tipo | Término del Programa |
 | Profesional de referencia | Responsable, gestor | Término del Programa |
 | Lista de espera | Cola, pendientes | Término del Programa |
@@ -495,7 +504,7 @@ Los nombres de las listas del Programa (subprogramas, motivos de cierre, niveles
 - Fechas: dd/mm/aaaa (14/11/2026). Horas: 24 h (12:40). Relativas sólo para la actividad reciente («Ayer, 12:40»).
 - Números: punto de miles y coma decimal (9.600 €, 37,50 %). Espacio antes de «%» y de «€».
 - Intervalos con raya corta: «50–100 % del SMI».
-- Número de expediente: equipo, correlativo y año con guiones (02-14-26) mientras no se resuelva [D1].
+- Número de expediente: equipo, correlativo y año con guiones (02-14-26), confirmado el 14/10/2026 [D1].
 - Plurales por la regla de cada idioma, con mensajes que llevan la cantidad («1 menor», «3 menores»; «Falta 1 dato», «Faltan 2 datos»). Nunca «menor(es)».
 - Todos los formatos salen de la configuración regional del idioma, no del código.
 
@@ -513,7 +522,7 @@ La app trata datos de menores y categorías especiales (violencia de género, sa
 | Administración funcional | Ninguna ficha de expediente; exportación controlada de auditoría para el DPD | La consulta y exportación de auditoría |
 | Título de la pestaña del navegador, direcciones de la página, mensajes de error, registros técnicos | Nunca nombres; como mucho el número de expediente | — |
 
-F4.07 entrega a Consulta un contrato numérico propio y un Word de cifras. Ambos indican fecha y si las cifras son definitivas (Memoria cerrada) o provisionales (cálculo al momento). La vista de Consulta en `/memoria` muestra esos datos con los filtros y bloques de F4.02. No ofrece composición, narrativas ni acciones de cierre. Los perfiles mixtos Equipo+Consulta editan sólo su equipo y usan la vista numérica para otros equipos o la provincia. Las tablas se desplazan dentro de su región en móvil; los errores conservan la operación para reintentar la lectura o descarga. La navegación y el desglose por números del servidor sólo admiten al profesional de su equipo o a Coordinación.
+F4.07 entrega a Consulta un contrato numérico propio y un Word de cifras. Ambos indican fecha y si las cifras son definitivas (Memoria cerrada) o provisionales (cálculo al momento). La vista de Consulta en `/memoria` muestra esos datos con los filtros y bloques de F4.02. No ofrece composición, narrativas ni acciones de cierre. Los perfiles mixtos Equipo+Consulta editan sólo su equipo y usan la vista numérica para otros equipos o la provincia. Las tablas se desplazan dentro de su región en móvil; los errores conservan la operación para reintentar la lectura o descarga. La navegación y el desglose por números del servidor sólo admiten al profesional de su equipo o a Coordinación. SEG1 añade «Oculto» y la explicación de protección cuando se suprimen cifras pequeñas de Consulta; la explicación también cubre totales, bases, porcentajes y cifras adicionales. La sesión avisa dos minutos antes con «Continuar sesión» para la inactividad y «Volver a entrar» al alcanzar el máximo absoluto. Los datos ya guardados se conservan.
 
 Antes de mostrar datos o entregar una descarga, su auditoría debe estar confirmada. Si falla, no se entregan los datos: se muestra un error con referencia de incidencia y opción de reintentar. Los fallos se registran después de revertir la operación; nunca se anuncia como completada una acción rechazada.
 

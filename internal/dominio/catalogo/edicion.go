@@ -49,6 +49,7 @@ type Firmante struct {
 	Version           int               `json:"version"`
 }
 type Cambio struct {
+	Ubicacion            *Ubicacion        `json:"ubicacion,omitempty"`
 	VersionEsperada      int               `json:"version_esperada"`
 	ReferenciasEsperadas map[string]int    `json:"referencias_esperadas"`
 	VigenteDesde         time.Time         `json:"vigente_desde"`
@@ -75,6 +76,9 @@ func Autorizar(actor Actor) error {
 	return ErrPermiso
 }
 func (c Cambio) ClaveTexto() string {
+	if c.Ubicacion != nil {
+		return c.Ubicacion.ClaveTexto()
+	}
 	if c.Opcion != nil {
 		return c.Opcion.Lista + "." + c.Opcion.Codigo
 	}
@@ -88,6 +92,9 @@ func (c Cambio) Validar(ambito string) error {
 		return ErrEdicion
 	}
 	n := 0
+	if c.Ubicacion != nil {
+		n++
+	}
 	if c.DuracionFase != nil {
 		n++
 	}
@@ -107,6 +114,13 @@ func (c Cambio) Validar(ambito string) error {
 		return ErrEdicion
 	}
 	switch ambito {
+	case "asignacion_municipios":
+		if c.Ubicacion == nil {
+			return ErrEdicion
+		}
+		if err := c.Ubicacion.Validar(); err != nil {
+			return err
+		}
 	case "listas":
 		o := c.Opcion
 		if o == nil || !codigoRegla.MatchString(o.Lista) || !codigoOpcion.MatchString(o.Codigo) || o.Orden < 0 {
@@ -120,7 +134,7 @@ func (c Cambio) Validar(ambito string) error {
 			break
 		}
 		p := c.Plazo
-		if p == nil || !codigoRegla.MatchString(p.Clave) || p.Valor < 0 || !codigoRegla.MatchString(p.Unidad) {
+		if p == nil || !codigoRegla.MatchString(p.Clave) || p.Valor < 0 || !codigoRegla.MatchString(p.Unidad) || (p.Clave == "umbral_privacidad_consulta" && (p.Valor < 3 || p.Unidad != "casos")) {
 			return ErrEdicion
 		}
 	case "tramos":

@@ -76,7 +76,7 @@ func registrarUsuarios(mux *muxHTTP, c ConfiguracionUsuarios) {
 func errorUsuarios(w http.ResponseWriter, err error) {
 	estado, clave := 503, "identidad.persistencia_no_disponible"
 	switch err.Error() {
-	case "identidad.acceso_denegado":
+	case "identidad.acceso_denegado", "identidad.cambio_propio_denegado":
 		estado, clave = 403, err.Error()
 	case "identidad.perfiles_invalidos":
 		estado, clave = 400, err.Error()

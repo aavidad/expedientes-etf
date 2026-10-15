@@ -1,0 +1,11 @@
+{
+  "version": "2026.1",
+  "importes": [
+    {
+      "anio": 2026,
+      "importe_mensual_centimos": 122100,
+      "pagas": 14,
+      "importe_anual_centimos": 1709400
+    }
+  ]
+}

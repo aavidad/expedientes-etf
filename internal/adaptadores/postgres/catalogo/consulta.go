@@ -128,12 +128,29 @@ func (r *Repositorio) Datos(ctx context.Context, v dominio.Version) (dominio.Dat
 			return dominio.Datos{}, dominio.ErrPersistencia
 		}
 	case "asignacion_municipios":
+		// Los ensayos de actualización leen también el corte anterior a UBI1.
+		var tieneHistoria bool
+		if err := tx.QueryRow(ctx, `
+SELECT to_regclass('catalogo.ubicacion_vigencia') IS NOT NULL
+`).Scan(&tieneHistoria); err != nil {
+			return dominio.Datos{}, dominio.ErrPersistencia
+		}
 		// Consultas constantes por colección, sin una consulta por municipio.
 		for _, tabla := range []string{"equipo", "centro_ss"} {
 			// tabla procede de esta lista cerrada; los valores externos son parámetros.
-			filas, err := tx.Query(ctx, `SELECT id::text,codigo,clave_texto,activo_desde,activo_hasta
- FROM catalogo.`+tabla+`
- ORDER BY codigo`)
+			consulta := `
+SELECT e.id::text,e.codigo,e.clave_texto,e.activo_desde,e.activo_hasta FROM catalogo.` + tabla + ` e ORDER BY e.codigo
+`
+			var argumentos []any
+			if tieneHistoria {
+				consulta = `
+SELECT e.id::text,e.codigo,e.clave_texto,coalesce(h.activo_desde,e.activo_desde),CASE WHEN h.id IS NOT NULL THEN h.activo_hasta ELSE e.activo_hasta END
+ FROM catalogo.` + tabla + ` e LEFT JOIN catalogo.ubicacion_vigencia h ON h.id=e.id AND h.tipo=$2 AND h.version_id=$1
+ WHERE h.id IS NOT NULL OR e.activo_desde<=$3 ORDER BY e.codigo
+`
+				argumentos = []any{v.ID, map[string]string{"equipo": "equipo", "centro_ss": "centro"}[tabla], v.VigenteDesde}
+			}
+			filas, err := tx.Query(ctx, consulta, argumentos...)
 			if err != nil {
 				return dominio.Datos{}, dominio.ErrPersistencia
 			}
@@ -155,9 +172,17 @@ func (r *Repositorio) Datos(ctx context.Context, v dominio.Version) (dominio.Dat
 				return dominio.Datos{}, dominio.ErrPersistencia
 			}
 		}
-		filas, err := tx.Query(ctx, `SELECT m.id::text,m.ine,m.clave_texto,m.tipo,m.matriz_id::text,m.ambito_diputacion,
-    a.centro_ss_id::text,a.equipo_id::text,a.zts FROM catalogo.municipio_asignacion a
-    JOIN catalogo.municipio m ON m.id=a.municipio_id WHERE a.version_id=$1 ORDER BY m.ine`, v.ID)
+		consultaMunicipios := `
+SELECT m.id::text,m.ine,m.clave_texto,m.tipo,m.matriz_id::text,m.ambito_diputacion,a.centro_ss_id::text,a.equipo_id::text,a.zts
+ FROM catalogo.municipio_asignacion a JOIN catalogo.municipio m ON m.id=a.municipio_id WHERE a.version_id=$1 ORDER BY m.ine
+`
+		if tieneHistoria {
+			consultaMunicipios = `
+SELECT m.id::text,m.ine,m.clave_texto,m.tipo,m.matriz_id::text,coalesce(h.ambito_diputacion,m.ambito_diputacion),a.centro_ss_id::text,a.equipo_id::text,a.zts
+ FROM catalogo.municipio_asignacion a JOIN catalogo.municipio m ON m.id=a.municipio_id LEFT JOIN catalogo.municipio_ambito h ON h.municipio_id=m.id AND h.version_id=a.version_id WHERE a.version_id=$1 ORDER BY m.ine
+`
+		}
+		filas, err := tx.Query(ctx, consultaMunicipios, v.ID)
 		if err != nil {
 			return dominio.Datos{}, dominio.ErrPersistencia
 		}

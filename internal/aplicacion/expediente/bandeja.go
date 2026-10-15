@@ -27,12 +27,12 @@ func (s *Servicio) ConsultarBandeja(ctx context.Context, a dominio.Actor, p entr
 	if s.d.Bandeja == nil || s.d.Catalogo == nil || s.d.NombresMunicipios == nil || s.d.Transacciones == nil || s.d.RegistroTransaccional == nil || s.d.Reloj == nil {
 		return entrada.ResultadoBandeja{}, dominio.ErrNoDisponible
 	}
-	nombres, err := s.d.NombresMunicipios.Nombres(ctx)
-	if err != nil {
-		return entrada.ResultadoBandeja{}, dominio.ErrNoDisponible
-	}
 	var resultado entrada.ResultadoBandeja
-	err = s.d.Transacciones.Ejecutar(ctx, identidad(a), func(ctx context.Context) error {
+	err := s.d.Transacciones.Ejecutar(ctx, identidad(a), func(ctx context.Context) error {
+		nombres, err := s.d.NombresMunicipios.Nombres(ctx)
+		if err != nil {
+			return dominio.ErrNoDisponible
+		}
 		version, err := s.d.Catalogo.Vigente(ctx, "asignacion_municipios", s.d.Reloj.Ahora())
 		if err != nil {
 			return err

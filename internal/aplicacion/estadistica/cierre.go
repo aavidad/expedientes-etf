@@ -198,6 +198,7 @@ func (s *ServicioCierre) acto(ctx context.Context, a d.ActorMemoria, f d.FiltroM
 				base.Narrativas = d.Narrativas{}
 				base.Composicion = nil
 				base.Fuentes = nil
+				base.Desglose = nil
 				bases = append(bases, base)
 			}
 		}

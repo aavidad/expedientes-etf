@@ -15,3 +15,10 @@
 .memoria summary { min-height: var(--alto-control); cursor: pointer; }
 .memoria fieldset { min-width: 0; }
 .memoria dialog { max-width: min(var(--ancho-buscador), calc(100% - var(--espacio-8))); box-sizing: border-box; }
+
+.memoria-cifra { display: inline-flex; min-height: var(--alto-control); min-width: var(--alto-control); align-items: center; justify-content: center; font-variant-numeric: tabular-nums; }
+.memoria-desglose-lista { list-style: none; padding: 0; }
+.memoria-desglose-fila { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--espacio-5); padding-block: var(--espacio-5); border-block-end: var(--borde-normal) solid var(--color-borde); }
+.memoria-desglose-fila a { display: inline-flex; align-items: center; min-height: var(--alto-control); }
+
+.memoria-retorno { display: inline-flex; align-items: center; min-height: var(--alto-control); }

@@ -61,13 +61,14 @@ func (s *Servicio) ValidarCargaHistorica(ctx context.Context, a d.Actor, p d.Car
 	}
 	// Ensaya los mismos servicios y revierte toda la transacción antes de auditar
 	// la validación. Los números y vigencias también se comprueban en la vista previa.
-	if _, err = s.cargarHistoricos(ctx, a, id, "validar-"+id, p, false); err != nil {
+	vista, err := s.cargarHistoricos(ctx, a, id, "validar-"+id, p, false)
+	if err != nil {
 		return r, err
 	}
 	if _, err = s.d.Registro.Confirmar(ctx, s.evento(a, "expediente.validar_carga_historica", "", "ok")); err != nil {
 		return r, d.ErrNoDisponible
 	}
-	return d.ValidacionCargaHistorica{LoteID: id, Casos: len(p.Casos)}, nil
+	return d.ValidacionCargaHistorica{LoteID: id, Casos: len(p.Casos), Avisos: vista.Avisos}, nil
 }
 func (s *Servicio) CargarHistoricos(ctx context.Context, a d.Actor, lote, clave string, p d.CargaHistorica) (d.ResultadoCargaHistorica, error) {
 	if lote == "" {
@@ -129,6 +130,18 @@ func (s *Servicio) cargarHistoricos(ctx context.Context, a d.Actor, lote, clave 
 			r = anterior
 			return nil
 		}
+		avisos, err := s.revisarCarga(ctx, p, confirmar)
+		if err != nil {
+			return err
+		}
+		if !confirmar {
+			for _, aviso := range avisos {
+				if aviso.Clave == "carga.numero_ocupado" {
+					r = d.ResultadoCargaHistorica{LoteID: lote, Avisos: avisos}
+					return errVistaPrevia
+				}
+			}
+		}
 		if p.FuenteHoja != nil {
 			err = s.d.CargasHistoricas.CrearLoteHojaHistorico(ctx, lote, p.EquipoID, a.UsuarioID, ahora, len(p.Casos), *p.FuenteHoja)
 		} else {
@@ -137,7 +150,11 @@ func (s *Servicio) cargarHistoricos(ctx context.Context, a d.Actor, lote, clave 
 		if err != nil {
 			return err
 		}
-		r = d.ResultadoCargaHistorica{LoteID: lote, Expedientes: []string{}, Marca: "expediente.cargado_para_revision"}
+		r = d.ResultadoCargaHistorica{LoteID: lote, Expedientes: []string{}, Marca: "expediente.cargado_para_revision", Avisos: avisos}
+		r.Referencia, err = s.d.CargasHistoricas.ReferenciaLoteCarga(ctx, lote)
+		if err != nil {
+			return err
+		}
 		// El ámbito del lote se ha autorizado; nunca se cambian perfiles de sesión.
 		actorFicha := a
 		actorFicha.EquipoID = p.EquipoID
@@ -241,7 +258,7 @@ func (s *Servicio) cargarHistoricos(ctx context.Context, a d.Actor, lote, clave 
 		return r, nil
 	}
 	if err != nil {
-		for _, conocido := range []error{d.ErrCargaHistorica, d.ErrNumeroHistorico, d.ErrNumeroDuplicado, d.ErrIdempotencia, d.ErrAcceso, d.ErrFamilia, d.ErrMenores, d.ErrObligatorios, d.ErrProfesional, d.ErrSexo, d.ErrPeticion, d.ErrEstado} {
+		for _, conocido := range []error{d.ErrCargaCerrada, d.ErrDuplicadosSinConfirmar, d.ErrCargaAgotaNumeracion, d.ErrLoteConActividad, d.ErrCargaHistorica, d.ErrNumeroHistorico, d.ErrNumeroDuplicado, d.ErrIdempotencia, d.ErrAcceso, d.ErrFamilia, d.ErrMenores, d.ErrObligatorios, d.ErrProfesional, d.ErrSexo, d.ErrPeticion, d.ErrEstado} {
 			if errors.Is(err, conocido) {
 				return r, err
 			}

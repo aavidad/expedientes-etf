@@ -50,7 +50,7 @@ func (f DatosEntrada) paraAnexo6(ctx context.Context, actor d.Actor, s d.Solicit
 	if err != nil {
 		return d.Datos{}, d.ErrNoDisponible
 	}
-	_, nombres, err := f.Presentacion.Cargar(ctx, s.IdiomaPaquete, ref)
+	textos, nombres, err := f.Presentacion.Cargar(ctx, s.IdiomaPaquete, ref)
 	if err != nil {
 		return d.Datos{}, d.ErrNoDisponible
 	}
@@ -69,6 +69,9 @@ func (f DatosEntrada) paraAnexo6(ctx context.Context, actor d.Actor, s d.Solicit
 		if eq.ID == *e.EquipoID {
 			c["equipo"] = nombres[eq.ClaveTexto]
 		}
+	}
+	if salida.ServicioTexto != "" {
+		c["servicio_destino"] = salida.ServicioTexto
 	}
 	if c["servicio_destino"] == "" || c["equipo"] == "" {
 		return d.Datos{}, d.ErrNoDisponible
@@ -95,10 +98,19 @@ func (f DatosEntrada) paraAnexo6(ctx context.Context, actor d.Actor, s d.Solicit
 			filas["adultos"] = append(filas["adultos"], map[string]string{"papel": valor("sociodemografia.adulto.papel", i), "nombre": n, "parentesco": valor("sociodemografia.adulto.parentesco", i), "edad": valor("sociodemografia.adulto.edad", i), "estudios": valor("sociodemografia.adulto.estudios", i), "otros_datos": valor("sociodemografia.adulto.otros_datos", i)})
 		}
 	}
-	for _, bloque := range []string{"contactos", "adultos"} {
+	rellenarFichaAnexo6(e.Anexo6, c, filas, nombres, fecha, textos["anexo6.separador_decimal"])
+	for _, bloque := range []string{"contactos", "adultos", "menores"} {
 		if len(filas[bloque]) == 0 {
-			filas[bloque] = []map[string]string{{"papel": "", "nombre": "", "apellidos": "", "telefono": "", "correo": "", "parentesco": "", "edad": "", "estudios": "", "otros_datos": ""}}
+			filas[bloque] = []map[string]string{{"papel": "", "nombre": "", "apellidos": "", "telefono": "", "correo": "", "parentesco": "", "edad": "", "estudios": "", "otros_datos": "", "nacimiento": "", "escolarizacion": "", "centro": ""}}
 		}
 	}
-	return d.Datos{ExpedienteID: e.ID, EquipoID: *e.EquipoID, FechaDocumento: fecha, Aceptacion: a, Salida: &d.SalidaDocumento{Campos: c, Filas: filas}, Versiones: map[string]string{"expediente": fmt.Sprint(e.Version), "salida_servicio": salida.ID + ":" + fmt.Sprint(salida.Version), "catalogo_destino": salida.CatalogoID, "catalogo_asignacion": v.ID, "textos_catalogo": fmt.Sprint(ref.Version) + ":" + ref.Huella, "lectura_anexo": e.Lectura.ID}}, nil
+	a.Menores = nil
+	for _, menor := range filas["menores"] {
+		a.Menores = append(a.Menores, d.Menor{Persona: d.Persona{Nombre: menor["nombre"]}})
+	}
+	catalogoDestino := salida.CatalogoID
+	if catalogoDestino == "" {
+		catalogoDestino = "sin_catalogo"
+	}
+	return d.Datos{ExpedienteID: e.ID, EquipoID: *e.EquipoID, FechaDocumento: fecha, Aceptacion: a, Salida: &d.SalidaDocumento{Campos: c, Filas: filas}, Versiones: map[string]string{"expediente": fmt.Sprint(e.Version), "salida_servicio": salida.ID + ":" + fmt.Sprint(salida.Version), "catalogo_destino": catalogoDestino, "catalogo_asignacion": v.ID, "textos_catalogo": fmt.Sprint(ref.Version) + ":" + ref.Huella, "lectura_anexo": e.Lectura.ID}}, nil
 }

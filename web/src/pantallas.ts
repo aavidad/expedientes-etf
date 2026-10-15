@@ -1,6 +1,12 @@
+import { pantallas as voz } from './voz/pantallas';
+import { pantallas as restauracion } from './restauracion/pantallas';
+import { pantallas as anexo6, enlazarAnexo6 } from './anexo6/pantallas';
+import { pantallas as auditoria } from './auditoria/pantallas';
+import { pantallas as ubicaciones } from './ubicaciones/pantallas';
 import { pantallas as conservacion } from './conservacion/pantallas';
 import { pantallas as carga } from './carga/pantallas';
 import { pantallas as salidas } from './salidas/pantallas';
+import { pantallas as desgloseMemoria } from './memdes/pantallas';
 import { pantallas as memoria } from './memoria/pantallas';
 import { pantallas as plantillas } from './plantillas/pantallas';
 import { pantallas as decision } from './decision/pantallas';
@@ -18,5 +24,6 @@ import { pantallas as fi1 } from './fi1/pantallas';
 import { validarPantallas, type Pantalla } from './registro-pantallas';
 
 // El orden de composición conserva la navegación publicada por el servidor.
-export const pantallas: readonly Pantalla[] = [...bandeja, ...salidas, ...smi, ...usuarios, ...catalogo, ...paquete, ...memoria, ...actividad, ...spaf, ...anexo, ...decision, ...plantillas, ...equipo, ...fi1, ...traslado, ...carga, ...conservacion];
+export const pantallas: readonly Pantalla[] = enlazarAnexo6([...restauracion, ...anexo6, ...bandeja, ...salidas, ...smi, ...usuarios, ...catalogo, ...ubicaciones, ...paquete, ...memoria, ...desgloseMemoria, ...actividad, ...spaf, ...anexo, ...decision, ...plantillas, ...equipo, ...fi1, ...traslado, ...carga, ...conservacion, ...auditoria, ...voz]);
+
 validarPantallas(pantallas);

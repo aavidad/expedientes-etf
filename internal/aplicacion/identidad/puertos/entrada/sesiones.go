@@ -3,6 +3,7 @@ package entrada
 import (
 	"context"
 	dominio "github.com/aavidad/expedientes-etf/internal/dominio/identidad"
+	"time"
 )
 
 type Inicio struct {
@@ -13,8 +14,10 @@ type Inicio struct {
 
 // Acceso contiene permisos recién leídos del servidor, nunca del cliente.
 type Acceso struct {
-	Usuario dominio.Usuario
-	Estado  dominio.Estado
+	Usuario  dominio.Usuario
+	Estado   dominio.Estado
+	CaducaEn time.Time
+	MaximaEn time.Time
 }
 
 type SesionAbierta struct {
@@ -41,4 +44,15 @@ func ConOrigen(ctx context.Context, ip dominio.IP) context.Context {
 func Origen(ctx context.Context) dominio.IP {
 	ip, _ := ctx.Value(claveOrigen{}).(dominio.IP)
 	return ip
+}
+
+type claveConsultaPasiva struct{}
+
+// ConConsultaPasiva comprueba vigencia sin prolongar la inactividad.
+func ConConsultaPasiva(ctx context.Context) context.Context {
+	return context.WithValue(ctx, claveConsultaPasiva{}, true)
+}
+func ConsultaPasiva(ctx context.Context) bool {
+	v, _ := ctx.Value(claveConsultaPasiva{}).(bool)
+	return v
 }

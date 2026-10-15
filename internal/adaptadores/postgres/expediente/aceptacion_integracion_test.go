@@ -38,6 +38,23 @@ func prepararAceptacion(t *testing.T) (*postgres.Base, context.Context, aplicaci
 	if err != nil {
 		t.Fatal(err)
 	}
+	err = b.Ejecutar(ctx, plataforma.Identidad{UsuarioID: a.UsuarioID, Perfiles: []string{"administracion"}}, func(ctx context.Context) error {
+		tx, e := postgres.DesdeContexto(ctx)
+		if e != nil {
+			return e
+		}
+		var existe bool
+		if e = tx.QueryRow(ctx, `SELECT to_regclass('expediente.plazo_carga') IS NOT NULL`).Scan(&existe); e != nil {
+			return e
+		}
+		if existe {
+			_, e = tx.Exec(ctx, `UPDATE expediente.plazo_carga SET fecha_cierre='2026-12-31',version=version+1 WHERE id AND fecha_cierre IS NULL`)
+		}
+		return e
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
 	return b, ctx, d, a, p
 }
 func conMenores(p dominio.Aceptacion, d dominio.Derivacion) dominio.Aceptacion {

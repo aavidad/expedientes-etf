@@ -18,9 +18,9 @@ const personas = ['psicologia', 'trabajo_social', 'educacion_social'] as const;
 const sexos = ['hombres', 'mujeres'] as const;
 const textos = ['d', 'e', 'f', 'g'] as const;
 
-export function Memoria({ t, idioma, csrf }: PropsPantalla) {
-  const [anio, ponerAnio] = useState(new Date().getFullYear());
-  const [equipo, ponerEquipo] = useState('');
+export function Memoria({ t, idioma, csrf, navegarRuta }: PropsPantalla) {
+  const [anio, ponerAnio] = useState(Number(new URLSearchParams(location.search).get('anio')) || new Date().getFullYear());
+  const [equipo, ponerEquipo] = useState(new URLSearchParams(location.search).get('etf') ?? '');
   const [equipos, ponerEquipos] = useState<Equipo[]>([]);
   const [acceso, ponerAcceso] = useState<Acceso>();
   const [informe, ponerInforme] = useState<Informe>();
@@ -37,7 +37,7 @@ export function Memoria({ t, idioma, csrf }: PropsPantalla) {
   const [vistaConsulta, ponerVistaConsulta] = useState(false);
   const [error, ponerError] = useState<FalloMemoria>();
   const [aviso, ponerAviso] = useState('');
-  const [bloque, ponerBloque] = useState(0);
+  const [bloque, ponerBloque] = useState(() => { const ap = Number(new URLSearchParams(location.search).get('apartado')); return limites.findIndex(([desde, hasta]) => ap >= desde && ap < hasta + 1) < 0 ? 0 : limites.findIndex(([desde, hasta]) => ap >= desde && ap < hasta + 1); });
   const [ayuda, ponerAyuda] = useState(false);
   const carga = useRef<AbortController | undefined>(undefined);
   const mutacion = useRef<AbortController | undefined>(undefined);
@@ -101,6 +101,11 @@ export function Memoria({ t, idioma, csrf }: PropsPantalla) {
   useEffect(() => { ponerSucio(sucio || ['guardando', 'cerrando', 'reabriendo'].includes(estado)); }, [sucio, estado, ponerSucio]);
   useEffect(() => () => ponerSucio(false), [ponerSucio]);
   useEffect(() => { if (error) incidencia.current?.focus(); }, [error]);
+  useEffect(() => {
+    if (estado !== 'lista') return;
+    const p = new URLSearchParams(location.search);
+    if (p.has('apartado') && p.has('celda') && p.has('medida')) requestAnimationFrame(() => document.getElementById(`memoria-cifra-${p.get('apartado')}-${p.get('celda')}-${p.get('medida')}`)?.focus());
+  }, [estado]);
   const cambiarFiltro = (a: number, e: string) => solicitarSalida(() => { ponerAnio(a); ponerEquipo(e); void cargar(a, e); });
   const guardar = async () => {
     if (!narrativa || !informe || ocupado || cerrada) return;
@@ -145,19 +150,28 @@ export function Memoria({ t, idioma, csrf }: PropsPantalla) {
   };
   const general = (campo: 'entidad_local' | 'denominacion' | 'observaciones', valor: string) => { if (narrativa) ponerNarrativa({ ...narrativa, a: { ...narrativa.a, [campo]: valor } }); };
   const personal = (profesion: typeof personas[number], sexo: keyof Personal, valor: string) => { if (narrativa) ponerNarrativa({ ...narrativa, a: { ...narrativa.a, [profesion]: { ...narrativa.a[profesion], [sexo]: valor === '' ? null : Number(valor) } } }); };
+  const cifra = (a: Apartado, celda: number, medida: string, valor: number) => {
+    const parametros = new URLSearchParams({ anio: String(informe!.anio), ...(informe!.equipo_id ? { etf: informe!.equipo_id } : {}), apartado: a.codigo, celda: String(celda), medida, esperado: String(valor), ...(celda >= 0 ? { clave: JSON.stringify({ Grupo: a.celdas[celda].grupo, Unidad: a.celdas[celda].unidad }) } : {}), ...(cerrada && situacion ? { revision: String(situacion.revision_actual) } : {}) });
+    const ruta = `/memoria/desglose?${parametros}`;
+    const grupoDesglose = medida === 'denominador' ? t(`memoria.denominador.${a.contrato.denominador.toLowerCase()}`) || t('memoria.denominador') : celda >= 0 ? Object.entries(a.celdas[celda].grupo).filter(([dimension, valor]) => !!valor && !(medida === 'sin_dato' && dimension === 'estado' && valor === 'no')).map(([dimension, valor]) => etiqueta(a.codigo, dimension, valor)).join(t('memoria.separador')) || t('memoria.sin_dato') : t('memoria.desglose.total');
+    const unidadDesglose = celda >= 0 ? a.celdas[celda].unidad : medida;
+    const etiquetaDesglose = t('memoria.desglose.ver').replace('{cantidad}', numero(valor)).replace('{apartado}', t(`memoria.apartado.${a.codigo}`)).replace('{medida}', t(`memoria.desglose.medida.${medida}`) || t(`memoria.unidad.${medida}`)).replace('{grupo}', grupoDesglose).replace('{unidad}', t(`memoria.unidad.${unidadDesglose}`) || t('memoria.unidad.familias'));
+    return <a id={`memoria-cifra-${a.codigo}-${celda}-${medida}`} className="memoria-cifra" href={ruta} aria-label={etiquetaDesglose} onClick={(e) => { if (e.button === 0 && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) { e.preventDefault(); solicitarSalida(() => navegarRuta(ruta)); } }}>{numero(valor)}</a>;
+  };
   const mostrarApartado = (a: Apartado) => <article className="memoria-apartado" key={a.codigo} tabIndex={-1} id={`memoria-apartado-${a.codigo}`}>
     <h3>{t(`memoria.apartado.${a.codigo}`)}</h3>
+    <p>{Object.entries(a.total).filter(([unidad, cantidad]) => cantidad > 0 && unidad !== 'familias_sin_relacion_menores').map(([unidad, cantidad]) => <span key={unidad}>{t(`memoria.unidad.${unidad}`)} {cifra(a, -1, unidad, cantidad)} </span>)}</p>
     <p>{t('memoria.poblacion')} {t(a.codigo === '5' ? 'memoria.poblacion.no_aceptados' : `memoria.poblacion.${a.contrato.poblacion.toLowerCase()}`) || t('memoria.etiqueta_pendiente')}</p>
     <p>{t('memoria.denominador')} {t(`memoria.denominador.${a.contrato.denominador.toLowerCase()}`) || t('memoria.denominador_pendiente')}</p>
     <details><summary>{t('memoria.reglas')}</summary><p>{t('memoria.regla_fecha').replace('{fecha}', fecha(a.contrato.corte)).replace('{version}', a.contrato.version_regla)}</p></details>
     {Object.entries(a.avisos ?? {}).filter(([, cantidad]) => cantidad > 0).map(([clave, cantidad]) => <p className="memoria-aviso" key={clave}>{t(clave) || t('memoria.datos_faltantes')} {numero(cantidad)}</p>)}
     <div className="memoria-tabla" role="region" tabIndex={0} aria-label={t(`memoria.apartado.${a.codigo}`)}>
       <table><caption>{t(`memoria.apartado.${a.codigo}`)}</caption><thead><tr>{['grupo', 'unidad', 'cantidad', 'base', 'porcentaje', 'sin_dato'].map((col) => <th scope="col" key={col}>{t(`memoria.${col}`)}</th>)}</tr></thead>
-        <tbody>{a.celdas.map((c, i) => <tr key={i}><th scope="row">{[...Object.entries(c.grupo).filter(([dimension, valor]) => !!valor && !(c.sin_dato > 0 && c.numerador === 0 && dimension === 'estado' && valor === 'no')).map(([dimension, valor]) => etiqueta(a.codigo, dimension, valor)), ...(c.sin_dato > 0 && c.numerador === 0 ? [t('memoria.sin_dato')] : [])].join(t('memoria.separador')) || t('memoria.sin_dato')}</th><td>{t(`memoria.unidad.${c.unidad}`)}</td><td>{numero(c.numerador)}</td><td>{c.denominador.conocido ? numero(c.denominador.valor) : t('memoria.sin_dato')}</td><td>{c.porcentaje && !['estadistica.denominador_pendiente'].includes(c.porcentaje.aviso) ? new Intl.NumberFormat(idioma, { style: 'percent', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(c.porcentaje.centesimas / 10000) : t('memoria.sin_dato')}{c.porcentaje?.aviso && <span className="memoria-aviso">{t(c.porcentaje.aviso)}</span>}</td><td className={c.sin_dato ? 'memoria-aviso' : undefined}>{numero(c.sin_dato)}</td></tr>)}</tbody>
+        <tbody>{a.celdas.map((c, i) => <tr key={i}><th scope="row">{[...Object.entries(c.grupo).filter(([dimension, valor]) => !!valor && !(c.sin_dato > 0 && c.numerador === 0 && dimension === 'estado' && valor === 'no')).map(([dimension, valor]) => etiqueta(a.codigo, dimension, valor)), ...(c.sin_dato > 0 && c.numerador === 0 ? [t('memoria.sin_dato')] : [])].join(t('memoria.separador')) || t('memoria.sin_dato')}</th><td>{t(`memoria.unidad.${c.unidad}`)}</td><td>{cifra(a, i, 'numerador', c.numerador)}</td><td>{c.denominador.conocido ? cifra(a, i, 'denominador', c.denominador.valor) : t('memoria.sin_dato')}</td><td>{c.porcentaje && !['estadistica.denominador_pendiente'].includes(c.porcentaje.aviso) ? new Intl.NumberFormat(idioma, { style: 'percent', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(c.porcentaje.centesimas / 10000) : t('memoria.sin_dato')}{c.porcentaje?.aviso && <span className="memoria-aviso">{t(c.porcentaje.aviso)}</span>}</td><td className={c.sin_dato ? 'memoria-aviso' : undefined}>{cifra(a, i, 'sin_dato', c.sin_dato)}</td></tr>)}</tbody>
       </table>
     </div>
     {!a.celdas.length && <p>{t('memoria.sin_poblacion')}</p>}
-    <p>{t('memoria.relacion_desconocida')} {numero(a.total.familias_sin_relacion_menores ?? 0)}</p>
+    <p>{t('memoria.relacion_desconocida')} {cifra(a, -1, 'familias_sin_relacion_menores', a.total.familias_sin_relacion_menores ?? 0)}</p>
   </article>;
   if (vistaConsulta) return <ConsultaMemoria t={t} idioma={idioma} csrf={csrf} anioInicial={anio} equipoInicial={equipo} equipoPropio={acceso?.perfiles?.includes('profesional_etf') ? acceso.equipo_id : undefined} alConsultarEquipoPropio={cambiarFiltro} />;
   return <section className="memoria" aria-labelledby="memoria-titulo">

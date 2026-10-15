@@ -1,0 +1,25 @@
+rules:
+  - id: curso-shell-injection
+    languages: [python]
+    severity: ERROR
+    message: No se permite interpolar órdenes en un shell.
+    pattern: subprocess.$F(..., shell=True, ...)
+  - id: curso-evaluacion-dinamica
+    languages: [python]
+    severity: ERROR
+    message: No se permite evaluar texto de las fuentes como código Python.
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: exec(...)
+  - id: curso-yaml-inseguro
+    languages: [python]
+    severity: ERROR
+    message: Utiliza safe_load para leer YAML.
+    pattern: yaml.load(...)
+  - id: curso-secretos-literales
+    languages: [python]
+    severity: ERROR
+    message: Las credenciales deben leerse sólo en memoria desde el archivo externo.
+    pattern-either:
+      - pattern: $V["ADMIN_PASSWORD"] = "..."
+      - pattern: $V["ADMIN_EMAIL"] = "..."

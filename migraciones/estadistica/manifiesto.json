@@ -64,5 +64,19 @@
         "numero": "0001"
       }
     ]
+  },
+  {
+    "numero": "0007",
+    "archivo": "0007_pendientes_lista_espera.sql",
+    "depende_de": [
+      {
+        "modulo": "estadistica",
+        "numero": "0006"
+      },
+      {
+        "modulo": "expediente",
+        "numero": "0027"
+      }
+    ]
   }
 ]

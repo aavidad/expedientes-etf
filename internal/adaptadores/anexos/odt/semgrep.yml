@@ -4,7 +4,7 @@ rules:
     severity: ERROR
     message: anexo.odt_acceso_externo
     paths:
-      include: ['**/anexos/odt/*.go', '**/anexos/pdf/libreoffice.go']
+      include: ['**/anexos/odt/*.go', '**/anexos/pdf/libreoffice.go', '**/anexos/lectura/lector.go']
       exclude: ['*_test.go']
     pattern-either:
       - pattern: os.Open(...)
@@ -36,7 +36,7 @@ rules:
     severity: ERROR
     message: anexo.cliente_contenido_inseguro
     paths:
-      include: ['**/anexo/*.tsx']
+      include: ['**/anexo/*.tsx', '**/carga/actas.tsx']
     pattern-either:
       - pattern: eval(...)
       - pattern: localStorage.setItem(...)

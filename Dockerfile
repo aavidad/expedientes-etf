@@ -29,10 +29,17 @@ USER 70:70
 WORKDIR /opt/etf
 ENTRYPOINT ["/usr/local/bin/migrar"]
 
+FROM alpine:3.22@sha256:5291449c3df73caf6ed85e649dec1b9e818b39a5d8c871e97afc13e9cd5e8fa8 AS recursos
+COPY . /fuente
+RUN mkdir -p /recursos/voz && if [ -d /fuente/bin/voz ]; then cp -R /fuente/bin/voz/. /recursos/voz/; fi
+
 FROM alpine:3.22@sha256:5291449c3df73caf6ed85e649dec1b9e818b39a5d8c871e97afc13e9cd5e8fa8 AS app
 RUN addgroup -g 10001 etf && adduser -D -u 10001 -G etf etf
 WORKDIR /opt/etf
 COPY --from=go /out/etf /usr/local/bin/etf
+COPY --chown=10001:10001 --from=recursos /recursos/voz ./bin/voz
+COPY --chown=10001:10001 docs/manuales ./docs/manuales
+COPY --chown=10001:10001 docs/capturas ./docs/capturas
 COPY idiomas ./reserva/idiomas
 COPY datos/catalogos/memoria ./datos/catalogos/memoria
 COPY datos/catalogos/familia.json ./datos/catalogos/familia.json

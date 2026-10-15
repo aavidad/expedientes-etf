@@ -45,7 +45,7 @@
   "decision.puesto.ps": "Psychologist",
   "decision.fecha_acta": "Actual date of the Acceptance Act",
   "decision.origen_municipio": "Municipality found in the annex:",
-  "decision.fuera_ambito": "This municipality is outside the Provincial Council’s area. Review the team and centre before deciding.",
+  "decision.fuera_ambito": "This referral follows the same procedure. Choose the team that will handle it and confirm the centre.",
   "decision.numero_asignado": "Assigned case number:",
   "decision.numero_al_aceptar": "The case number will be assigned on acceptance: team, sequence and year of the Act.",
   "decision.menores": "Children referred",

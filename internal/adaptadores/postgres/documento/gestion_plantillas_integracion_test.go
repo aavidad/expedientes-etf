@@ -37,7 +37,7 @@ func TestGestionPlantillasPostgres(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	b, err := os.ReadFile("../../../../idiomas/en/plantillas/entrada/no_aceptacion/v1.0.1.docx")
+	b, err := os.ReadFile("../../../../idiomas/en/plantillas/entrada/no_aceptacion/v1.0.2.docx")
 	if err != nil {
 		t.Fatal(err)
 	}

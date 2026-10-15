@@ -113,3 +113,9 @@ esa comprobación protege la frontera sellada, no acredita su hora exacta.
 
 Tampoco se incluye aún `detalle` (campos cambiados, claves de error y número de
 filas). Ampliarlo exige otra versión canónica, sin reescribir eventos.
+
+## Exportación filtrada AUD1
+
+La API y la pantalla de Administración están conectadas en AUD1. El ZIP contiene el registro filtrado en CSV o JSON y una prueba v1 del tramo contiguo entre los extremos del periodo. El manifiesto conserva filtros, recuentos, huellas de los dos archivos y extremos. La selección nunca se presenta como cadena completa. `RecorrerExportacion` verifica un evento cada vez; los metadatos preceden al array de eventos. Se reutilizan los puntos, la forma canónica y la comprobación v1 existentes.
+
+`go run ./cmd/verificar-exportacion /ruta/autorizada/auditoria.zip` comprueba la prueba y la selección completa dentro del tramo. Admite después de la ruta los cuatro argumentos `ID_ANTERIOR HUELLA_ANTERIOR ID_FINAL HUELLA_FINAL` para contrastar referencias externas. Los puntos del mismo archivo no acreditan el origen. La API confirma su apunte antes de entregar el ZIP, con hasta 31 días, 100.000 eventos de prueba, 64 MiB, 30 segundos de preparación y dos descargas simultáneas. Detalle y evidencia en `docs/evidencias/AUD1.md`.

@@ -135,7 +135,9 @@ services:
     depends_on:
       migrar:
         condition: service_completed_successfully
-    mem_limit: 256m
+    tmpfs:
+      - /tmp:uid=10001,gid=10001,mode=0700,size=320m
+    mem_limit: 512m
     cpus: 1.0
 
   clamav:

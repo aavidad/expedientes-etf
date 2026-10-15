@@ -101,15 +101,20 @@ quitarle los perfiles en la app; la cuenta de AD no se toca.
 
 ## 2. Mapa de navegación por perfil
 
+La entrada común Ayuda abre `/ayuda`. Cada persona ve los manuales de sus perfiles, con índice y secciones desplegables, capturas y PDF. Consulta puede abrir la pantalla y encuentra un aviso de manual no disponible. En castellano, las secciones y la ayuda contextual ofrecen Escuchar cuando hay audio vigente; al cerrar una ayuda se detiene su reproducción. Cambiar a inglés oculta los controles. La escucha nunca inicia por sí sola y dispone de pausa mediante controles nativos.
+
+
 Común a todos los perfiles con sesión: cabecera con el nombre de la app, buscador
 «Buscar expediente» (por número; los resultados salen enmascarados y sólo los que
 el perfil puede ver), selector de idioma (lee los idiomas instalados en `idiomas/`),
-nombre y perfiles de la persona, equipo, botón «?» de ayuda y salir. UI1 obtiene las pantallas permitidas del registro HTTP por módulos. INT5 compone las pantallas web y su menú en una lista ordenada; sólo muestra entradas autorizadas también por la sesión. En ancho reducido, «Menú» abre la navegación recogida; «Persona» reúne identificación, preferencias y salida. El buscador sólo aparece para Coordinación y Profesional de ETF. La ayuda sólo se abre
+nombre y perfiles de la persona, equipo, botón «?» de ayuda y salir. UI1 obtiene las pantallas permitidas del registro HTTP por módulos. INT5 compone las pantallas web y su menú en una lista ordenada; sólo muestra entradas autorizadas también por la sesión. En ancho reducido, «Menú» abre la navegación recogida; «Persona» reúne identificación, preferencias y salida. El buscador sólo aparece para Coordinación y Profesional de ETF. La ayuda contextual sólo se abre
 desde «?» (ver `DISENO_UI_UX.md`).
 
 Regla de datos en todas las pantallas: los listados enseñan la familia enmascarada
 («Familia O. S.») y el número de expediente; el nombre completo sólo aparece en la
 ficha, y abrir la ficha queda registrado en la auditoría.
+
+Antes de caducar la sesión aparece un aviso con dos minutos de margen. Tras 30 minutos sin actividad termina; «Continuar sesión» permite seguir dentro del máximo absoluto de 8 horas. Al acercarse ese máximo, el aviso pide volver a entrar. Ambos plazos son configurables. La caducidad devuelve a la entrada y conserva lo que ya has guardado; no guarda automáticamente los cambios pendientes.
 
 ### 2.1 Coordinación
 
@@ -169,7 +174,7 @@ con enlaces a cada campo vacío.
 
 ### 2.3 Consulta
 
-Pocas personas. Ven totales y nunca un nombre ni un número de expediente.
+Pocas personas. Ven totales y nunca un nombre ni un número de expediente. Las cifras menores que el umbral de privacidad (3 por defecto) aparecen como «Oculto», con explicación. Se ocultan además las cifras necesarias para impedir deducirlas mediante sumas, totales, bases y porcentajes. La misma protección se aplica en el Word.
 
 - Menú: Memoria anual.
 - Pantallas:
@@ -182,6 +187,9 @@ Consulta usa una vista y una descarga exclusivas de cifras: nunca recibe la comp
 
 ### 2.4 Administración funcional
 
+**Revisión tras restaurar una copia (SEG4):** al entrar, sólo se ofrece `/admin/restauracion`. La pantalla muestra la fecha de la copia, las altas y bajas y los permisos de cada persona en la copia y antes de restaurar, con perfiles, equipos, puestos y vigencias. «Aplicar cambio» recupera la situación anterior a la restauración; «Descartar cambio» conserva la de la copia y avisa de que puede devolver permisos retirados. Cada decisión se guarda antes de anunciarse. Un conflicto ofrece actualizar la revisión. Tras decidir todos los cambios, «Terminar revisión» abre la confirmación; «Confirmar revisión y abrir» permite entrar al resto. No se puede consultar expedientes ni editar usuarios durante la revisión, incluso con perfiles combinados.
+En Usuarios y permisos, «Ver mis permisos» abre tus datos en consulta. El aviso indica que otra persona de Administración funcional debe cambiar tus perfiles, vigencias o equipo, o dar de baja tu acceso. Los controles y el guardado están desactivados. La API también rechaza el cambio propio y registra el intento. La primera cuenta administrativa se concede mediante la configuración de sistemas y el alta inicial, sin usar esta pantalla (SEG2, R-10).
+
 Una o dos personas. Mantienen la configuración y **no ven expedientes**: ninguna
 ruta de expedientes, Memoria, Tabla SPAF ni comisiones les responde.
 
@@ -192,14 +200,19 @@ ruta de expedientes, Memoria, Tabla SPAF ni comisiones les responde.
 | Pantalla | Para qué | Ruta de interfaz | Ruta de API | Estado |
 | --- | --- | --- | --- | --- |
 | Usuarios y permisos | Pendientes de alta arriba; asignar o quitar perfiles y equipo | `/admin/usuarios` | `GET /api/admin/usuarios`, `PUT /api/admin/usuarios/{id}/perfiles` | hecho en F0.10 |
-| Catálogos | Equipos, centros, municipios (con su centro y su equipo, que son independientes [D9]), listas de opciones y equivalencias | `/admin/catalogos/{tipo}` | `GET/POST/PUT /api/admin/catalogos/{tipo}` | listas implementadas con autorización de Administración (F0.14a); ubicaciones y equivalencias pendientes |
+| Catálogos | Equipos, centros, municipios (con su centro y su equipo, que son independientes [D9]), listas de opciones y equivalencias | `/admin/catalogos/{tipo}` | `GET/POST/PUT /api/admin/catalogos/{tipo}` | listas implementadas con autorización de Administración (F0.14a); equivalencias pendientes; ubicaciones disponibles en UBI1 |
+| Equipos, municipios y centros | Alta y baja de equipos y centros; centro y equipo independientes, ámbito y variantes de municipios y entidades locales autónomas | `/admin/ubicaciones` | `GET/PUT /api/admin/ubicaciones` | UBI1 |
 | Plazos y tramos | 30 días, duraciones de fase, días de espera del SPM, tramos de duración [D20], tramos SMI; cada versión con fecha de vigencia | `/admin/reglas` | `GET/POST/PUT /api/admin/reglas?ambito=plazos` o `tramos` | implementada con autorización de Administración (F0.14a) |
 | Plantillas Word | Consultar activa e historial por documento e idioma, subir y revisar una versión y activarla con confirmación | `/admin/plantillas` | `GET /api/admin/plantillas`, `POST /api/admin/plantillas/versiones`, `POST /api/admin/plantillas/{id}/activar` | disponible (PL1) |
 | Firmantes y destinatarios | Quién firma y a quién van los oficios, con vigencia | `/admin/firmantes` | `GET/POST/PUT /api/admin/firmantes` | implementada con autorización de Administración (F0.14b) |
 | Temas | Ver los temas instalados en `temas/`, activar uno | `/admin/temas` | `GET /api/admin/temas`, `PUT /api/admin/temas/activo` | falta |
 | Idiomas | Ver los idiomas instalados en `idiomas/`, claves que faltan, recargar | `/admin/idiomas` | `GET /api/admin/idiomas`, `POST /api/admin/idiomas/recargar` | falta |
 | Conservación | Revisar expedientes cuyo plazo ha terminado; primera propuesta y confirmación de otra persona de Administración, sin ficha | `/admin/conservacion` | `GET /api/conservacion/pendientes`, `POST /api/conservacion/{id}/proponer`, `POST /api/conservacion/{id}/anonimizar` | F5.04 |
-| Auditoría | Exportar el registro para el DPD, con constancia de la exportación y sin acceso a fichas | `/admin/auditoria` | `POST /api/admin/auditoria/exportar` | falta |
+| Auditoría | Exportar el registro para el DPD, con constancia de la exportación y sin acceso a fichas | `/admin/auditoria` | `POST /api/admin/auditoria/exportaciones` | disponible (AUD1) |
+
+En Auditoría eliges fechas obligatorias, hasta 31 días inclusive y en horario UTC. Puedes filtrar por tipo de evento (ámbito), persona usuaria o identificador interno del expediente. El aviso explica que los vínculos son datos personales; la acción descarga un ZIP con CSV o JSON, prueba de cadena, manifiesto con huellas e instrucciones. La prueba puede contener otros eventos intermedios. La espera anuncia la comprobación; un error conserva los filtros y permite reintentar; un resultado sin coincidencias descarga un registro vacío y lo informa. Sólo Administración puede abrir la pantalla y descargar. El acto queda confirmado en auditoría antes de recibir bytes. La ayuda explica el contraste con puntos custodiados por separado y los límites.
+
+En el editor de ubicaciones eliges el tipo, buscas por nombre y editas una entrada. Las denominaciones y variantes se publican juntas en castellano e inglés. Cada cambio lleva una fecha posterior a la última publicación; la fecha de baja es el primer día en que la entrada deja de estar activa. Ante un conflicto se conservan tus campos y se muestran los valores actuales para compararlos antes de publicar.
 
 La tabla del SMI no está aquí: la mantiene Coordinación. Los textos de interfaz,
 catálogos y Word viven respectivamente en `idiomas/<código>/textos/`,
@@ -286,7 +299,7 @@ flowchart LR
 | 1 | Coordinación | Sube el Anexo 3 (de SS.SS.CC.) o el Anexo 4 (del SPM) en Word o PDF | — | `/coordinacion/anexos/nuevo` · `POST /api/coordinacion/derivaciones` | entregado en P2 |
 | 2 | Sistema | Valida, pasa el antivirus y lee los 7 apartados del anexo; descarta el fichero (detalle en 3.16) | — | conectores `Antivirus` y `LectorAnexo`; análisis sin guardar derivación | entregado en P2 |
 | 3 | Sistema | Busca el municipio en «Dirección» y, si no está, en «Valoración y diagnóstico»; propone centro de SS.SS.CC. y equipo por separado [D9]; marca la frase de donde lo sacó | — | `/coordinacion/anexos/nuevo`; extracción sólo en memoria | entregado en P2 |
-| 4 | Coordinación | Revisa los bloques plegables; confirma o corrige municipio, centro y equipo (si hay varios candidatos o ninguno, el campo queda vacío y obligatorio); municipio fuera del ámbito: aviso y decide la coordinación [D10] | — | misma pantalla | entregado en P2 |
+| 4 | Coordinación | Revisa los bloques plegables; confirma o corrige municipio, centro y equipo (si hay varios candidatos o ninguno, el campo queda vacío y obligatorio); municipio fuera del ámbito: mismo trámite, la coordinación elige el equipo [D10, 14/10/2026] | — | misma pantalla | entregado en P2 |
 | 5 | Coordinación | Guarda la derivación | (nada) → DERIVACIÓN RECIBIDA | `POST /api/coordinacion/derivaciones/confirmar`; navega a `/coordinacion/derivaciones/{id}` | entregado en P2 |
 | 6 | Coordinación | Pulsa «Aceptar»: elige profesional de referencia del equipo, sexo de cada menor (no viene en el anexo) y recorta la descripción de la situación (copiada del anexo [D13]); confirma la fecha real del Acta y ve el número que se asignará | — | misma pantalla | CA1 disponible |
 | 7 | Sistema | Asigna número equipo-correlativo-año (`08-01-26` [D1]) con el año de la fecha del Acta confirmada; registra ese hito y la aceptación en la misma transacción, sin deducir fechas de la generación | DERIVACIÓN RECIBIDA → ACEPTADA (fase recepción) | `POST /api/coordinacion/derivaciones/{id}/aceptar` | servidor y pantalla P3 disponibles |
@@ -353,9 +366,7 @@ flowchart LR
 | 3 | Coordinación | Consulta la lista por fecha de recepción | — | `GET /api/coordinacion/lista-espera` | servidor F1.05b y pantalla P3 disponibles |
 | 4 | Coordinación | Acepta (pasos 6 a 10 de 3.1) o no acepta (3.2) | LISTA DE ESPERA → ACEPTADA o NO ACEPTADA | `/coordinacion/derivaciones/{id}` | falta |
 
-Reglas provisionales [D2]: sólo entran en lista de espera casos de SS.SS.CC.
-(el oficio sólo habla de su informe de derivación); al aceptar, número y fecha son
-los del día de la aceptación real; mientras esperan no cuentan en la Memoria.
+Reglas confirmadas por el Programa el 14/10/2026 [D2]: sólo entran en lista de espera casos de SS.SS.CC. (Anexo 3). El servidor rechaza el Anexo 4 y la pantalla oculta esa acción. Al aceptar, número y fecha son los del día de la aceptación real; mientras esperan cuentan en el apartado 6 de la Memoria.
 
 ### 3.4 Consentimiento y plazo de 30 días
 
@@ -487,18 +498,24 @@ flowchart LR
 
 | Paso | Quién | Qué hace | Estado antes → después | Pantalla / API | Estado |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Profesional de ETF | Elige el servicio de destino y el motivo | — | `/expedientes/{id}/coordinacion` · `POST /api/expedientes/{id}/derivaciones-salida` (tipo `otro_servicio`) | servidor implementado; pantalla pendiente |
-| 2 | Sistema | Genera el Anexo 6 con fecha del día, apartados 1 a 4 rellenos y 5 a 8 en blanco | emisión registrada; aún sin hito confirmado | `POST /api/expedientes/{id}/documentos/anexo6` | servidor implementado; pantalla pendiente |
+| 1 | Profesional de ETF | Elige el servicio de destino y el motivo | — | `/equipo/anexo6?id=…` · `POST /api/expedientes/{id}/derivaciones-salida` (tipo `otro_servicio`) | servidor y pantalla disponibles |
+| 2 | Sistema | Genera el Anexo 6 con fecha del día, apartados 1 a 4 rellenos y 5 a 8 en blanco | emisión registrada; aún sin hito confirmado | `POST /api/expedientes/{id}/documentos/anexo6` | servidor y pantalla disponibles |
 
 Tras realizar la derivación fuera, el profesional confirma su fecha mediante `POST /api/expedientes/{id}/hitos`: la salida pasa a EMITIDA. El Anexo 6 no cambia el estado del expediente ni bloquea el cierre.
 
-El cuerpo de la propuesta lleva `tipo: otro_servicio`, `servicio_destino` (código activo de la lista `servicio_destino`), `motivo` y `version` del expediente. Administración publica los destinos y sus nombres en los catálogos de idioma antes de usarlos. El recibo identifica la salida y devuelve la nueva versión del expediente.
+El cuerpo de la propuesta lleva `tipo: otro_servicio`, `servicio_destino` (código activo de la lista `servicio_destino`) o `servicio_texto` cuando no hay opciones activas, `motivo` y `version` del expediente. Administración publica los destinos y sus nombres en los catálogos de idioma antes de usarlos. El recibo identifica la salida y devuelve la nueva versión del expediente.
 
 La emisión recibe `salida_id` e `idioma`. Propone la fecha del día en Madrid; rellena los datos disponibles de los apartados 1 a 4 y deja del 5 al 8 vacíos. Los campos aún no recogidos en el expediente quedan vacíos. Los contactos del servicio de origen no se atribuyen al ETF. La fecha propuesta no modifica la fecha real confirmada.
 
 La confirmación recibe `tipo: derivacion_otro_servicio`, `salida_id`, `version` del expediente, `version_salida` y `fecha`. Cada POST exige `Idempotency-Key` y protección CSRF. Un conflicto de versión devuelve 409. Profesional sólo actúa sobre su equipo; Coordinación puede actuar sobre todos. Consulta y Administración no acceden. No se crean ni cambian estados de cierre.
 
 La lectura del profesional usa las políticas de catálogo corregidas por `catalogo/0008`. La ruta compartida de hitos conserva los tipos de consentimiento y escalas de F2.03 y despacha `derivacion_otro_servicio` al caso de uso de la salida.
+
+AN6 conecta la pantalla desde la ficha del equipo y Salidas/cierre de Coordinación. Muestra propuestas y fechas confirmadas, permite preparar varias salidas y anuncia la versión de plantilla descargada. `GET /api/anexo6/opciones?idioma=…` entrega destinos activos y etiquetas históricas; sin opciones publicadas se permite escribir el nombre del servicio. La lectura de salidas usa la ficha auditada existente (`GET /api/equipo/expedientes/{id}`).
+
+Los datos guardados en Familia, adultos y Menores sustituyen la extracción inicial en el Word. Los menores retirados no aparecen; los valores borrados no se recuperan del anexo original. Los datos aún sin ficha conservan la lectura inicial. La pantalla conserva lo escrito ante un conflicto y permite recuperar exactamente una petición cuyo resultado no se pudo conocer. No confirma fechas futuras.
+
+Memoria y SPAF conservan sus reglas de población, propuesta protectora y cierre. Una salida del Anexo 6 no se convierte en propuesta al SPM ni en derivación tras cierre. La posible inclusión de un recuento propio se consulta en `docs/dudas.md`.
 
 ### 3.8 Propuesta de cierre por el equipo y Acta de Cierre por coordinación
 
@@ -657,7 +674,7 @@ flowchart LR
 | 4 | Sistema | Anota quién y cuándo la emitió | — | — | implementado en la transacción de emisión |
 
 El motivo de cierre (columna 14) sale traducido a la lista del SPAF [D5]; la
-columna 5 pide la ZTS [D19]. Coordinación puede sacar la tabla de cualquier equipo
+columna 5 recoge sólo el municipio de la familia, sin ZTS ni aviso pendiente [D19, respuesta del 14/10/2026]. Coordinación puede sacar la tabla de cualquier equipo
 desde la misma ruta. La tabla no tiene estados: se puede volver a generar.
 La descarga envía las versiones de regla y fichas de la vista previa. Si han
 cambiado, devuelve 409 con las versiones actuales para revisar de nuevo.
@@ -688,7 +705,7 @@ flowchart LR
 | 1 | Profesional de ETF (su equipo) o Coordinación (cualquiera o provincial) | Elige año y equipo; muestra el cálculo sin crear un borrador narrativo y publica el agregado permitido para Consulta | publicación de cifras, sin cambiar el estado de la Memoria | `/memoria` · `GET /api/estadistica/memoria?anio=&etf=` | API y pantalla implementadas en F4.02; Consulta utiliza el cálculo al momento o la foto cerrada de F4.07 |
 | 2 | Sistema | Calcula los 28 apartados en el servidor con las reglas vigentes el 31/12 del año y los datos históricos correspondientes; en menos de 3 s | — | mismo | Cálculos existentes conectados en F4.02 |
 | 3 | Mismo | Escribe los apartados de texto: A (equipos, profesionales por sexo, observaciones), D (metodología), E (dificultades), F (propuestas), hasta 25 líneas | — | `PUT /api/estadistica/memoria/narrativas?anio=&etf=` | Servidor F4.05 y pantalla F4.02; incluye G con 30 líneas |
-| 4 | Profesional de ETF o Coordinación | Pulsa una cifra y ve los números de expediente que la forman (nunca nombres) | — | `GET /api/memoria/{anio}/cifras/{apartado}?etf=` | servidor F4.07; vista Equipo/Coordinación pendiente |
+| 4 | Profesional de ETF o Coordinación | Pulsa una cifra y ve los números de expediente que la forman (nunca nombres) | — | `GET /api/memoria/{anio}/desglose/{apartado}?etf=&celda=&medida=&revision=` | MEMDES: servidor y pantalla `/memoria/desglose` |
 | 5 | Profesional de ETF o Coordinación; Consulta con salida exclusiva de cifras | Genera y descarga la Memoria; Consulta no recibe textos libres ni composición de cifras | — | `POST /api/estadistica/memoria/word`; Consulta: `POST /api/consulta/memoria/{anio}/word?equipo=` | Equipo y Coordinación: servidor F4.05 y pantalla F4.02. Consulta: servidor y vista F4.07 |
 | 6 | Profesional de ETF (la suya) o Coordinación (cualquiera; sólo ella la provincial) | Cierra la Memoria: guarda una foto de las cifras y los textos | BORRADOR → CERRADA | `POST /api/estadistica/memoria/cerrar?anio=&etf=` | servidor F4.06 y pantalla F4.02 conectados |
 | 7 | Coordinación | Si hay que corregir, la reabre con motivo; queda auditado | CERRADA → BORRADOR | `POST /api/estadistica/memoria/reabrir?anio=&etf=` | servidor F4.06 y pantalla F4.02 conectados |
@@ -701,7 +718,7 @@ Sin equipo se pide la provincia. Ambas salidas contienen sólo las cifras de
 los 28 apartados; una Memoria cerrada usa su foto definitiva y una abierta
 se calcula al momento. Indican fecha y carácter definitivo o provisional.
 No admiten parámetros para incluir composición, narrativas o revisiones.
-Los números que forman una cifra son exclusivos de Equipo/Coordinación.
+Los números que forman una cifra son exclusivos de Equipo/Coordinación. MEMDES abre el desglose desde cada total, cantidad, base y «sin dato». Muestra número, equipo y aporte, sin nombres, con enlace a la ficha si hay acceso actual. La suma se comprueba con las cifras del mismo motor. Volver conserva año, equipo y bloque. La revisión cerrada se solicita expresamente; si faltan sus aportes, se explica. Los apartados 15 y 16 explican que su actividad no está vinculada a expedientes. La lectura se audita antes de entregar la lista; Consulta recibe 403.
 F4.07 conecta la vista de Consulta en `/memoria`, con filtros y bloques de tablas de F4.02; no muestra desglose, narrativas ni acciones de cierre.
 
 Una Memoria cerrada no cambia aunque luego se corrija un expediente. La provincial
@@ -762,7 +779,7 @@ La vía habitual es subir las actas o introducir los datos a mano.
 ```mermaid
 flowchart TD
   A[Elegir equipo · propio o cualquiera para Coordinación] --> B{Tienes las actas?}
-  B -- sí --> C[Subir aceptación y cierre opcional · PDF o Word]
+  B -- sí --> C[Subir aceptación y cierre opcional · PDF, DOCX u ODT]
   C --> D[Antivirus y lectura local · fichero descartado]
   D --> E[Revisar propuestas y completar lo que falta]
   B -- no --> E
@@ -773,7 +790,7 @@ flowchart TD
 | Paso | Quién | Qué hace | Pantalla / API |
 | --- | --- | --- | --- |
 | 1 | Equipo o Coordinación | Elige equipo y, opcionalmente, Acta de Aceptación y Acta de Cierre del mismo expediente | `/equipo/expedientes/alta-historica` |
-| 2 | Sistema | Lee PDF, PDF firmado o DOCX en memoria, tras validar el tipo y revisar el antivirus; devuelve propuestas sin crear expediente | `POST /api/carga-2026/actas/leer/{tipo}` |
+| 2 | Sistema | Lee PDF, PDF firmado, DOCX u ODT en memoria, tras validar el tipo y revisar el antivirus; devuelve propuestas sin crear expediente | `POST /api/carga-2026/actas/leer/{tipo}` |
 | 3 | Persona que carga | Corrige número, fechas, ubicación, subprograma, familia, adultos y menores; completa derivación, estado actual, puesto de referencia y datos que faltan. El sexo no leído queda pendiente | alta asistida existente |
 | 4 | Persona que carga | Revisa datos y episodios; confirma sólo tras corregir incidencias | `POST /api/carga-2026` y `POST /api/carga-2026/{lote}/confirmar` |
 | 5 | Sistema y equipo | Conserva número y fechas reales, con marca de carga histórica para revisión; comprobar ficha | resultado de CA1 |
@@ -800,7 +817,13 @@ recupera con la misma clave, sin repetir un alta nueva.
 
 En la revisión de actas, los nombres completos leídos deben separarse a mano en nombre y apellidos antes de validar. La referencia leída permanece visible y no se envía al guardar. Si ya hay datos, leer otras actas exige confirmar la sustitución; cancelar conserva el formulario y devuelve el foco. La vista previa agrupa adultos y menores por iniciales y muestra ubicación, subprograma y motivos de cierre. La entrada de compatibilidad se llama «Cargar desde una hoja».
 
-### 3.16 Subida del Anexo 3 o 4 con antivirus y aviso «revisando»
+#Administración abre «Plazo de carga histórica», elige la fecha de cierre y la ventana de días para avisar de coincidencias y guarda. La carga permanece cerrada hasta fijar una fecha; el último día se admite hasta las 23:59:59 de Granada. Cada ampliación o reducción conserva versión, historia y auditoría. Un conflicto pide consultar la fecha vigente antes de volver a guardar.
+
+La revisión manual, desde actas o por hoja presenta posibles coincidencias con otras familias, personas adultas o menores y fechas cercanas. Para confirmar hay que marcar que se han revisado y son expedientes distintos. Un número ya ocupado se explica y no se puede volver a asignar. Si un lote agotaría todos los números ordinarios disponibles del equipo, se rechaza y se pide revisar sus números o reducirlo.
+
+Coordinación abre «Lotes de carga histórica», identifica el lote por su referencia numérica estable, equipo, fecha y recuento y pulsa «Anular lote». El diálogo explica que se retirarán todos sus expedientes y se liberarán los números históricos; exige una casilla expresa. La operación sólo se confirma dentro del plazo y si todos están intactos. Los cambios, evaluaciones y documentos posteriores impiden anular; las consultas no. Un rechazo conserva el lote completo y explica la causa. El lote anulado sigue en la lista y la auditoría se consulta mediante la exportación de Administración. Los lotes previos a SEG3 quedan protegidos si no hay evidencia suficiente.
+
+## 3.16 Subida del Anexo 3 o 4 con antivirus y aviso «revisando»
 
 Es la subida del recorrido de derivación. También se suben plantillas, temas,
 idiomas y hojas de carga, cada uno con su política:
@@ -811,7 +834,7 @@ idiomas y hojas de carga, cada uno con su política:
 | Plantilla | 10 MB; DOCX | Versión inmutable tras validación y antivirus local; sin revisión no se publica |
 | Tema | 20 MB; ZIP con JSON, PNG y WOFF2, sin SVG | Versión inmutable; sin revisión antivirus no se publica |
 | Idioma | 20 MB; ZIP con JSON y DOCX | Versión inmutable; sin revisión antivirus no se publica |
-| Actas de carga histórica | 10 MB por acta; PDF o DOCX | Sólo memoria; se descartan. Caída del antivirus con aviso auditado, como los anexos |
+| Actas de carga histórica | 10 MB por acta; PDF, DOCX u ODT | Sólo memoria; se descartan. Caída del antivirus con aviso auditado, como los anexos |
 | Hoja de carga | 10 MB; XLSX o CSV | No se conserva el fichero; sin revisión antivirus no se importa |
 
 Los paquetes tienen además un máximo de 100 MB descomprimidos y 1.000 entradas.
@@ -1018,12 +1041,10 @@ Resueltas por la entrevista y el consenso del responsable del producto del 13/10
 Sin resolver (decidel responsable del producto, el Programa a través de él o el DPD):
 
 11. Devolver una propuesta de cierre al equipo (3.8).
-12. Confirmar con el Programa el traslado con aceptación y Acta en destino [D11] (3.10).
 13. Confirmar con el Programa el fin automático del seguimiento, su terminación anticipada por el equipo y su reapertura por Coordinación [D23] (3.9).
 14. Quién revisa antes de anonimizar [D14], y política de conservación y exportación de vínculos usuario-expediente para la EIPD (4.1 y 6).
-15. Orden del número de expediente [D1]: provisional equipo-correlativo-año, `08-01-26`.
-16. Reparto por sexo incoherente entre apartados 2 y 25 de la Memoria oficial de 2025 [D22]: Programa valida cuál corresponde y por qué, apartado por apartado (3.13).
-17. D21 resuelta el 14/10/2026: no hay hoja; carga desde actas o a mano, incluidos todos los abiertos de años anteriores.
+
+D1 y D11 están confirmadas por el Programa el 14/10/2026: número equipo-correlativo-año y traslado con aceptación y Acta en destino. D22 confirma la nota 43 en el apartado 25. D21 se incorpora desde RESP2: no hay hoja; carga desde actas o a mano, incluidos todos los abiertos de años anteriores.
 
 ## 8. Cómo mantener este documento
 

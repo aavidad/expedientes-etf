@@ -86,7 +86,11 @@ func registrarHoja(mux *muxHTTP, c ConfiguracionHoja) {
 			rechazar(entrada.ErrNoDisponible)
 			return
 		}
-		u := entrada.SubidaHoja{EquipoID: r.Header.Get("X-Equipo-Carga"), Formato: formato, Contenido: b}
+		if len(r.Header.Values("X-Confirmar-Duplicados")) > 1 || r.Header.Get("X-Confirmar-Duplicados") != "" && r.Header.Get("X-Confirmar-Duplicados") != "true" {
+			rechazar(entrada.ErrPeticion)
+			return
+		}
+		u := entrada.SubidaHoja{ConfirmarDuplicados: r.Header.Get("X-Confirmar-Duplicados") == "true", EquipoID: r.Header.Get("X-Equipo-Carga"), Formato: formato, Contenido: b}
 		var informe entrada.InformeHoja
 		var resultado entrada.ResultadoCargaHistorica
 		if confirmar {

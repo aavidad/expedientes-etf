@@ -95,9 +95,21 @@ func (f Plantillas) Cargar(ctx context.Context, idioma d.IdiomaPlantilla, ref p.
 		}
 		return m, nil
 	}
-	textos, err := coleccion(path.Join(idioma.Ruta, "textos"))
-	if err != nil {
-		return nil, nil, err
+	var textos map[string]string
+	for i, capa := range p.CapasTextos(idioma.Ruta) {
+		carpeta := path.Join(capa, "textos")
+		if _, err := root.Stat(carpeta); i > 0 && errors.Is(err, fs.ErrNotExist) {
+			continue
+		}
+		parte, err := coleccion(carpeta)
+		if err != nil {
+			return nil, nil, err
+		}
+		if textos == nil {
+			textos = parte
+		} else {
+			p.CompletarTextos(textos, parte)
+		}
 	}
 	var nombres map[string]string
 	if ref.Contenido == "" {

@@ -3,6 +3,7 @@ package postgres
 import (
 	"context"
 	"crypto/rand"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
@@ -26,7 +27,7 @@ func sqlPerfiles(t *testing.T, s string) string {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	cmd := exec.CommandContext(ctx, "docker", "exec", "-i", c, "psql", "-X", "-qAt", "-U", "etf_instalador", "-d", "etf", "-v", "ON_ERROR_STOP=1")
+	cmd := exec.CommandContext(ctx, "docker", "exec", "-i", c, "psql", "-X", "-qAt", "-U", "etf_instalador", "-d", nombreBasePerfiles(), "-v", "ON_ERROR_STOP=1")
 	cmd.Stdin = strings.NewReader(s)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
@@ -155,6 +156,80 @@ func TestIntegracionPerfilesAdministradorUnicoRetiradaYRLS(t *testing.T) {
 	if err != nil || len(equipos) != 2 {
 		t.Fatal("equipos", err)
 	}
+
+	// SEG2: servidor y función SQL rechazan cualquier cambio propio, también
+	// bajas, vigencias futuras y equipo. La versión y la historia no cambian.
+	versionPropia := version(admin.ID)
+	desde := time.Now().UTC()
+	futuroPropio := desde.Add(time.Hour)
+	propios := []dominio.CambioPerfiles{
+		{Version: versionPropia, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.Administracion, Desde: desde}, {Perfil: dominio.Coordinacion, Desde: desde}}},
+		{Version: versionPropia, Estado: dominio.Activo},
+		{Version: versionPropia, Estado: dominio.Baja},
+		{Version: versionPropia, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.Administracion, Desde: futuroPropio}}},
+		{Version: versionPropia, Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.ProfesionalETF, Desde: desde}}, Equipo: &dominio.Adscripcion{EquipoID: equipos[0], Puesto: "ts", Desde: desde}},
+	}
+	historiaPropia := func() string {
+		return sqlPerfiles(t, fmt.Sprintf(`SELECT row_to_json(u)::text || coalesce((SELECT jsonb_agg(p ORDER BY p.id)::text FROM identidad.usuario_perfil p WHERE p.usuario_id=u.id),'[]') || coalesce((SELECT jsonb_agg(e ORDER BY e.id)::text FROM identidad.usuario_equipo e WHERE e.usuario_id=u.id),'[]') FROM identidad.usuario u WHERE u.id='%s';`, admin.ID))
+	}
+	original := historiaPropia()
+	rechazos := func() string {
+		return sqlPerfiles(t, fmt.Sprintf(`SELECT count(*) FROM auditoria.evento WHERE usuario_id='%s' AND entidad_id='%s' AND accion='identidad.perfiles_cambiar' AND resultado='denegado';`, admin.ID, admin.ID))
+	}
+	for n, propio := range propios {
+		antes := rechazos()
+		if _, fallo := s.Cambiar(ctx, actorPerfiles(admin), admin.ID, propio); !errors.Is(fallo, dominio.ErrCambioPropioDenegado) {
+			t.Fatalf("autocambio servidor %d: %v", n, fallo)
+		}
+		if rechazos() == antes || historiaPropia() != original {
+			t.Fatal("rechazo sin auditoría o cambio propio persistido")
+		}
+		antes = rechazos()
+		err = b.Ejecutar(ctx, contextoPruebaAdmin(admin.ID), func(ctx context.Context) error {
+			e, _ := DesdeContexto(ctx)
+			perfiles, _ := json.Marshal(propio.Perfiles)
+			if propio.Perfiles == nil {
+				perfiles = []byte("[]")
+			}
+			equipo, _ := json.Marshal(propio.Equipo)
+			var admitido bool
+			if fallo := e.QueryRow(ctx, `SELECT identidad.cambiar_perfiles($1,$2,$3,$4,$5)`, admin.ID, propio.Version, propio.Estado, perfiles, equipo).Scan(&admitido); fallo != nil {
+				return fallo
+			}
+			if admitido {
+				t.Fatal("autocambio SQL admitido")
+			}
+			return nil // Confirma el rechazo auditado, sin excepción que lo revierta.
+		})
+		if err != nil || rechazos() == antes || historiaPropia() != original {
+			t.Fatalf("rechazo SQL %d: %v", n, err)
+		}
+	}
+	sqlPerfiles(t, fmt.Sprintf(`BEGIN; SET LOCAL ROLE etf_app; SELECT set_config('app.usuario_id','%s',true),set_config('app.perfiles','administracion',true);
+ DO $$ BEGIN
+  BEGIN UPDATE identidad.usuario SET estado='baja'; RAISE EXCEPTION 'prueba.dml_usuario'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+  BEGIN INSERT INTO identidad.usuario_perfil(usuario_id,perfil,desde,concedido_por) VALUES ('%s','coordinacion',clock_timestamp(),'%s'); RAISE EXCEPTION 'prueba.dml_perfil'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+  BEGIN UPDATE identidad.usuario_perfil SET hasta=clock_timestamp(); RAISE EXCEPTION 'prueba.dml_retirada'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+  BEGIN DELETE FROM identidad.usuario_equipo; RAISE EXCEPTION 'prueba.dml_equipo'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+ END $$; COMMIT;`, admin.ID, admin.ID, admin.ID))
+	// Si falla el registro del rechazo no se entrega un 403 sin auditoría:
+	// el servidor devuelve persistencia y la función SQL no confirma nada.
+	sqlPerfiles(t, `CREATE FUNCTION identidad.fallo_auditoria_prueba() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN
+ IF NEW.resultado='denegado' AND NEW.accion='identidad.perfiles_cambiar' THEN RAISE EXCEPTION 'auditoria.prueba_fallo'; END IF; RETURN NEW; END $$;
+ CREATE TRIGGER fallo_perfiles BEFORE INSERT ON auditoria.evento FOR EACH ROW EXECUTE FUNCTION identidad.fallo_auditoria_prueba();`)
+	if _, fallo := s.Cambiar(ctx, actorPerfiles(admin), admin.ID, propios[0]); !errors.Is(fallo, dominio.ErrPersistencia) {
+		t.Fatal("rechazo sin auditoría confirmado", fallo)
+	}
+	err = b.Ejecutar(ctx, contextoPruebaAdmin(admin.ID), func(ctx context.Context) error {
+		e, _ := DesdeContexto(ctx)
+		_, fallo := e.Exec(ctx, `SELECT identidad.cambiar_perfiles($1,$2,'activo','[]'::jsonb,'null'::jsonb)`, admin.ID, versionPropia)
+		return fallo
+	})
+	if err == nil || historiaPropia() != original {
+		t.Fatal("rechazo SQL confirmado sin auditoría", err)
+	}
+	limpiarFallo()
+	t.Log("SEG2-RLS-OK: cinco autocambios denegados en servidor y SQL, auditoría persistida, historia intacta y DML directo prohibido")
 	ahora := time.Now().UTC()
 	hasta := ahora.Add(time.Hour)
 	cambio := dominio.CambioPerfiles{Version: version(pendiente.ID), Estado: dominio.Activo, Perfiles: []dominio.Concesion{{Perfil: dominio.ProfesionalETF, Desde: ahora, Hasta: &hasta}, {Perfil: dominio.Consulta, Desde: ahora}}, Equipo: &dominio.Adscripcion{EquipoID: equipos[0], Puesto: "ts", Desde: ahora, Hasta: &hasta}}
@@ -385,7 +460,8 @@ func TestIntegracionPerfilesAdministradorUnicoRetiradaYRLS(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if _, err = s.Cambiar(ctx, actorPerfiles(admin), admin.ID, dominio.CambioPerfiles{Version: version(admin.ID), Estado: dominio.Activo}); err != nil {
+	otro = leerPropio(otro)
+	if _, err = s.Cambiar(ctx, actorPerfiles(otro), admin.ID, dominio.CambioPerfiles{Version: version(admin.ID), Estado: dominio.Activo}); err != nil {
 		t.Fatal("retirada inicial", err)
 	}
 	admin, err = inicial.RegistrarAcceso(ctx, admin.IdentidadDirectorio, time.Now().UTC())
@@ -405,4 +481,15 @@ func TestIntegracionPerfilesAdministradorUnicoRetiradaYRLS(t *testing.T) {
 		t.Fatal("auditoría inicial duplicada")
 	}
 	t.Log("PERFILES-OK: combinación, vigencia, FK, equipo único, RLS dos equipos, denegación horizontal/vertical, retirada y primer administrador sin reconcesión")
+}
+
+func contextoPruebaAdmin(id string) plataforma.Identidad {
+	return plataforma.Identidad{UsuarioID: id, Perfiles: []string{"administracion"}}
+}
+
+func nombreBasePerfiles() string {
+	if n := os.Getenv("ETF_BD_NOMBRE"); n != "" {
+		return n
+	}
+	return "etf"
 }

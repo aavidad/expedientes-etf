@@ -32,6 +32,9 @@ func (l *Lector) LeerActa(ctx context.Context, formato string, b []byte) (domini
 	if formato == "docx" {
 		return docx.LeerActa(b)
 	}
+	if formato == "odt" {
+		return odt.LeerActa(b)
+	}
 	return l.pdf.LeerActa(ctx, formato, b)
 }
 

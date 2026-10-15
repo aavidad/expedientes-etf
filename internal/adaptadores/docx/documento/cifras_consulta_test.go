@@ -72,9 +72,20 @@ func TestCifrasWordConservaDivisorCeroYFecha(t *testing.T) {
 					t.Fatal("campo manual", k)
 				}
 			}
+			protegida := e.SuprimirCifras(r, 3)
+			camposOcultos, fallo := (word.Motor{}).CamposCifras(context.Background(), protegida, p)
+			if fallo != nil || camposOcultos[objetivo.Campo] != metadatos["estadistica.consulta_oculto"] {
+				t.Fatal("Word expone cifra", camposOcultos[objetivo.Campo], fallo)
+			}
+			if !strings.Contains(camposOcultos["texto_1"], metadatos["estadistica.consulta_privacidad"]) {
+				t.Fatal("Word sin explicación")
+			}
 			b, err := os.ReadFile(ruta + "v1.0.0.docx")
 			if err != nil {
 				t.Fatal(err)
+			}
+			if _, err = (word.Motor{}).Generar(context.Background(), b, d.Relleno{Campos: camposOcultos}); err != nil {
+				t.Fatal("Word protegido", err)
 			}
 			if _, err = (word.Motor{}).Generar(context.Background(), b, d.Relleno{Campos: campos}); err != nil {
 				t.Fatal("Word", err)

@@ -64,7 +64,7 @@ func TestCargaHistoricaRESP2ReservaPorEquipoYAnio(t *testing.T) {
 	actual.Episodios = []d.EpisodioHistorico{{Apertura: p.FechaActa}}
 	actual.Familia = nil
 	actual.Menores = nil
-	carga := d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{anterior, actual}}
+	carga := d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{anterior, actual}}
 	v, err := s.ValidarCargaHistorica(ctx, a, carga)
 	if err != nil {
 		t.Fatal(err)
@@ -129,7 +129,7 @@ func TestCargaHistoricaPostgresNumerosVigenciasEpisodiosRLSAuditoria(t *testing.
 	vivo.Episodios[0].Cierre = ""
 	vivo.Episodios[0].MotivoCierre = ""
 	no := d.CasoHistorico{Estado: d.NoAceptada, FechaDerivacion: "2026-01-15", Datos: cerrado.Datos, NoAceptacion: &d.NoAceptacion{Fecha: "2026-02-01", Motivo: "Se mantiene el apoyo desde los Servicios Sociales Comunitarios.", Subprograma: "RIESGO_SOCIAL"}}
-	carga := d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{cerrado, vivo, no}}
+	carga := d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{cerrado, vivo, no}}
 	antes := contador(t, b, ctx, coord, p)
 	vista, err := s.ValidarCargaHistorica(ctx, equipo, carga)
 	if err != nil {
@@ -261,7 +261,7 @@ func TestCargaHistoricaPostgresNumerosVigenciasEpisodiosRLSAuditoria(t *testing.
 	}
 	antesCargas := contarCargas(t, b, ctx, coord)
 	lote, _ := ids{}.Nuevo()
-	if _, err = s.CargarHistoricos(ctx, coord, lote, "duplicado-"+lote, d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{vivo, cerrado}}); !errors.Is(err, d.ErrNumeroDuplicado) {
+	if _, err = s.CargarHistoricos(ctx, coord, lote, "duplicado-"+lote, d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{vivo, cerrado}}); !errors.Is(err, d.ErrNumeroDuplicado) {
 		t.Fatal("duplicado", err)
 	}
 	if contarCargas(t, b, ctx, coord) != antesCargas {
@@ -270,7 +270,7 @@ func TestCargaHistoricaPostgresNumerosVigenciasEpisodiosRLSAuditoria(t *testing.
 	fallo := deps
 	fallo.RegistroTransaccional = registroFallido{}
 	lote, _ = ids{}.Nuevo()
-	if _, err = app.Nuevo(fallo).CargarHistoricos(ctx, equipo, lote, "fallo-"+lote, d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{vivo}}); !errors.Is(err, d.ErrNoDisponible) {
+	if _, err = app.Nuevo(fallo).CargarHistoricos(ctx, equipo, lote, "fallo-"+lote, d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{vivo}}); !errors.Is(err, d.ErrNoDisponible) {
 		t.Fatal(err)
 	}
 	if contarCargas(t, b, ctx, coord) != antesCargas {
@@ -320,7 +320,7 @@ func TestCargaHistoricaAceptadaAntes2026YAltaOrdinariaSaltaNumeroOcupado(t *test
 	antiguo.Menores[0].Desde = "2025-11-01"
 	antes := contador(t, b, ctx, coord, p)
 	lote, _ := ids{}.Nuevo()
-	r, err := s.CargarHistoricos(ctx, coord, lote, "antiguo-"+lote, d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{antiguo}})
+	r, err := s.CargarHistoricos(ctx, coord, lote, "antiguo-"+lote, d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{antiguo}})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -336,7 +336,7 @@ func TestCargaHistoricaAceptadaAntes2026YAltaOrdinariaSaltaNumeroOcupado(t *test
 	}
 	historico := casoHistorico(p, fmt.Sprintf("08-%02d-26", antes+1))
 	lote, _ = ids{}.Nuevo()
-	if _, err = s.CargarHistoricos(ctx, coord, lote, "numero-ocupado-"+lote, d.CargaHistorica{EquipoID: p.EquipoID, Casos: []d.CasoHistorico{historico}}); err != nil {
+	if _, err = s.CargarHistoricos(ctx, coord, lote, "numero-ocupado-"+lote, d.CargaHistorica{ConfirmarDuplicados: true, EquipoID: p.EquipoID, Casos: []d.CasoHistorico{historico}}); err != nil {
 		t.Fatal(err)
 	}
 	if contador(t, b, ctx, coord, p) != antes {

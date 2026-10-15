@@ -19,5 +19,7 @@
   "motivo_spaf.NO_COLABORACION": "No colaboración de la familia",
   "motivo_spaf.MEDIDA_PROTECTORA": "Adopción de medida protectora",
   "motivo_spaf.TRASLADO": "Traslado de domicilio",
-  "motivo_spaf.MAYORIA_EDAD": "Mayoría de edad"
+  "motivo_spaf.MAYORIA_EDAD": "Mayoría de edad",
+  "motivo_spaf.DECLARACION_RIESGO": "Declaración de Riesgo",
+  "motivo_spaf.OTROS": "Otros"
 }

@@ -13,7 +13,7 @@ import subprocess
 import tempfile
 import time
 
-from ensayos import diagnostico, esperar_postgres, orden
+from ensayos import diagnostico, esperar_postgres, orden, recortar_dependientes
 
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 IMAGEN = 'postgres:18.4-alpine@sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d293595148e674e0a3181de15'
@@ -47,6 +47,7 @@ def main():
             if entry['numero'] >= '0023':
                 (previo / 'expediente' / entry['archivo']).unlink()
         manifest_exp.write_text(json.dumps([e for e in entradas_exp if e['numero'] < '0023']))
+        recortar_dependientes(previo)
         nombre = 'etf-fx5-arranque-' + secrets.token_hex(4)
         try:
             orden(['docker', 'run', '-d', '--name', nombre, '--network', 'none',

@@ -36,6 +36,6 @@ self.addEventListener('fetch', event => {
  event.respondWith(fetch(event.request).catch(async () => {
   const clave = await preferenciaCliente(event);
   if (event.resultingClientId) preferencias.set(event.resultingClientId, clave);
-  return new Response(configuracion.avisos[clave], { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Content-Security-Policy': configuracion.politica } });
+  return new Response(configuracion.avisos[clave], { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Content-Security-Policy': configuracion.politicas[clave] } });
  }));
 });

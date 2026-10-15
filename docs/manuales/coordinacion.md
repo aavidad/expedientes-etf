@@ -1,8 +1,10 @@
 # Manual para Coordinación
 
+Autor: Expedientes ETF
+
 Registras y resuelves las derivaciones, consultas todos los equipos y confirmas los cierres. Las capturas contienen datos inventados.
 
-[PDF para imprimir](coordinacion.pdf) · [Glosario y preguntas frecuentes](usuario.md#glosario-del-programa) · [Todos los manuales](usuario.md)
+[PDF para imprimir](coordinacion.pdf) · [Glosario y preguntas frecuentes comunes](comun.md#glosario-de-la-aplicación) · [Todos los manuales](usuario.md)
 
 ## Cómo entro y reviso la bandeja
 
@@ -15,6 +17,18 @@ Registras y resuelves las derivaciones, consultas todos los equipos y confirmas 
 ![Bandeja provincial con filtros y derivaciones inventadas](capturas/bandeja-coordinacion.png)
 
 Vídeo de acceso: «Entrar y dar acceso a un profesional» ([guion](../recorridos/guiones/01-entrada.md)). Para la bandeja, «Recibir una derivación y aceptarla» ([guion](../recorridos/guiones/02-coordinacion.md)). Pide los MP4 por su título.
+
+## Cómo reviso avisos y preferencias
+
+Revisa los pendientes de la bandeja al empezar: derivaciones por resolver, lista de espera y cierres propuestos. Abre el expediente para comprobar su estado y sus fechas antes de actuar. Los avisos de la ficha llevan al campo afectado cuando existe una acción disponible; los informativos no cambian el expediente.
+
+En la lista de espera, empieza por los casos más antiguos. Un Anexo 4 del SPM no debe aparecer en ella. Si aparece una diferencia entre bandeja y ficha, vuelve a consultar antes de decidir.
+
+Elige idioma y tema en «Preferencias», sin cambios pendientes. Consulta [entrada, preferencias y ayuda](comun.md#entrada-preferencias-y-ayuda) para salir de la sesión o pedir acceso.
+
+![Bandeja provincial de Coordinación con datos inventados, en escritorio](capturas/manetf-coordinacion-1440.png)
+
+![Bandeja provincial en móvil, con pendientes y filtros](capturas/manetf-coordinacion-390.png)
 
 ## Cómo subo un Anexo 3 o un Anexo 4
 
@@ -42,7 +56,7 @@ Vídeo: «Recibir una derivación y aceptarla» ([guion](../recorridos/guiones/0
 ## Cómo acepto una derivación
 
 1. Abre la derivación pendiente o la que vas a sacar de la lista de espera.
-2. Revisa municipio, centro y equipo. Completa el sexo de cada menor, porque no viene en el anexo.
+2. Revisa municipio, centro y equipo. Completa el sexo de cada menor, porque no viene en el anexo. Si el municipio está fuera del ámbito, elige el equipo que corresponda; la aplicación permite tramitar el caso.
 3. Selecciona el puesto del profesional de referencia y revisa el subprograma. El Anexo 3 corresponde a Riesgo.
 4. Revisa la descripción de la situación familiar que llevará el Acta. Ajusta el texto recibido para que describa el caso.
 5. Indica la fecha real del Acta de Aceptación y confirma «Aceptar» en el diálogo.
@@ -50,7 +64,7 @@ Vídeo: «Recibir una derivación y aceptarla» ([guion](../recorridos/guiones/0
 
 ![Decisión de aceptación con fecha, puesto y controles de confirmación](capturas/aceptacion.png)
 
-El número se asigna al aceptar. Sus tres pares indican equipo, correlativo del equipo en el año y año del Acta. No lo escribas ni lo reserves a mano. La elección por nombre del profesional está pendiente; la pantalla actual pide el puesto.
+El número se asigna al aceptar. Sus tres pares indican equipo, correlativo del equipo en el año y año del Acta. Por ejemplo, `08-01-26` identifica la primera aceptación del ETF 8 en 2026. No lo escribas ni lo reserves a mano. La elección por nombre del profesional está pendiente; la pantalla actual pide el puesto.
 
 Firma, envío y registro se tramitan fuera. Descargar el documento no confirma esos actos. El expediente debe aparecer en «Aceptados recientes» y en la bandeja del equipo.
 
@@ -58,7 +72,7 @@ Vídeo: «Recibir una derivación y aceptarla» ([guion](../recorridos/guiones/0
 
 ## Cómo dejo un caso en lista de espera o no lo acepto
 
-1. Abre el caso y revisa el servicio que lo deriva. La lista de espera está prevista para derivaciones de Servicios Sociales Comunitarios.
+1. Abre el caso y revisa el servicio que lo deriva. La lista de espera sólo está disponible para derivaciones de Servicios Sociales Comunitarios. Un caso del SPM (Anexo 4) no puede pasar a lista de espera.
 2. Para dejarlo en espera, elige «Dejar en lista de espera», revisa la confirmación y descarga el oficio.
 3. Consulta después «Lista de espera», ordenada por recepción. Cuando proceda, abre el caso y acepta o no acepta.
 4. Para no aceptarlo, indica la fecha, el motivo y el subprograma que correspondan, y confirma «No aceptar».
@@ -66,7 +80,20 @@ Vídeo: «Recibir una derivación y aceptarla» ([guion](../recorridos/guiones/0
 
 ![Decisiones disponibles junto a la revisión del caso](capturas/aceptacion.png)
 
-Espera y no aceptación no consumen número de expediente. Mientras espera, el caso no cuenta en la Memoria; una no aceptación cuenta en su apartado 5. Si una familia no aceptada vuelve a ser derivada, registra una derivación nueva.
+Espera y no aceptación no consumen número de expediente. Al aceptar un caso de la lista de espera, usa la fecha de la aceptación real: el número corresponde a esa aceptación, no al día en que entró en espera. Mientras espera, el caso cuenta en el apartado 6 de la Memoria; una no aceptación cuenta en su apartado 5. Si una familia no aceptada vuelve a ser derivada, registra una derivación nueva.
+
+## Cómo consulto la ficha de cualquier equipo
+
+1. Abre la bandeja del equipo que necesitas y busca el número. Consulta la ficha para ver los nombres completos y las fechas confirmadas.
+2. Recorre Familia, Menores e Intervención para contrastar contacto, adultos, ingresos, subprogramas, fase y factores. Coordinación consulta estos datos; el profesional del ETF los corrige.
+3. En Consentimiento comprueba la fecha firmada y la del proyecto. Una descarga sin fecha confirmada no acredita que esté firmado. Los Anexos 7 y 8 se elaboran fuera.
+4. En Evaluación consulta instrumentos y resultados por adulto y momento. Las escalas son opcionales y no bloquean documentos, cierre ni Memoria.
+5. En Documentos revisa las emisiones; en Cierre, los datos de finalización y la propuesta del equipo; en Salidas, los envíos y respuestas del SPM.
+6. En Seguimiento tras cese revisa el tramo activo y sus fechas. En Historial comprueba cierres, reaperturas y actuaciones anteriores.
+
+La [guía de todas las pestañas](profesionales.md#cómo-me-oriento-en-todas-las-pestañas) y los pasos de [Familia](profesionales.md#cómo-edito-la-familia-y-las-personas-adultas), [Menores](profesionales.md#cómo-completo-la-ficha-de-los-menores), [Intervención](profesionales.md#cómo-registro-la-intervención), [Consentimiento](profesionales.md#cómo-registro-el-consentimiento-y-la-fecha-del-proyecto) y [Evaluación](profesionales.md#cómo-anoto-una-evaluación) permiten indicar al equipo dónde corregir.
+
+Los ingresos anuales se comparan con el SMI del año consultado; el anual es el mensual por 14. Si la familia sólo aporta el tramo, el equipo puede registrarlo directamente. Mantén el SMI del año antes de revisar sus cifras.
 
 ## Cómo anoto el registro de salida de un documento
 
@@ -83,7 +110,7 @@ La aplicación anota el registro que tú introduces; todavía no registra el doc
 ## Cómo confirmo el cierre de un expediente
 
 1. Abre «Cierres propuestos» y pulsa el número del expediente.
-2. Revisa el motivo y los datos de finalización del equipo. Si no estás de acuerdo, habla con el equipo; puede retirar la propuesta y corregirla.
+2. Revisa el [motivo de finalización](profesionales.md#cómo-elijo-el-motivo-de-finalización) y los datos del equipo. Si no estás de acuerdo, habla con el equipo; puede retirar la propuesta y corregirla.
 3. Comprueba la situación del Anexo 5. Si sigue pendiente, registra una respuesta fechada que permita cerrar. Para una excepción, escribe el motivo en la autorización de cierre sin respuesta y guárdala antes de cerrar.
 4. Comprueba que eres una persona distinta de quien propuso el cierre. Usa tu propia cuenta.
 5. Indica la fecha real de firma del Acta de Cierre. Si corresponde, escribe el motivo que debe aparecer en el Acta.
@@ -119,15 +146,23 @@ Reabrir no inventa un consentimiento ni una respuesta del SPM. Si la familia vue
 
 Elegir un destino por sí solo no cierra. El caso nuevo copia los datos vigentes de familia, adultos y menores; no hereda número, consentimiento ni otras fechas confirmadas del origen.
 
+## Cómo reviso el seguimiento tras el cese
+
+El equipo inicia el seguimiento desde la ficha de un expediente cerrado de Reunificación e indica la fecha del cese. Consulta su fecha prevista de fin y el historial. El plazo inicial es de 12 meses; la aplicación avisa antes del vencimiento y lo termina al vencer.
+
+Si se necesita reabrir el seguimiento, entra en «Seguimiento tras cese», indica el motivo y confirma la reapertura. Comprueba el nuevo inicio y fin previsto: se abre un plazo completo desde la reapertura, incluso si el anterior venció. El equipo puede terminar antes con fecha y motivo. Estas acciones conservan el cierre anterior de la intervención.
+
+Consulta los [pasos del equipo](profesionales.md#cómo-llevo-el-seguimiento-tras-cese). Reabrir seguimiento y reabrir expediente son acciones distintas; elige la que corresponda a la actuación que necesitas registrar.
+
 ## Cómo reviso la Tabla SPAF y la actividad de los equipos
 
 1. Para la Tabla, abre «Tabla Mensual para el SPAF», elige equipo y mes terminado y revisa el resumen.
-2. Abre los números de altas y bajas para comprobar sus movimientos. Vuelve a la tabla y revisa sus 14 columnas y avisos.
+2. Abre los números de altas y bajas para comprobar sus movimientos. Vuelve a la tabla y revisa sus 14 columnas y avisos. La columna 5 es el municipio de la familia; no exige una ZTS.
 3. Descarga el Word cuando hayas revisado los «Sin dato». Tramita el envío fuera.
 4. Para la actividad, abre «Comisiones e informes» y filtra por equipo, año y fechas; en informes puedes elegir también el organismo.
 5. Si detectas un error de actividad, pide la corrección al profesional que lo registró. Coordinación consulta estos registros, no los edita.
 
-![Tabla mensual con selección de equipo y periodo](../capturas/ui3-spaf-1440.png)
+![Tabla mensual del equipo con la columna Municipio](capturas/manetf-spaf-1440.png)
 
 Vídeos: «Preparar la Tabla SPAF del mes» ([guion](../recorridos/guiones/06-spaf.md)) y «Registrar una comisión técnica y un informe» ([guion](../recorridos/guiones/03-actividad.md)).
 
@@ -146,7 +181,7 @@ Usa el importe que corresponda al año, porque los ingresos de las familias se c
 
 1. Acuerda con los equipos la revisión de los casos y datos pendientes del año. Comprueba fechas, cierres, reaperturas, actividad y SMI.
 2. Abre «Memoria Técnica Anual», elige año y ámbito provincial en «Equipo», y pulsa «Consultar la Memoria». También puedes consultar cada equipo por separado.
-3. Revisa los cuatro bloques de apartados, los avisos y los «Sin dato». Cada tabla explica qué cuenta y la base del porcentaje. La consulta por números de expediente que forman una cifra todavía está pendiente.
+3. Revisa los cuatro bloques de apartados, los avisos y los «Sin dato». Cada tabla explica qué cuenta y la base del porcentaje. Pulsa una cantidad, base o «Sin dato» para ver los expedientes que la forman, su equipo y cuánto aporta cada uno, sin nombres. Puedes abrir sus fichas y volver conservando el año, equipo y bloque. En una Memoria cerrada se usa su misma revisión; las fotos antiguas sin desglose lo indican. Las comisiones y los informes son actividad de equipo sin vínculo con expedientes.
 4. Completa los datos generales y los textos de metodología, dificultades, propuestas de mejora y valoración global. La pantalla indica los límites de 25 o 30 líneas.
 5. Pulsa «Guardar los textos» y después «Descargar la Memoria en Word». Revisa el archivo antes de fijar las cifras.
 6. Pulsa «Cerrar la Memoria», revisa el diálogo y pulsa «Confirmar el cierre». Comprueba «Memoria cerrada» y su fecha. Sólo Coordinación puede cerrar la provincial.
@@ -155,7 +190,7 @@ Usa el importe que corresponda al año, porque los ingresos de las familias se c
 
 [Captura completa de la Memoria](../capturas/memoria-escritorio.png).
 
-La provincial se calcula directamente de los expedientes: no se obtiene sumando las Memorias cerradas de los equipos. Una Memoria cerrada fija cifras y textos; una corrección posterior puede generar diferencias que debes revisar. La descarga no confirma el cierre. No hay un vídeo de Memoria entre los recorridos disponibles.
+La provincial se calcula directamente de los expedientes: no se obtiene sumando las Memorias cerradas de los equipos. Una Memoria cerrada fija cifras y textos; una corrección posterior puede generar diferencias que debes revisar. La descarga no confirma el cierre. Vídeo: «Preparar y cerrar la Memoria» ([guion](../recorridos/guiones/09-memoria.md)).
 
 ## Cómo reabro una Memoria para corregirla
 
@@ -172,11 +207,14 @@ Sólo Coordinación reabre Memorias. Si se pierde la respuesta, usa la recuperac
 
 ## Cómo cargo los casos de 2026 desde una hoja
 
-El Programa confirma que no existe hoja de cálculo. La vía habitual es
+### Alta asistida desde actas o a mano
+
+La vía habitual es
 «Añadir un expediente histórico»: elige equipo, sube el Acta de Aceptación y,
-para un caso cerrado, el Acta de Cierre, o introduce los datos a mano. Sigue
+para un caso cerrado, el Acta de Cierre, o introduce los datos a mano. Puedes usar
+PDF, Word (.docx) o LibreOffice (.odt), hasta 10 MB por acta. Sigue
 [los pasos del alta desde actas](profesionales.md#cómo-cargo-un-caso-de-2026-a-mano).
-Coordinación puede elegir cualquier equipo; cada profesional carga sólo el suyo.
+Coordinación puede elegir cualquier equipo; cada profesional carga sólo el suyo. Revisa los datos propuestos antes de confirmar el alta. Leer un PDF firmado no acredita que su firma sea válida.
 
 Reúne todos los expedientes que siguen abiertos, de cualquier año anterior,
 los cerrados durante 2026 y las derivaciones no aceptadas de 2026. Conserva el
@@ -186,10 +224,7 @@ por sí sola el estado: corrige los datos, revisa el expediente y confirma.
 
 ![Elección del equipo y de las actas antes de leer sus datos](../capturas/carga-actas-inicio-1440.png)
 
-Antes de introducir datos reales, confirma con la dirección que producción está
-preparada, la evaluación de impacto en protección de datos está aprobada,
-la revisión de seguridad está superada y la restauración de copias está probada.
-En demostración sólo se usan datos inventados.
+Comprueba que estás en la dirección de producción antes de introducir expedientes de trabajo. En demostración sólo se usan datos inventados.
 
 ### Compatibilidad con CSV y XLSX
 
@@ -204,3 +239,11 @@ Si dispones de una hoja preparada, la carga anterior sigue disponible:
 El fichero y la revisión sin confirmar no se conservan. Un no aceptado no recibe
 número de aceptación. Si se pierde la conexión después de confirmar, pulsa
 «Recuperar el resultado» antes de empezar otra carga.
+
+## Cómo uso la app instalada y Windows
+
+Puedes abrir la misma aplicación desde el navegador o desde su icono instalado. Conserva los mismos permisos y necesita conexión al servidor. Sigue [los pasos de instalación y uso en Windows](comun.md#instalar-y-usar-la-aplicación-en-windows).
+
+## Qué hago si algo falla
+
+Consulta [las preguntas frecuentes comunes](comun.md#preguntas-frecuentes) antes de repetir una confirmación, carga o descarga. Incluyen cómo recuperar un resultado perdido y a quién comunicar un fallo. El [glosario](comun.md#glosario-de-la-aplicación) explica los términos de las pantallas.

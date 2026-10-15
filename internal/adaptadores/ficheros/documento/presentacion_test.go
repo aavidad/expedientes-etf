@@ -47,3 +47,33 @@ func TestPresentacionFijaIdiomaActivoYCatalogoPublicado(t *testing.T) {
 		t.Fatal("lectura no confinada")
 	}
 }
+
+func TestPresentacionCompletaTextosNuevosSinSustituirLosPublicados(t *testing.T) {
+	root := t.TempDir()
+	escribir := func(ruta, contenido string) {
+		t.Helper()
+		nombre := filepath.Join(root, ruta)
+		if err := os.MkdirAll(filepath.Dir(nombre), 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(nombre, []byte(contenido), 0600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	escribir("es/textos/documento.json", `{"documento.marca_seleccion":"X","documento.clave_nueva":"Nueva"}`)
+	ruta := ".versiones/es/2.0.0/0123456789/es"
+	escribir(ruta+"/textos/documento.json", `{"documento.marca_seleccion":"✓"}`)
+	escribir(ruta+"/catalogos/ubicaciones.json", `{"centro.ALHAMA":"Centro de Alhama"}`)
+	textos, _, err := Plantillas{Raiz: root}.Cargar(t.Context(), d.IdiomaPlantilla{Ruta: ruta}, p.ReferenciaCatalogo{Codigo: "es"})
+	if err != nil || textos["documento.marca_seleccion"] != "✓" || textos["documento.clave_nueva"] != "Nueva" {
+		t.Fatal("textos de la versión activa sin completar", textos, err)
+	}
+	// Sin distribución legible se mantienen los textos publicados.
+	if err := os.RemoveAll(filepath.Join(root, "es", "textos")); err != nil {
+		t.Fatal(err)
+	}
+	textos, _, err = Plantillas{Raiz: root}.Cargar(t.Context(), d.IdiomaPlantilla{Ruta: ruta}, p.ReferenciaCatalogo{Codigo: "es"})
+	if err != nil || textos["documento.marca_seleccion"] != "✓" {
+		t.Fatal("versión publicada no disponible sin distribución", err)
+	}
+}

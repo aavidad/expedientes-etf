@@ -1,0 +1,116 @@
+titulo: 'Autoevaluación: la aplicación por perfiles'
+preguntas:
+- tipo: test
+  enunciado: Tu cuenta corporativa es válida, pero aparece «Pendiente de alta». ¿Qué haces?
+  opciones:
+  - Creas un expediente para activar la cuenta.
+  - Pides a Administración funcional el perfil y, si procede, el equipo.
+  - Usas la cuenta de otra persona.
+  - Cambias el idioma.
+  correcta: 1
+  explicacion: Una cuenta válida no concede acceso a los datos. Administración asigna perfiles y equipo
+    (manual de Administración funcional, «Cómo doy acceso a una persona»).
+- tipo: test
+  enunciado: Consulta muestra «Oculto» en varias celdas. ¿Cómo lo interpretas?
+  opciones:
+  - Como cero.
+  - Como datos protegidos por umbral y supresión secundaria, sin desglose.
+  - Como permiso para abrir sus expedientes.
+  correcta: 1
+  explicacion: El umbral inicial es 3 casos. Otras cifras se ocultan para impedir deducir las protegidas,
+    en pantalla y Word.
+- tipo: vf
+  enunciado: Administración funcional puede abrir fichas por tener ese perfil.
+  correcta: false
+  explicacion: El perfil mantiene accesos y configuración y no permite leer fichas (manual de Administración
+    funcional).
+- tipo: test
+  enunciado: Tras revisar el Anexo 3 y crear la derivación, ¿qué decisión asigna el número de aceptación?
+  opciones:
+  - La descarga del anexo.
+  - La revisión antivirus.
+  - La entrada en lista de espera.
+  - La aceptación confirmada por Coordinación.
+  correcta: 3
+  explicacion: Crear la derivación la deja recibida. El número se asigna al aceptar; espera y no aceptación
+    no consumen número (manual de Coordinación, decisiones de entrada).
+- tipo: test
+  enunciado: ¿Qué formatos puedes leer para un Anexo 3 o 4?
+  opciones:
+  - Sólo DOCX.
+  - DOCX, ODT y PDF, también firmado.
+  - Sólo PDF sin firmar.
+  correcta: 1
+  explicacion: Revisa los datos mirando el original. Leer un PDF firmado no valida su firma.
+- tipo: vf
+  enunciado: Descargar el Anexo 1 confirma la firma del consentimiento.
+  correcta: false
+  explicacion: La descarga registra una emisión. La fecha real de firma se confirma después, como un hito
+    separado (manual para profesionales, consentimiento).
+- tipo: test
+  enunciado: ¿Qué puedes comprobar al pulsar una cantidad de la Memoria como profesional?
+  opciones:
+  - Expedientes, equipos y aportaciones sin nombres.
+  - Sólo el total de Word.
+  - Todos los documentos firmados de la familia.
+  correcta: 0
+  explicacion: El desglose permite comprobar el origen y volver conservando año, equipo y bloque; Consulta
+    no tiene acceso.
+- tipo: test
+  enunciado: El equipo ya propuso el cierre. ¿Quién debe confirmarlo?
+  opciones:
+  - La misma persona con otra cuenta.
+  - Cualquier persona con Consulta.
+  - Una persona de Coordinación distinta de quien propuso.
+  - Administración funcional por mantener los permisos.
+  correcta: 2
+  explicacion: La propuesta no cierra. Confirma otra persona de Coordinación con su cuenta y la fecha
+    real del Acta (manual de Coordinación, cierre).
+- tipo: vf
+  enunciado: Debes completar todas las escalas en los tres momentos para cerrar el expediente.
+  correcta: false
+  explicacion: Las escalas son opcionales. Puedes anotarlas en la aplicación o en los Word de los Anexos
+    11 y 12.
+- tipo: test
+  enunciado: Corriges una ficha después de cerrar la Memoria. ¿Qué ocurre con esa revisión?
+  opciones:
+  - Cambia automáticamente.
+  - Se elimina.
+  - Se convierte en la suma de las Memorias de equipo.
+  - Conserva sus cifras y textos; Coordinación puede reabrir con motivo para corregir.
+  correcta: 3
+  explicacion: El cierre conserva una instantánea. La reapertura mantiene la revisión anterior y permite
+    revisar de nuevo (manuales, Memoria).
+- tipo: test
+  enunciado: Quieres incorporar un expediente de 2023 que sigue abierto. ¿Qué haces?
+  opciones:
+  - Lo recibes como una derivación nueva.
+  - Lees el Acta de Aceptación en PDF, DOCX u ODT, revisas y confirmas dentro del plazo.
+  - Cambias su fecha a 2026.
+  correcta: 1
+  explicacion: La carga histórica incluye abiertos de años anteriores y conserva número y fechas. Administración
+    fija el plazo.
+- tipo: huecos
+  enunciado: Completa las reglas de la Tabla SPAF y de la aplicación instalada.
+  texto: Para descargar SPAF eliges un mes ya {terminado}. La aplicación instalada requiere {conexión}
+    al servidor.
+  explicacion: La Tabla SPAF se prepara para un mes terminado y la instalación no permite consultar expedientes
+    sin conexión (manual para profesionales, SPAF; manual de usuario, instalación).
+- tipo: test
+  enunciado: ¿Qué diferencia hay entre una derivación del SPM y la espera de Servicios Sociales Comunitarios?
+  opciones:
+  - Ambas entran en espera.
+  - El SPM no admite espera; la espera de Servicios Sociales cuenta en el apartado 6.
+  - La espera no cuenta nunca.
+  correcta: 1
+  explicacion: El Anexo 4 del SPM no tiene lista de espera. La espera del Anexo 3 cuenta como casos pendientes
+    de atender.
+- tipo: test
+  enunciado: ¿Quién puede anular un lote histórico erróneo?
+  opciones:
+  - Administración aunque tenga actividad posterior.
+  - Cualquier profesional después del plazo.
+  - Coordinación dentro del plazo si no tiene cambios, evaluaciones ni documentos posteriores.
+  correcta: 2
+  explicacion: Las consultas no impiden anular. Se retiran las fichas y se libera la numeración histórica,
+    conservando auditoría.

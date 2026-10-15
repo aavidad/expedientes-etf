@@ -1,0 +1,15 @@
+titulo: 'Expedientes ETF: curso de la aplicación'
+autor: Alberto Avidad
+licencia_exe: 'creative commons: attribution - share alike 4.0'
+licencia_url: https://creativecommons.org/licenses/by-sa/4.0/deed.es
+aplicacion_url: https://github.com/aavidad/expedientes-etf
+aplicacion_licencia_url: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+modulos:
+- carpeta: m0-presentacion
+  titulo: M0 · Presentación y cómo usar el curso
+- carpeta: m4-aplicacion
+  titulo: M4 · La aplicación por perfiles
+- carpeta: m5-caso-practico
+  titulo: M5 · Caso práctico
+- carpeta: m9-glosario
+  titulo: Glosario y preguntas frecuentes

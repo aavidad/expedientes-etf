@@ -2,14 +2,20 @@
 
 Esta carpeta reúne todo lo que explica el proyecto. Los seis documentos de `producto/` mandan; el resto explica instalación, uso y comprobaciones locales. Para una primera idea del proyecto, empieza por el [README de la raíz](../README.md).
 
+El [curso de la aplicación](../curso/LEEME.md) incluye fuentes editables y `make curso`: proyecto eXeLearning 4.0.5, web offline y SCORM 1.2.
+
+El [lector de voz](sistemas/VOZ.md) añade grabaciones estáticas al curso y a la ayuda, y un menú Ayuda con manuales por perfil. La construcción y las pruebas sin síntesis están en [scripts/voz](../scripts/voz/LEEME.md).
+
 ## Qué hay en cada carpeta
 
 | Ruta | Contenido |
 | --- | --- |
-| [sistemas/](sistemas/LEEME.md) | Manual para Informática: instalación, operación, copias, restauración e incidentes; incluye evidencia local F5.05 |
+| [desarrollo/](desarrollo/LEEME.md) | Manual de programadores: arquitectura, módulos, PostgreSQL y RLS, API, React, idiomas, temas, Word, lectores, Memoria, SPAF, auditoría y pruebas; recetas, capturas nuevas y PDF |
+| [sistemas/](sistemas/LEEME.md) | Manual completo para Informática: arquitectura, instalación, configuración, copias cifradas, restauración, auditoría, conservación y diagnóstico. [PDF](sistemas/sistemas.pdf), [evidencia MANSIS](sistemas/MANSIS.md) y ensayos F5.05, FX2 y WIN1 |
 | [Pruebas en Windows](../despliegue/windows/LEEME.md) | Paquete WSL2 y Podman Desktop, imágenes y usuarios inventados; instalación y mantenimiento con doble clic; accesos en escritorio e Inicio y ventana propia en Edge o Chrome. Evidencia y límites en [WIN1](sistemas/WIN1.md) |
 | [accesibilidad/](accesibilidad/README.md) | Auditoría F5.03 por pantalla y perfil, matriz axe, correcciones de foco y pendientes manuales |
-| [Manuales de usuario](manuales/usuario.md) | Profesionales de los ETF, Coordinación y hoja de Administración funcional; tareas con pasos y capturas reales, glosario, dudas habituales, títulos de vídeos y PDF. Carga de 2026 a mano o por hoja; consulta, descarga, cierre y reapertura de Memoria |
+| [Profesionales de ETF](manuales/profesionales.md) y [Coordinación](manuales/coordinacion.md) | Manuales por orden de trabajo; ficha completa, documentos, cierre, traslado, seguimiento, municipio en SPAF, Memoria con desglose por expedientes y alta desde actas. Capturas reales con datos inventados, PDF y [ayuda común](manuales/comun.md) sobre acceso, Windows, glosario y fallos. |
+| [Administración funcional](manuales/administracion.md) | Manual completo de accesos y configuración, plantillas, idiomas y temas, conservación entre dos personas, auditoría y límites de Memoria; [PDF](manuales/administracion.pdf) |
 | [Formación](formacion/LEEME.md) | Sesión de 150 minutos por perfiles, ejercicios con soluciones, preparación y reinicio de la demo, manuales y títulos de vídeos |
 | [producto/](producto/) | Los seis documentos de producto. Son la única fuente de verdad y se actualizan en el mismo cambio que modifique lo que describen |
 | [recorridos/](recorridos/LEEME.md) | Once recorridos de demostración: acceso, derivaciones, actividad, plantillas Word, ficha, Tabla SPAF, cierre, traslado, Memoria, carga y ciclo completo; grabación, voz y revisión de fotogramas |
@@ -17,6 +23,9 @@ Esta carpeta reúne todo lo que explica el proyecto. Los seis documentos de `pro
 | [Pruebas F0.11](recorridos/F0.11.md) | Entrada y alta con Chrome; matriz de todos los métodos INT5 por perfil y pruebas de seguridad por filas en PostgreSQL |
 | [Vista de Consulta](capturas/memoria-consulta.md) | Capturas de escritorio, móvil y alto contraste; recorrido numérico y perfiles mixtos |
 | [Evidencia F4.07](evidencias/F4.07.md) | API de navegación, composición por números y vista de Consulta con cifras y Word; cálculo al momento, fotos cerradas y credencial técnica |
+| [Evidencia AUD1](evidencias/AUD1.md) | Exportación de auditoría por Administración: filtros, CSV/JSON, cadena, comprobador local, límites y permisos |
+| [Evidencia UBI1](evidencias/UBI1.md) | Editor de ubicaciones con vigencia, textos inmutables, permisos y auditoría; ensayos PostgreSQL y capturas Chrome |
+| [Evidencia RESP1](evidencias/RESP1.md) | Respuestas del Programa del 14/10/2026, migraciones, pruebas y revisión independiente |
 | [Evidencia FX6](evidencias/FX6.md) | Recuperación de los ensayos completos de Catálogo y Expediente inicial, repeticiones y entrada en CI |
 | [Evidencia FX5](evidencias/FX5.md) | Fallo intermitente de migraciones, arranque provisional de PostgreSQL, diagnósticos comunes y repeticiones locales y en CI |
 | [Recorrido TR1](capturas/traslado.md) | Traslado entre equipos y seguimiento tras cese: pantallas, capturas, permisos, conflicto y recuperación de resultados |
@@ -151,7 +160,7 @@ F2.06 incorpora la bandeja de lectura por equipo, la ficha con documentos e hist
 
 Avance aproximado: un 37 % del plan. Están hechos e integrados en `main` Docker Compose, la integración continua, los idiomas y temas instalables, la auditoría encadenada, la entrada con Active Directory, los perfiles y la autorización, los catálogos con su edición, el lector de anexos, la subida con antivirus, la aceptación con numeración, la emisión de Word y parte del modelo estadístico de la Memoria. Están en curso no aceptar y lista de espera, el salario mínimo, las actas y oficios, y el armazón visual. El detalle por tarea está en [PLAN_IMPLEMENTACION.md](producto/PLAN_IMPLEMENTACION.md).
 
-F3.01b permite registrar una salida a otro servicio, descargar el Anexo 6 en castellano o inglés y confirmar la fecha real por separado. El servicio se elige de catálogo y la salida conserva su motivo. La emisión no cambia el estado del expediente ni confirma el hito. Pantalla pendiente. Contrato y migraciones en [ESQUEMA_BACKEND.md](producto/ESQUEMA_BACKEND.md).
+F3.01b permite registrar una salida a otro servicio, descargar el Anexo 6 en castellano o inglés y confirmar la fecha real por separado. El servicio se elige de catálogo; si no hay opciones activas, se escribe su nombre. La salida conserva su motivo. La emisión no cambia el estado del expediente ni confirma el hito. AN6 incorpora la pantalla desde la ficha y Salidas/cierre, con versiones de plantilla, recuperación del mismo envío y los datos vigentes de Familia y Menores. [Recorrido y revisiones de AN6](evidencias/AN6.md). Contrato y migraciones en [ESQUEMA_BACKEND.md](producto/ESQUEMA_BACKEND.md).
 F3.04a añade el cálculo y la API de lectura mensual SPAF, con permisos y auditoría. El puerto de ficha histórica está conectado al adaptador persistente de expediente/0010, con episodios, estados, familia y adultos por vigencia y fecha de conocimiento. SP1 añade la pantalla mensual para equipos y Coordinación, con desglose de altas y bajas y descarga Word. ZTS sigue sin dato mientras el Programa resuelve D19. El contrato está en [ESQUEMA_BACKEND.md](producto/ESQUEMA_BACKEND.md#17-actividad-estadistica-y-auditoria).
 
 F3.05 incorpora descarga Word SPAF por POST, con plantilla oficial por idioma,
@@ -201,10 +210,10 @@ CO2 incorpora las pantallas de salidas y cierre de Coordinación: respuesta fech
 
 FI1 incorpora las pestañas Menores e Intervención de la ficha. El profesional del ETF edita con vigencias; Coordinación consulta. Incluye comparación ante conflictos y avisos enlazados al campo. [Recorrido, capturas y límites](capturas/FI1.md).
 
-F4.02 incorpora la pantalla Memoria en `/memoria`: año y equipo, 28 apartados agrupados en cuatro bloques, «sin dato», avisos, edición A/D/E/F/G y descarga Word mediante F4.05. F4.07 añade la vista de Consulta: cifras al momento o foto cerrada, fecha, carácter provisional o definitivo y Word numérico; no hay actualización periódica. Estado, cierre y reapertura están conectados a F4.06; la composición por números de expediente está disponible en el servidor F4.07; su conexión visual para Equipo/Coordinación queda pendiente. Recorrido y capturas en el [README](../README.md#capturas-de-la-interfaz).
+F4.02 incorpora la pantalla Memoria en `/memoria`: año y equipo, 28 apartados agrupados en cuatro bloques, «sin dato», avisos, edición A/D/E/F/G y descarga Word mediante F4.05. F4.07 añade la vista de Consulta: cifras al momento o foto cerrada, fecha, carácter provisional o definitivo y Word numérico; no hay actualización periódica. Estado, cierre y reapertura están conectados a F4.06; MEMDES conecta el desglose por expedientes para Equipo y Coordinación, con número, equipo, aporte y enlace autorizado a ficha, sin nombres. La revisión cerrada conserva los aportes y las fotos antiguas sin desglose lo explican. Consulta sólo recibe cifras. [Pruebas y límites de MEMDES](evidencias/MEMDES.md). Recorrido y capturas en el [README](../README.md#capturas-de-la-interfaz).
 
 Los vídeos [09, Memoria](recorridos/guiones/09-memoria.md), y [10, carga de 2026](recorridos/guiones/10-carga-2026.md), muestran las pantallas reales con datos inventados. Se repiten conservando revisiones y casos anteriores; los comandos y las condiciones están en la [guía de recorridos](recorridos/LEEME.md). La [evidencia de VID6](recorridos/EVIDENCIA-09-10.md) recoge los resultados y sus límites.
 
 F5.07 aporta [Del Anexo a la Memoria](recorridos/guiones/11-ciclo-completo.md), un caso continuo con datos inventados, y [el material de formación](formacion/LEEME.md). El MP4 se conserva fuera de Git; [la revisión](recorridos/EVIDENCIA-11.md) recoge capítulos, tiempos y fotogramas. El [lanzador del aula](formacion/preparar-aula.md) sincroniza el calendario de equipos y Coordinación y conserva el tiempo real de Administración. La sesión queda preparada para impartirla, sin declarar asistencia ni validación del cálculo por el Programa.
 
-RESP2 añade carga desde Acta de Aceptación y cierre opcional: PDF/DOCX, lectura local y datos para confirmar, incluidos todos los abiertos de años anteriores. El Programa confirma que no tiene hoja [D21, 14/10/2026]. [Evidencia y corpus inventado](evidencias/RESP2.md); los manuales de equipos y Coordinación incorporan los pasos.
+RESP2 y RESP5 añaden carga desde Acta de Aceptación y cierre opcional: PDF/DOCX/ODT, lectura local y datos para confirmar, incluidos todos los abiertos de años anteriores. El Programa confirma que no tiene hoja [D21, 14/10/2026]. [Evidencia y corpus inventado](evidencias/RESP2.md); los manuales de equipos y Coordinación incorporan los pasos. [Evidencia ODT](evidencias/RESP5.md).

@@ -99,11 +99,16 @@ func (u *Usuarios) RegistrarAcceso(ctx context.Context, i dominio.IdentidadDirec
 func (u *Usuarios) Obtener(ctx context.Context, id string) (persona dominio.Usuario, err error) {
 	err = u.base.identidad(ctx, func(ctx context.Context, e Ejecutor) error {
 		var fallo error
+		var revision bool
+		if fallo = e.QueryRow(ctx, `SELECT identidad.comprobar_revision_restauracion($1)`, id).Scan(&revision); fallo != nil {
+			return errorSQLRestauracion(fallo)
+		}
 		persona, fallo = leerUsuario(e.QueryRow(ctx, `SELECT id::text, object_guid_ad, coalesce(cuenta_ad, cuenta_ad_anterior), nombre_mostrado, estado
  FROM identidad.usuario WHERE id=$1`, id))
 		if fallo != nil {
 			return fallo
 		}
+		persona.RevisionRestauracion = revision
 		rows, fallo := e.Query(ctx, `SELECT perfil FROM identidad.usuario_perfil WHERE usuario_id=$1 AND desde<=statement_timestamp() AND (hasta IS NULL OR hasta>statement_timestamp()) ORDER BY perfil`, id)
 		if fallo != nil {
 			return fallo

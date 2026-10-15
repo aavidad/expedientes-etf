@@ -1,0 +1,10 @@
+.ubicaciones { margin-block: var(--espacio-entre-tarjetas); }
+.ubicaciones-cabecera { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-4); }
+.ubicaciones-cabecera h1 { flex: 1; }
+.ubicaciones-cabecera summary { min-height: var(--alto-control); min-width: var(--alto-control); display: flex; justify-content: center; align-items: center; border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); cursor: pointer; }
+.ubicaciones-cabecera details p { max-width: var(--ancho-lateral); }
+.ubicaciones-contexto { color: var(--color-texto-secundario); }
+.ubicaciones h2 { font-size: var(--texto-titulo-seccion); margin-block: var(--espacio-3); overflow-wrap: anywhere; }
+.ubicaciones select, .ubicaciones textarea { min-height: var(--alto-control); max-width: 100%; font: inherit; padding: var(--espacio-3); border: var(--borde-normal) solid var(--color-borde-control); border-radius: var(--radio-control); color: var(--color-texto); background: var(--color-superficie); }
+.ubicaciones textarea { resize: vertical; }
+.ubicaciones .acciones-admin { align-items: center; }

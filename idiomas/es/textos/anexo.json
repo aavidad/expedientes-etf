@@ -54,7 +54,7 @@
   "anexo.origen_municipio": "Buscado en la dirección o la valoración del anexo. ",
   "anexo.origen_asignacion": "Propuesto según el municipio. Puedes elegir otro.",
   "anexo.obligatorio": "Elige una opción para guardar.",
-  "anexo.fuera_ambito": "Este municipio está fuera del ámbito de {entidad.nombre}. Confirma el centro y el equipo que deben atender la derivación.",
+  "anexo.fuera_ambito": "Esta derivación sigue el mismo trámite. Elige el equipo que la atenderá y confirma el centro.",
   "anexo.vacio": "Sin indicar en el anexo.",
   "anexo.dudoso": "Revisa este dato: no hemos podido leerlo con seguridad.",
   "anexo.revisado": "Dato leído o corregido.",

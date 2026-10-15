@@ -55,3 +55,23 @@ func TestSalidaServicioValidacion(t *testing.T) {
 		t.Fatal("estados de salida")
 	}
 }
+
+func TestSalidaServicioDestinoEscritoODeCatalogoExcluyentes(t *testing.T) {
+	p := NuevaSalidaServicio{Tipo: "otro_servicio", Version: 1, ServicioTexto: "Centro de atención sanitaria", Motivo: "Coordinación sanitaria familiar"}
+	if err := p.Validar(); err != nil {
+		t.Fatal(err)
+	}
+	p.Servicio = "SALUD"
+	if p.Validar() == nil {
+		t.Fatal("destino mixto admitido")
+	}
+	p.Servicio = ""
+	p.ServicioTexto = "  "
+	if p.Validar() == nil {
+		t.Fatal("destino vacío admitido")
+	}
+	p.ServicioTexto = string(make([]byte, 255))
+	if p.Validar() == nil {
+		t.Fatal("destino inválido admitido")
+	}
+}

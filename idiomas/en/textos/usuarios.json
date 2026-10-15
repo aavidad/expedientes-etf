@@ -43,5 +43,8 @@
   "usuarios.accion_editar": "Edit permissions",
   "usuarios.editar_persona": "Edit permissions for {nombre} ({cuenta})",
   "usuarios.sin_perfiles": "No roles",
-  "usuarios.sin_equipo": "No team"
+  "usuarios.sin_equipo": "No team",
+  "identidad.cambio_propio_denegado": "You cannot change your own roles or team, or disable your own access. Ask another functional administrator to make the change.",
+  "usuarios.ver_propios": "View my permissions",
+  "usuarios.permisos_propios": "My permissions"
 }

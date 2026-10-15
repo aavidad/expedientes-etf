@@ -359,5 +359,7 @@
   "memoria.valor.vivienda.otra": "Otra situación",
   "memoria.valor.vivienda.propiedad": "En propiedad",
   "memoria.valor.vivienda.sin_vivienda": "Sin vivienda",
-  "memoria.poblacion.no_aceptados": "Casos no aceptados"
+  "memoria.poblacion.no_aceptados": "Casos no aceptados",
+  "memoria.denominador.lista_espera_o_aceptados_sin_consentimiento_mas_de_30_dias": "Casos en lista de espera y aceptados que llevan más de 30 días sin consentimiento",
+  "memoria.poblacion.pe": "Casos pendientes de atender"
 }

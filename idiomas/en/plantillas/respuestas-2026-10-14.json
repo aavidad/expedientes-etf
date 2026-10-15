@@ -1,0 +1,41 @@
+{
+  "cierre/acta_cierre": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Anexo 2P": "Annex 11 or 12, according to the subprogramme",
+      "Annex 2P": "Annex 11 or 12, according to the subprogramme"
+    }
+  },
+  "entrada/aceptacion": {
+    "previa": "1.1.1",
+    "nueva": "1.1.2",
+    "sustituciones": {
+      "Anexo  2L-A": "Acceptance Record",
+      "Se adjunta informe de derivación (Anexo 2J) de Servicios Sociales Comunitarios, más el VALÓRAME (Instrumento para la valoración de la gravedad de las situaciones de riesgo, desprotección y desamparo de la infancia y adolescencia en Andalucía).": "Attached: the referral report from Community Social Services (Annex 3) and VALÓRAME (Instrument for assessing the severity of risk, lack of protection and abandonment affecting children and adolescents in Andalusia)."
+    }
+  },
+  "entrada/no_aceptacion": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Anexo  2L-NA": "Non-Acceptance Record"
+    }
+  },
+  "entrada/no_aceptacion/lista_espera": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Recibido, con fecha {{fecha_derivacion}}, el Informe 2J de derivación de los Servicios Sociales Comunitarios al Equipo de Tratamiento Familiar (ETF), relativo a los menores {{menores_lista}}, pertenecientes a una unidad familiar residente en el municipio de{{municipio}}, se informa de lo siguiente:": "Following receipt on {{fecha_derivacion}} of the referral report (Annex 3) from Community Social Services to the Family Treatment Team (ETF), concerning the children {{menores_lista}} from a family living in {{municipio}}, we inform you of the following:"
+    }
+  },
+  "spaf": {
+    "previa": "1.0.1",
+    "nueva": "1.0.2",
+    "sustituciones": {
+      "Fecha de los Anexos (2L, 2M, 2O)": "Dates of Annexes 1, 2, 7 and 8",
+      "(5). Municipio / ZTS: Municipio al que pertenece la familia del expediente y Zona de Trabajo Social (ZTS).": "(5). Municipality: municipality of the family in the case.",
+      "Municipio / ZTS": "Municipality"
+    }
+  }
+}

@@ -38,7 +38,7 @@ export async function grabarCoordinacion({ browser, guion, dir, referencias }) {
       await pulsar(boton('identidad.entrar')); assert.equal((await entrada).status(), 200);
       await page.getByRole('heading', { name: t('bandeja.titulo'), exact: true }).waitFor();
     }, async () => {
-      await page.getByRole('link', { name: t('bandeja.revisar'), exact: true }).first().waitFor();
+      await page.locator('tbody a[href^="/coordinacion/derivaciones/"]').first().waitFor();
       await page.evaluate(() => window.scrollTo({ top: 120, behavior: 'smooth' }));
     }]);
     await escena('subir', [async () => {

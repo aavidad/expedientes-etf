@@ -44,3 +44,18 @@ class EnlacesTest(unittest.TestCase):
         errores, _, _ = self.comprobar_texto("[Acta](../ausente.md)\n")
         self.assertEqual(len(errores), 1)
         self.assertIn("destino fuera del repositorio", errores[0])
+
+    def test_videos_externos_solo_en_contenido_del_curso(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as directorio:
+            raiz = Path(directorio).resolve()
+            carpeta = raiz / 'curso/contenido/m0-presentacion'
+            carpeta.mkdir(parents=True)
+            curso = carpeta / '01-inicio.md'
+            curso.write_text('![vídeo: Recorrido](videos/11-recorrido.mp4)\n'
+                             '![vídeo: Ausente](videos/archivo.mp4)\n', encoding='utf-8')
+            fuera = raiz / 'inicio.md'
+            fuera.write_text('![vídeo: Recorrido](videos/11-recorrido.mp4)\n', encoding='utf-8')
+            errores, _, _ = comprobar(raiz, [curso, fuera])
+            self.assertEqual(len(errores), 2)
+            self.assertIn('archivo.mp4', errores[0])
+            self.assertIn('11-recorrido.mp4', errores[1])

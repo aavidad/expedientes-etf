@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Renueva sólo los recursos públicos de PWA1 en la demo de este worktree."""
+"""Instala los recursos de distribución en la demo de este worktree (FX8)."""
 import importlib.util
 from pathlib import Path
 import sys
@@ -17,16 +17,8 @@ def preparar(base):
             or actual.port != esperado.port or actual.username or actual.password
             or actual.path not in ('', '/') or actual.query or actual.fragment):
         raise SystemExit('pwa1.demo_distinta')
-    # Reconstruir la imagen no renueva los volúmenes. No se borran datos,
-    # versiones publicadas ni preferencias; se actualiza sólo la reserva PWA1.
-    archivos = list((RAIZ / 'idiomas').glob('*/textos/pwa1.json'))
-    archivos += list((RAIZ / 'temas').glob('*/iconos/etf-*.png'))
-    for archivo in sorted(archivos):
-        destino = '/datos/' + archivo.relative_to(RAIZ).as_posix()
-        demo.compose('exec', '-T', 'app', 'mkdir', '-p', str(Path(destino).parent),
-                     capture_output=True, text=True)
-        demo.compose('cp', str(archivo), 'app:' + destino, capture_output=True, text=True)
-    print(f'PWA1-DEMO: {len(archivos)} recursos públicos renovados en la demo local.')
+    demo.incorporar_recursos()
+    print('PWA1-DEMO: recursos de distribución instalados; versiones publicadas conservadas.')
 
 
 if __name__ == '__main__':

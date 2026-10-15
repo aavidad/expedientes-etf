@@ -29,6 +29,8 @@ type InformeMemoria struct {
 	Composicion        []ComposicionMemoria
 	HuellasComposicion map[Apartado]string
 	Fuentes            []Expediente
+	VersionDesglose    int
+	Desglose           []AporteMemoria
 }
 
 type ComposicionMemoria struct {

@@ -28,6 +28,8 @@ import (
 	expedienteApp "github.com/aavidad/expedientes-etf/internal/aplicacion/expediente"
 	entrada "github.com/aavidad/expedientes-etf/internal/aplicacion/expediente/puertos/entrada"
 	sesionEntrada "github.com/aavidad/expedientes-etf/internal/aplicacion/identidad/puertos/entrada"
+	auditoria "github.com/aavidad/expedientes-etf/internal/dominio/auditoria"
+	exp "github.com/aavidad/expedientes-etf/internal/dominio/expediente"
 	identidad "github.com/aavidad/expedientes-etf/internal/dominio/identidad"
 	"github.com/aavidad/expedientes-etf/internal/puertos/salida/plataforma"
 )
@@ -59,7 +61,8 @@ func TestAnexo6PostgresHTTPDescargaHitosPermisos(t *testing.T) {
 	defer b.Cerrar()
 	r := postgres.NuevoRegistroAuditoria(b)
 	er := &expedienteRepo.Repositorio{}
-	salida := expedienteApp.Nuevo(expedienteApp.Dependencias{SalidasServicio: er, Repositorio: er, Catalogo: &catalogo.Repositorio{}, Transacciones: b, Registro: r, RegistroTransaccional: r, Reloj: reloj{}, Identificadores: ids{}})
+	relojSalida := &relojPropuestaSalida{dia: time.Date(2026, 10, 13, 10, 0, 0, 0, time.UTC)}
+	salida := expedienteApp.Nuevo(expedienteApp.Dependencias{SalidasServicio: er, Repositorio: er, Catalogo: &catalogo.Repositorio{}, Transacciones: b, Registro: r, RegistroTransaccional: r, Reloj: relojSalida, Identificadores: ids{}})
 	archivos := ficheros.Plantillas{Raiz: "../../../../idiomas", Paquetes: postgres.NuevaPublicacionPaquetes(b)}
 	propuesta := &relojPropuestaSalida{dia: time.Date(2026, 10, 13, 10, 0, 0, 0, time.UTC)}
 	datos := app.DatosEntrada{Salidas: salida, Catalogos: &catalogo.Repositorio{}, Referencias: &paqueteRepo.Referencias{}, Presentacion: archivos, Reloj: propuesta}
@@ -187,6 +190,22 @@ func TestAnexo6PostgresHTTPDescargaHitosPermisos(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
+		if n == 1 {
+			relojSalida.dia = time.Date(2026, 10, 12, 22, 30, 0, 0, time.UTC)
+			hoy := entrada.ConfirmarSalidaServicio{Tipo: "derivacion_otro_servicio", SalidaID: creada.ID, Version: 3, VersionSalida: 1, Fecha: "2026-10-13"}
+			// Forzamos conflicto de salida para comprobar que hoy Madrid supera la validación de fecha.
+			hoy.VersionSalida = 99
+			codigo, _, _ = hacer(s, "POST", ruta+"/hitos", "hito-hoy-madrid", hoy, true)
+			if codigo != 409 {
+				t.Fatal("fecha civil de Madrid rechazada", codigo)
+			}
+			hoy.Fecha = "2026-10-14"
+			codigo, _, _ = hacer(s, "POST", ruta+"/hitos", "hito-futuro", hoy, true)
+			if codigo != 400 {
+				t.Fatal("fecha futura admitida", codigo)
+			}
+			relojSalida.dia = time.Date(2026, 10, 13, 10, 0, 0, 0, time.UTC)
+		}
 		h := entrada.ConfirmarSalidaServicio{Tipo: "derivacion_otro_servicio", SalidaID: creada.ID, Version: 3, VersionSalida: 1, Fecha: "2026-10-12"}
 		codigo, _, contenido = hacer(s, "POST", ruta+"/hitos", fmt.Sprintf("hito-%d", n), h, true)
 		if codigo != 200 {
@@ -257,6 +276,57 @@ func TestAnexo6PostgresHTTPDescargaHitosPermisos(t *testing.T) {
 		codigo, _, _ = hacer(s, "GET", ruta+"/documentos/anexo6", "get", nil, true)
 		if codigo != 405 {
 			t.Fatal("método", codigo)
+		}
+
+		if n == 6 {
+			// La ficha editada debe sustituir los valores iniciales, incluso al retirar menores.
+			err = b.Ejecutar(ctx, plataforma.Identidad{UsuarioID: usuario, Perfiles: profesional.Perfiles, EquipoID: equipo}, func(ctx context.Context) error {
+				familia := exp.Familia{Direccion: "Calle del Almendro 24", Telefono: "600987321"}
+				if err := er.GuardarFamilia(ctx, id, exp.CambioFamilia{Version: 4, Desde: "2026-10-13", Familia: &familia}, usuario, reloj{}.Ahora()); err != nil {
+					return err
+				}
+				ficha, err := er.ObtenerMenores(ctx, id)
+				if err != nil {
+					return err
+				}
+				if len(ficha.Menores) == 0 {
+					return errors.New("expediente.menores_invalidos")
+				}
+				menores := ficha.Menores[:1]
+				menores[0].Nombre = "Marina"
+				menores[0].Apellidos = "Serrano Vega"
+				menores[0].CentroEducativo = "Colegio del Olivar"
+				if err := er.GuardarMenores(ctx, id, exp.CambioMenores{Version: 5, Desde: "2026-10-13", Menores: &menores}, usuario, reloj{}.Ahora()); err != nil {
+					return err
+				}
+				_, err = r.RegistrarEnTransaccion(ctx, auditoria.Datos{UsuarioID: usuario, Perfiles: profesional.Perfiles, Accion: "expediente.editar_menores", Entidad: "expediente", EntidadID: id, Resultado: "ok", OcurridoEn: reloj{}.Ahora()})
+				return err
+			})
+			if err != nil {
+				t.Fatal("edición de ficha", err)
+			}
+			codigo, _, contenido = hacer(s, "POST", ruta+"/documentos/anexo6", "anexo6-ficha-vigente", map[string]string{"idioma": "es", "salida_id": creada.ID}, true)
+			if codigo != 201 {
+				t.Fatalf("Word vigente: %d %s", codigo, contenido)
+			}
+			xml := xmlDocumento(t, contenido)
+			if !strings.Contains(xml, "Calle del Almendro 24") || !strings.Contains(xml, "600987321") || !strings.Contains(xml, "Marina Serrano Vega") || !strings.Contains(xml, "Colegio del Olivar") || strings.Contains(xml, "Calle del Laurel 18") || strings.Contains(xml, "Álvaro Ortega Salas") {
+				t.Fatal("Word conserva datos antiguos")
+			}
+			t.Log("AN6-FICHA-OK: dirección y colección de menores vigentes; emisión sin alterar el hito")
+			err = b.Ejecutar(ctx, plataforma.Identidad{UsuarioID: usuario, Perfiles: profesional.Perfiles, EquipoID: equipo}, func(ctx context.Context) error {
+				vacios := []exp.Menor{}
+				return er.GuardarMenores(ctx, id, exp.CambioMenores{Version: 6, Desde: "2026-10-13", Menores: &vacios}, usuario, reloj{}.Ahora())
+			})
+			if err != nil {
+				t.Fatal(err)
+			}
+			codigo, _, contenido = hacer(s, "POST", ruta+"/documentos/anexo6", "anexo6-sin-menores", map[string]string{"idioma": "es", "salida_id": creada.ID}, true)
+			if codigo != 201 || strings.Contains(xmlDocumento(t, contenido), "Marina Serrano Vega") {
+				t.Fatalf("colección vacía no respetada %d: %s", codigo, contenido)
+			}
+			t.Log("AN6-VACIOS-OK: menores retirados no se recuperan del anexo original")
+
 		}
 		// Segunda barrera: las tablas nuevas tampoco muestran filas al perfil incorrecto.
 		for _, actor := range []plataforma.Identidad{{UsuarioID: usuario, Perfiles: []string{"consulta"}}, {UsuarioID: usuario, Perfiles: []string{"administracion"}}, {UsuarioID: usuario, Perfiles: []string{"profesional_etf"}, EquipoID: ajeno}} {

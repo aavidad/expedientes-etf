@@ -6,14 +6,18 @@ $script:EsWindows = [Environment]::OSVersion.Platform -eq [PlatformID]::Win32NT
 
 function Texto([string]$Clave) { return $script:Textos.('windows.' + $Clave) }
 
+# Citas válidas para CreateProcess y ProcessStartInfo de PowerShell 5.1.
+function Unir-Argumentos([string[]]$Argumentos) {
+    return ($Argumentos | ForEach-Object {
+        '"' + (($_ -replace '(\\*)"', '$1$1\"') -replace '(\\+)$', '$1$1') + '"'
+    }) -join ' '
+}
+
 function Ejecutar-Motor {
     param([string[]]$Argumentos, [string]$Entrada = '')
     $inicio = New-Object System.Diagnostics.ProcessStartInfo
     $inicio.FileName = $script:Ejecutable
-    # Citas válidas para CreateProcess y ProcessStartInfo de PowerShell 5.1.
-    $inicio.Arguments = ($Argumentos | ForEach-Object {
-        '"' + (($_ -replace '(\\*)"', '$1$1\"') -replace '(\\+)$', '$1$1') + '"'
-    }) -join ' '
+    $inicio.Arguments = Unir-Argumentos $Argumentos
     $inicio.UseShellExecute = $false
     $inicio.CreateNoWindow = $true
     $inicio.RedirectStandardInput = $true
@@ -138,6 +142,7 @@ function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$Encen
                 if (-not $EncenderMaquina) { throw (Texto 'maquina') }
                 [void](Ejecutar-Motor -Argumentos @('machine', 'start', $script:Maquina))
             }
+            Asegurar-TuberiaPodman $activa[0]
         }
         $info = Ejecutar-Motor -Argumentos @('info', '--format', 'json') | ConvertFrom-Json
         if ($info.host.security.rootless) { throw (Texto 'rootful') }
@@ -147,6 +152,82 @@ function Comprobar-Requisitos([string]$Motor, [switch]$SoloMotor, [switch]$Encen
     }
     [void](Ejecutar-Motor -Argumentos @('compose', 'version'))
     Write-Host (Texto 'requisitos_ok')
+}
+
+function Probar-Tuberia([string]$Ruta) { return [bool](Test-Path -Path $Ruta) }
+
+function Esperar-Tuberia([string]$Ruta, [int]$Segundos) {
+    for ($i = 0; $i -le $Segundos; $i++) {
+        if (Probar-Tuberia $Ruta) { return $true }
+        if ($i -lt $Segundos) { Start-Sleep -Seconds 1 }
+    }
+    return $false
+}
+
+function Lanzar-Proxy([string]$Ejecutable, [string[]]$Argumentos) {
+    Start-Process -FilePath $Ejecutable -ArgumentList (Unir-Argumentos $Argumentos) -WindowStyle Hidden | Out-Null
+}
+
+function Buscar-ProxyPodman {
+    $carpetas = @((Split-Path -Parent $script:Ejecutable))
+    if ($env:ProgramFiles) { $carpetas += Join-Path $env:ProgramFiles 'RedHat\Podman' }
+    if ($env:LOCALAPPDATA) { $carpetas += Join-Path $env:LOCALAPPDATA 'Programs\Podman' }
+    foreach ($carpeta in $carpetas) {
+        $ruta = Join-Path $carpeta 'win-sshproxy.exe'
+        if (Test-Path -LiteralPath $ruta -PathType Leaf) { return $ruta }
+    }
+    return $null
+}
+
+# Tras reiniciar Windows, Podman puede encender la máquina WSL sin levantar
+# win-sshproxy; sin su tubería Compose no llega al motor. Se reintenta una vez
+# con parada y arranque y, si no basta, se lanza el proxy como lo hace Podman.
+function Asegurar-TuberiaPodman($Conexion) {
+    $tuberia = $null
+    try {
+        $inspeccion = @(Ejecutar-Motor -Argumentos @('machine', 'inspect', $script:Maquina) | ConvertFrom-Json | ForEach-Object { $_ })
+        $tuberia = $inspeccion[0].ConnectionInfo.PodmanPipe.Path
+    } catch { }
+    if (-not $tuberia) {
+        $nombre = if ($script:Maquina -like 'podman*') { $script:Maquina } else { 'podman-' + $script:Maquina }
+        $tuberia = '\\.\pipe\' + $nombre
+    }
+    if ($tuberia -notmatch '^\\\\\.\\pipe\\[A-Za-z0-9._-]+$') { throw (Texto 'tuberia') }
+    if (Esperar-Tuberia $tuberia 0) { return }
+    Write-Host (Texto 'tuberia_reintento')
+    try { [void](Ejecutar-Motor -Argumentos @('machine', 'stop', $script:Maquina)) } catch { }
+    [void](Ejecutar-Motor -Argumentos @('machine', 'start', $script:Maquina))
+    if (Esperar-Tuberia $tuberia 10) { return }
+    $proxy = Buscar-ProxyPodman
+    $identidad = if ($Conexion.PSObject.Properties['Identity']) { [string]$Conexion.Identity } else { '' }
+    if ($proxy -and $identidad -and (Test-Path -LiteralPath $identidad -PathType Leaf)) {
+        Write-Host (Texto 'tuberia_proxy')
+        $datos = if ($env:XDG_DATA_HOME) { $env:XDG_DATA_HOME } else { Join-Path ([Environment]::GetFolderPath('UserProfile')) '.local\share' }
+        $estado = Join-Path $datos ('containers\podman\machine\wsl\' + $script:Maquina)
+        [void](New-Item -ItemType Directory -Path $estado -Force)
+        $destino = 'npipe:////./pipe/' + $tuberia.Substring(9)
+        Lanzar-Proxy $proxy @($script:Maquina, $estado, $destino, $Conexion.URI, $identidad)
+        if (Esperar-Tuberia $tuberia 30) { return }
+    }
+    throw (Texto 'tuberia')
+}
+
+# El antivirus responde a PING antes de que el primer análisis real sea ágil.
+# Se analiza un texto inocuo hasta que clamd lo revisa limpio (máximo 5 minutos),
+# para que la primera subida no quede sin revisar.
+function Esperar-Antivirus([int]$Intentos = 60, [int]$Pausa = 5) {
+    Write-Host (Texto 'antivirus_espera')
+    for ($i = 1; $i -le $Intentos; $i++) {
+        try {
+            $respuesta = Componer -Argumentos @('exec', '-T', 'clamav', 'timeout', '20', 'clamdscan', '--no-summary', '-') -Entrada 'etf'
+            if ($respuesta -match 'stream: OK') { return }
+        } catch { }
+        if ($i -lt $Intentos) {
+            if ($i % 6 -eq 0) { Write-Host (Texto 'antivirus_espera') }
+            Start-Sleep -Seconds $Pausa
+        }
+    }
+    throw (Texto 'antivirus')
 }
 
 function Componer {
@@ -196,6 +277,9 @@ function Comprobar-Paquete {
 function Arrancar {
     Comprobar-Paquete
     Generar-Secretos
+    # La aplicación no lee idiomas ni temas mientras se preparan (FX8); la
+    # instalación, la apertura y la actualización pasan siempre por aquí.
+    [void](Componer -Argumentos @('stop', 'entrada-demo', 'app'))
     Write-Host (Texto 'imagenes')
     [void](Ejecutar-Motor -Argumentos @('load', '--input', (Join-Path $script:Paquete 'imagenes.tar')))
     $usuarios = Componer -Argumentos @('run', '--rm', '--no-deps', '-T', 'herramientas', 'preparar') -Entrada ([IO.File]::ReadAllText($script:Entorno))
@@ -208,6 +292,7 @@ function Arrancar {
     [void](Componer -Argumentos @('run', '--rm', 'preparar-roles'))
     [void](Componer -Argumentos @('run', '--rm', 'migrar'))
     [void](Componer -Argumentos @('up', '-d', '--wait', '--wait-timeout', '300', 'clamav', 'ldap', 'app', 'entrada-demo'))
+    Esperar-Antivirus
     $limite = [DateTime]::UtcNow.AddMinutes(5)
     do {
         try { $salud = Invoke-WebRequest -Uri ($script:Url + '/salud') -UseBasicParsing -TimeoutSec 5; if ($salud.StatusCode -eq 200) { break } } catch { }

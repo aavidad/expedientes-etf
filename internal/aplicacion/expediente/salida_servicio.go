@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 	d "github.com/aavidad/expedientes-etf/internal/dominio/expediente"
+	"strings"
 	"time"
 )
 
@@ -68,6 +69,15 @@ func (s *Servicio) salidaServicio(ctx context.Context, a d.Actor, id, clave stri
 	huella := sha256.Sum256(b)
 	sha := hex.EncodeToString(huella[:])
 	ahora := s.d.Reloj.Ahora().UTC().Truncate(time.Microsecond)
+	if hito != nil {
+		zona, err := time.LoadLocation("Europe/Madrid")
+		if err != nil {
+			return recibo, d.ErrNoDisponible
+		}
+		if hito.Fecha > d.FechaCivil(ahora.In(zona)) {
+			return recibo, d.ErrPeticion
+		}
+	}
 	err = s.d.Transacciones.Ejecutar(ctx, identidad(a), func(ctx context.Context) error {
 		r, repetida, err := s.d.SalidasServicio.RepeticionSalida(ctx, a.UsuarioID, clave, ruta, sha, ahora)
 		if err != nil {
@@ -104,20 +114,27 @@ func (s *Servicio) salidaServicio(ctx context.Context, a d.Actor, id, clave stri
 			if err != nil {
 				return err
 			}
-			valido := false
+			valido, tieneDestinos := false, false
 			for _, o := range cat.Opciones {
-				if o.Lista == "servicio_destino" && o.Codigo == p.Servicio && o.Activa {
-					valido = true
+				if o.Lista == "servicio_destino" && o.Activa {
+					tieneDestinos = true
+					if o.Codigo == p.Servicio {
+						valido = true
+					}
 				}
 			}
-			if !valido {
+			if !valido && (tieneDestinos || p.ServicioTexto == "") {
 				return d.ErrPeticion
 			}
 			salidaID, err := s.d.Identificadores.Nuevo()
 			if err != nil {
 				return err
 			}
-			recibo = d.SalidaServicio{ID: salidaID, ExpedienteID: id, EquipoID: *exp.EquipoID, Tipo: p.Tipo, Servicio: p.Servicio, CatalogoID: v.ID, Motivo: p.Motivo, Estado: "borrador", Version: 1, VersionExpediente: version + 1}
+			catalogoID := v.ID
+			if !tieneDestinos {
+				catalogoID = ""
+			}
+			recibo = d.SalidaServicio{ID: salidaID, ExpedienteID: id, EquipoID: *exp.EquipoID, Tipo: p.Tipo, Servicio: p.Servicio, CatalogoID: catalogoID, ServicioTexto: strings.TrimSpace(p.ServicioTexto), Motivo: p.Motivo, Estado: "borrador", Version: 1, VersionExpediente: version + 1}
 			if err := s.d.SalidasServicio.CrearSalida(ctx, recibo, a.UsuarioID, ahora); err != nil {
 				return err
 			}

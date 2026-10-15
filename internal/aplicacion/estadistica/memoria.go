@@ -89,36 +89,27 @@ func (s FuenteMemoria) memoria(ctx context.Context, a d.ActorMemoria, f d.Filtro
 		r.Apartados = append(r.Apartados, ap)
 	}
 	slices.SortFunc(r.Apartados, func(a, b d.ApartadoMemoria) int { return cmp.Compare(a.Codigo, b.Codigo) })
+	r.Desglose, err = d.AportesMemoria(e)
+	if err != nil {
+		return d.InformeMemoria{}, err
+	}
+	r.VersionDesglose = 1
 	r.Fuentes = e.Expedientes
 	r.Composicion = []d.ComposicionMemoria{}
 	composicion := map[string]*d.ComposicionMemoria{}
-	for _, exp := range e.Expedientes {
-		individual := e
-		individual.Expedientes = []d.Expediente{exp}
-		individual.Actividad = nil
-		cifras, err := d.Calcular(individual)
-		if err != nil {
-			return d.InformeMemoria{}, err
-		}
-		for apartado, ap := range cifras.Apartados {
-			if apartado == d.ComisionesTecnicas || apartado == d.InformesTecnicos {
-				continue
+	for _, aporte := range r.Desglose {
+		for _, celda := range aporte.Celdas {
+			clave := d.ClaveCelda{Grupo: celda.Grupo, Unidad: celda.Unidad}
+			k, _ := json.Marshal(struct {
+				Apartado d.Apartado
+				Clave    d.ClaveCelda
+			}{aporte.Apartado, clave})
+			v := composicion[string(k)]
+			if v == nil {
+				v = &d.ComposicionMemoria{Apartado: aporte.Apartado, Grupo: clave.Grupo, Unidad: clave.Unidad}
+				composicion[string(k)] = v
 			}
-			for clave, celda := range ap.Celdas {
-				if celda.Numerador == 0 && celda.SinDato == 0 && (!celda.Denominador.Conocido || celda.Denominador.Valor == 0) {
-					continue
-				}
-				k, _ := json.Marshal(struct {
-					Apartado d.Apartado
-					Clave    d.ClaveCelda
-				}{apartado, clave})
-				v := composicion[string(k)]
-				if v == nil {
-					v = &d.ComposicionMemoria{Apartado: apartado, Grupo: clave.Grupo, Unidad: clave.Unidad}
-					composicion[string(k)] = v
-				}
-				v.Expedientes = append(v.Expedientes, exp.ID)
-			}
+			v.Expedientes = append(v.Expedientes, aporte.ExpedienteID)
 		}
 	}
 	claves := []string{}

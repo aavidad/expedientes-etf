@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { I18nProvider, useButton } from 'react-aria';
 import './estructura.css';
@@ -34,7 +34,7 @@ function PantallaAplicacion({ actualizarTextosGuardia }: { actualizarTextosGuard
   const referencia = useRef<HTMLButtonElement>(null);
   const focoTrasIdioma = useRef<'persona' | 'preferencias' | null>(null);
   const { buttonProps } = useButton({ onPress: () => reintentar((valor) => valor + 1) }, referencia);
-  const t = (clave: string) => (textos[clave] ?? '').replaceAll('{entidad.nombre}', textos['entidad.nombre'] ?? '');
+  const t = useCallback((clave: string) => (textos[clave] ?? '').replaceAll('{entidad.nombre}', textos['entidad.nombre'] ?? ''), [textos]);
 
   useEffect(() => actualizarInstalacion(idioma, tema), [idioma, tema]);
 
@@ -93,10 +93,11 @@ function PantallaAplicacion({ actualizarTextosGuardia }: { actualizarTextosGuard
 
   function elegirIdioma(valor: string) {
     if (valor === idioma) return;
-    solicitarSalida(() => {
+    const cambiar = () => {
       focoTrasIdioma.current = document.querySelector('.persona-conectada') ? 'persona' : 'preferencias';
       cambiarIdioma(valor);
-    });
+    };
+    if (location.pathname === '/equipo/anexo6') cambiar(); else solicitarSalida(cambiar);
   }
 
   const preferencias = idiomas.length > 0 && <Preferencias t={t} idioma={idioma} idiomas={idiomas} tema={tema} temas={temas} cambiarIdioma={elegirIdioma} cambiarTema={cambiarTema} />;
@@ -108,7 +109,7 @@ function PantallaAplicacion({ actualizarTextosGuardia }: { actualizarTextosGuard
     </>}
   </>;
   return <I18nProvider locale={idioma}>
-    {!cargando && !error ? <PantallaSesion pantallas={pantallas} t={t} idioma={idioma} preferencias={preferencias} avisos={avisos} alActivar={() => reintentar((valor) => valor + 1)} />
+    {(location.pathname === '/equipo/anexo6' && !!textos['comun.titulo'] || !cargando && !error) ? <PantallaSesion pantallas={pantallas} t={t} idioma={idioma} preferencias={preferencias} avisos={avisos} alActivar={() => reintentar((valor) => valor + 1)} />
       : <Armazon t={t} preferencias={preferencias}>{avisos}</Armazon>}
   </I18nProvider>;
 }

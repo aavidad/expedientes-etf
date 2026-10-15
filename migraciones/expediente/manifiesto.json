@@ -268,5 +268,35 @@
         "numero": "0023"
       }
     ]
+  },
+  {
+    "numero": "0027",
+    "archivo": "0027_espera_memoria.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0026"
+      }
+    ]
+  },
+  {
+    "numero": "0028",
+    "archivo": "0028_control_cargas.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0027"
+      }
+    ]
+  },
+  {
+    "numero": "0029",
+    "archivo": "0029_anexo6_destino_escrito.sql",
+    "depende_de": [
+      {
+        "modulo": "expediente",
+        "numero": "0028"
+      }
+    ]
   }
 ]

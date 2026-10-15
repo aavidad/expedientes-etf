@@ -1,0 +1,13 @@
+{
+  "seg1.sesion_aviso": "Tu sesión va a terminar",
+  "seg1.sesion_inactividad": "La sesión terminará por falta de actividad. Pulsa «Continuar sesión» para seguir trabajando.",
+  "seg1.sesion_maxima": "Te acercas al tiempo máximo de sesión. Vuelve a entrar para seguir trabajando.",
+  "seg1.datos_guardados": "Los datos que ya has guardado se conservan. Guarda los cambios pendientes antes de salir.",
+  "seg1.continuar": "Continuar sesión",
+  "seg1.volver_entrar": "Volver a entrar",
+  "seg1.continuando": "Estamos comprobando tu sesión…",
+  "seg1.continuar_error": "No hemos podido continuar la sesión. Comprueba la conexión y vuelve a intentarlo.",
+  "seg1.sesion_caducada": "Tu sesión ha terminado. Vuelve a entrar. Los datos que ya habías guardado se conservan.",
+  "catalogo.plazo_umbral_privacidad_consulta": "Umbral de privacidad de Consulta",
+  "catalogo.unidad_casos": "casos"
+}

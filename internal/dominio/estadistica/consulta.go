@@ -10,13 +10,15 @@ import (
 // CifrasConsulta es un contrato numérico independiente del informe completo.
 // Sus tipos anidados enumeran campos: ampliar el informe no amplía esta salida.
 type CifrasConsulta struct {
-	EquipoCodigo string             `json:"equipo_codigo"`
-	Anio         int                `json:"anio"`
-	EquipoID     string             `json:"equipo_id"`
-	Fecha        time.Time          `json:"fecha_cifras"`
-	Corte        time.Time          `json:"corte"`
-	Definitivas  bool               `json:"definitivas"`
-	Apartados    []ApartadoConsulta `json:"apartados"`
+	EquipoCodigo    string             `json:"equipo_codigo"`
+	Anio            int                `json:"anio"`
+	EquipoID        string             `json:"equipo_id"`
+	Fecha           time.Time          `json:"fecha_cifras"`
+	Corte           time.Time          `json:"corte"`
+	MargenesOcultos bool               `json:"margenes_ocultos"`
+	Umbral          int                `json:"umbral_privacidad,omitempty"`
+	Definitivas     bool               `json:"definitivas"`
+	Apartados       []ApartadoConsulta `json:"apartados"`
 }
 type ApartadoConsulta struct {
 	Codigo Apartado        `json:"codigo"`

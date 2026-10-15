@@ -430,3 +430,27 @@ func TestCierreConcurrenteNoReviveSesion(t *testing.T) {
 		t.Fatal("sesión revivida")
 	}
 }
+
+func TestConsultaPasivaNoRenuevaYCaducidadDevuelta(t *testing.T) {
+	e := preparar(t)
+	abierta, err := e.s.Entrar(context.Background(), e.inicio)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !abierta.Acceso.CaducaEn.Equal(e.r.ahora.Add(30*time.Minute)) || !abierta.Acceso.MaximaEn.Equal(e.r.ahora.Add(8*time.Hour)) {
+		t.Fatal("plazos iniciales", abierta.Acceso)
+	}
+	e.r.ahora = e.r.ahora.Add(28 * time.Minute)
+	a, err := e.s.Consultar(entrada.ConConsultaPasiva(context.Background()), abierta.Identificador)
+	if err != nil || !a.CaducaEn.Equal(abierta.Acceso.CaducaEn) {
+		t.Fatal("lectura pasiva renueva", a, err)
+	}
+	a, err = e.s.Consultar(context.Background(), abierta.Identificador)
+	if err != nil || !a.CaducaEn.Equal(e.r.ahora.Add(30*time.Minute)) || !a.MaximaEn.Equal(abierta.Acceso.MaximaEn) {
+		t.Fatal("continuar cambia máximo o no renueva", a, err)
+	}
+	e.r.ahora = e.r.ahora.Add(30 * time.Minute)
+	if _, err = e.s.Consultar(entrada.ConConsultaPasiva(context.Background()), abierta.Identificador); !errors.Is(err, dominio.ErrSesionNoValida) {
+		t.Fatal("lectura revive caducada", err)
+	}
+}

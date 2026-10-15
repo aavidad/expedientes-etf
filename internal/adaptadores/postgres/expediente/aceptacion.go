@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"strconv"
 	"time"
 
 	"github.com/aavidad/expedientes-etf/internal/adaptadores/postgres"
@@ -68,6 +69,9 @@ func (*Repositorio) Siguiente(ctx context.Context, equipo string, anio, limite i
 	if err != nil {
 		return 0, err
 	}
+	if _, err := e.Exec(ctx, `SELECT pg_advisory_xact_lock(hashtextextended($1,697052))`, equipo+":"+strconv.Itoa(anio)); err != nil { //etf:tecnico
+		return 0, err
+	} //etf:tecnico
 	for {
 		var n int
 		err = e.QueryRow(ctx, `INSERT INTO expediente.contador_expediente(equipo_id,anio,ultimo) VALUES($1,$2,1)

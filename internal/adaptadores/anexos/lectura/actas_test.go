@@ -1,19 +1,25 @@
 package lectura
 
 import (
+	"archive/zip"
+	"bytes"
 	"context"
+	"io"
 	"os"
 	"testing"
 )
 
-func TestActasWordPDFFirmadoYSinTexto(t *testing.T) {
+func TestActasWordODTPDFFirmadoYSinTexto(t *testing.T) {
 	for _, tt := range []struct{ nombre, tipo, numero, fecha string }{
 		{"aceptacion-2022.docx", "aceptacion", "02-71-22", "2022-05-17"},
+		{"aceptacion-2022.odt", "aceptacion", "02-71-22", "2022-05-17"},
 		{"aceptacion-2022.pdf", "aceptacion", "02-71-22", "2022-05-17"},
 		{"aceptacion-2022-firmada.pdf", "aceptacion", "02-71-22", "2022-05-17"},
 		{"aceptacion-2023.docx", "aceptacion", "02-72-23", "2023-03-09"},
+		{"aceptacion-2023.odt", "aceptacion", "02-72-23", "2023-03-09"},
 		{"aceptacion-2023.pdf", "aceptacion", "02-72-23", "2023-03-09"},
 		{"cierre-2026.docx", "cierre", "02-72-23", "2026-06-20"},
+		{"cierre-2026.odt", "cierre", "02-72-23", "2026-06-20"},
 		{"cierre-2026.pdf", "cierre", "02-72-23", "2026-06-20"},
 	} {
 		t.Run(tt.nombre, func(t *testing.T) {
@@ -49,14 +55,12 @@ func TestActasWordPDFFirmadoYSinTexto(t *testing.T) {
 			if tt.tipo == "cierre" && campos["motivo"] != "Se alcanzan los objetivos previstos en el proyecto de intervención familiar." {
 				t.Errorf("motivo incompleto: %q", campos["motivo"])
 			}
-			if formato == "pdf" {
-				anexo, err := lector.Leer(ctx, formato, b)
-				if err != nil {
-					t.Fatal(err)
-				}
-				if anexo.Tipo == "aceptacion" || anexo.Tipo == "cierre" {
-					t.Fatal("modo actas contamina derivaciones")
-				}
+			anexo, err := lector.Leer(ctx, formato, b)
+			if err != nil && formato == "pdf" {
+				t.Fatal(err)
+			}
+			if anexo.Tipo == "aceptacion" || anexo.Tipo == "cierre" {
+				t.Fatal("modo actas contamina derivaciones")
 			}
 		})
 	}
@@ -67,5 +71,40 @@ func TestActasWordPDFFirmadoYSinTexto(t *testing.T) {
 	r, err := NuevoLector().LeerActa(context.Background(), "pdf", b)
 	if err != nil || len(r.Campos) != 0 || r.PlantillaReconocida {
 		t.Fatal("escaneado exige carga manual", r, err)
+	}
+}
+
+func TestMetadatosActasODTLimpios(t *testing.T) {
+	for _, nombre := range []string{"aceptacion-2022", "aceptacion-2023", "cierre-2026"} {
+		b, err := os.ReadFile("../actas/testdata/" + nombre + ".odt")
+		if err != nil {
+			t.Fatal(err)
+		}
+		z, err := zip.NewReader(bytes.NewReader(b), int64(len(b)))
+		if err != nil {
+			t.Fatal(err)
+		}
+		meta := false
+		for _, f := range z.File {
+			if f.Comment != "" || f.Modified.Year() != 2026 {
+				t.Fatal(nombre, "metadatos ZIP sin limpiar")
+			}
+			if f.Name != "meta.xml" {
+				continue
+			}
+			meta = true
+			r, err := f.Open()
+			if err != nil {
+				t.Fatal(err)
+			}
+			datos, err := io.ReadAll(r)
+			r.Close()
+			if err != nil || !bytes.Contains(datos, []byte("<office:meta/>")) || bytes.Contains(datos, []byte("creator")) || bytes.Contains(datos, []byte("date")) {
+				t.Fatal(nombre, "metadatos de autor o fechas sin limpiar", err)
+			}
+		}
+		if !meta {
+			t.Fatal(nombre, "faltan metadatos sanitizados")
+		}
 	}
 }

@@ -32,11 +32,9 @@ func configurarIdentidad(base *postgres.Base, leer func(string) string) (adaptad
 		return cfg, dominio.ErrConfiguracion
 	}
 	cfg.Proxies = proxies
-	// La caducidad absoluta requiere decisión del operador; no se inventa una
-	// duración por defecto mientras siga pendiente en TRD §4.
-	maxima, err := time.ParseDuration(leer("ETF_SESION_MAXIMA"))
-	if err != nil || maxima < 30*time.Minute {
-		return cfg, dominio.ErrConfiguracion
+	politica, err := politicaSesion(leer)
+	if err != nil {
+		return cfg, err
 	}
 	ca, err := os.ReadFile(leer("ETF_AD_CA_RUTA"))
 	if err != nil {
@@ -61,7 +59,7 @@ func configurarIdentidad(base *postgres.Base, leer func(string) string) (adaptad
 	if err != nil {
 		return cfg, err
 	}
-	cfg.Servicio, err = identidad.NuevoServicio(directorio, usuarios, postgres.NuevasSesiones(base), relojIdentidad{}, azarIdentidad{}, dominio.PoliticaSesion{Inactividad: 30 * time.Minute, Maxima: maxima}, limitador, base)
+	cfg.Servicio, err = identidad.NuevoServicio(directorio, usuarios, postgres.NuevasSesiones(base), relojIdentidad{}, azarIdentidad{}, politica, limitador, base)
 	return cfg, err
 }
 
@@ -80,4 +78,26 @@ func leerProxies(valor string) ([]netip.Prefix, error) {
 		redes = append(redes, red)
 	}
 	return redes, nil
+}
+
+// Los valores de instalación son configurables; la política impide sesiones
+// sin límite y rechaza duraciones que no permiten el aviso de dos minutos.
+func politicaSesion(leer func(string) string) (dominio.PoliticaSesion, error) {
+	p := dominio.PoliticaSesion{Inactividad: 30 * time.Minute, Maxima: 8 * time.Hour}
+	for _, v := range []struct {
+		clave   string
+		destino *time.Duration
+	}{{"ETF_SESION_INACTIVIDAD", &p.Inactividad}, {"ETF_SESION_MAXIMA", &p.Maxima}} {
+		if texto := leer(v.clave); texto != "" {
+			n, err := time.ParseDuration(texto)
+			if err != nil {
+				return p, dominio.ErrConfiguracion
+			}
+			*v.destino = n
+		}
+	}
+	if p.Inactividad <= 2*time.Minute || p.Maxima > 24*time.Hour {
+		return p, dominio.ErrConfiguracion
+	}
+	return p, p.Validar()
 }

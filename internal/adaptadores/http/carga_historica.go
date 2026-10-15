@@ -83,6 +83,10 @@ func registrarCargasHistoricas(mux *muxHTTP, s entrada.CargasHistoricas) {
 }
 func errorCargaHistorica(w http.ResponseWriter, err error) {
 	switch {
+	case errors.Is(err, entrada.ErrCargaCerrada), errors.Is(err, entrada.ErrDuplicadosSinConfirmar), errors.Is(err, entrada.ErrCargaAgotaNumeracion), errors.Is(err, entrada.ErrLoteConActividad):
+		responderError(w, http.StatusConflict, err.Error())
+	case errors.Is(err, entrada.ErrControlCarga):
+		responderError(w, http.StatusUnprocessableEntity, "carga.control_invalido")
 	case errors.Is(err, entrada.ErrCargaHistorica):
 		responderError(w, http.StatusUnprocessableEntity, "expediente.carga_historica_invalida")
 	case errors.Is(err, entrada.ErrNumeroHistorico):

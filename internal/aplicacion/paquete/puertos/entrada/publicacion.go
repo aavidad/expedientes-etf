@@ -16,3 +16,8 @@ type PublicacionCatalogos interface {
 	Preparar(context.Context, string, map[string]string, map[string]int) (Preparada, error)
 	Activar(context.Context, Preparada) error
 }
+
+// PublicacionUbicaciones prepara denominación y variantes en una instantánea.
+type PublicacionUbicaciones interface {
+	PrepararUbicacion(context.Context, string, map[string]string, map[string][]string, map[string]int) (Preparada, error)
+}

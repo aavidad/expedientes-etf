@@ -1,0 +1,18 @@
+{
+  "voz.titulo": "Ayuda",
+  "voz.indice": "Índice del manual",
+  "voz.escuchar": "Escuchar",
+  "voz.escuchar_seccion": "Escuchar esta sección",
+  "voz.escuchar_pagina": "Escuchar la página",
+  "voz.escuchar_aria": "Escuchar el texto",
+  "voz.reproductor": "Reproductor de voz",
+  "voz.cargando": "Cargando tu manual…",
+  "voz.error": "No hemos podido abrir tu manual. Pulsa Reintentar.",
+  "voz.reintentar": "Reintentar",
+  "voz.vacio": "No hay un manual para tu perfil. Si necesitas ayuda, consulta con Coordinación.",
+  "voz.manuales_no_disponibles": "No hemos podido abrir los manuales. Vuelve a intentarlo.",
+  "voz.no_disponible": "Este audio o imagen no está disponible.",
+  "voz.escuchar_seccion_aria": "Escuchar la sección: {titulo}",
+  "voz.pausar": "Pausar la lectura",
+  "voz.presentacion": "Antes de empezar"
+}

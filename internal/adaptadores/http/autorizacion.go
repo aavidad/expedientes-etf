@@ -100,7 +100,12 @@ func (s *sesionHTTP) autorizarRegla(w http.ResponseWriter, r *http.Request, regl
 			errorSesion(w, err)
 			return
 		}
+		cabecerasCaducidad(w, a)
 		r = r.WithContext(entrada.ConAcceso(r.Context(), a))
+		if a.Usuario.RevisionRestauracion && regla.Patron != "/admin/restauracion" && regla.Patron != "/api/admin/restauracion" && regla.Patron != "/api/admin/restauracion/{id}/cambios/{cambio}" && regla.Patron != "/api/admin/restauracion/{id}/confirmar" {
+			s.rechazarAcceso(w, r, http.StatusForbidden, "restauracion.acceso_bloqueado")
+			return
+		}
 		permitido := false
 		for _, perfil := range regla.Perfiles {
 			if a.Permite(perfil) && (!regla.ExigeAmbito || perfil != "profesional_etf" || a.Usuario.EquipoID != "") {
