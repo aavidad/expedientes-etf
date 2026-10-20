@@ -8,12 +8,12 @@
 .env
 *.local
 
-# Vídeos y herramientas locales de los recorridos (salida fuera de Git).
+# Vídeos y herramientas locales de los recorridos; sólo se guardan los publicados en videos/.
 *.mp4
+!/videos/*.mp4
 *.webm
 **/__pycache__/
 /scripts/recorridos/.venv/
-/videos/
 
 # Binarios compilados en la raíz (se generan en bin/).
 /etf
